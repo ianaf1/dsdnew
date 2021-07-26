@@ -1,0 +1,25 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/u3688835/public_html/dsdnew/
+    - /bin/cp .htaccess $DEPLOYPATH
+    - /bin/cp composer.json $DEPLOYPATH
+    - /bin/cp composer.lock $DEPLOYPATH
+    - /bin/cp crud_web.php $DEPLOYPATH
+    - /bin/cp datadaftar.php $DEPLOYPATH
+    - /bin/cp home.php $DEPLOYPATH
+    - /bin/cp index.php $DEPLOYPATH
+    - /bin/cp konfirmasi.php $DEPLOYPATH
+    - /bin/cp login.php $DEPLOYPATH
+    - /bin/cp loginadm.php $DEPLOYPATH
+    - /bin/cp loginguru.php $DEPLOYPATH
+    - /bin/cp pendaftaran.php $DEPLOYPATH
+    - /bin/cp pengumuman.php $DEPLOYPATH
+    - /bin/cp -R admin $DEPLOYPATH
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp -R config $DEPLOYPATH
+    - /bin/cp -R guru $DEPLOYPATH
+    - /bin/cp -R securimage $DEPLOYPATH
+    - /bin/cp -R temp $DEPLOYPATH
+    - /bin/cp -R user $DEPLOYPATH
+    - /bin/cp -R vendor $DEPLOYPATH
