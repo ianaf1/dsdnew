@@ -14,14 +14,14 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Kode Biaya</label>
+                            <label>Kelas</label>
                             <select class="form-control select2" style="width: 100%" name="id_kelas" required>
                                 <option value="">Pilih Kelas</option>
                                 <?php
-                                $query = mysqli_query($koneksi, "select * from kelas where status='1'");
+                                $query = mysqli_query($koneksi, "select * from jenjang where status='1'");
                                 while ($kelas = mysqli_fetch_array($query)) {
                                 ?>
-                                    <option value="<?= $kelas['id_kelas'] ?>"><?= $kelas['nama_masuk'] ?></option>
+                                    <option value="<?= $kelas['id_jenjang'] ?>"><?= $kelas['nama_jenjang'] ?></option>
                                 <?php } ?>
                             </select>
                         </div>
