@@ -127,28 +127,25 @@ require "config/functions.crud.php";
                         </div>
                         <div class="col-lg-6 align-self-center">
                             <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                                <div class="col-lg-6">
-                                    <div class="card card-login">
-                                        <div class="card-body">
-                                            <p>
-                                            <h3 style="color:green; font-family:monospace; text-align:center ">LOGIN</h3>
-                                            </p>
-                                            <form id="form-login">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="username" placeholder="Masukkan Username" required autocomplete="off">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password">
-                                                </div>
-                                                <br>
-                                                <button type="submit" class="btn btn-primary btn-block btn-login" id="btnsimpan">
-                                                    Masuk
-                                                </button>
-                                            </form>
+                                <div class="card card-login">
+                                    <div class="card-body">
+                                        <p>
+                                        <h3 style="color:green; font-family:monospace; text-align:center ">LOGIN</h3>
+                                        </p>
+                                        <form id="form-login">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="username" placeholder="Masukkan Username" required autocomplete="off">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password">
+                                            </div>
                                             <br>
-                                        </div>
+                                            <button type="submit" class="btn btn-primary btn-block btn-login" id="btnsimpan">
+                                                Masuk
+                                            </button>
+                                        </form>
+                                        <br>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
