@@ -21,14 +21,14 @@ require "config/functions.crud.php";
     <link rel="shortcut icon" href="../<?= $setting['logo'] ?>" />
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="dist/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-seo-dream.css">
-    <link rel="stylesheet" href="assets/css/animated.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="dist/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="dist/assets/css/templatemo-seo-dream.css">
+    <link rel="stylesheet" href="dist/assets/css/animated.css">
+    <link rel="stylesheet" href="dist/assets/css/owl.css">
 
     <script language='JavaScript'>
         var txt = "DSD - MA AT TAQWA YASTU ";
@@ -172,12 +172,12 @@ require "config/functions.crud.php";
     </footer>
 
     <!-- Scripts -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/animation.js"></script>
-    <script src="assets/js/imagesloaded.js"></script>
-    <script src="assets/js/custom.js"></script>
+    <script src="dist/vendor/jquery/jquery.min.js"></script>
+    <script src="dist/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="dist/assets/js/owl-carousel.js"></script>
+    <script src="dist/assets/js/animation.js"></script>
+    <script src="dist/assets/js/imagesloaded.js"></script>
+    <script src="dist/assets/js/custom.js"></script>
 
 </body>
 
