@@ -31,7 +31,7 @@ $saldoawal = $saldolama;
                 </div>
             </div>
             <div class="col-md-6">
-                &nbsp;<button type="submit" class="btn btn-primary btn-lg p-l-10"><i class="fas fa-search    "></i> Cari</button>
+                &nbsp;<button type="submit" class="btn btn-primary btn-sm btn-lg p-l-10"><i class="fas fa-search    "></i> Cari</button>
             </div>
         </div>
     </form>
@@ -131,31 +131,31 @@ $saldoawal = $saldolama;
 
 <div class="row">
     <div class="col-12">
-        <div class="card">
-            <div class="card-header">
+    <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <?php
                 if (isset($_GET['id']) == '') {
-                    echo "<h4>Data Transaksi</h4>";
+                    echo "<h5 class="m-0 font-weight-bold text-primary">Data Transaksi</h5>";
                 } else {
                     $id_bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['id'])]);
                     $query = mysqli_query($koneksi, "select * from bulan where '$id_bulan[id_bulan]'");
                     $bulan = mysqli_fetch_array($query);
                     $namabulan = $bulan['nama_bulan'];
-                    echo "<h4>Data Transaksi $namabulan</h4>";
+                    echo "<h5 class="m-0 font-weight-bold text-primary">Data Transaksi $namabulan</h5>";
                 }
                 ?>
                 <div class="card-header-action">
-                    <button type="button" class="btn btn-icon icon-left btn-primary" data-toggle="modal" data-target="#tambahdebit">
+                    <button type="button" class="btn btn-icon icon-left btn-primary btn-sm" data-toggle="modal" data-target="#tambahdebit">
                         <i class="far fa-edit"></i> Tambah Pemasukan
                     </button>
-                    <button type="button" class="btn btn-icon icon-left btn-danger" data-toggle="modal" data-target="#tambahkredit">
+                    <button type="button" class="btn btn-icon icon-left btn-danger btn-sm" data-toggle="modal" data-target="#tambahkredit">
                         <i class="far fa-edit"></i> Tambah Pengeluaran
                     </button>
                 </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table style="font-size: 12px" class="table table-striped table-sm" id="table-1">
+                    <table style="font-size: 12px" class="table table-striped table-sm" id="dataTable">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -197,7 +197,7 @@ $saldoawal = $saldolama;
                                     <td><?= $transaksi['ref'] ?></td>
                                     <td><?= "Rp " . number_format($transaksi['debit'], 0, ",", ".") ?></td>
                                     <td><?= "Rp " . number_format($transaksi['kredit'], 0, ",", ".") ?></td>
-                                    <td><?= "Rp " . number_format($transaksi['saldo'], 0, ",", ".") ?></td>
+                                    <td><?= "Rp " . number_format($saldo, 0, ",", ".") ?></td>
                                     <td>
                                         <button data-id="<?= $transaksi['id_transaksi'] ?>" class="hapus btn-sm btn btn-danger"><i class="fas fa-trash"></i></button>
                                     </td>
@@ -303,7 +303,7 @@ $saldoawal = $saldolama;
         return false;
     });
 
-    $('#table-1').on('click', '.hapus', function() {
+    $('#dataTable').on('click', '.hapus', function() {
         var id = $(this).data('id');
         console.log(id);
         swal({
