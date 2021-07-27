@@ -47,6 +47,7 @@ if ($pg == 'tambah') {
 
     ];
     $exec = insert($koneksi, 'bayar', $data);
+    $exec = insert($koneksi, 'transaksi', $data2);
     echo $exec;
 }
 if ($pg == 'hapus') {
