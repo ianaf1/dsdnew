@@ -26,7 +26,7 @@
                         </thead>
                         <tbody>
                             <?php
-                            $query = mysqli_query($koneksi, "select * from biaya a join daftar b ON a.id_kelas=b.kelas where a.kelas='$siswa[kelas]'");
+                            $query = mysqli_query($koneksi, "select * from biaya where kelas='$siswa[kelas]'");
                             $no = 0;
                             while ($biaya = mysqli_fetch_array($query)) {
                                 $no++;
