@@ -4,58 +4,6 @@ require "config/function.php";
 require "config/functions.crud.php";
 session_start();
 
-if ($pg == 'simpan') {
-    include_once 'securimage/securimage.php';
-    $securimage = new Securimage();
-    if ($securimage->check($_POST['kodepengaman']) == false) {
-        $pesan = [
-            'pesan' => 'KODE CAPTCHA SALAH'
-        ];
-        echo json_encode($pesan);
-    } else {
-        $sekolah = fetch($koneksi, 'sekolah', ['npsn' => $_POST['asal']]);
-        $query = "SELECT max(no_daftar) as maxKode FROM daftar";
-        $hasil = mysqli_query($koneksi, $query);
-        $data  = mysqli_fetch_array($hasil);
-        $kodedaftar = $data['maxKode'];
-        $noUrut = (int) substr($kodedaftar, 8, 3);
-        $noUrut++;
-        $char = "PPDB" . date('Y');
-        $newID = $char . sprintf("%03s", $noUrut);
-        $nama = mysqli_escape_string($koneksi, ucwords(strtolower($_POST['nama'])));
-        $data = [
-            'no_daftar' => $newID,
-            'jenis' => $_POST['jenis'],
-            'jurusan' => $_POST['jurusan'],
-            'nisn' => $_POST['nisn'],
-            'nama' => $nama,
-            'asal_sekolah' => $sekolah['nama_sekolah'],
-            'npsn_asal' => $_POST['asal'],
-            'no_hp' => $_POST['nohp'],
-            'tempat_lahir' => ucwords($_POST['tempat']),
-            'tgl_lahir' => $_POST['tgllahir'],
-            'password' => $_POST['password'],
-            'foto' => 'default.png'
-        ];
-        $cek = rowcount($koneksi, 'daftar', ['nisn' => $_POST['nisn']]);
-        if ($cek == 0) {
-            $exec = insert($koneksi, 'daftar', $data);
-            $namapendek = explode(" ", $nama);
-            $pesan = [
-                'pesan' => 'ok',
-                'id' => $newID,
-                'pass' => $_POST['password'],
-                'nama' => $namapendek[0]
-            ];
-            echo json_encode($pesan);
-        } else {
-            $pesan = [
-                'pesan' => 'Nisn sudah ada'
-            ];
-            echo json_encode($pesan);
-        }
-    }
-}
 if ($pg == 'login') {
 
     $username = mysqli_escape_string($koneksi, $_POST['username']);
@@ -91,21 +39,21 @@ if ($pg == 'login') {
 if ($pg == 'loginadm') {
 
     $username = mysqli_real_escape_string($koneksi, $_POST['username']);
-$password = mysqli_real_escape_string($koneksi, $_POST['password']);
-$query = mysqli_query($koneksi, "select * from user where username='$username' and status='1'");
-$ceklogin = mysqli_num_rows($query);
-$user = mysqli_fetch_array($query);
-if ($ceklogin == 1) {
-    if (!password_verify($password, $user['password'])) {
-        echo "salah";
+    $password = mysqli_real_escape_string($koneksi, $_POST['password']);
+    $query = mysqli_query($koneksi, "select * from user where username='$username' and status='1'");
+    $ceklogin = mysqli_num_rows($query);
+    $user = mysqli_fetch_array($query);
+    if ($ceklogin == 1) {
+        if (!password_verify($password, $user['password'])) {
+            echo "salah";
+        } else {
+            $_SESSION['id_user'] = $user['id_user'];
+            $_SESSION['level'] = $user['level'];
+            echo "ok";
+        }
     } else {
-        $_SESSION['id_user'] = $user['id_user'];
-        $_SESSION['level'] = $user['level'];
-        echo "ok";
+        echo "oo";
     }
-} else {
-    echo "oo";
-}
 }
 if ($pg == 'loginguru') {
 

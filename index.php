@@ -127,13 +127,13 @@ require "config/functions.crud.php";
                         </div>
                         <div class="col-lg-6">
                             <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                                <div class="col-sm-4">
+                                <div class="col-lg-6">
                                     <div class="card card-login">
                                         <div class="card-body">
-                                            <img src="<?= $setting['logo_sidadik'] ?>" alt="" width="100%">
+                                            <img src="<?= $setting['logo'] ?>" alt="" width="100%">
                                             <br>
                                             <p>
-                                            <h3 style="color:green; font-family:monospace; text-align:center ">LOGIN SISWA</h3>
+                                            <h3 style="color:green; font-family:monospace; text-align:center ">LOGIN</h3>
                                             </p>
                                             <form id="form-login">
                                                 <div class="form-group">
@@ -165,7 +165,7 @@ require "config/functions.crud.php";
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <span>Copyright &copy; <?= date('Y') ?> MA AT-TAQWA YASTU | By <a href="https://www.instagram.com/ianfatah1/">Ian Fatah</a></span>
+                    <p>Copyright &copy; <?= date('Y') ?> MA AT-TAQWA YASTU | By <a href="https://www.instagram.com/ianfatah1/">Ian Fatah</a>
                 </div>
             </div>
         </div>
