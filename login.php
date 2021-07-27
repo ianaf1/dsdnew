@@ -78,9 +78,9 @@ require "config/functions.crud.php";
                         message: 'Login Berhasil',
                         position: 'topRight'
                     });
-                    setTimeout(function() {
-                        window.location.href = "user";
-                    }, 2000);
+                    // setTimeout(function() {
+                    //     window.location.href = "user";
+                    // }, 2000);
 
                 } else {
                     iziToast.error({

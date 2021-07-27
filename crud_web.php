@@ -21,21 +21,21 @@ if ($pg == 'login') {
         $data = [
             'pesan' => 'ok'
         ];
-        echo json_encode($data);
+        header('location:user/index.php');
     } elseif (mysqli_num_rows($adminQ) == 1) {
         $_SESSION['id_user'] = $user['id_user'];
         $_SESSION['level'] = $user['level'];
         $data = [
             'pesan' => 'ok'
         ];
-        echo json_encode($data);
+        header('location:admin/index.php');
     } elseif (mysqli_num_rows($guruQ) == 1) {
         $_SESSION['id_ptk'] = $guru['id_ptk'];
         mysqli_query($koneksi, "UPDATE ptk set online='1' where id_ptk='$guru[id_ptk]'");
         $data = [
             'pesan' => 'ok'
         ];
-        echo json_encode($data);
+        header('location:guru/index.php');
     } else {
         $data = [
             'pesan' => 'Anda belum terdaftar silahkan melakukan pendaftaran!'
