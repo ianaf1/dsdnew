@@ -125,9 +125,9 @@ require "config/functions.crud.php";
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-8">
+                        <div class="col-lg-6 align-self-center">
                             <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                                <div class="col-lg-8">
+                                <div class="col-lg-6">
                                     <div class="card card-login">
                                         <div class="card-body">
                                             <p>
