@@ -30,7 +30,7 @@ $saldoawal = $saldolama;
             </div>
             <div class="col-md-6">
                 &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-9"><i class="fas fa-search    "></i> Cari</button>
-                <button href="../?pg=transaksi" class="btn btn-danger btn-xs-5 p-l-9">Reset</button>
+                &nbsp;<button href="../?pg=transaksi" class="btn btn-danger btn-xs-5 p-l-9">Reset</button>
             </div>
         </div>
     </form>
