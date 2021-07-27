@@ -53,6 +53,7 @@ if ($pg == 'tambah') {
 if ($pg == 'hapus') {
     $id_bayar = $_POST['id_bayar'];
     delete($koneksi, 'bayar', ['id_bayar' => $id_bayar]);
+    delete($koneksi, 'transaksi', ['kode_transaksi' => $id_bayar]);
 }
 if ($pg == 'verifikasi') {
     $id_bayar = $_POST['id_bayar'];
