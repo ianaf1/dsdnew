@@ -206,9 +206,9 @@ $saldoawal = $saldolama;
                                 $kredit = $transaksi['kredit'];
                                 $no++;
                                 if ($transaksi['debit'] == 0) {
-                                    $saldo = $saldo + $transaksi['debit'] - $transaksi['kredit'];
+                                    $saldotr = $saldo + $transaksi['debit'] - $transaksi['kredit'];
                                 } else {
-                                    $saldo = $saldo + $transaksi['debit'];
+                                    $saldotr = $saldo + $transaksi['debit'];
                                 }
                             ?>
                                 <tr>
@@ -219,7 +219,7 @@ $saldoawal = $saldolama;
                                     <td class="text-center"><?= $transaksi['ref'] ?></td>
                                     <td class="text-center"><?= "Rp " . number_format($transaksi['debit'], 0, ",", ".") ?></td>
                                     <td class="text-center"><?= "Rp " . number_format($transaksi['kredit'], 0, ",", ".") ?></td>
-                                    <td class="text-center"><?= "Rp " . number_format($saldo, 0, ",", ".") ?></td>
+                                    <td class="text-center"><?= "Rp " . number_format($saldotr, 0, ",", ".") ?></td>
                                     <td>
                                         <button data-id="<?= $transaksi['id_transaksi'] ?>" class="hapus btn-sm btn btn-danger"><i class="fas fa-trash"></i></button>
                                     </td>
