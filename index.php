@@ -74,14 +74,14 @@ require "config/functions.crud.php";
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <!-- <li class="scroll-to-section"><a href="#features">Features</a></li>
+                            <li class="scroll-to-section"><a href="#features">Features</a></li>
                             <li class="scroll-to-section"><a href="#about">About Us</a></li>
                             <li class="scroll-to-section"><a href="#services">Services</a></li>
                             <li class="scroll-to-section"><a href="#portfolio">Portfolio</a></li>
                             <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>
                             <li class="scroll-to-section">
                                 <div class="main-blue-button"><a href="#contact">Get Your Quote</a></div>
-                            </li> -->
+                            </li>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -125,9 +125,9 @@ require "config/functions.crud.php";
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12">
+                        <div class="col-lg-8">
                             <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                                <div class="col-lg-6">
+                                <div class="col-lg-8">
                                     <div class="card card-login">
                                         <div class="card-body">
                                             <p>
@@ -135,11 +135,9 @@ require "config/functions.crud.php";
                                             </p>
                                             <form id="form-login">
                                                 <div class="form-group">
-                                                    <span class="fa fa-user"></span>
                                                     <input type="text" class="form-control" name="username" placeholder="Masukkan Username" required autocomplete="off">
                                                 </div>
                                                 <div class="form-group">
-                                                    <span class="fa fa-key"></span>
                                                     <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password">
                                                 </div>
                                                 <br>
