@@ -180,15 +180,15 @@ $saldoawal = $saldolama;
                 <table style="font-size: 14px" class="table table-bordered table-sm" id="dataTable">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Tanggal</th>
-                                <th>Kode Transaksi</th>
-                                <th>Keterangan</th>
-                                <th>Ref</th>
-                                <th>Debet (Rp)</th>
-                                <th>Kredit (Rp)</th>
-                                <th>Saldo (Rp)</th>
-                                <th>Action</th>
+                                <th class="text-center">No</th>
+                                <th class="text-center">Tanggal</th>
+                                <th class="text-center">Kode Transaksi</th>
+                                <th class="text-center">Keterangan</th>
+                                <th class="text-center">Ref</th>
+                                <th class="text-center">Debet (Rp)</th>
+                                <th class="text-center">Kredit (Rp)</th>
+                                <th class="text-center">Saldo (Rp)</th>
+                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -212,14 +212,14 @@ $saldoawal = $saldolama;
                                 }
                             ?>
                                 <tr>
-                                    <td><?= $no; ?></td>
-                                    <td><?= $transaksi['tgl_bayar'] ?></td>
-                                    <td><?= $transaksi['kode_transaksi'] ?></td>
+                                    <td class="text-center"><?= $no; ?></td>
+                                    <td class="text-center"><?= $transaksi['tgl_bayar'] ?></td>
+                                    <td class="text-center"><?= $transaksi['kode_transaksi'] ?></td>
                                     <td><?= $transaksi['keterangan'] ?></td>
-                                    <td><?= $transaksi['ref'] ?></td>
-                                    <td><?= "Rp " . number_format($transaksi['debit'], 0, ",", ".") ?></td>
-                                    <td><?= "Rp " . number_format($transaksi['kredit'], 0, ",", ".") ?></td>
-                                    <td><?= "Rp " . number_format($saldo, 0, ",", ".") ?></td>
+                                    <td class="text-center"><?= $transaksi['ref'] ?></td>
+                                    <td class="text-center"><?= "Rp " . number_format($transaksi['debit'], 0, ",", ".") ?></td>
+                                    <td class="text-center"><?= "Rp " . number_format($transaksi['kredit'], 0, ",", ".") ?></td>
+                                    <td class="text-center"><?= "Rp " . number_format($saldo, 0, ",", ".") ?></td>
                                     <td>
                                         <button data-id="<?= $transaksi['id_transaksi'] ?>" class="hapus btn-sm btn btn-danger"><i class="fas fa-trash"></i></button>
                                     </td>
@@ -245,6 +245,7 @@ $saldoawal = $saldolama;
                                     <td><b><?= "Rp " . number_format($totaldebit, 0, ",", ".") ?></b></td>
                                     <td><b><?= "Rp " . number_format($totalkredit, 0, ",", ".") ?></b></td>
                                     <td><b><?= "Rp " . number_format($totalsaldo, 0, ",", ".") ?></b></td>
+                                    <td class="text-center" colspan="5"><b>Action</b></td>
                                 </tr>
                             <?php }
                             ?>

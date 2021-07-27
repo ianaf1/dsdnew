@@ -31,7 +31,7 @@ if ($pg == 'tambahdebit') {
         'tgl_bayar'         => $_POST['tgl'],
         'id_user'           => $_SESSION['id_user'],
         // 'saldo'             => $saldoakhir,
-        'id_bulan'          => $bulan
+        'id_bulan'          => $_POST['bulan']
 
     ];
     $exec = insert($koneksi, 'transaksi', $data);
