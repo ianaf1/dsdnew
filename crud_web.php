@@ -19,23 +19,26 @@ if ($pg == 'login') {
         $_SESSION['id_siswa'] = $siswa['id_daftar'];
         mysqli_query($koneksi, "UPDATE daftar set online='1' where id_daftar='$siswa[id_daftar]'");
         $data = [
-            'pesan' => 'ok'
+            'pesan' => 'ok',
+            'user' => 'siswa'
         ];
-        header('location:user/index.php');
+        echo json_encode($data);
     } elseif (mysqli_num_rows($adminQ) == 1) {
         $_SESSION['id_user'] = $user['id_user'];
         $_SESSION['level'] = $user['level'];
         $data = [
-            'pesan' => 'ok'
+            'pesan' => 'ok',
+            'user' => 'admin'
         ];
-        header('location:admin/index.php');
+        echo json_encode($data);
     } elseif (mysqli_num_rows($guruQ) == 1) {
         $_SESSION['id_ptk'] = $guru['id_ptk'];
         mysqli_query($koneksi, "UPDATE ptk set online='1' where id_ptk='$guru[id_ptk]'");
         $data = [
-            'pesan' => 'ok'
+            'pesan' => 'ok',
+            'user' => 'guru'
         ];
-        header('location:guru/index.php');
+        echo json_encode($data);
     } else {
         $data = [
             'pesan' => 'Anda belum terdaftar silahkan melakukan pendaftaran!'
