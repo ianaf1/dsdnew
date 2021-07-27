@@ -161,7 +161,7 @@ require "config/functions.crud.php";
             <div class="row">
                 <div class="col-lg-12">
                     <p>
-                        Copyright &copy; <?= date('Y') ?> MA AT-TAQWA YASTU
+                        Copyright &copy; <?= date('Y') ?> MA AT-TAQWA YASTU., All Rights Reserved.
                         <br>By <a href="https://www.instagram.com/ianfatah1/">Ian Fatah</a>
                     </p>
                 </div>
@@ -180,3 +180,71 @@ require "config/functions.crud.php";
 </body>
 
 </html>
+<script>
+    $('#form-login').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: 'crud_web.php?pg=login',
+            data: $(this).serialize(),
+            beforeSend: function() {
+                $('#btnsimpan').prop('disabled', true);
+            },
+            success: function(data) {
+                var json = $.parseJSON(data);
+                $('#btnsimpan').prop('disabled', false);
+                if (json.pesan == 'ok') {
+                    iziToast.success({
+                        title: 'Mantap!',
+                        message: 'Login Berhasil',
+                        position: 'topRight'
+                    });
+                    setTimeout(function() {
+                        window.location.href = "user";
+                    }, 2000);
+
+                } else {
+                    iziToast.error({
+                        title: 'Maaf!',
+                        message: json.pesan,
+                        position: 'topCenter'
+                    });
+                }
+                //$('#bodyreset').load(location.href + ' #bodyreset');
+            }
+        });
+        return false;
+    });
+    if (jQuery().daterangepicker) {
+        if ($(".datepicker").length) {
+            $('.datepicker').daterangepicker({
+                locale: {
+                    format: 'YYYY-MM-DD'
+                },
+                singleDatePicker: true,
+            });
+        }
+        if ($(".datetimepicker").length) {
+            $('.datetimepicker').daterangepicker({
+                locale: {
+                    format: 'YYYY-MM-DD hh:mm'
+                },
+                singleDatePicker: true,
+                timePicker: true,
+                timePicker24Hour: true,
+            });
+        }
+        if ($(".daterange").length) {
+            $('.daterange').daterangepicker({
+                locale: {
+                    format: 'YYYY-MM-DD'
+                },
+                drops: 'down',
+                opens: 'right'
+            });
+        }
+    }
+    if (jQuery().select2) {
+        $(".select2").select2();
+    }
+</script>

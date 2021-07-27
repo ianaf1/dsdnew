@@ -8,24 +8,18 @@ if ($pg == 'login') {
 
     $username = mysqli_escape_string($koneksi, $_POST['username']);
     $password = mysqli_escape_string($koneksi, $_POST['password']);
+    $adminQ = mysqli_query($koneksi, "select * from user where username='$username' and status='1'");
+    $guruQ = mysqli_query($koneksi, "SELECT * FROM ptk WHERE nuptk='$username'");
     $siswaQ = mysqli_query($koneksi, "SELECT * FROM daftar WHERE nis='$username'");
     if ($username <> "" and $password <> "") {
-        if (mysqli_num_rows($siswaQ) == 0) {
-            $data = [
-                'pesan' => 'Anda belum terdaftar silahkan melakukan pendaftaran!'
-            ];
-            echo json_encode($data);
-        } else {
+        if (mysqli_num_rows($siswaQ) == 1) {
             $siswa = mysqli_fetch_array($siswaQ);
-            //$ceklogin=mysqli_num_rows(mysqli_query($koneksi, "select * from login where id_siswa='$siswa[id_siswa]'"));
-
             if ($password <> $siswa['password']) {
                 $data = [
                     'pesan' => 'Password Salah !'
                 ];
                 echo json_encode($data);
             } else {
-                //if($ceklogin==0){
                 $_SESSION['id_siswa'] = $siswa['id_daftar'];
                 mysqli_query($koneksi, "UPDATE daftar set online='1' where id_daftar='$siswa[id_daftar]'");
                 $data = [
@@ -33,6 +27,38 @@ if ($pg == 'login') {
                 ];
                 echo json_encode($data);
             }
+        } elseif (mysqli_num_rows($adminQ) == 1) {
+            $user = mysqli_fetch_array($adminQ);
+            if ($password <> $user['password']) {
+                $data = [
+                    'pesan' => 'Password Salah !'
+                ];
+                echo json_encode($data);
+            } else {
+                $_SESSION['id_user'] = $user['id_user'];
+                $_SESSION['level'] = $user['level'];
+                echo "ok";
+            }
+        } elseif (mysqli_num_rows($guruQ) == 1) {
+            $guru = mysqli_fetch_array($guruQ);
+            if ($password <> $user['password']) {
+                $data = [
+                    'pesan' => 'Password Salah !'
+                ];
+                echo json_encode($data);
+            } else {
+                $_SESSION['id_ptk'] = $guru['id_ptk'];
+                mysqli_query($koneksi, "UPDATE ptk set online='1' where id_ptk='$guru[id_ptk]'");
+                $data = [
+                    'pesan' => 'ok'
+                ];
+                echo json_encode($data);
+            }
+        } else {
+            $data = [
+                'pesan' => 'Anda belum terdaftar silahkan melakukan pendaftaran!'
+            ];
+            echo json_encode($data);
         }
     }
 }
