@@ -5,7 +5,7 @@
             <div class="card-header">
                 <h4>Data biaya</h4>
                 <div class="card-header-action">
-                    <?php $query = mysqli_query($koneksi, "select sum(jumlah) as total from biaya a join daftar b ON a.id_kelas=b.kelas where '$siswa[kelas]'=a.id_kelas");
+                    <?php $query = mysqli_query($koneksi, "select sum(jumlah) as total from biaya a join daftar b ON a.id_kelas=b.kelas where a.kelas='$siswa[kelas]'");
                     $total = mysqli_fetch_array($query);
                     ?>
                     <b>Total Biaya Rp. <?= $total['total'] ?></b>
@@ -26,18 +26,17 @@
                         </thead>
                         <tbody>
                             <?php
-                            $query = mysqli_query($koneksi, "select * from biaya a join daftar b ON a.id_kelas=b.kelas where '$siswa[kelas]'=a.id_kelas");
+                            $query = mysqli_query($koneksi, "select * from biaya a join daftar b ON a.id_kelas=b.kelas where a.kelas='$siswa[kelas]'");
                             $no = 0;
-                            $biaya = mysqli_fetch_array($query);
-                            $no++;
+                            while ($biaya = mysqli_fetch_array($query)) {
+                                $no++;
                             ?>
-                            <tr>
-                                <td><?= $no; ?></td>
-                                <td><?= $biaya['nama_biaya'] ?></td>
-                                <td><?= $biaya['jumlah'] ?></td>
-                            </tr>
-                            <?php
-                            ?>
+                                <tr>
+                                    <td><?= $no; ?></td>
+                                    <td><?= $biaya['nama_biaya'] ?></td>
+                                    <td><?= $biaya['jumlah'] ?></td>
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
