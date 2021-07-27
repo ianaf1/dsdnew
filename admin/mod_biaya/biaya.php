@@ -83,6 +83,7 @@
                                         #
                                     </th>
                                     <th>Kode Biaya</th>
+                                    <th>Kelas</th>
                                     <th>Nama Biaya</th>
                                     <th>Jumlah Biaya</th>
                                     <th>status</th>
@@ -99,6 +100,7 @@
                                     <tr>
                                         <td><?= $no; ?></td>
                                         <td><?= $biaya['id_biaya'] ?></td>
+                                        <td><?= $biaya['id_kelas'] ?></td>
                                         <td><?= $biaya['nama_biaya'] ?></td>
                                         <td><?= $biaya['jumlah'] ?></td>
                                         <td>
