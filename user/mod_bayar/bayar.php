@@ -5,7 +5,7 @@
             <div class="card-header">
                 <h4>Data biaya</h4>
                 <div class="card-header-action">
-                    <?php $query = mysqli_query($koneksi, "select sum(jumlah) as total from biaya where kelas='$siswa[kelas]'");
+                    <?php $query = mysqli_query($koneksi, "select sum(jumlah) as total from biaya where id_kelas='$siswa[kelas]'");
                     $total = mysqli_fetch_array($query);
                     ?>
                     <b>Total Biaya <?= "Rp " . number_format($total['total'], 0, ",", ".") ?></b>
@@ -26,7 +26,7 @@
                         </thead>
                         <tbody>
                             <?php
-                            $query = mysqli_query($koneksi, "select * from biaya where kelas='$siswa[kelas]'");
+                            $query = mysqli_query($koneksi, "select * from biaya where id_kelas='$siswa[kelas]'");
                             $no = 0;
                             while ($biaya = mysqli_fetch_array($query)) {
                                 $no++;
