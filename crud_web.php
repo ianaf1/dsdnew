@@ -19,24 +19,21 @@ if ($pg == 'login') {
         $_SESSION['id_siswa'] = $siswa['id_daftar'];
         mysqli_query($koneksi, "UPDATE daftar set online='1' where id_daftar='$siswa[id_daftar]'");
         $data = [
-            'pesan' => 'ok',
-            'user' => 'siswa'
+            'pesan' => 'siswa'
         ];
         echo json_encode($data);
     } elseif (mysqli_num_rows($adminQ) == 1) {
         $_SESSION['id_user'] = $user['id_user'];
         $_SESSION['level'] = $user['level'];
         $data = [
-            'pesan' => 'ok',
-            'user' => 'admin'
+            'pesan' => 'admin'
         ];
         echo json_encode($data);
     } elseif (mysqli_num_rows($guruQ) == 1) {
         $_SESSION['id_ptk'] = $guru['id_ptk'];
         mysqli_query($koneksi, "UPDATE ptk set online='1' where id_ptk='$guru[id_ptk]'");
         $data = [
-            'pesan' => 'ok',
-            'user' => 'guru'
+            'pesan' => 'guru'
         ];
         echo json_encode($data);
     } else {
