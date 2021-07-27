@@ -1,6 +1,4 @@
-<?php defined('BASEPATH') or die("ip anda sudah tercatat oleh sistem kami"); ?>
-<?php
-
+<?php defined('BASEPATH') or die("ip anda sudah tercatat oleh sistem kami");
 $saldo = mysqli_query($koneksi, "select * from transaksi  order by tgl_bayar asc");
 while ($datasaldo = mysqli_fetch_array($saldo)) {
     if ($datasaldo['debit'] == 0) {
@@ -68,6 +66,18 @@ $saldoawal = $saldolama;
                             <input type="text" name="debit" class="form-control" required="">
                         </div>
                         <div class="form-group">
+                            <label>Bulan</label>
+                            <select class="form-control select2" style="width: 100%" name="id_bulan" required>
+                                <option value="">Pilih Bulan</option>
+                                <?php
+                                $query = mysqli_query($koneksi, "select * from bulan");
+                                while ($bulan = mysqli_fetch_array($query)) {
+                                ?>
+                                    <option value="<?= $bulan['id_bulan'] ?>"><?= $bulan['nama_bulan'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="tgl">Tanggal Transaksi</label>
                             <input type="text" class="form-control datepicker" name="tgl" id="tgl" placeholder="">
                         </div>
@@ -112,6 +122,18 @@ $saldoawal = $saldolama;
                         <div class="form-group">
                             <label>Kredit</label>
                             <input type="text" name="kredit" class="form-control" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Bulan</label>
+                            <select class="form-control select2" style="width: 100%" name="id_bulan" required>
+                                <option value="">Pilih Bulan</option>
+                                <?php
+                                $query = mysqli_query($koneksi, "select * from bulan");
+                                while ($bulan = mysqli_fetch_array($query)) {
+                                ?>
+                                    <option value="<?= $bulan['id_bulan'] ?>"><?= $bulan['nama_bulan'] ?></option>
+                                <?php } ?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="tgl">Tanggal Transaksi</label>
