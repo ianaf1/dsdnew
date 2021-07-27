@@ -5,7 +5,7 @@
             <div class="card-header">
                 <h4>Data biaya</h4>
                 <div class="card-header-action">
-                    <?php $query = mysqli_query($koneksi, "select sum(jumlah) as total from biaya a join daftar b ON a.id_kelas=b.kelas where a.kelas='$siswa[kelas]'");
+                    <?php $query = mysqli_query($koneksi, "select sum(jumlah) as total from biaya where kelas='$siswa[kelas]'");
                     $total = mysqli_fetch_array($query);
                     ?>
                     <b>Total Biaya Rp. <?= $total['total'] ?></b>
