@@ -254,7 +254,7 @@ if (isset($_SESSION['id_user'])) {
 
 <?php
 } else {
-  include "login.php.php";
+  include "login.php";
 }
 
 ?>
