@@ -15,7 +15,27 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Kode Biaya</label>
-                            <input type="text" name="id_biaya" class="form-control" required="">
+                            <select class="form-control select2" style="width: 100%" name="id_kelas" required>
+                                <option value="">Pilih Kelas</option>
+                                <?php
+                                $query = mysqli_query($koneksi, "select * from kelas where status='1'");
+                                while ($kelas = mysqli_fetch_array($query)) {
+                                ?>
+                                    <option value="<?= $kelas['id_kelas'] ?>"><?= $kelas['nama_masuk'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Kode Biaya</label>
+                            <select class="form-control select2" style="width: 100%" name="id_biaya" required>
+                                <option value="">Kode Biaya</option>
+                                <?php
+                                $query = mysqli_query($koneksi, "select * from keu_pemasukan where status='1'");
+                                while ($masuk = mysqli_fetch_array($query)) {
+                                ?>
+                                    <option value="<?= $masuk['id_masuk'] ?>"><?= $masuk['id_masuk'] ?> <?= $masuk['nama_masuk'] ?></option>
+                                <?php } ?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Nama Biaya</label>

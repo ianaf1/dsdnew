@@ -18,10 +18,11 @@ if ($pg == 'ubah') {
 }
 if ($pg == 'tambah') {
     $data = [
+        'id_kelas'     => $_POST['id_kelas'],
         'id_biaya'     => $_POST['id_biaya'],
         'nama_biaya'   => $_POST['nama'],
         'jumlah'       => $_POST['jumlah'],
-        'status'         => 1
+        'status'        => 1
     ];
     $exec = insert($koneksi, 'biaya', $data);
     echo $exec;
