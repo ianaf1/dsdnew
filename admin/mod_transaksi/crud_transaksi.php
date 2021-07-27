@@ -9,13 +9,7 @@ if (!isset($_SESSION['id_user'])) {
 if ($pg == 'tambahdebit') {
     $today = date("Ymd");
     $bulan = date('m');
-    // cari id transaksi terakhir yang berawalan tanggal hari ini
-    // $sql = "SELECT max(saldo) AS saldoawal FROM transaksi WHERE id_transaksi LIKE '$today%'";
-    // $hasil2 = mysqli_query($koneksi, $sql);
-    // $data2 = mysqli_fetch_array($hasil2);
-    // $saldo = $data2['saldoawal'];
-    // $saldoakhir = $saldo + $_POST['debit'];
-    $query = "SELECT max(id_transaksi) AS last FROM transaksi WHERE id_transaksi LIKE '$today%'";
+    $query = "SELECT max(kode_transaksi) AS last FROM transaksi WHERE kode_transaksi LIKE '$today%'";
     $hasil = mysqli_query($koneksi, $query);
     $data  = mysqli_fetch_array($hasil);
     $lastNoTransaksi = $data['last'];
@@ -30,7 +24,6 @@ if ($pg == 'tambahdebit') {
         'debit'             => str_replace(",", "", $_POST['debit']),
         'tgl_bayar'         => $_POST['tgl'],
         'id_user'           => $_SESSION['id_user'],
-        // 'saldo'             => $saldoakhir,
         'id_bulan'          => $_POST['id_bulan']
 
     ];

@@ -203,8 +203,36 @@
                                     <div class="modal-body">
                                         <input type="hidden" value="<?= $siswa['id_daftar'] ?>" name="id">
                                         <div class="form-group">
+                                            <label>Keterangan</label>
+                                            <input type="text" name="keterangan" class="form-control" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Kode Referensi</label>
+                                            <select class="form-control select2" style="width: 100%" name="id_masuk" required>
+                                                <option value="">Pilih Kode Referensi</option>
+                                                <?php
+                                                $query = mysqli_query($koneksi, "select * from keu_pemasukan where status='1'");
+                                                while ($masuk = mysqli_fetch_array($query)) {
+                                                ?>
+                                                    <option value="<?= $masuk['id_masuk'] ?>"><?= $masuk['id_masuk'] ?> <?= $masuk['nama_masuk'] ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="jumlah">Jumlah Pembayaran Rp.</label>
                                             <input type="text" class="form-control uang" name="jumlah" id="jumlah" aria-describedby="helpjumlah" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Bulan</label>
+                                            <select class="form-control select2" style="width: 100%" name="id_bulan" required>
+                                                <option value="">Pilih Bulan</option>
+                                                <?php
+                                                $query = mysqli_query($koneksi, "select * from bulan");
+                                                while ($bulan = mysqli_fetch_array($query)) {
+                                                ?>
+                                                    <option value="<?= $bulan['id_bulan'] ?>"><?= $bulan['nama_bulan'] ?></option>
+                                                <?php } ?>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="tgl">Tanggal Pembayaran</label>

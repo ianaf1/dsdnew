@@ -20,7 +20,7 @@ if ($pg == 'tambah') {
     $today = date("Ymd");
 
     // cari id transaksi terakhir yang berawalan tanggal hari ini
-    $query = "SELECT max(id_bayar) AS last FROM bayar WHERE id_bayar LIKE '$today%'";
+    $query = "SELECT max(kode_transaksi) AS last FROM transaksi WHERE kode_transaksi LIKE '$today%'";
     $hasil = mysqli_query($koneksi, $query);
     $data  = mysqli_fetch_array($hasil);
     $lastNoTransaksi = $data['last'];
@@ -33,6 +33,17 @@ if ($pg == 'tambah') {
         'jumlah'        => str_replace(",", "", $_POST['jumlah']),
         'tgl_bayar'     => $_POST['tgl'],
         'id_user'       => $_SESSION['id_user']
+
+    ];
+    $data2 = [
+        'kode_transaksi'    => $nextNoTransaksi,
+        'keterangan'        => $_POST['keterangan'],
+        'id_masuk'          => $_POST['id_masuk'],
+        'ref'               => $_POST['id_masuk'],
+        'debit'             => str_replace(",", "", $_POST['jumlah']),
+        'tgl_bayar'         => $_POST['tgl'],
+        'id_user'           => $_SESSION['id_user'],
+        'id_bulan'          => $_POST['id_bulan']
 
     ];
     $exec = insert($koneksi, 'bayar', $data);
