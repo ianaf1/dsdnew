@@ -160,7 +160,10 @@ require "config/functions.crud.php";
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; <?= date('Y') ?> MA AT-TAQWA YASTU | By <a href="https://www.instagram.com/ianfatah1/">Ian Fatah</a>
+                    <p>
+                        Copyright &copy; <?= date('Y') ?> MA AT-TAQWA YASTU
+                        <br>By <a href="https://www.instagram.com/ianfatah1/">Ian Fatah</a>
+                    </p>
                 </div>
             </div>
         </div>
