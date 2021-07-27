@@ -4,198 +4,181 @@ require "config/function.php";
 require "config/functions.crud.php";
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title> Data Siswa Digital | <?= $setting['nama_sekolah'] ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- General CSS Files -->
-    <link rel="stylesheet" href="assets/modules/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/modules/fontawesome/css/all.min.css">
+    <title>DSD - MA AT TAQWA YASTU</title>
+    <link rel="shortcut icon" href="../<?= $setting['logo'] ?>" />
 
-    <!-- CSS Libraries -->
-    <link rel="stylesheet" href="assets/modules/select2/dist/css/select2.min.css">
-    <link rel="stylesheet" href="assets/modules/bootstrap-daterangepicker/daterangepicker.css">
-    <link rel="stylesheet" href="assets/modules/izitoast/css/iziToast.min.css">
-    <link rel="stylesheet" href="assets/modules/animate/animate.css">
-    <!-- CSS DATATABLE -->
-    <link rel="stylesheet" href="assets/modules/datatables/datatables.min.css">
-    <link rel="stylesheet" href="assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
-    <!-- Template CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/components.css">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-        .loader {
-            position: fixed;
-            left: 0px;
-            top: 0px;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-            background: url('assets/img/spinner-primary.svg') 50% 50% no-repeat rgb(249, 249, 249);
-            opacity: .9;
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-seo-dream.css">
+    <link rel="stylesheet" href="assets/css/animated.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+
+    <script language='JavaScript'>
+        var txt = "DSD - MA AT TAQWA YASTU ";
+        var speed = 300;
+        var refresh = null;
+
+        function action() {
+            document.title = txt;
+            txt = txt.substring(1, txt.length) + txt.charAt(0);
+            refresh = setTimeout("action()", speed);
         }
-    </style>
+        action();
+    </script>
+
 </head>
 
-<body class="layout-3">
+<body>
 
-    <div id="app">
-        <div class="main-wrapper container">
-            <div class="navbar-bg"></div>
-            <nav class="navbar navbar-expand-lg main-navbar">
-                <a href="." class="navbar-brand sidfebar-gone-hide d-none d-sm-block">
-                    <img src="<?= $setting['logo'] ?>" width="50">  Data Siswa Digital <?= $setting['nama_sekolah'] ?>
-                </a>
-                <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
-                <form class="form-inline ml-auto">
-                    <ul class="navbar-nav">
-
-                    </ul>
-
-                </form>
-                <!-- <ul class="navbar-nav navbar-right">
-
-                    <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="image" src="assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-                            <div class="d-sm-none d-lg-inline-block">Login</div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-
-                            <a href="#" data-id="login" class=" klikmenu dropdown-item has-icon ">
-                                <i class="fas fa-sign-out-alt"></i> Admin
-                            </a>
-                        </div>
-                    </li>
-                </ul> -->
-            </nav>
-
-            <nav class="navbar navbar-secondary navbar-expand-lg">
-                <div class="container">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link klikmenu" data-id="beranda"><i class="fas fa-home"></i><span>Home</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link klikmenu " data-id="daftar"><i class="fas fa-users"></i><span>Daftar Siswa</span></a>
-                        </li>
-                        <!--<li class="nav-item">
-                            <a href="#" class="nav-link klikmenu" data-id="daftar"><i class="fas fa-check"></i><span>Data Lengkap</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link klikmenu" data-id="pengumuman"><i class="fas fa-exclamation-triangle"></i><span>Data Belum Lengkap</span></a>
-                        </li>-->
-                        <!-- <li class="nav-item dropdown">
-                            <a href="#" data-toggle="dropdown" class="nav-link has-dropdown"><i class="far fa-clone"></i><span>Multiple Dropdown</span></a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="#" class="nav-link">Not Dropdown Link</a></li>
-                                <li class="nav-item dropdown"><a href="#" class="nav-link has-dropdown">Hover Me</a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
-                                        <li class="nav-item dropdown"><a href="#" class="nav-link has-dropdown">Link 2</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
-                                                <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
-                                                <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item"><a href="#" class="nav-link">Link 3</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>-->
-                    </ul>
-                    </span>
-
-            </nav>
-
-            <!-- Main Content -->
-            <div class="main-content">
-                <section class="section">
-                    <div class="section-header">
-                        <h1>Data Siswa Digital</h1>
-                        <div class="section-header-breadcrumb">
-                            <button id="btnmasuk" data-id="login" type="button" class="klikmenu btn btn-primary">LOGIN SISWA</button> &nbsp;
-                            <button id="btnmasuk" data-id="loginguru" type="button" class="klikmenu btn btn-danger">LOGIN GURU</button> &nbsp;
-                            <button id="btnmasuk" data-id="loginadm" type="button" class="klikmenu btn btn-danger">LOGIN ADMIN</button> &nbsp;
-                        </div>
-                    </div>
-
-                    <div class="section-body ">
-                        <div id='isi_load'></div>
-                    </div>
-                </section>
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <footer class="main-footer">
-                <div class="footer-left">
-                    Copyright &copy; <?= date('Y') ?>  DSD - MA AT-TAQWA YASTU<div class="bullet"></div>By <a href="https://www.instagram.com/ianfatah1/">Ian Fatah</a>
-                </div>
-                <div class="footer-right">
-
-                </div>
-            </footer>
         </div>
     </div>
+    <!-- ***** Preloader End ***** -->
 
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.php" class="logo">
+                            <h4>MA AT-TAQWA <img src="<?= $setting['logo'] ?>" alt=""></h4>
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                            <!-- <li class="scroll-to-section"><a href="#features">Features</a></li>
+                            <li class="scroll-to-section"><a href="#about">About Us</a></li>
+                            <li class="scroll-to-section"><a href="#services">Services</a></li>
+                            <li class="scroll-to-section"><a href="#portfolio">Portfolio</a></li>
+                            <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>
+                            <li class="scroll-to-section">
+                                <div class="main-blue-button"><a href="#contact">Get Your Quote</a></div>
+                            </li> -->
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
 
-    <!-- General JS Scripts -->
-    <script src="assets/modules/jquery.min.js"></script>
-    <script src="assets/modules/popper.js"></script>
-    <script src="assets/modules/tooltip.js"></script>
-    <script src="assets/modules/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
-    <script src="assets/modules/moment.min.js"></script>
-    <script src="assets/js/stisla.js"></script>
+    <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-6 align-self-center">
+                            <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-4">
+                                        <div class="info-stat">
+                                            <h6>Jumlah Guru:</h6>
+                                            <h4><?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where status = '1'")) ?></h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-4">
+                                        <div class="info-stat">
+                                            <h6>Jumlah Siswa:</h6>
+                                            <h4><?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where status = '1'")) ?></h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <h2>DATA SEKOLAH DIGITAL</h2>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="main-green-button scroll-to-section">
+                                            <a href="#contact">Get Your Quote</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                                <div class="col-sm-4">
+                                    <div class="card card-login">
+                                        <div class="card-body">
+                                            <img src="<?= $setting['logo_sidadik'] ?>" alt="" width="100%">
+                                            <br>
+                                            <p>
+                                            <h3 style="color:green; font-family:monospace; text-align:center ">LOGIN SISWA</h3>
+                                            </p>
+                                            <form id="form-login">
+                                                <div class="form-group">
+                                                    <span class="fa fa-user"></span>
+                                                    <input type="text" class="form-control" name="username" placeholder="Masukkan Username" required autocomplete="off">
+                                                </div>
+                                                <div class="form-group">
+                                                    <span class="fa fa-key"></span>
+                                                    <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password">
+                                                </div>
+                                                <br>
+                                                <button type="submit" class="btn btn-primary btn-block btn-login" id="btnsimpan">
+                                                    Masuk
+                                                </button>
+                                            </form>
+                                            <br>
+                                        </div>
+                                    </div>
 
-    <!-- JS Libraies -->
-    <script src="assets/modules/select2/dist/js/select2.full.min.js"></script>
-    <script src="assets/modules/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <script src="assets/modules/izitoast/js/iziToast.min.js"></script>
-    <!-- Page Specific JS File -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <span>Copyright &copy; <?= date('Y') ?> MA AT-TAQWA YASTU | By <a href="https://www.instagram.com/ianfatah1/">Ian Fatah</a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-    <!-- JS DATATABLE -->
-    <script src="assets/modules/datatables/datatables.min.js"></script>
-    <script src="assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
-    <script src="assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js"></script>
-
-    <!-- Template JS File -->
-    <script src="assets/js/scripts.js"></script>
+    <!-- Scripts -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/animation.js"></script>
+    <script src="assets/js/imagesloaded.js"></script>
     <script src="assets/js/custom.js"></script>
-    <script type="text/javascript">
-        $('.loader').fadeOut('slow');
-        $(document).ready(function() {
-            $('.klikmenu').click(function() {
-                var menu = $(this).data('id');
-                if (menu == "beranda") {
-                    $('#btndaftar').show();
-                    $('#isi_load').load('home.php');
-                } else if (menu == "pendaftaran") {
-                    $('#btndaftar').hide();
-                    $('#isi_load').load('pendaftaran.php');
-                } else if (menu == "daftar") {
-                    $('#isi_load').load('datadaftar.php');
-                } else if (menu == "pengumuman") {
-                    $('#isi_load').load('pengumuman.php');
-                } else if (menu == "login") {
-                    $('#isi_load').load('login.php');
-                } else if (menu == "loginadm") {
-                    $('#isi_load').load('loginadm.php')
-                } else if (menu == "loginguru") {
-                    $('#isi_load').load('loginguru.php')
-                }
-            });
 
-
-            // halaman yang di load default pertama kali
-            $('#isi_load').load('home.php');
-
-        });
-    </script>
-    <!-- <a href="#" class="ignielToTop"></a> -->
 </body>
 
 </html>
