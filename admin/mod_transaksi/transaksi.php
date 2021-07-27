@@ -160,11 +160,10 @@ $saldoawal = $saldolama;
                     echo "<h5 class='m-0 font-weight-bold text-primary'>Data Transaksi</h5>";
                 } else {
                     $id_bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['id'])]);
-                    $query = mysqli_query($koneksi, "select * from bulan where '$id_bulan[id_bulan]'");
-                    while ($bulan = mysqli_fetch_array($query)) {
-                        $namabulan = $bulan['nama_bulan'];
-                        echo "<h5 class='m-0 font-weight-bold text-primary'>Data Transaksi $namabulan</h5>";
-                    }
+                    $query = mysqli_query($koneksi, "select * from transaksi a join bulan b ON a.id_bulan=b.id_bulan where a.id_bulan='$id_bulan[id_bulan]' order by id_transaksi");
+                    $bulan = mysqli_fetch_array($query);
+                    $namabulan = $bulan['nama_bulan'];
+                    echo "<h5 class='m-0 font-weight-bold text-primary'>Data Transaksi $namabulan</h5>";
                 }
                 ?>
                 <div class="card-header-action">
