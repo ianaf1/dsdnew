@@ -37,7 +37,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-sm" id="dataTable" style="font-size: 12px">
+                            <table class="table table-striped table-sm" id="table-1" style="font-size: 12px">
                                 <thead>
                                     <tr>
                                         <th class="text-center">
@@ -248,7 +248,7 @@
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-striped table-sm" id="tablebayar" style="font-size: 12px">
+                        <table class="table table-striped table-sm" id="table-2" style="font-size: 12px">
                             <thead>
                                 <tr>
                                     <th class="text-center">
@@ -404,7 +404,7 @@
             }
         })
     });
-    $('#dataTable-2').on('click', '.hapus', function() {
+    $('#table-1').on('click', '.hapus', function() {
         var id = $(this).data('id');
         console.log(id);
         swal({
@@ -433,7 +433,7 @@
             }
         })
     });
-    $('#dataTable-2').on('click', '.batal', function() {
+    $('#table-1').on('click', '.batal', function() {
         var id = $(this).data('id');
         console.log(id);
         swal({
@@ -462,7 +462,7 @@
             }
         })
     });
-    $('#tablebayar').on('click', '.hapus', function() {
+    $('#table-2').on('click', '.hapus', function() {
         var id = $(this).data('id');
         console.log(id);
         swal({
