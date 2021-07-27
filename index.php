@@ -68,7 +68,7 @@ require "config/functions.crud.php";
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="index.php" class="logo">
-                            <h4>DSD <img src="dist/assets/images/logo-icon.png" alt=""></h4>
+                            <img src="<?= $setting['logo'] ?>" alt="">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
@@ -131,6 +131,7 @@ require "config/functions.crud.php";
                                     <div class="card-body">
                                         <p>
                                         <h3 style="color:green; font-family:monospace; text-align:center ">LOGIN</h3>
+                                        <br>
                                         </p>
                                         <form id="form-login">
                                             <div class="form-group">
