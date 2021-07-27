@@ -17,7 +17,7 @@ $saldoawal = $saldolama;
         <div class="form-row">
             <div class="col-md-5 col-xs-5">
                 <div class="form-group">
-                    <select class="form-control select2" style="width: 100%" name="id">
+                    <select class="form-control select2" style="width: 100%" name="id" require>
                         <option value="">Pilih Bulan</option>
                         <?php
                         $query = mysqli_query($koneksi, "select * from bulan");
@@ -29,8 +29,7 @@ $saldoawal = $saldolama;
                 </div>
             </div>
             <div class="col-md-6">
-                &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-9"><i class="fas fa-search    "></i> Cari</button>
-                &nbsp;<button href="../?pg=transaksi" class="btn btn-danger btn-xs-5 p-l-9">Reset</button>
+                &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-9"><i class="fas fa-search"></i> Cari</button>
             </div>
         </div>
     </form>
@@ -161,7 +160,7 @@ $saldoawal = $saldolama;
                     echo "<h5 class='m-0 font-weight-bold text-primary'>Data Transaksi</h5>";
                 } else {
                     $id_bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['id'])]);
-                    $query = mysqli_query($koneksi, "select * from transaksi a join bulan b ON a.id_bulan=b.id_bulan where a.id_bulan='$id_bulan[id_bulan]' order by id_transaksi");
+                    $query = mysqli_query($koneksi, "select * from bulan where id_bulan='$id_bulan[id_bulan]'");
                     $bulan = mysqli_fetch_array($query);
                     $namabulan = $bulan['nama_bulan'];
                     echo "<h5 class='m-0 font-weight-bold text-primary'>Data Transaksi $namabulan</h5>";
