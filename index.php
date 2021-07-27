@@ -105,7 +105,7 @@ require "config/functions.crud.php";
                                     <div class="col-lg-4 col-sm-4">
                                         <div class="info-stat">
                                             <h6>Jumlah Guru:</h6>
-                                            <h4><?= mysqli_num_rows(mysqli_query($koneksi, "select * from ptk where status = '1'")) ?></h4>
+                                            <h4><?= mysqli_num_rows(mysqli_query($koneksi, "select * from ptk")) ?></h4>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-sm-4">
@@ -136,6 +136,7 @@ require "config/functions.crud.php";
                                             <div class="form-group">
                                                 <input type="text" class="form-control" name="username" placeholder="Masukkan Username" required autocomplete="off">
                                             </div>
+                                            <br>
                                             <div class="form-group">
                                                 <input type="password" class="form-control" name="password" id="inputPassword4" placeholder="Password">
                                             </div>
