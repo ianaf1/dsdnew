@@ -180,15 +180,16 @@ $saldoawal = $saldolama;
                     <table style="font-size: 12px" class="table table-bordered table-sm" id="dataTable">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Tanggal</th>
-                                <th>Kode Transaksi</th>
-                                <th>Keterangan</th>
-                                <th>Ref</th>
-                                <th>Debet (Rp)</th>
-                                <th>Kredit (Rp)</th>
-                                <th>Saldo (Rp)</th>
-                                <th>Action</th>
+                                <th class="text-center">No</th>
+                                <th class="text-center">Tgl Transaksi</th>
+                                <th class="text-center">Bulan</th>
+                                <th class="text-center">Kode</th>
+                                <th class="text-center">Keterangan</th>
+                                <th class="text-center">Ref</th>
+                                <th class="text-center">Debet (Rp)</th>
+                                <th class="text-center">Kredit (Rp)</th>
+                                <th class="text-center">Saldo (Rp)</th>
+                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -212,15 +213,16 @@ $saldoawal = $saldolama;
                                 }
                             ?>
                                 <tr>
-                                    <td><?= $no; ?></td>
-                                    <td><?= $transaksi['tgl_bayar'] ?></td>
-                                    <td><?= $transaksi['kode_transaksi'] ?></td>
-                                    <td><?= $transaksi['keterangan'] ?></td>
-                                    <td><?= $transaksi['ref'] ?></td>
-                                    <td><?= "Rp " . number_format($debit, 0, ",", ".") ?></td>
-                                    <td><?= "Rp " . number_format($kredit, 0, ",", ".") ?></td>
-                                    <td><?= "Rp " . number_format($saldotr, 0, ",", ".") ?></td>
-                                    <td>
+                                    <td class="text-center"><?= $no; ?></td>
+                                    <td class="text-center"><?= $transaksi['tgl_bayar'] ?></td>
+                                    <td class="text-center"><?= $transaksi['id_bulan'] ?></td>
+                                    <td class="text-center"><?= $transaksi['kode_transaksi'] ?></td>
+                                    <td class="text-center"><?= $transaksi['keterangan'] ?></td>
+                                    <td class="text-center"><?= $transaksi['ref'] ?></td>
+                                    <td class="text-center"><?= "Rp " . number_format($debit, 0, ",", ".") ?></td>
+                                    <td class="text-center"><?= "Rp " . number_format($kredit, 0, ",", ".") ?></td>
+                                    <td class="text-center"><?= "Rp " . number_format($saldotr, 0, ",", ".") ?></td>
+                                    <td class="text-center">
                                         <button data-id="<?= $transaksi['id_transaksi'] ?>" class="hapus btn-sm btn btn-danger"><i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
@@ -241,7 +243,7 @@ $saldoawal = $saldolama;
                                 $totalsaldo = $totaldebit - $totalkredit
                             ?>
                                 <tr>
-                                    <td class="text-center" colspan="5"><b>TOTAL</b></td>
+                                    <td class="text-center" colspan="6"><b>TOTAL</b></td>
                                     <td><b><?= "Rp " . number_format($totaldebit, 0, ",", ".") ?></b></td>
                                     <td><b><?= "Rp " . number_format($totalkredit, 0, ",", ".") ?></b></td>
                                     <td><b><?= "Rp " . number_format($totalsaldo, 0, ",", ".") ?></b></td>
