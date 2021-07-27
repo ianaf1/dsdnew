@@ -14,6 +14,7 @@ deployment:
     - /bin/cp -R admin $DEPLOYPATH
     - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp -R config $DEPLOYPATH
+    - /bin/cp -R dist $DEPLOYPATH
     - /bin/cp -R guru $DEPLOYPATH
     - /bin/cp -R securimage $DEPLOYPATH
     - /bin/cp -R temp $DEPLOYPATH
