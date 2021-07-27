@@ -68,7 +68,7 @@ require "config/functions.crud.php";
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="index.php" class="logo">
-                            <h4>MA AT-TAQWA <img src="<?= $setting['logo'] ?>" alt=""></h4>
+                            <h4>DSD <img src="dist/assets/images/logo-icon.png" alt=""></h4>
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
@@ -130,8 +130,6 @@ require "config/functions.crud.php";
                                 <div class="col-lg-6">
                                     <div class="card card-login">
                                         <div class="card-body">
-                                            <img src="<?= $setting['logo'] ?>" alt="" width="100%">
-                                            <br>
                                             <p>
                                             <h3 style="color:green; font-family:monospace; text-align:center ">LOGIN</h3>
                                             </p>
