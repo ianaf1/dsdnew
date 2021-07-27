@@ -29,7 +29,7 @@ $saldoawal = $saldolama;
                 </div>
             </div>
             <div class="col-md-6">
-                &nbsp;<button type="submit" class="btn btn-primary btn-sm p-l-9"><i class="fas fa-search    "></i> Cari</button>
+                &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-9"><i class="fas fa-search    "></i> Cari</button>
             </div>
         </div>
     </form>
