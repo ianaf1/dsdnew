@@ -214,7 +214,7 @@ require "config/functions.crud.php";
                 success: function(data) {
                     var json = $.parseJSON(data);
                     $('#btnsimpan').prop('disabled', false);
-                    if (json.pesan == 'ok') {
+                    if (json.pesan == 'siswa') {
                         iziToast.success({
                             title: 'Mantap!',
                             message: 'Login Berhasil',
@@ -223,7 +223,24 @@ require "config/functions.crud.php";
                         setTimeout(function() {
                             window.location.href = "user";
                         }, 2000);
-
+                    } else if (json.pesan == 'admin') {
+                        iziToast.success({
+                            title: 'Mantap!',
+                            message: 'Login Berhasil',
+                            position: 'topRight'
+                        });
+                        setTimeout(function() {
+                            window.location.href = "admin";
+                        }, 2000);
+                    } else if (json.pesan == 'guru') {
+                        iziToast.success({
+                            title: 'Mantap!',
+                            message: 'Login Berhasil',
+                            position: 'topRight'
+                        });
+                        setTimeout(function() {
+                            window.location.href = "guru";
+                        }, 2000);
                     } else {
                         iziToast.error({
                             title: 'Maaf!',
