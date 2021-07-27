@@ -27,7 +27,7 @@
                         </div>
                         <div class="form-group">
                             <label>Kode Biaya</label>
-                            <select class="form-control select2" style="width: 100%" name="id_biaya" required>
+                            <select class="form-control select2" style="width: 100%" name="kode_biaya" required>
                                 <option value="">Kode Biaya</option>
                                 <?php
                                 $query = mysqli_query($koneksi, "select * from keu_pemasukan where status='1'");
@@ -71,7 +71,6 @@
                         <button type="button" class="btn btn-icon icon-left btn-primary btn-sm" data-toggle="modal" data-target="#tambahdata">
                             <i class="far fa-edit"></i> Tambah Data
                         </button>
-                        <b>Total Biaya Rp. <?= $total['total'] ?></b>
                     </div>
                 </div>
                 <div class="card-body">
@@ -99,7 +98,7 @@
                                 ?>
                                     <tr>
                                         <td><?= $no; ?></td>
-                                        <td><?= $biaya['id_biaya'] ?></td>
+                                        <td><?= $biaya['kode_biaya'] ?></td>
                                         <td><?= $biaya['id_kelas'] ?></td>
                                         <td><?= $biaya['nama_biaya'] ?></td>
                                         <td><?= $biaya['jumlah'] ?></td>
