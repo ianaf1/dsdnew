@@ -68,7 +68,7 @@ require "config/functions.crud.php";
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="index.php" class="logo">
-                            <img src="<?= $setting['logo'] ?>" width="50" height="50" alt="">
+                            <h4>MA AT-TAQWA</h4>
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
