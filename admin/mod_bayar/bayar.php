@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                &nbsp;<button type="submit" class="btn btn-primary btn-lg p-l-10"><i class="fas fa-search    "></i> Cari</button>
+                &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-10"><i class="fas fa-search    "></i> Cari</button>
             </div>
         </div>
     </form>
@@ -28,16 +28,16 @@
     <?php if ($user['level'] == 'admin' or $user['level'] == 'bendahara' or $user['level'] == 'kepala') { ?>
         <div class="row">
             <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Data Belum Verifikasi</h4>
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h5 class='m-0 font-weight-bold text-primary'>Data Belum Verifikasi</h5>
                         <div class="card-header-action">
                             <a class="btn btn-primary" href="mod_bayar/export_bayar.php" role="button"> Download Excel</a>
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-sm" id="table-1" style="font-size: 12px">
+                            <table class="table table-striped table-sm" id="dataTable" style="font-size: 12px">
                                 <thead>
                                     <tr>
                                         <th class="text-center">
@@ -103,16 +103,16 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Data Sudah Verifikasi</h4>
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h5 class='m-0 font-weight-bold text-primary'>Data Sudah Verifikasi</h5>
                         <!-- <div class="card-header-action">
                         <a class="btn btn-primary" href="mod_bayar/export_bayar.php" role="button"> Download Excel</a>
                     </div> -->
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-sm" id="table-2" style="font-size: 12px">
+                            <table class="table table-striped table-sm" id="dataTable-2" style="font-size: 12px">
                                 <thead>
                                     <tr>
                                         <th class="text-center">
@@ -176,9 +176,9 @@
     <?php $siswa = fetch($koneksi, 'daftar', ['id_daftar' => dekripsi($_GET['id'])]) ?>
     <div class="row">
         <div class="col-12 col-sm-12 col-lg-12">
-            <div class="card author-box card-primary">
-                <div class="card-header">
-                    <h4><?= $siswa['nama'] ?></h4>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h5 class='m-0 font-weight-bold text-primary'><?= $siswa['nama'] ?></h5>
                     <div class="card-header-action">
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahdata">
@@ -346,7 +346,7 @@
         return false;
     });
 
-    $('#table-1').on('click', '.hapus', function() {
+    $('#dataTable').on('click', '.hapus', function() {
         var id = $(this).data('id');
         console.log(id);
         swal({
@@ -375,7 +375,7 @@
             }
         })
     });
-    $('#table-1').on('click', '.cek', function() {
+    $('#dataTable').on('click', '.cek', function() {
         var id = $(this).data('id');
         console.log(id);
         swal({
@@ -404,7 +404,7 @@
             }
         })
     });
-    $('#table-2').on('click', '.hapus', function() {
+    $('#dataTable-2').on('click', '.hapus', function() {
         var id = $(this).data('id');
         console.log(id);
         swal({
@@ -433,7 +433,7 @@
             }
         })
     });
-    $('#table-2').on('click', '.batal', function() {
+    $('#dataTable-2').on('click', '.batal', function() {
         var id = $(this).data('id');
         console.log(id);
         swal({
