@@ -8,7 +8,7 @@
                     <?php $query = mysqli_query($koneksi, "select sum(jumlah) as total from biaya where id_kelas='$siswa[kelas]'");
                     $total = mysqli_fetch_array($query);
                     ?>
-                    <b>Total Biaya <?= "Rp " . number_format($total['total'], 0, ",", ".") ?></b>
+                    <b>Total Biaya <?= "Rp. " . number_format($total['total'], 0, ",", ".") ?></b>
                 </div>
             </div>
             <div class="card-body">
@@ -34,7 +34,7 @@
                                 <tr>
                                     <td><?= $no; ?></td>
                                     <td><?= $biaya['nama_biaya'] ?></td>
-                                    <td><?= $biaya['jumlah'] ?></td>
+                                    <td><?= "Rp. " . number_format($biaya['jumlah'], 0, ",", ".") ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
