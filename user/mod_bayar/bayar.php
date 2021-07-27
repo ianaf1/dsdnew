@@ -26,7 +26,7 @@
                         </thead>
                         <tbody>
                             <?php
-                            $query = mysqli_query($koneksi, "select * from biaya");
+                            $query = mysqli_query($koneksi, "select * from biaya a join daftar b ON a.id_kelas=b.kelas where a.id_kelas='$siswa[kelas]'");
                             $no = 0;
                             while ($biaya = mysqli_fetch_array($query)) {
                                 $no++;
@@ -76,9 +76,9 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahdata">
+                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahdata">
                         <i class="fas fa-plus-circle    "></i> Tambah Bayar
-                    </button>
+                    </button> -->
                 </div>
             </div>
             <div class="card-body">
