@@ -31,7 +31,7 @@ $saldoawal = $saldolama;
                 </div>
             </div>
             <div class="col-md-6">
-                &nbsp;<button type="submit" class="btn btn-primary btn-sm btn-lg p-l-10"><i class="fas fa-search    "></i> Cari</button>
+                &nbsp;<button type="submit" class="btn btn-primary btn-sm p-l-10"><i class="fas fa-search    "></i> Cari</button>
             </div>
         </div>
     </form>
@@ -155,7 +155,7 @@ $saldoawal = $saldolama;
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table style="font-size: 12px" class="table table-striped table-sm" id="dataTable">
+                <table style="font-size: 14px" class="table table-bordered table-sm" id="dataTable">
                         <thead>
                             <tr>
                                 <th>No</th>
