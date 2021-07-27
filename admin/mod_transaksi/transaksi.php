@@ -17,7 +17,7 @@ $saldoawal = $saldolama;
         <div class="form-row">
             <div class="col-md-5 col-xs-5">
                 <div class="form-group">
-                    <select class="form-control select2" style="width: 100%" name="id" require>
+                    <select class="form-control select2" style="width: 100%" name="id" required>
                         <option value="">Pilih Bulan</option>
                         <?php
                         $query = mysqli_query($koneksi, "select * from bulan");
