@@ -57,18 +57,7 @@ if (isset($_SESSION['id_user'])) {
     <!-- JS Libraies -->
     <script src="../assets/modules/cleave-js/dist/cleave.min.js"></script>
 
-    <!-- <style>
-      .modal-backdrop {
-        position: inherit;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 900;
-        background-color: #000;
 
-      }
-    </style> -->
 
     <script language='JavaScript'>
       var txt = "DSD - MA AT TAQWA YASTU ";
@@ -89,46 +78,34 @@ if (isset($_SESSION['id_user'])) {
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-
       <!-- Sidebar -->
       <?php include "v_sidebar.php" ?>
       <!-- End of Sidebar -->
-
       <!-- Content Wrapper -->
       <div id="content-wrapper" class="d-flex flex-column">
-
         <!-- Main Content -->
         <div id="content">
-
           <!-- Topbar -->
           <?php include "v_topbar.php" ?>
-
           <!-- End of Topbar -->
-
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <?php include "content.php" ?>
           </div>
           <!-- /.container-fluid -->
-
         </div>
         <!-- End of Main Content -->
-
         <!-- Footer -->
         <?php include "v_footer.php" ?>
         <!-- End of Footer -->
-
       </div>
       <!-- End of Content Wrapper -->
-
     </div>
     <!-- End of Page Wrapper -->
-
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>
     </a>
-
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -147,32 +124,24 @@ if (isset($_SESSION['id_user'])) {
         </div>
       </div>
     </div>
-
     <!-- Bootstrap core JavaScript-->
     <script src="../assets/vendor/jquery/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <!-- Core plugin JavaScript-->
     <script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
     <!-- Custom scripts for all pages-->
     <script src="../assets/js/sb-admin-2.min.js"></script>
-
     <!-- Page level plugins -->
     <script src="../assets/vendor/chart.js/Chart.min.js"></script>
-
     <!-- Page level custom scripts -->
     <!-- <script src="../assets/js/demo/chart-area-demo.js"></script>
     <script src="../assets/js/demo/chart-pie-demo.js"></script> -->
     <!-- Page level plugins -->
     <script src="../assets/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="../assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
     <!-- Page level custom scripts -->
     <script src="../assets/js/demo/datatables-demo.js"></script>
-
     <!-- General JS Scripts -->
-
     <script src="../assets/modules/popper.js"></script>
     <script src="../assets/modules/tooltip.js"></script>
     <script src="../assets/modules/bootstrap/js/bootstrap.min.js"></script>

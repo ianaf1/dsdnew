@@ -12,19 +12,27 @@ if (isset($_SESSION['id_siswa'])) {
   <html lang="en">
 
   <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>User &mdash; DSD</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>DSD - MA AT TAQWA YASTU</title>
+    <link rel="shortcut icon" href="../<?= $setting['logo'] ?>" />
+
+    <!-- Custom fonts for this template-->
+    <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- Custom styles for this page -->
+    <link href="../assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="../assets/modules/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/modules/fontawesome/css/all.min.css">
-
-    <!-- CSS Libraries
-    <link rel="stylesheet" href="../assets/modules/jqvmap/dist/jqvmap.min.css">
-    <link rel="stylesheet" href="../assets/modules/weather-icon/css/weather-icons.min.css">
-    <link rel="stylesheet" href="../assets/modules/weather-icon/css/weather-icons-wind.min.css">
-    <link rel="stylesheet" href="../assets/modules/summernote/summernote-bs4.css"> -->
 
     <!-- CSS TOASTR -->
     <link rel="stylesheet" href="../assets/modules/izitoast/css/iziToast.min.css">
@@ -38,9 +46,9 @@ if (isset($_SESSION['id_siswa'])) {
     <link rel="stylesheet" href="../assets/modules/bootstrap-daterangepicker/daterangepicker.css">
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+
     <link rel="stylesheet" href="../assets/css/components.css">
-  
+
 
     <script src="../assets/modules/jquery.min.js"></script>
     <!-- JS Libraies -->
@@ -49,113 +57,90 @@ if (isset($_SESSION['id_siswa'])) {
     <!-- JS Libraies -->
     <script src="../assets/modules/cleave-js/dist/cleave.min.js"></script>
 
+    <script language='JavaScript'>
+      var txt = "DSD - MA AT TAQWA YASTU ";
+      var speed = 300;
+      var refresh = null;
 
-
-   
-    <style>
-      .modal-backdrop {
-        position: inherit;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 900;
-        background-color: #000;
-
+      function action() {
+        document.title = txt;
+        txt = txt.substring(1, txt.length) + txt.charAt(0);
+        refresh = setTimeout("action()", speed);
       }
+      action();
+    </script>
 
-      .form-control:not(.form-control-sm):not(.form-control-lg) {
-        font-size: 13px;
-        padding: 10px 15px;
-        height: 35px;
-      }
-    </style>
-    <!-- Smartsupp Live Chat script -->
-    <!-- <script type="text/javascript">
-      var _smartsupp = _smartsupp || {};
-      _smartsupp.key = '77ed94a8e63dac9adf98be37bff919ff119b315b';
-      window.smartsupp || (function(d) {
-        var s, c, o = smartsupp = function() {
-          o._.push(arguments)
-        };
-        o._ = [];
-        s = d.getElementsByTagName('script')[0];
-        c = d.createElement('script');
-        c.type = 'text/javascript';
-        c.charset = 'utf-8';
-        c.async = true;
-        c.src = 'https://www.smartsuppchat.com/loader.js?';
-        s.parentNode.insertBefore(c, s);
-      })(document);
-    </script> -->
+
+
   </head>
 
   <body>
-    <div id="app">
-      <div class="main-wrapper main-wrapper-1">
-        <div class="navbar-bg"></div>
-        <nav class="navbar navbar-expand-lg main-navbar">
-          <form class="form-inline mr-auto">
-            <ul class="navbar-nav mr-3">
-              <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
-            </ul>
-
-          </form>
-          <ul class="navbar-nav navbar-right">
-
-
-            <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-                <div class="d-sm-none d-lg-inline-block"><?= $siswa['nama'] ?></div>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right">
-
-                <a href="?pg=detail" class="dropdown-item has-icon">
-                  <i class="fas fa-cog"></i> Profil
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="logout.php" class="dropdown-item has-icon text-danger">
-                  <i class="fas fa-sign-out-alt"></i> Logout
-                </a>
-              </div>
-            </li>
-          </ul>
-        </nav>
-        <div class="main-sidebar sidebar-style-2">
-          <aside id="sidebar-wrapper">
-            <div class="sidebar-brand">
-              <a href="index.php">Data Sekolah Digital</a>
-            </div>
-            <div class="sidebar-brand sidebar-brand-sm">
-              <a href="index.php">DSD</a>
-            </div>
-            <!-- INCLUDE MENU UTAMA DI MENU.PHP -->
-            <?php include "menu.php" ?>
-            <!-- <div class="mt-4 mb-3 p-3 hide-sidebar-mini">
-              <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                <i class="fas fa-rocket"></i> Documentation
-              </a>
-            </div> -->
-          </aside>
-        </div>
-
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <?php include "v_sidebar.php" ?>
+      <!-- End of Sidebar -->
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
         <!-- Main Content -->
-        <div class="main-content">
-          <section class="section">
-            <?php include "content.php"; ?>
-          </section>
+        <div id="content">
+          <!-- Topbar -->
+          <?php include "v_topbar.php" ?>
+          <!-- End of Topbar -->
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <?php include "content.php" ?>
+          </div>
+          <!-- /.container-fluid -->
         </div>
-        <footer class="main-footer">
-          <div class="footer-left">
-            Copyright &copy; <?= date('Y') ?> Data Sekolah Digital <div class="bullet"></div> By <a href="https://www.instagram.com/ianfatah1/">Ian Fatah</a>
+        <!-- End of Main Content -->
+        <!-- Footer -->
+        <?php include "v_footer.php" ?>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
           </div>
-          <div class="footer-right">
-
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="logout.php">Logout</a>
           </div>
-        </footer>
+        </div>
       </div>
     </div>
 
+    <!-- Bootstrap core JavaScript-->
+    <script src="../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="../assets/js/sb-admin-2.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="../assets/vendor/chart.js/Chart.min.js"></script>
+    <!-- Page level custom scripts -->
+    <!-- <script src="../assets/js/demo/chart-area-demo.js"></script>
+    <script src="../assets/js/demo/chart-pie-demo.js"></script> -->
+    <!-- Page level plugins -->
+    <script src="../assets/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="../assets/js/demo/datatables-demo.js"></script>
     <!-- General JS Scripts -->
 
     <script src="../assets/modules/popper.js"></script>
@@ -164,14 +149,6 @@ if (isset($_SESSION['id_siswa'])) {
     <script src="../assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
     <script src="../assets/modules/moment.min.js"></script>
     <script src="../assets/js/stisla.js"></script>
-
-    <!-- JS Libraies -->
-    <!-- <script src="../assets/modules/simple-weather/jquery.simpleWeather.min.js"></script>
-    <script src="../assets/modules/chart.min.js"></script>
-    <script src="../assets/modules/jqvmap/dist/jquery.vmap.min.js"></script>
-    <script src="../assets/modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../assets/modules/summernote/summernote-bs4.js"></script>
-    <script src="../assets/modules/chocolat/dist/js/jquery.chocolat.min.js"></script> -->
 
     <!-- JS DATATABLE -->
     <script src="../assets/modules/datatables/datatables.min.js"></script>
@@ -192,32 +169,18 @@ if (isset($_SESSION['id_siswa'])) {
     <!-- Template JS File -->
     <script src="../assets/js/scripts.js"></script>
     <script src="../assets/js/custom.js"></script>
-    <!-- <script type='text/javascript' data-cfasync='false'>
-      window.purechatApi = {
-        l: [],
-        t: [],
-        on: function() {
-          this.l.push(arguments);
-        }
-      };
-      (function() {
-        var done = false;
-        var script = document.createElement('script');
-        script.async = true;
-        script.type = 'text/javascript';
-        script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript';
-        document.getElementsByTagName('HEAD').item(0).appendChild(script);
-        script.onreadystatechange = script.onload = function(e) {
-          if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) {
-            var w = new PCWidget({
-              c: '3a902ebc-63db-4345-b136-90e1351bd3bd',
-              f: true
-            });
-            done = true;
-          }
-        };
-      })();
-    </script> -->
+    <script type="text/javascript">
+      var url = window.location;
+      // for sidebar menu entirely but not cover treeview
+      $('ul.sidebar-menu a').filter(function() {
+        return this.href == url;
+      }).parent().addClass('active');
+
+      // for treeview
+      $('ul.dropdown-menu a').filter(function() {
+        return this.href == url;
+      }).closest('.treeview').addClass('active');
+    </script>
   </body>
 
   </html>
