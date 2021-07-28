@@ -6,16 +6,6 @@ session_start();
 if (!isset($_SESSION['id_user'])) {
     die('Anda tidak diijinkan mengakses langsung');
 }
-if ($pg == 'ubah') {
-    $verifikasi = (isset($_POST['verifikasi'])) ? 1 : 0;
-    $data = [
-        'nama_bayar' => $_POST['nama'],
-        'verifikasi' => $verifikasi
-    ];
-    $id_bayar = $_POST['id_bayar'];
-    $excec = update($koneksi, 'bayar', $data, ['id_bayar' => $id_bayar]);
-    echo $exec;
-}
 if ($pg == 'tambah') {
     $data = [
         'id_kelas'          => $_POST['id_kelas'],

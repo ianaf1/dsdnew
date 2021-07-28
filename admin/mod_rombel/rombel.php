@@ -90,8 +90,6 @@
                     </div>
                 </div>
                 <div class="card-body">
-
-
                     <!-- Modal -->
                     <div class="modal fade" id="tambahdata" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -119,7 +117,6 @@
                                                 <?php } ?>
                                             </select>
                                         </div>
-
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -163,47 +160,84 @@
                             </tbody>
                         </table>
                     </div>
+                    <script>
+                        $('#form-tambah').submit(function(e) {
+                            e.preventDefault();
+                            $.ajax({
+                                type: 'POST',
+                                url: 'mod_rombel/crud_rombel.php?pg=tambah',
+                                data: $(this).serialize(),
+                                beforeSend: function() {
+                                    $('form button').on("click", function(e) {
+                                        e.preventDefault();
+                                    });
+                                },
+                                success: function(data) {
+                                    if (data == 'OK') {
+                                        $('#tambahdata').modal('hide');
+                                        iziToast.success({
+                                            title: 'Mantap!',
+                                            message: 'Data berhasil disimpan',
+                                            position: 'topRight'
+                                        });
+                                        setTimeout(function() {
+                                            window.location.reload();
+                                        }, 2000);
+
+                                    } else {
+                                        iziToast.error({
+                                            title: 'Maaf!',
+                                            message: 'data gagal disimpan',
+                                            position: 'topRight'
+                                        });
+                                    }
+                                    //$('#bodyreset').load(location.href + ' #bodyreset');
+                                }
+                            });
+                            return false;
+                        });
+                    </script>
                 </div>
             </div>
         </div>
     </div>
 <?php } ?>
 <script>
-    $('#form-tambah').submit(function(e) {
-        e.preventDefault();
-        $.ajax({
-            type: 'POST',
-            url: 'mod_rombel/crud_rombel.php?pg=tambah',
-            data: $(this).serialize(),
-            beforeSend: function() {
-                $('form button').on("click", function(e) {
-                    e.preventDefault();
-                });
-            },
-            success: function(data) {
-                if (data == 'OK') {
-                    $('#tambahdata').modal('hide');
-                    iziToast.success({
-                        title: 'Mantap!',
-                        message: 'Data berhasil disimpan',
-                        position: 'topRight'
-                    });
-                    setTimeout(function() {
-                        window.location.reload();
-                    }, 2000);
+    // $('#form-tambah').submit(function(e) {
+    //     e.preventDefault();
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: 'mod_rombel/crud_rombel.php?pg=tambah',
+    //         data: $(this).serialize(),
+    //         beforeSend: function() {
+    //             $('form button').on("click", function(e) {
+    //                 e.preventDefault();
+    //             });
+    //         },
+    //         success: function(data) {
+    //             if (data == 'OK') {
+    //                 $('#tambahdata').modal('hide');
+    //                 iziToast.success({
+    //                     title: 'Mantap!',
+    //                     message: 'Data berhasil disimpan',
+    //                     position: 'topRight'
+    //                 });
+    //                 setTimeout(function() {
+    //                     window.location.reload();
+    //                 }, 2000);
 
-                } else {
-                    iziToast.error({
-                        title: 'Maaf!',
-                        message: 'data gagal disimpan',
-                        position: 'topRight'
-                    });
-                }
-                //$('#bodyreset').load(location.href + ' #bodyreset');
-            }
-        });
-        return false;
-    });
+    //             } else {
+    //                 iziToast.error({
+    //                     title: 'Maaf!',
+    //                     message: 'data gagal disimpan',
+    //                     position: 'topRight'
+    //                 });
+    //             }
+    //             //$('#bodyreset').load(location.href + ' #bodyreset');
+    //         }
+    //     });
+    //     return false;
+    // });
 
     $('#dataTable').on('click', '.hapus', function() {
         var id = $(this).data('id');
