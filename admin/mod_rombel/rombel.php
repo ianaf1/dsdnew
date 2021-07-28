@@ -102,14 +102,14 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form id="form-kelas">
+                                <form id="form-tambahsiswa">
                                     <div class="modal-body">
                                         <input type="hidden" value="<?= $kelas['id_kelas'] ?>" name="id">
                                         <input type="hidden" value="<?= $kelas['id_jenjang'] ?>" name="id_jenjang">
                                         <input type="hidden" value="<?= $kelas['nama_kelas'] ?>" name="nama_kelas">
                                         <div class="form-group">
                                             <label>Nama Siswa</label>
-                                            <select class="form-control select2" style="width: 100%" name="id_masuk" required>
+                                            <select class="form-control select2" style="width: 100%" name="id_daftar" required>
                                                 <option value="">Pilih Siswa</option>
                                                 <?php
                                                 $query = mysqli_query($koneksi, "select * from daftar where kelas = '$kelas[id_jenjang]' && status='1'");
@@ -136,44 +136,26 @@
                                     <th class="text-center">
                                         #
                                     </th>
-                                    <th>Kode Transaksi</th>
+                                    <th>NIS</th>
                                     <th>Nama Siswa</th>
-                                    <th>Jumlah Bayar</th>
-                                    <th>Tgl Bayar</th>
-                                    <th>Petugas</th>
-                                    <th>verifikasi</th>
+                                    <th>Jenis Kelamin</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $query = mysqli_query($koneksi, "select * from bayar a join daftar b ON a.id_daftar=b.id_daftar where a.id_daftar='$siswa[id_daftar]'");
+                                $query = mysqli_query($koneksi, "select * from rombel a join daftar b ON a.id_kelas=b.id_kelas where a.id_kelas='$siswa[id_kelas]'");
                                 $no = 0;
-                                while ($bayar = mysqli_fetch_array($query)) {
-                                    $user = fetch($koneksi, 'user', ['id_user' => $bayar['id_user']]);
+                                while ($rombel = mysqli_fetch_array($query)) {
                                     $no++;
                                 ?>
                                     <tr>
                                         <td><?= $no; ?></td>
-                                        <td><?= $bayar['id_bayar'] ?></td>
-                                        <td><?= $bayar['nama'] ?></td>
-                                        <td><?= "Rp " . number_format($bayar['jumlah'], 0, ",", ".") ?></td>
-                                        <td><?= $bayar['tgl_bayar'] ?></td>
-                                        <td><?php if ($user) {
-                                                echo $user['nama_user'];
-                                            } else {
-                                                echo "Online";
-                                            } ?></td>
+                                        <td><?= $rombel['nis'] ?></td>
+                                        <td><?= $rombel['nama'] ?></td>
+                                        <td><?= $rombel['jenkel'] ?></td>
                                         <td>
-                                            <?php if ($bayar['verifikasi'] == 1) { ?>
-                                                <span class="badge badge-success">Sudah Dicek</span>
-                                            <?php } else { ?>
-                                                <span class="badge badge-warning">Belum Dicek</span>
-                                            <?php } ?>
-                                        </td>
-                                        <td>
-                                            <a target="_blank" href="mod_bayar/print_kwitansi.php?id=<?= enkripsi($bayar['id_bayar']) ?>" class="btn btn-primary btn-sm"><i class="fas fa-print    "></i></a>
-                                            <button data-id="<?= $bayar['id_bayar'] ?>" class="hapus btn btn-danger btn-sm"><i class="fas fa-trash    "></i></button>
+                                            <button data-id="<?= $rombel['id_rombel'] ?>" class="hapus btn btn-danger btn-sm"><i class="fas fa-trash    "></i></button>
                                         </td>
                                     </tr>
                                 <?php }
@@ -192,11 +174,11 @@
     </script>
 <?php } ?>
 <script>
-    $('#form-bayar').submit(function(e) {
+    $('#form-tambahsiswa').submit(function(e) {
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: 'mod_bayar/crud_bayar.php?pg=tambah',
+            url: 'mod_rombel/crud_rombel.php?pg=tambah',
             data: $(this).serialize(),
             beforeSend: function() {
                 $('form button').on("click", function(e) {
@@ -240,9 +222,9 @@
         }).then((result) => {
             if (result) {
                 $.ajax({
-                    url: 'mod_bayar/crud_bayar.php?pg=hapus',
+                    url: 'mod_rombel/crud_rombel.php?pg=hapus',
                     method: "POST",
-                    data: 'id_bayar=' + id,
+                    data: 'id_rombel=' + id,
                     success: function(data) {
                         iziToast.error({
                             title: 'Horee!',
@@ -269,9 +251,9 @@
         }).then((result) => {
             if (result) {
                 $.ajax({
-                    url: 'mod_bayar/crud_bayar.php?pg=verifikasi',
+                    url: 'mod_rombel/crud_rombel.php?pg=verifikasi',
                     method: "POST",
-                    data: 'id_bayar=' + id,
+                    data: 'id_rombel=' + id,
                     success: function(data) {
                         iziToast.error({
                             title: 'Horee!',
@@ -298,9 +280,9 @@
         }).then((result) => {
             if (result) {
                 $.ajax({
-                    url: 'mod_bayar/crud_bayar.php?pg=hapus',
+                    url: 'mod_rombel/crud_rombel.php?pg=hapus',
                     method: "POST",
-                    data: 'id_bayar=' + id,
+                    data: 'id_rombel=' + id,
                     success: function(data) {
                         iziToast.error({
                             title: 'Horee!',
@@ -327,9 +309,9 @@
         }).then((result) => {
             if (result) {
                 $.ajax({
-                    url: 'mod_bayar/crud_bayar.php?pg=batalverifikasi',
+                    url: 'mod_rombel/crud_rombel.php?pg=batalverifikasi',
                     method: "POST",
-                    data: 'id_bayar=' + id,
+                    data: 'id_rombel=' + id,
                     success: function(data) {
                         iziToast.error({
                             title: 'Horee!',
@@ -356,9 +338,9 @@
         }).then((result) => {
             if (result) {
                 $.ajax({
-                    url: 'mod_bayar/crud_bayar.php?pg=hapus',
+                    url: 'mod_rombel/crud_rombel.php?pg=hapus',
                     method: "POST",
-                    data: 'id_bayar=' + id,
+                    data: 'id_rombel=' + id,
                     success: function(data) {
                         iziToast.error({
                             title: 'Horee!',

@@ -16,38 +16,16 @@ if ($pg == 'ubah') {
     $excec = update($koneksi, 'bayar', $data, ['id_bayar' => $id_bayar]);
     echo $exec;
 }
-if ($pg == 'tambah') {
-    $today = date("Ymd");
-
-    // cari id transaksi terakhir yang berawalan tanggal hari ini
-    $query = "SELECT max(kode_transaksi) AS last FROM transaksi WHERE kode_transaksi LIKE '$today%'";
-    $hasil = mysqli_query($koneksi, $query);
-    $data  = mysqli_fetch_array($hasil);
-    $lastNoTransaksi = $data['last'];
-    $lastNoUrut = substr($lastNoTransaksi, 8, 4);
-    $nextNoUrut = $lastNoUrut + 1;
-    $nextNoTransaksi = $today . sprintf('%04s', $nextNoUrut);
+if ($pg == 'tambahsiswa') {
     $data = [
-        'id_bayar'      => $nextNoTransaksi,
-        'id_daftar'     => $_POST['id'],
-        'jumlah'        => str_replace(",", "", $_POST['jumlah']),
-        'tgl_bayar'     => $_POST['tgl'],
-        'id_user'       => $_SESSION['id_user']
+        'id_kelas'      => $$_POST['id'],
+        'id_daftar'     => $_POST['id_daftar'],
+        'id_jenjang'     => $_POST['id_jenjang'],
+        'nama_kelas'     => $_POST['nama_kelas'],
 
     ];
-    $data2 = [
-        'kode_transaksi'    => $nextNoTransaksi,
-        'keterangan'        => $_POST['keterangan'],
-        'id_masuk'          => $_POST['id_masuk'],
-        'ref'               => $_POST['id_masuk'],
-        'debit'             => str_replace(",", "", $_POST['jumlah']),
-        'tgl_bayar'         => $_POST['tgl'],
-        'id_user'           => $_SESSION['id_user'],
-        'id_bulan'          => $_POST['id_bulan']
-
-    ];
-    $exec = insert($koneksi, 'bayar', $data);
-    $exec = insert($koneksi, 'transaksi', $data2);
+    $exec = insert($koneksi, 'rombel', $data);
+    // $exec = insert($koneksi, 'transaksi', $data2);
     echo $exec;
 }
 if ($pg == 'hapus') {
