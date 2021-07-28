@@ -1,9 +1,9 @@
 <?php defined('BASEPATH') or die("ip anda sudah tercatat oleh sistem kami") ?>
 <div class="row">
     <div class="col-12">
-        <div class="card">
-            <div class="card-header">
-                <h4>Data biaya</h4>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h5 class="m-0 font-weight-bold text-primary">Data biaya</h5>
                 <div class="card-header-action">
                     <?php $query = mysqli_query($koneksi, "select sum(jumlah) as total from biaya where id_kelas='$siswa[kelas]'");
                     $total = mysqli_fetch_array($query);
@@ -13,7 +13,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsiv">
-                    <table class="table table-striped table-sm" id="table-1">
+                    <table style="font-size: 14px" class="table table-striped table-sm" id="dataTable">
                         <thead>
                             <tr>
                                 <th class="text-center">
@@ -46,9 +46,9 @@
 </div>
 <div class="row">
     <div class="col-12 col-sm-12 col-lg-12">
-        <div class="card author-box card-primary">
-            <div class="card-header">
-                <h4>DATA PEMBAYARAN</h4>
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h5 class="m-0 font-weight-bold text-primary">DATA PEMBAYARAN</h5>
                 <div class="card-header-action">
                     <!-- Button trigger modal -->
                     <!-- Button trigger modal -->
