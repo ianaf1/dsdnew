@@ -21,8 +21,7 @@ if ($pg == 'tambahsiswa') {
         'id_kelas'      => $$_POST['id'],
         'id_daftar'     => $_POST['id_daftar'],
         'id_jenjang'     => $_POST['id_jenjang'],
-        'nama_kelas'     => $_POST['nama_kelas'],
-
+        'nama_kelas'     => $_POST['nama_kelas']
     ];
     $exec = insert($koneksi, 'rombel', $data);
     // $exec = insert($koneksi, 'transaksi', $data2);
