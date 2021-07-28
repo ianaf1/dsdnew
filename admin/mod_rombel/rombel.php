@@ -167,11 +167,11 @@
             </div>
         </div>
     </div>
-    <script>
+    <!-- <script>
         var cleaveI = new Cleave('.uang', {
             numeral: true
         });
-    </script>
+    </script> -->
 <?php } ?>
 <script>
     $('#form-tambahsiswa').submit(function(e) {
@@ -180,30 +180,19 @@
             type: 'POST',
             url: 'mod_rombel/crud_rombel.php?pg=tambahsiswa',
             data: $(this).serialize(),
-            beforeSend: function() {
-                $('form button').on("click", function(e) {
-                    e.preventDefault();
-                });
-            },
             success: function(data) {
-                if (data == 'OK') {
-                    $('#tambahdata').modal('hide');
-                    iziToast.success({
-                        title: 'Mantap!',
-                        message: 'Data berhasil disimpan',
-                        position: 'topRight'
-                    });
-                    setTimeout(function() {
-                        window.location.reload();
-                    }, 2000);
 
-                } else {
-                    iziToast.error({
-                        title: 'Maaf!',
-                        message: 'data gagal disimpan',
-                        position: 'topRight'
-                    });
-                }
+                $('#tambahdata').modal('hide');
+                iziToast.success({
+                    title: 'Mantap!',
+                    message: 'Data berhasil disimpan',
+                    position: 'topRight'
+                });
+                setTimeout(function() {
+                    window.location.reload();
+                }, 2000);
+
+
                 //$('#bodyreset').load(location.href + ' #bodyreset');
             }
         });
