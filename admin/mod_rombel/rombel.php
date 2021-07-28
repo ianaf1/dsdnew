@@ -81,7 +81,7 @@
         <div class="col-12 col-sm-12 col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h5 class='m-0 font-weight-bold text-primary'><?= $kelas['nama_kelas'] ?></h5>
+                    <h5 class='m-0 font-weight-bold text-primary'>Kelas <?= $kelas['nama_kelas'] ?></h5>
                     <div class="card-header-action">
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahdata">
@@ -167,11 +167,6 @@
             </div>
         </div>
     </div>
-    <!-- <script>
-        var cleaveI = new Cleave('.uang', {
-            numeral: true
-        });
-    </script> -->
 <?php } ?>
 <script>
     $('#form-tambah').submit(function(e) {
@@ -180,19 +175,30 @@
             type: 'POST',
             url: 'mod_rombel/crud_rombel.php?pg=tambah',
             data: $(this).serialize(),
-            success: function(data) {
-
-                $('#tambahdata').modal('hide');
-                iziToast.success({
-                    title: 'Mantap!',
-                    message: 'Data berhasil disimpan',
-                    position: 'topRight'
+            beforeSend: function() {
+                $('form button').on("click", function(e) {
+                    e.preventDefault();
                 });
-                setTimeout(function() {
-                    window.location.reload();
-                }, 2000);
+            },
+            success: function(data) {
+                if (data == 'OK') {
+                    $('#tambahdata').modal('hide');
+                    iziToast.success({
+                        title: 'Mantap!',
+                        message: 'Data berhasil disimpan',
+                        position: 'topRight'
+                    });
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 2000);
 
-
+                } else {
+                    iziToast.error({
+                        title: 'Maaf!',
+                        message: 'data gagal disimpan',
+                        position: 'topRight'
+                    });
+                }
                 //$('#bodyreset').load(location.href + ' #bodyreset');
             }
         });

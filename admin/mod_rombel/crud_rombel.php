@@ -24,7 +24,6 @@ if ($pg == 'tambah') {
         'id_daftar'         => $_POST['id_daftar']
     ];
     $exec = insert($koneksi, 'rombel', $data);
-    // $exec = insert($koneksi, 'transaksi', $data2);
     echo $exec;
 }
 if ($pg == 'hapus') {
