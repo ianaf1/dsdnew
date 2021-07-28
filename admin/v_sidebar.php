@@ -27,24 +27,24 @@
         </div>
 
         <!-- Nav Item - Pages Master Menu -->
-        <?php if ($user['level'] == 'admin') { ?>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMaster" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fire fa-fw"></i>
-                    <span>Master Data</span>
-                </a>
-                <div id="collapseMaster" class="collapse" aria-labelledby="headingMaster" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Data Siswa</h6>
-                        <a class="collapse-item" href="?pg=jenjang">Master Jenjang</a>
-                        <a class="collapse-item" href="?pg=mastermasuk">Master Pemasukan</a>
-                        <a class="collapse-item" href="?pg=masterkeluar">Master Pengeluaran</a>
-                        <a class="collapse-item" href="?pg=biaya">Master Biaya</a>
-                        <a class="collapse-item" href="?pg=kelas">Master Kelas</a>
-                    </div>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMaster" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fire fa-fw"></i>
+                <span>Master Data</span>
+            </a>
+            <div id="collapseMaster" class="collapse" aria-labelledby="headingMaster" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Data Siswa</h6>
+                    <a class="collapse-item" href="?pg=jenjang">Master Jenjang</a>
+                    <a class="collapse-item" href="?pg=mastermasuk">Master Pemasukan</a>
+                    <a class="collapse-item" href="?pg=masterkeluar">Master Pengeluaran</a>
+                    <a class="collapse-item" href="?pg=biaya">Master Biaya</a>
+                    <a class="collapse-item" href="?pg=kelas">Master Kelas</a>
                 </div>
-            </li>
-        <?php } ?>
+            </div>
+        </li>
+
 
         <li class="nav-item">
             <a class="nav-link" href="?pg=guru">
@@ -104,25 +104,26 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider">
+        <?php if ($user['level'] == 'admin') { ?>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Pengaturan
+            </div>
 
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Pengaturan
-        </div>
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="?pg=user">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Managemen User</span></a>
+            </li>
 
-        <!-- Nav Item - Charts -->
-        <li class="nav-item">
-            <a class="nav-link" href="?pg=user">
-                <i class="fas fa-user-friends"></i>
-                <span>Managemen User</span></a>
-        </li>
-
-        <!-- Nav Item - Tables -->
-        <li class="nav-item">
-            <a class="nav-link" href="?pg=setting">
-                <i class="fas fa-toolbox"></i>
-                <span>Managemen Aplikasi</span></a>
-        </li>
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="?pg=setting">
+                    <i class="fas fa-toolbox"></i>
+                    <span>Managemen Aplikasi</span></a>
+            </li>
+        <?php } ?>
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
