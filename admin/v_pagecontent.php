@@ -136,10 +136,10 @@
                         <i class="fas fa-circle text-primary"></i> Kelas 10
                     </span>
                     <span class="mr-2">
-                        <i class="fas fa-circle text-success"></i> Kelas 12
+                        <i class="fas fa-circle text-success"></i> Kelas 11
                     </span>
                     <span class="mr-2">
-                        <i class="fas fa-circle text-info"></i> Kelas 11
+                        <i class="fas fa-circle text-info"></i> Kelas 12
                     </span>
                 </div>
             </div>

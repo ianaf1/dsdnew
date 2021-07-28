@@ -162,8 +162,8 @@ if (isset($_SESSION['id_user'])) {
     <script src="../assets/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="../assets/js/demo/chart-area-demo.js"></script>
-    <script src="../assets/js/demo/chart-pie-demo.js"></script>
+    <!-- <script src="../assets/js/demo/chart-area-demo.js"></script>
+    <script src="../assets/js/demo/chart-pie-demo.js"></script> -->
     <!-- Page level plugins -->
     <script src="../assets/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="../assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
@@ -223,9 +223,9 @@ if (isset($_SESSION['id_user'])) {
         labels: ["Kelas 10", "Kelas 11", "Kelas 12"],
         datasets: [{
           data: [
-            <?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where kelas = '10'")) ?>,
-            <?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where kelas = '11'")) ?>,
-            <?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where kelas = '12'")) ?>
+            <?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where kelas = '10' && status='1'")) ?>,
+            <?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where kelas = '11' && status='1'")) ?>,
+            <?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where kelas = '12' && status='1'")) ?>
           ],
           backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
           hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
