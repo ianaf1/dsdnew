@@ -2,7 +2,7 @@
 
 <div class="section-header">
     <form style="width: 80%">
-        <input type="hidden" name="pg" value="kelas">
+        <input type="hidden" name="pg" value="rombel">
         <div class="form-row">
             <div class="col-md-6 col-xs-6">
                 <div class="form-group">
@@ -31,84 +31,6 @@
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h5 class='m-0 font-weight-bold text-primary'>Data Rombel</h5>
-                        <!-- <div class="card-header-action">
-                            <a class="btn btn-primary" href="mod_bayar/export_bayar.php" role="button"> Download Excel</a>
-                        </div> -->
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-sm" id="dataTable" style="font-size: 12px">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">
-                                            #
-                                        </th>
-                                        <th>Kode Transaksi</th>
-                                        <th>Nama Siswa</th>
-                                        <th>Jumlah Bayar</th>
-                                        <th>Tgl Bayar</th>
-                                        <th>Penerima</th>
-                                        <th>verifikasi</th>
-                                        <th>Bukti</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $query = mysqli_query($koneksi, "select * from bayar a join daftar b ON a.id_daftar=b.id_daftar where a.verifikasi='0' ");
-                                    $no = 0;
-                                    while ($bayar = mysqli_fetch_array($query)) {
-                                        $user = fetch($koneksi, 'user', ['id_user' => $bayar['id_user']]);
-                                        $no++;
-                                    ?>
-                                        <tr>
-                                            <td><?= $no; ?></td>
-                                            <td><?= $bayar['id_bayar'] ?></td>
-                                            <td><?= $bayar['nama'] ?></td>
-                                            <td><?= "Rp " . number_format($bayar['jumlah'], 0, ",", ".") ?></td>
-                                            <td><?= $bayar['tgl_bayar'] ?></td>
-                                            <td><?php if ($user) {
-                                                    echo $user['nama_user'];
-                                                } else {
-                                                    echo "Online";
-                                                } ?>
-                                            </td>
-
-                                            <td>
-                                                <?php if ($bayar['verifikasi'] == 1) { ?>
-                                                    <span class="badge badge-success">Sudah Dicek</span>
-                                                <?php } else { ?>
-                                                    <span class="badge badge-warning">Belum Dicek</span>
-                                                <?php } ?>
-                                            </td>
-                                            <td>
-                                                <?php if ($bayar['bukti'] <> null) { ?>
-                                                    <a target="_blank" href="../user/mod_bayar/<?= $bayar['bukti'] ?>" class="badge badge-primary"><i class="fas fa-eye"></i></a>
-                                                <?php }  ?>
-                                            </td>
-                                            <td>
-                                                <button data-id="<?= $bayar['id_bayar'] ?>" class="cek btn btn-success btn-sm"><i class="fas fa-check-circle    "></i></button>
-                                                <button data-id="<?= $bayar['id_bayar'] ?>" class="hapus btn btn-danger btn-sm"><i class="fas fa-trash-alt    "></i></button>
-                                            </td>
-                                        </tr>
-                                    <?php }
-                                    ?>
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h5 class='m-0 font-weight-bold text-primary'>Data Sudah Verifikasi</h5>
-                        <!-- <div class="card-header-action">
-                        <a class="btn btn-primary" href="mod_bayar/export_bayar.php" role="button"> Download Excel</a>
-                    </div> -->
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -118,47 +40,28 @@
                                         <th class="text-center">
                                             #
                                         </th>
-                                        <th>Kode Transaksi</th>
-                                        <th>Nama Siswa</th>
-                                        <th>Jumlah Bayar</th>
-                                        <th>Tgl Bayar</th>
-                                        <th>Penerima</th>
-                                        <th>verifikasi</th>
+                                        <th>Nama Rombel</th>
+                                        <th>Wali Kelas</th>
+                                        <th>Jenjang</th>
+                                        <th>Jumlah Siswa</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $query = mysqli_query($koneksi, "select * from bayar a join daftar b ON a.id_daftar=b.id_daftar where a.verifikasi='1'");
+                                    $query = mysqli_query($koneksi, "select * from rombel a join kelas b ON a.id_kelas=b.id_kelas where b.status='1'");
                                     $no = 0;
-                                    while ($bayar = mysqli_fetch_array($query)) {
-                                        $user = fetch($koneksi, 'user', ['id_user' => $bayar['id_user']]);
+                                    while ($rombel = mysqli_fetch_array($query)) {
                                         $no++;
                                     ?>
                                         <tr>
                                             <td><?= $no; ?></td>
-                                            <td><?= $bayar['id_bayar'] ?></td>
-                                            <td><?= $bayar['nama'] ?></td>
-                                            <td><?= "Rp " . number_format($bayar['jumlah'], 0, ",", ".") ?></td>
-                                            <td><?= $bayar['tgl_bayar'] ?></td>
-                                            <td><?php if ($user) {
-                                                    echo $user['nama_user'];
-                                                } else {
-                                                    echo "Online";
-                                                } ?>
-                                            </td>
-
+                                            <td><?= $rombel['nama_kelas'] ?></td>
+                                            <td>Wali Kelas</td>
+                                            <td><?= $rombel['id_jenjang'] ?></td>
+                                            <td></td>
                                             <td>
-                                                <?php if ($bayar['verifikasi'] == 1) { ?>
-                                                    <span class="badge badge-success">Sudah Dicek</span>
-                                                <?php } else { ?>
-                                                    <span class="badge badge-warning">Belum Dicek</span>
-                                                <?php } ?>
-                                            </td>
-                                            <td>
-                                                <button data-id="<?= $bayar['id_bayar'] ?>" class="batal btn btn-danger btn-sm"><i class="fas fa-times-circle    "></i></button>
-                                                <a target="_blank" href="mod_bayar/print_kwitansi.php?id=<?= enkripsi($bayar['id_bayar']) ?>" class="btn btn-primary btn-sm"><i class="fas fa-print    "></i></a>
-                                                <button data-id="<?= $bayar['id_bayar'] ?>" class="hapus btn btn-danger btn-sm"><i class="fas fa-trash-alt    "></i></button>
+                                                <button data-id="<?= $rombel['id_kelas'] ?>" class="hapus btn btn-danger btn-sm"><i class="fas fa-trash-alt    "></i></button>
                                             </td>
                                         </tr>
                                     <?php }
