@@ -6,6 +6,8 @@ if ($pg == '') {
     include "mod_guru/guru.php";
 } elseif ($pg == 'detail-guru') {
     include "mod_guru/detail_guru.php";
+} elseif ($pg == 'rombel') {
+    include "mod_rombel/rombel.php";
 } elseif ($pg == 'daftar') {
     include "mod_daftar/daftar.php";
 } elseif ($pg == 'kelas10') {

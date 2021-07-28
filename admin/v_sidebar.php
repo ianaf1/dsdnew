@@ -70,6 +70,12 @@
             </div>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link" href="?pg=rombel">
+                <i class="fas fa-user-friends"></i>
+                <span>Rombel</span></a>
+        </li>
+
         <!-- Nav Item - Pages Keuangan Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKeuangan" aria-expanded="true" aria-controls="collapseTwo">
