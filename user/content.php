@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or die("ip anda sudah tercatat oleh sistem kami") ?>
 <?php
 if ($pg == '') {
-    include "home.php";
+    include "pagecontent.php";
 } elseif ($pg == 'formulir') {
     include "mod_formulir/formulir.php";
 } elseif ($pg == 'detail') {
