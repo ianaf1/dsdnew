@@ -178,7 +178,7 @@
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: 'mod_rombel/crud_rombel.php?pg=tambah',
+            url: 'mod_rombel/crud_rombel.php?pg=tambahsiswa',
             data: $(this).serialize(),
             beforeSend: function() {
                 $('form button').on("click", function(e) {
