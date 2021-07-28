@@ -18,7 +18,7 @@ if ($pg == 'ubah') {
 }
 if ($pg == 'tambahsiswa') {
     $data = [
-        'id_kelas'      => $$_POST['id_kelas'],
+        'id_kelas'      => $_POST['id_kelas'],
         'id_daftar'     => $_POST['id_daftar'],
         'id_jenjang'     => $_POST['id_jenjang'],
         'nama_rombel'     => $_POST['nama_kelas']
