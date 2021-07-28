@@ -103,8 +103,8 @@
         </li>
 
         <!-- Divider -->
-        <hr class="sidebar-divider">
         <?php if ($user['level'] == 'admin') { ?>
+            <hr class="sidebar-divider">
             <!-- Heading -->
             <div class="sidebar-heading">
                 Pengaturan
@@ -123,10 +123,10 @@
                     <i class="fas fa-toolbox"></i>
                     <span>Managemen Aplikasi</span></a>
             </li>
-        <?php } ?>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+        <?php } ?>
 
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
