@@ -21,25 +21,18 @@ if ($pg == '') {
 } elseif ($pg == 'ditolak') {
     include "mod_daftar/daftar_ditolak.php";  //modul pendaftar ditolak / cadangan
 } elseif ($pg == 'sekolah') {
-    cek_login_admin();
     include "mod_sekolah/sekolah.php";
 } elseif ($pg == 'jenjang') {
-    cek_login_admin();
     include "mod_jenjang/jenjang.php";
 } elseif ($pg == 'kelas') {
-    cek_login_admin();
     include "mod_kelas/kelas.php";
 } elseif ($pg == 'jenis') {
-    cek_login_admin();
     include "mod_jenis/jenis.php";
 } elseif ($pg == 'biaya') {
-    cek_login_admin();
     include "mod_biaya/biaya.php";
 } elseif ($pg == 'mastermasuk') {
-    cek_login_admin();
     include "mod_keuangan/keu_masuk_master.php";
 } elseif ($pg == 'masterkeluar') {
-    cek_login_admin();
     include "mod_keuangan/keu_keluar_master.php";
 } elseif ($pg == 'transaksi') {
     include "mod_transaksi/transaksi.php";
@@ -48,18 +41,13 @@ if ($pg == '') {
 } elseif ($pg == 'pengumuman') {
     include "mod_pengumuman/pengumuman.php";
 } elseif ($pg == 'user') {
-    cek_login_admin();
     include "mod_user/user.php";
 } elseif ($pg == 'setting') {
-    cek_login_admin();
     include "mod_setting/setting.php";
 } elseif ($pg == 'kontak') {
-    cek_login_admin();
     include "mod_kontak/kontak.php";
 } elseif ($pg == 'infobayar') {
-    cek_login_admin();
     include "mod_web/pembayaran.php";
 } elseif ($pg == 'syarat') {
-    cek_login_admin();
     include "mod_web/syarat.php";
 }
