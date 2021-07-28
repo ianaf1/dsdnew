@@ -16,12 +16,12 @@ if ($pg == 'ubah') {
     $excec = update($koneksi, 'bayar', $data, ['id_bayar' => $id_bayar]);
     echo $exec;
 }
-if ($pg == 'tambahsiswa') {
+if ($pg == 'tambah') {
     $data = [
-        'id_kelas'      => $_POST['id_kelas'],
-        'id_daftar'     => $_POST['id_daftar'],
-        'id_jenjang'     => $_POST['id_jenjang'],
-        'nama_rombel'     => $_POST['nama_kelas']
+        'id_kelas'          => $_POST['id_kelas'],
+        'id_jenjang'        => $_POST['id_jenjang'],
+        'nama_rombel'       => $_POST['nama_kelas'],
+        'id_daftar'         => $_POST['id_daftar']
     ];
     $exec = insert($koneksi, 'rombel', $data);
     // $exec = insert($koneksi, 'transaksi', $data2);
@@ -31,18 +31,4 @@ if ($pg == 'hapus') {
     $id_bayar = $_POST['id_bayar'];
     delete($koneksi, 'bayar', ['id_bayar' => $id_bayar]);
     delete($koneksi, 'transaksi', ['kode_transaksi' => $id_bayar]);
-}
-if ($pg == 'verifikasi') {
-    $id_bayar = $_POST['id_bayar'];
-    $data = [
-        'verifikasi' => 1
-    ];
-    update($koneksi, 'bayar', $data, ['id_bayar' => $id_bayar]);
-}
-if ($pg == 'batalverifikasi') {
-    $id_bayar = $_POST['id_bayar'];
-    $data = [
-        'verifikasi' => 0
-    ];
-    update($koneksi, 'bayar', $data, ['id_bayar' => $id_bayar]);
 }

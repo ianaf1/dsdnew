@@ -102,9 +102,9 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form id="form-tambahsiswa">
+                                <form id="form-tambah">
                                     <div class="modal-body">
-                                        <input type="hidden" value="<?= $kelas['id_kelas'] ?>" name="id_kelas">
+                                        <input type="hidden" value="<?= $kelas['id_kelas'] ?>" name="id">
                                         <input type="hidden" value="<?= $kelas['id_jenjang'] ?>" name="id_jenjang">
                                         <input type="hidden" value="<?= $kelas['nama_kelas'] ?>" name="nama_kelas">
                                         <div class="form-group">
@@ -174,11 +174,11 @@
     </script> -->
 <?php } ?>
 <script>
-    $('#form-tambahsiswa').submit(function(e) {
+    $('#form-tambah').submit(function(e) {
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: 'mod_rombel/crud_rombel.php?pg=tambahsiswa',
+            url: 'mod_rombel/crud_rombel.php?pg=tambah',
             data: $(this).serialize(),
             success: function(data) {
 
