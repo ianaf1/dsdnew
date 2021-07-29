@@ -6,7 +6,7 @@ $id_kelas = dekripsi($_GET['id']);
 $kelas = fetch($koneksi, 'kelas', ['id_kelas' => $id_kelas]);
 // Skrip berikut ini adalah skrip yang bertugas untuk meng-export data tadi ke excell
 header("Content-type: application/vnd-ms-excel");
-header("Content-Disposition: attachment; filename=datasemua_pembayaran.xls");
+header("Content-Disposition: attachment; filename=Data Siswa Kelas $kelas[nama_kelas].xls");
 ?>
 
 <center>

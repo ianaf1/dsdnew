@@ -83,7 +83,7 @@
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h5 class='m-0 font-weight-bold text-primary'>Kelas <?= $kelas['nama_kelas'] ?></h5>
                     <div class="card-header-action">
-                        <a target="_blank" href="mod_rombel/export_kelas.php?id=<?= enkripsi($kelas['id_kelas']) ?>" class="btn btn-danger btn-sm"><i class="fa-solid fa-download"></i></i></a>
+                        <a target="_blank" href="mod_rombel/export_kelas.php?id=<?= enkripsi($kelas['id_kelas']) ?>" class="btn btn-danger btn-sm"><i class="fas fa-download"></i></i></a>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahdata">
                             <i class="fas fa-plus-circle    "></i> Tambah Siswa
