@@ -20,7 +20,7 @@ if ($pg == 'tambah') {
         'id_kelas'     => $_POST['id'],
         'id_daftar'     => $_POST['id_daftar'],
         'nama_rombel'   => $_POST['nama_kelas'],
-        'id_jenjang'     => $_POST['id_jenjang']
+        'id_jenjang'     => $_POST['id_jenjang'],
     ];
     $exec = insert($koneksi, 'rombel', $data);
     echo $exec;
