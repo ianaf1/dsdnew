@@ -102,9 +102,9 @@
                                 </div>
                                 <form id="form-tambahdata">
                                     <div class="modal-body">
-                                        <input type="text" value="<?= $kelas['id_kelas'] ?>" name="id">
-                                        <input type="text" value="<?= $kelas['id_jenjang'] ?>" name="id_jenjang">
-                                        <input type="text" value="<?= $kelas['nama_kelas'] ?>" name="nama_kelas">
+                                        <input type="hidden" value="<?= $kelas['id_kelas'] ?>" name="id">
+                                        <input type="hidden" value="<?= $kelas['id_jenjang'] ?>" name="id_jenjang">
+                                        <input type="hidden" value="<?= $kelas['nama_kelas'] ?>" name="nama_kelas">
                                         <div class="form-group">
                                             <label>Nama Siswa</label>
                                             <select class="form-control select2" style="width: 100%" name="id_daftar" required>
