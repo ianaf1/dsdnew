@@ -49,7 +49,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $query = mysqli_query($koneksi, "select DISTINCT nama_rombel from rombel");
+                                    $query = mysqli_query($koneksi, "select DISTINCT nama_rombel, id_jenjang from rombel");
                                     $no = 0;
                                     while ($rombel = mysqli_fetch_array($query)) {
                                         $no++;
@@ -141,7 +141,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $query = mysqli_query($koneksi, "select * from rombel a join daftar b  ON a.id_kelas=b.id_kelas join kelas c ON a.id_kelas=c.id_kelas where a.id_kelas='$kelas[id_kelas]'");
+                                $query = mysqli_query($koneksi, "select * from daftar a  join kelas b ON a.id_kelas = b.id_kelas where a.id_kelas='$kelas[id_kelas]'");
                                 $no = 0;
                                 while ($rombel = mysqli_fetch_array($query)) {
                                     $no++;
@@ -152,7 +152,7 @@
                                         <td><?= $rombel['nama'] ?></td>
                                         <td><?= $rombel['jenkel'] ?></td>
                                         <td>
-                                            <button data-id="<?= $rombel['id_rombel'] ?>" class="hapus btn btn-danger btn-sm"><i class="fas fa-trash    "></i></button>
+                                            <button data-id="<?= $rombel['id_daftar'] ?>" class="hapus btn btn-danger btn-sm"><i class="fas fa-trash    "></i></button>
                                         </td>
                                     </tr>
                                 <?php }
