@@ -8,7 +8,7 @@ if (!isset($_SESSION['id_user'])) {
 }
 if ($pg == 'tambah') {
     $data = [
-        'id_kelas'          => $_POST['id_kelas'],
+        'id_kelas'          => $_POST['id'],
         'id_jenjang'        => $_POST['id_jenjang'],
         'nama_rombel'       => $_POST['nama_kelas'],
         'id_daftar'         => $_POST['id_daftar']
