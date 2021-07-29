@@ -49,7 +49,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $query = mysqli_query($koneksi, "select * from rombel a join kelas b ON a.id_kelas=b.id_kelas where b.status='1'");
+                                    $query = mysqli_query($koneksi, "select distinct from rombel a join kelas b ON a.id_kelas=b.id_kelas where b.status='1'");
                                     $no = 0;
                                     while ($rombel = mysqli_fetch_array($query)) {
                                         $no++;
@@ -59,7 +59,7 @@
                                             <td><?= $rombel['nama_kelas'] ?></td>
                                             <td>Wali Kelas</td>
                                             <td><?= $rombel['id_jenjang'] ?></td>
-                                            <td></td>
+                                            <td><?= mysqli_num_rows($rombel['nama_kelas']) ?></td>
                                             <td>
                                                 <button data-id="<?= $rombel['id_kelas'] ?>" class="hapus btn btn-danger btn-sm"><i class="fas fa-trash-alt    "></i></button>
                                             </td>
@@ -141,7 +141,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $query = mysqli_query($koneksi, "select * from rombel a join daftar b ON a.id_kelas=b.id_kelas where a.id_kelas=b.id_kelas");
+                                $query = mysqli_query($koneksi, "select * from rombel a join daftar b ON a.id_kelas=b.id_kelas where a.id_kelas=b.id_kelas=$kelas[id_kelas]");
                                 $no = 0;
                                 while ($rombel = mysqli_fetch_array($query)) {
                                     $no++;
