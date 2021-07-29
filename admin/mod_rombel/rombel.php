@@ -91,7 +91,7 @@
                 </div>
                 <div class="card-body">
                     <!-- Modal -->
-                    <div class="modal fade" id="tambahdata" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <div class="modal fade" id="tambahdata" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -172,31 +172,16 @@
             type: 'POST',
             url: 'mod_rombel/crud_rombel.php?pg=tambah',
             data: $(this).serialize(),
-            beforeSend: function() {
-                $('form button').on("click", function(e) {
-                    e.preventDefault();
-                });
-            },
             success: function(data) {
-                if (data == 'OK') {
-                    $('#tambahdata').modal('hide');
-                    iziToast.success({
-                        title: 'Mantap!',
-                        message: 'Data berhasil disimpan',
-                        position: 'topRight'
-                    });
-                    setTimeout(function() {
-                        window.location.reload();
-                    }, 2000);
-
-                } else {
-                    iziToast.error({
-                        title: 'Maaf!',
-                        message: 'data gagal disimpan',
-                        position: 'topRight'
-                    });
-                }
-                //$('#bodyreset').load(location.href + ' #bodyreset');
+                iziToast.success({
+                    title: 'Mantap!',
+                    message: 'Data berhasil disimpan',
+                    position: 'topRight'
+                });
+                setTimeout(function() {
+                    window.location.reload();
+                }, 2000);
+                $('#tambahdata').modal('hide');
             }
         });
         return false;
