@@ -119,7 +119,7 @@
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="?pg=user">
-                    <i class="fas fa-gear"></i>
+                    <i class="fas fa-fw fa-user-friends"></i>
                     <span>Managemen User</span></a>
             </li>
 

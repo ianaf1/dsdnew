@@ -85,7 +85,7 @@
                     <div class="card-header-action">
                         <a target="_blank" href="mod_rombel/export_kelas.php?id=<?= enkripsi($kelas['id_kelas']) ?>" class="btn btn-danger btn-sm"><i class="fas fa-download"></i></i></a>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahdata">
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#tambahdata">
                             <i class="fas fa-plus-circle    "></i> Tambah Siswa
                         </button>
                     </div>
