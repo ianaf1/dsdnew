@@ -48,7 +48,7 @@
 
         <li class="nav-item">
             <a class="nav-link" href="?pg=guru">
-                <i class="fas fa-user-friends"></i>
+                <i class="fa-solid fa-address-card"></i>
                 <span>Data Guru</span></a>
         </li>
 
@@ -72,7 +72,7 @@
 
         <li class="nav-item">
             <a class="nav-link" href="?pg=rombel">
-                <i class="fas fa-user-friends"></i>
+                <i class="fa-solid fa-school"></i>
                 <span>Rombel</span></a>
         </li>
 
@@ -119,7 +119,7 @@
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="?pg=user">
-                    <i class="fas fa-user-friends"></i>
+                    <i class="fa-solid fa-gear"></i>
                     <span>Managemen User</span></a>
             </li>
 
