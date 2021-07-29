@@ -192,7 +192,7 @@
                 } else {
                     iziToast.error({
                         title: 'Maaf!',
-                        message: json,
+                        message: 'data gagal disimpan',
                         position: 'topRight'
                     });
                 }
