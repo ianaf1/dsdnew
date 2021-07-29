@@ -22,7 +22,12 @@ if ($pg == 'tambah') {
         'nama_rombel'   => $_POST['nama_kelas'],
         'id_jenjang'     => $_POST['id_jenjang'],
     ];
+    $data2 = [
+        'id_kelas'     => $_POST['id'],
+    ];
+    $id_daftar = $_POST['id_daftar'];
     $exec = insert($koneksi, 'rombel', $data);
+    $exec = update($koneksi, 'daftar', $data2, ['id_daftar' => $id_daftar]);
     echo $exec;
 }
 if ($pg == 'hapus') {
