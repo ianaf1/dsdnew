@@ -6,18 +6,26 @@ session_start();
 if (!isset($_SESSION['id_user'])) {
     die('Anda tidak diijinkan mengakses langsung');
 }
+if ($pg == 'ubah') {
+    $status = (isset($_POST['status'])) ? 1 : 0;
+    $data = [
+        'nama_jenjang' => $_POST['nama'],
+        'status' => $status
+    ];
+    $id_jenjang = $_POST['id_jenjang'];
+    update($koneksi, 'jenjang', $data, ['id_jenjang' => $id_jenjang]);
+}
 if ($pg == 'tambah') {
     $data = [
-        'id_kelas'          => $_POST['id'],
-        'id_jenjang'        => $_POST['id_jenjang'],
-        'nama_rombel'       => $_POST['nama_kelas'],
-        'id_daftar'         => $_POST['id_daftar']
+        'id_kelas'     => $_POST['id'],
+        'id_daftar'     => $_POST['id_daftar'],
+        'nama_rombel'   => $_POST['nama_kelas'],
+        'id_jenjang'     => $_POST['id_jenjang']
     ];
     $exec = insert($koneksi, 'rombel', $data);
     echo $exec;
 }
 if ($pg == 'hapus') {
-    $id_bayar = $_POST['id_bayar'];
-    delete($koneksi, 'bayar', ['id_bayar' => $id_bayar]);
-    delete($koneksi, 'transaksi', ['kode_transaksi' => $id_bayar]);
+    $id_jenjang = $_POST['id_jenjang'];
+    delete($koneksi, 'jenjang', ['id_jenjang' => $id_jenjang]);
 }
