@@ -61,7 +61,7 @@
                                             <td><?= $rombel['id_jenjang'] ?></td>
                                             <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from rombel where nama_rombel = '$rombel[nama_rombel]'")) ?></td>
                                             <td>
-                                                <!-- <button data-id="<?= $rombel['id_rombel'] ?>" class="hapus btn btn-danger btn-sm"><i class="fas fa-trash-alt    "></i></button> -->
+                                                <a data-toggle="tooltip" data-placement="top" title="" data-original-title="detail siswa" href="?pg=rombel&id=<?= enkripsi($rombel['id_kelas']) ?>" class="btn btn-sm btn-success"><i class="fas fa-eye    "></i></a>
                                             </td>
                                         </tr>
                                     <?php }
