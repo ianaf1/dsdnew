@@ -61,7 +61,7 @@
                                             <td><?= $rombel['id_jenjang'] ?></td>
                                             <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from rombel where nama_rombel = '$rombel[nama_rombel]'")) ?></td>
                                             <td>
-                                                <button data-id="<?= $rombel['id_rombel'] ?>" class="hapus btn btn-danger btn-sm"><i class="fas fa-trash-alt    "></i></button>
+                                                <!-- <button data-id="<?= $rombel['id_rombel'] ?>" class="hapus btn btn-danger btn-sm"><i class="fas fa-trash-alt    "></i></button> -->
                                             </td>
                                         </tr>
                                     <?php }
@@ -111,7 +111,7 @@
                                             <select class="form-control select2" style="width: 100%" name="id_daftar" required>
                                                 <option value="">Pilih Siswa</option>
                                                 <?php
-                                                $query = mysqli_query($koneksi, "select * from daftar where kelas = '$kelas[id_jenjang]' && status='1'");
+                                                $query = mysqli_query($koneksi, "select * from daftar where kelas = '$kelas[id_jenjang]' && status='1' && id_kelas=''");
                                                 while ($siswa = mysqli_fetch_array($query)) {
                                                 ?>
                                                     <option value="<?= $siswa['id_daftar'] ?>"><?= $siswa['nama'] ?></option>
