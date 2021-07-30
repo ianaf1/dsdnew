@@ -189,7 +189,7 @@ header("Content-Disposition: attachment; filename=Data Siswa Kelas $kelas[nama_k
                 <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000" align="center" valign=middle sdval="1" sdnum="1033;">
                     <font face="Times New Roman" size=3><?= $no; ?></font>
                 </td>
-                <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=middle>
+                <td class="str" style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign=middle>
                     <font face="Times New Roman" size=3><?= $daftar['nis'] ?></font>
                 </td>
                 <td style="border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" align="left" valign=middle>
