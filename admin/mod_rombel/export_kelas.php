@@ -57,6 +57,10 @@ header("Content-Disposition: attachment; filename=Data Siswa Kelas $kelas[nama_k
         comment {
             display: none;
         }
+
+        .str {
+            mso-number-format: \@;
+        }
     </style>
 
 </head>
