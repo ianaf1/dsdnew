@@ -19,7 +19,7 @@ if ($pg == 'ubah') {
 if ($pg == 'tambah') {
     $data = [
         'nama_kelas'          => $_POST['nama'],
-        'kode_kelas'          => $_POST['kode_kelas'],
+        'id_jenjang'          => $_POST['id_jenjang'],
         'status'              => 1
     ];
     $exec = insert($koneksi, 'kelas', $data);

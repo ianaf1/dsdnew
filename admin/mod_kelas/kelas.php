@@ -14,8 +14,8 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Kode kelas</label>
-                            <input type="text" name="kode_kelas" class="form-control" required="">
+                            <label>Jenjang</label>
+                            <input type="text" name="id_jenjang" class="form-control" required="">
                         </div>
                         <div class="form-group">
                             <label>Nama kelas</label>
@@ -61,14 +61,14 @@
                         </thead>
                         <tbody>
                             <?php
-                            $query = mysqli_query($koneksi, "select * from kelas");
+                            $query = mysqli_query($koneksi, "select * from kelas order by nama_kelas asc");
                             $no = 0;
                             while ($kelas = mysqli_fetch_array($query)) {
                                 $no++;
                             ?>
                                 <tr>
                                     <td><?= $no; ?></td>
-                                    <td><?= $kelas['id_kelas'] ?></td>
+                                    <td><?= $kelas['id_jenjang'] ?></td>
                                     <td><?= $kelas['nama_kelas'] ?></td>
                                     <td>
                                         <?php if ($kelas['status'] == 1) { ?>
