@@ -9,7 +9,7 @@
                     <select class="form-control select2" style="width: 100%" name="id" required>
                         <option value="">Cari Data Kelas</option>
                         <?php
-                        $query = mysqli_query($koneksi, "select * from kelas where status='1'");
+                        $query = mysqli_query($koneksi, "select * from kelas where status='1' order by nama_kelas asc");
                         while ($kelas = mysqli_fetch_array($query)) {
                         ?>
                             <option value="<?= enkripsi($kelas['id_kelas']) ?>"><?= $kelas['nama_kelas'] ?></option>
