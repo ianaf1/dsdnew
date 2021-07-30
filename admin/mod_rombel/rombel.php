@@ -153,7 +153,7 @@
                                         <td><?= $rombel['nama'] ?></td>
                                         <td><?= $rombel['jenkel'] ?></td>
                                         <td>
-                                            <button data-id="<?= $rombel['id_daftar'] ?>" class="hapus btn btn-danger btn-sm"><i class="fas fa-trash    "></i></button>
+                                            <button data-id="<?= $rombel['id_daftar'] ?>" class="edit btn btn-danger btn-sm"><i class="fas fa-trash    "></i></button>
                                         </td>
                                     </tr>
                                 <?php }
