@@ -179,7 +179,7 @@ ini_set('display_errors', 1);
                     </tfoot>
                     <tbody>
                         <?php
-                        $query = mysqli_query($koneksi, "select * from daftar where status='1'");
+                        $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas where a.status='1'");
                         $no = 0;
                         while ($daftar = mysqli_fetch_array($query)) {
                             $no++;
@@ -190,7 +190,7 @@ ini_set('display_errors', 1);
                                 <td><?= $daftar['nama'] ?></td>
                                 <td class="text-center"><?= $daftar['nis'] ?></td>
                                 <td> <?= $daftar['tempat_lahir'] . "," . $daftar['tgl_lahir'] ?></td>
-                                <td class="text-center"><?= $daftar['kelas'] ?></td>
+                                <td class="text-center"><?= $daftar['nama_kelas'] ?></td>
                                 <td class="text-center">
                                     <?php if ($daftar['status'] == 1) { ?>
                                         <span class="badge badge-success">Aktif</span>

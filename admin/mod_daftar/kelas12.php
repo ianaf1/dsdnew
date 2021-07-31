@@ -13,124 +13,6 @@ $nisbaru = $ket . $th . sprintf("%04s", $nourut);
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ?>
-<!-- Modal -->
-<div class="modal fade" id="tambahdata" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form id="form-tambah">
-                <div class="modal-header">
-                    <h5 class="modal-title">Tambah Data Siswa</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>NIS</label>
-                        <input type="text" name="nis" class="form-control nis" readonly value="<?php echo $nisbaru ?>" required="">
-                    </div>
-                    <div class="form-group">
-                        <label>Nama Siswa</label>
-                        <input type="text" name="nama" class="form-control" required="">
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="text" name="password" class="form-control" required="">
-                    </div>
-                    <div class="form-group">
-                        <label>Jenis Kelamin</label>
-                        <div>
-                            <select class='form-control' name='jenkel'>
-                                <option value=''>Pilih Jenis Kelamin</option>";
-                                <?php foreach ($jeniskelamin as $val) { ?>
-                                    <?php if ($daftar['jenkel'] == $val) { ?>
-                                        <option value='<?= $val ?>' selected><?= $val ?> </option>
-                                    <?php  } else { ?>
-                                        <option value='<?= $val ?>'><?= $val ?> </option>
-                                    <?php } ?>
-                                <?php } ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Kelas</label>
-                        <div>
-                            <select class='form-control' name='kelas'>
-                                <option value=''>Pilih Kelas</option>";
-                                <?php foreach ($kelas as $val) { ?>
-                                    <?php if ($daftar['kelas'] == $val) { ?>
-                                        <option value='<?= $val ?>' selected><?= $val ?> </option>
-                                    <?php  } else { ?>
-                                        <option value='<?= $val ?>'><?= $val ?> </option>
-                                    <?php } ?>
-                                <?php } ?>
-                            </select>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="hapusdata" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form id="form-konfirmasi">
-                <div class="modal-header">
-                    <h5 class="modal-title">Hapus Data Siswa</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    Terdapat <b><?= rowcount($koneksi, 'daftar') ?></b> Jumlah data Siswa Akan Di Hapus.
-
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Hapus Semua</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="importdata" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form id="form-import">
-                <div class="modal-header">
-                    <h5 class="modal-title">Import Data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="file">Import File Excel</label>
-                        <input type="file" class="form-control-file" name="file" id="file" placeholder="" aria-describedby="helpfile" required>
-                        <small id="helpfile" class="form-text text-muted">File harus .xlx</small>
-                    </div>
-                    <p><a href="template_excel/importsiswa.xls">Download Format</a></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 <div class="container-fluid">
 
@@ -142,14 +24,6 @@ ini_set('display_errors', 1);
             <h5 class="m-0 font-weight-bold text-primary">Siswa Kelas 12</h5>
             <div class="card-header-action">
                 <a class="btn btn-primary btn-sm" href="mod_daftar/export/export_excel12.php" role="button"><i class="fas fa-download"></i> Download Excel</a>
-                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#importdata">
-                    <i class="fas fa-file-excel"></i> Import Data</button>
-                <button type="button" class="btn btn-icon icon-left btn-primary btn-sm" data-toggle="modal" data-target="#tambahdata">
-                    <i class="far fa-edit"></i> Tambah Data
-                </button>
-                <button type="button" class="btn btn-icon icon-left btn-danger btn-sm" data-toggle="modal" data-target="#hapusdata">
-                    <i class="fa fa-trash"></i> Hapus Data
-                </button>
             </div>
         </div>
         <div class="card-body">
