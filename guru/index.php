@@ -12,6 +12,7 @@ if (isset($_SESSION['id_ptk'])) {
   <html lang="en">
 
   <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8017078778323364" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>Guru &mdash; Data Sekolah Digital</title>
@@ -40,7 +41,7 @@ if (isset($_SESSION['id_ptk'])) {
     <!-- Template CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/components.css">
-  
+
 
     <script src="../assets/modules/jquery.min.js"></script>
     <!-- JS Libraies -->
@@ -51,7 +52,7 @@ if (isset($_SESSION['id_ptk'])) {
 
 
 
-   
+
     <style>
       .modal-backdrop {
         position: inherit;
@@ -100,7 +101,7 @@ if (isset($_SESSION['id_ptk'])) {
               <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
             </ul>
             <a href="." class="navbar-brand sidfebar-gone-hide d-none d-sm-block"><?= $setting['nama_sekolah'] ?>
-                </a>
+            </a>
           </form>
           <ul class="navbar-nav navbar-right">
 
