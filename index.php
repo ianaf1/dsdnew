@@ -9,7 +9,7 @@ require "config/functions.crud.php";
 <html lang="en">
 
 <head>
-
+    <script data-ad-client="ca-pub-8017078778323364" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -52,9 +52,6 @@ require "config/functions.crud.php";
         }
         action();
     </script>
-
-    <script data-ad-client="ca-pub-8017078778323364" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
 </head>
 
 <body>
