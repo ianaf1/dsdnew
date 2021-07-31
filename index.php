@@ -56,7 +56,6 @@ require "config/functions.crud.php";
 </head>
 
 <body>
-
     <!-- ***** Preloader Start ***** -->
     <div id="js-preloader" class="js-preloader">
         <div class="preloader-inner">
@@ -285,6 +284,13 @@ require "config/functions.crud.php";
         if (jQuery().select2) {
             $(".select2").select2();
         }
+    </script>
+    <!-- ***** IKLAN ***** -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8017078778323364" crossorigin="anonymous"></script>
+    <!-- yastu -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8017078778323364" data-ad-slot="3404898820" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
 
 </body>
