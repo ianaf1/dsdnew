@@ -167,6 +167,7 @@ $saldoawal = $saldolama;
                 }
                 ?>
                 <div class="card-header-action">
+                    <a target="_blank" href="mod_transaksi/export/export_kas.php?id=<?= enkripsi($bulan['id_bulan']) ?>" class="btn btn-danger btn-sm"><i class="fas fa-download"></i>Download</a>
                     <button type="button" class="btn btn-sm btn-icon icon-left btn-primary" data-toggle="modal" data-target="#tambahdebit">
                         <i class="far fa-edit"></i> Pemasukan
                     </button>

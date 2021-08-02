@@ -26,7 +26,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Download</button>
+                    <!-- <button type="submit" class="btn btn-primary">Download</button> -->
+                    <a target="_blank" href="mod_transaksi/export/export_kas.php?id=<?= enkripsi($bulan['id_bulan']) ?>" class="btn btn-danger btn-sm"><i class="fas fa-download"></i></i></a>
                 </div>
             </form>
         </div>

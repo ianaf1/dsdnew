@@ -2,7 +2,7 @@
 require "../../config/database.php";
 require "../../config/function.php";
 require "../../config/functions.crud.php";
-$id_bulan = $_POST['id_bulan'];
+$id_bulan = dekripsi($_GET['id']);
 $bulan = fetch($koneksi, 'bulan', ['id_bulan' => $id_bulan]);
 $saldo = mysqli_query($koneksi, "select saldo * from transaksi  order by tgl_bayar asc");
 while ($datasaldo = mysqli_fetch_array($saldo)) {
