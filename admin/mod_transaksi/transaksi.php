@@ -244,6 +244,7 @@ $saldoawal = $saldolama;
                                 $bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['id'])]);
                                 $total = mysqli_query($koneksi, "select sum(debit) as totaldebit, sum(kredit) as totalkredit from transaksi a join bulan b ON a.id_bulan=b.id_bulan where a.id_bulan='$bulan[id_bulan]'");
                             } else {
+                                $bulan = date('m');
                                 $total = mysqli_query($koneksi, "select sum(debit) as totaldebit, sum(kredit) as totalkredit from transaksi");
                             }
                             while ($transaksi = mysqli_fetch_array($total)) {
