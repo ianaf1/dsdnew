@@ -30,7 +30,7 @@ header("Content-Disposition: attachment; filename=Buku Kas Bulan $bulan[nama_bul
     <meta name="author" content="user" />
     <meta name="created" content="2021-08-02T10:07:55" />
     <meta name="changedby" content="user" />
-    <meta name="changed" content="2021-08-02T11:35:24" />
+    <meta name="changed" content="2021-08-02T15:48:08" />
     <meta name="AppVersion" content="15.0300" />
     <meta name="DocSecurity" content="0" />
     <meta name="HyperlinksChanged" content="false" />
@@ -173,7 +173,28 @@ header("Content-Disposition: attachment; filename=Buku Kas Bulan $bulan[nama_bul
                     <font face="Tahoma"><?= "Rp " . number_format($saldo, 0, ",", ".") ?></font>
                 </td>
             </tr>
-        <?php } ?>
+        <?php }
+        ?>
+        <tr>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="20" align="center" valign=top bgcolor="#FFFFFF" sdnum="1033;3081;DD-MM-YY;@">
+                <font face="Tahoma"><br></font>
+            </td>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=top bgcolor="#FFFFFF">
+                <font face="Tahoma"><br></font>
+            </td>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign=top bgcolor="#FFFFFF">
+                <font face="Tahoma"><br></font>
+            </td>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top bgcolor="#FFFFFF" sdnum="1033;0;_(* #,##0_);_(* \(#,##0\);_(* &quot;-&quot;_);_(@_)">
+                <font face="Tahoma"><br></font>
+            </td>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top bgcolor="#FFFFFF" sdnum="1033;0;_(* #,##0_);_(* \(#,##0\);_(* &quot;-&quot;_);_(@_)">
+                <font face="Tahoma"><br></font>
+            </td>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=top bgcolor="#FFFFFF" sdnum="1033;0;_(* #,##0_);_(* \(#,##0\);_(* &quot;-&quot;_);_(@_)">
+                <font face="Tahoma"><br></font>
+            </td>
+        </tr>
         <?php
         $total = mysqli_query($koneksi, "select sum(debit) as totaldebit, sum(kredit) as totalkredit from transaksi a join bulan b ON a.id_bulan=b.id_bulan where a.id_bulan='$bulan[id_bulan]'");
         while ($transaksi = mysqli_fetch_array($total)) {
@@ -182,26 +203,26 @@ header("Content-Disposition: attachment; filename=Buku Kas Bulan $bulan[nama_bul
             $totalsaldo = $totaldebit - $totalkredit
         ?>
             <tr>
-                <td style="border-top: 1px solid #000000; border-bottom: 2px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 height="21" align="center" valign=middle><b>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 height="20" align="center" valign=middle><b>
                         <font face="Tahoma">Jumlah</font>
                     </b></td>
-                <td style="border-top: 1px solid #000000; border-bottom: 2px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign=middle>
                     <font face="Tahoma"><br></font>
                 </td>
-                <td style="border-top: 1px solid #000000; border-bottom: 2px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle sdnum="1033;0;_(* #,##0_);_(* \(#,##0\);_(* &quot;-&quot;_);_(@_)"><b>
-                        <font face="Tahoma"><br></font>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle sdnum="1033;0;_(* #,##0_);_(* \(#,##0\);_(* &quot;-&quot;_);_(@_)"><b>
+                        <font face="Tahoma"><?= "Rp " . number_format($totaldebit, 0, ",", ".") ?></font>
                     </b></td>
-                <td style="border-top: 1px solid #000000; border-bottom: 2px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle sdnum="1033;0;_(* #,##0_);_(* \(#,##0\);_(* &quot;-&quot;_);_(@_)"><b>
-                        <font face="Tahoma"><br></font>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle sdnum="1033;0;_(* #,##0_);_(* \(#,##0\);_(* &quot;-&quot;_);_(@_)"><b>
+                        <font face="Tahoma"><?= "Rp " . number_format($totalkredit, 0, ",", ".") ?></font>
                     </b></td>
-                <td style="border-top: 1px solid #000000; border-bottom: 2px double #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle sdnum="1033;0;_(* #,##0_);_(* \(#,##0\);_(* &quot;-&quot;_);_(@_)"><b>
-                        <font face="Tahoma"><br></font>
+                <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right" valign=middle sdnum="1033;0;_(* #,##0_);_(* \(#,##0\);_(* &quot;-&quot;_);_(@_)"><b>
+                        <font face="Tahoma"><?= "Rp " . number_format($totalsaldo, 0, ",", ".") ?></font>
                     </b></td>
             </tr>
-
-        <?php } ?>
+        <?php }
+        ?>
         <tr>
-            <td height="21" align="left" valign=middle>
+            <td height="20" align="left" valign=middle>
                 <font face="Tahoma"><br></font>
             </td>
             <td align="left" valign=middle>
@@ -233,11 +254,8 @@ header("Content-Disposition: attachment; filename=Buku Kas Bulan $bulan[nama_bul
             <td align="left" valign=bottom>
                 <font color="#000000"><br></font>
             </td>
-            <td align="left" valign=middle sdnum="1033;0;_(* #,##0_);_(* \(#,##0\);_(* &quot;-&quot;_);_(@_)">
-                <font face="Tahoma"> Pandeglang, 31 Januari 2021 </font>
-            </td>
-            <td align="left" valign=middle sdnum="1033;0;_(* #,##0_);_(* \(#,##0\);_(* &quot;-&quot;_);_(@_)">
-                <font face="Tahoma"><br></font>
+            <td colspan=2 align="left" valign=middle sdnum="1033;0;_(* #,##0_);_(* \(#,##0\);_(* &quot;-&quot;_);_(@_)">
+                <font face="Tahoma"> Pandeglang, <?= buat_tanggal(date('Y-m-d')) ?> </font>
             </td>
         </tr>
         <tr>
