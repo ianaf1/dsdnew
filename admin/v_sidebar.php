@@ -62,7 +62,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Data Siswa</h6>
                     <a class="collapse-item" href="?pg=daftar">Siswa Aktif</a>
-                    <!-- <a class="collapse-item" href="?pg=mutasi">Siswa Mutasi</a> -->
+                    <a class="collapse-item" href="?pg=mutasi">Siswa Mutasi</a>
                     <a class="collapse-item" href="?pg=kelas10">Kelas 10</a>
                     <a class="collapse-item" href="?pg=kelas11">Kelas 11</a>
                     <a class="collapse-item" href="?pg=kelas12">Kelas 12</a>
@@ -87,6 +87,7 @@
                     <h6 class="collapse-header">Data Keuangan</h6>
                     <a class="collapse-item" href="?pg=transaksi">Buku Kas</a>
                     <a class="collapse-item" href="?pg=bayar">Pembayaran</a>
+                    <a class="collapse-item" href="?pg=rekap">Rekap</a>
                 </div>
             </div>
         </li>

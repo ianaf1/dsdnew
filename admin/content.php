@@ -10,6 +10,8 @@ if ($pg == '') {
     include "mod_rombel/rombel.php";
 } elseif ($pg == 'daftar') {
     include "mod_daftar/daftar.php";
+} elseif ($pg == 'mutasi') {
+    include "mod_daftar/mutasi.php";
 } elseif ($pg == 'kelas10') {
     include "mod_daftar/kelas10.php";
 } elseif ($pg == 'kelas11') {
@@ -38,6 +40,8 @@ if ($pg == '') {
     include "mod_keuangan/keu_keluar_master.php";
 } elseif ($pg == 'transaksi') {
     include "mod_transaksi/transaksi.php";
+} elseif ($pg == 'rekap') {
+    include "mod_transaksi/rekap.php";
 } elseif ($pg == 'bayar') {
     include "mod_bayar/bayar.php";
 } elseif ($pg == 'pengumuman') {
