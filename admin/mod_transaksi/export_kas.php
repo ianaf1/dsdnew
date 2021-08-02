@@ -2,7 +2,7 @@
 require "../../config/database.php";
 require "../../config/function.php";
 require "../../config/functions.crud.php";
-if (isset($_GET['id']) == '') {
+if (dekripsi($_GET['id']) == '') {
     $id_bulan = date('m');
 } else {
     $id_bulan = dekripsi($_GET['id']);
