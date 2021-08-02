@@ -50,7 +50,7 @@ if ($pg == 'tambahkredit') {
         'kredit'            => str_replace(",", "", $_POST['kredit']),
         'tgl_bayar'         => $_POST['tgl'],
         'id_user'           => $_SESSION['id_user'],
-        'id_bulan'          => $bulan
+        'id_bulan'          => $_POST['id_bulan']
 
     ];
     $exec = insert($koneksi, 'transaksi', $data);

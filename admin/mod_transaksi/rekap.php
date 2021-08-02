@@ -49,20 +49,12 @@
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
-                            <tfooter>
-                                <tr>
-                                    <th class="text-center">NO</th>
-                                    <th class="text-center">Nama Laporan</th>
-                                    <th class="text-center">Action</th>
-                                </tr>
-                            </tfooter>
                             <tbody>
                                 <tr>
                                     <td class="text-center">1</td>
                                     <td class="text-center">Buku Kas Bulanan</td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-kas">
-                                        </button>
+                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-kas"><i class="fas fa-download"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
