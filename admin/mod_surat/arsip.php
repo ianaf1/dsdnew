@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group">
                             <label>Nama Siswa</label>
-                            <select class="form-control select2" style="width: 100%" name="id_daftar" required>
+                            <select class="form-control select2" style="width: 100%" name="id_daftar">
                                 <option value="">Pilih Siswa</option>
                                 <?php
                                 $query = mysqli_query($koneksi, "select * from daftar");
@@ -38,7 +38,7 @@
                         </div>
                         <div class="form-group">
                             <label>Nama Guru</label>
-                            <select class="form-control select2" style="width: 100%" name="id_ptk" required>
+                            <select class="form-control select2" style="width: 100%" name="id_ptk">
                                 <option value="">Pilih Guru</option>
                                 <?php
                                 $query = mysqli_query($koneksi, "select * from ptk");
