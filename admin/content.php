@@ -56,4 +56,8 @@ if ($pg == '') {
     include "mod_web/pembayaran.php";
 } elseif ($pg == 'syarat') {
     include "mod_web/syarat.php";
+} elseif ($pg == 'mastersurat') {
+    include "mod_surat/m_surat.php";
+} elseif ($pg == 'arsip') {
+    include "mod_surat/arsip.php";
 }
