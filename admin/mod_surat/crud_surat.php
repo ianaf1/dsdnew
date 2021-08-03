@@ -16,7 +16,7 @@ if ($pg == 'ubahmaster') {
 }
 if ($pg == 'tambahmaster') {
     $data = [
-        'id_master'     => $_POST['id_master'],
+
         'nama_surat'   => $_POST['nama_surat'],
         'tipe_surat'    => $_POST['tipe_surat'],
         'kode_surat'         => $_POST['kode_surat']

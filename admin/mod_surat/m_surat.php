@@ -14,7 +14,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Kode Surat</label>
-                            <input type="text" name="id_master" class="form-control" required="">
+                            <input type="text" name="kode_surat" class="form-control" required="">
                         </div>
                         <div class="form-group">
                             <label>Nama Surat</label>
@@ -23,8 +23,8 @@
                         <div class="form-group">
                             <label>Jenis Surat</label>
                             <div>
-                                <select class='form-control' name='sumber'>
-                                    <option value=''>Pilih Sumber</option>
+                                <select class='form-control' name='tipe_surat'>
+                                    <option value=''>Pilih Jenis</option>
                                     <option value='1'>Siswa</option>
                                     <option value='2'>Guru</option>
                                 </select>
