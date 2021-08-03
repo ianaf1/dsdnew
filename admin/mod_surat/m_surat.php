@@ -111,13 +111,12 @@
                                                                 <input type="text" name="nama_surat" value="<?= $s_master['nama_surat'] ?>" class="form-control" required="">
                                                             </div>
                                                             <div class="form-group">
-                                                                <label>Sumber</label>
+                                                                <label>Tipe Surat</label>
                                                                 <div>
-                                                                    <select class='form-control' name='sumber'>
-                                                                        <option value=''>Pilih Sumber</option>
-                                                                        <option value='siswa'>Siswa</option>
-                                                                        <option value='sekolah'>Sekolah</option>
-                                                                        <option value='bos'>BOS</option>
+                                                                    <select class='form-control' name='tipe'>
+                                                                        <option value=''>Pilih Tipe</option>
+                                                                        <option value='1'>Siswa</option>
+                                                                        <option value='2'>Guru</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -137,7 +136,7 @@
                                         e.preventDefault();
                                         $.ajax({
                                             type: 'POST',
-                                            url: 'mod_keuangan/crud_keuangan.php?pg=ubahmaster',
+                                            url: 'mod_surat/crud_surat.php?pg=ubahmaster',
                                             data: $(this).serialize(),
                                             success: function(data) {
 
@@ -170,7 +169,7 @@
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: 'mod_keuangan/crud_keuangan.php?pg=tambahmaster',
+            url: 'mod_surat/crud_surat.php?pg=tambahmaster',
             data: $(this).serialize(),
             success: function(data) {
 
@@ -201,7 +200,7 @@
         }).then((result) => {
             if (result) {
                 $.ajax({
-                    url: 'mod_keuangan/crud_keuangan.php?pg=hapusmaster',
+                    url: 'mod_surat/crud_surat.php?pg=hapusmaster',
                     method: "POST",
                     data: 'id_master=' + id,
                     success: function(data) {
