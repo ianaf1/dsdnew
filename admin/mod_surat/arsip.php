@@ -98,7 +98,7 @@
                                     <td><?= $arsip['nama_surat'] ?></td>
                                     <td class="text-center">
                                         <!-- Button trigger modal -->
-                                        <a target="_blank" href="mod_bayar/export/suratpindah.php?id=<?= enkripsi($arsip['id_surat']) ?>" class="btn btn-primary btn-sm"><i class="fas fa-print    "></i></a>
+                                        <a target="_blank" href="mod_surat/export/suratpindah/suratpindah.php?id=<?= enkripsi($arsip['id_surat']) ?>" class="btn btn-primary btn-sm"><i class="fas fa-print    "></i></a>
                                         <button data-id="<?= $arsip['id_surat'] ?>" class="hapus btn btn-sm btn-danger">Hapus</button>
                                     </td>
                                 </tr>
