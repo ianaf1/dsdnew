@@ -96,18 +96,18 @@ $siswa = fetch($koneksi, 'daftar', ['id_daftar' => $surat['id_daftar']]);
 </body>
 
 </html>
-<?php
+<!-- <?php
 
-$html = ob_get_clean();
-require_once '../../../../vendor/autoload.php';
+        // $html = ob_get_clean();
+        // require_once '../../../../vendor/autoload.php';
 
-use Dompdf\Dompdf;
+        // use Dompdf\Dompdf;
 
-$dompdf = new Dompdf();
-$dompdf->loadHtml($html);
-$dompdf->setPaper('F4', 'portrait');
-$dompdf->render();
-$dompdf->stream("surat_pindah.pdf", array("Attachment" => false));
+        // $dompdf = new Dompdf();
+        // $dompdf->loadHtml($html);
+        // $dompdf->setPaper('F4', 'portrait');
+        // $dompdf->render();
+        // $dompdf->stream("surat_pindah.pdf", array("Attachment" => false));
 
-exit(0);
-?>
+        // exit(0);
+        ?> -->
