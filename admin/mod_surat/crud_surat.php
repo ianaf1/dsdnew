@@ -29,25 +29,32 @@ if ($pg == 'hapusmaster') {
     delete($koneksi, 's_master', ['id_master' => $id_master]);
 }
 
-if ($pg == 'ubahkeluar') {
-    $status = (isset($_POST['status'])) ? 1 : 0;
+if ($pg == 'tambahsurat') {
+    $today = date("Ymd");
+    $bulan = date('m');
+    $tahun = date('y');
+    $q1    = mysqli_query($koneksi, "select * from s_master where id_master = '$_POST[id_master]' ");
+    $surat = mysqli_fetch_array($q1);
+    $query = "SELECT max(no_surat) AS last FROM s_arsip";
+    $hasil = mysqli_query($koneksi, $query);
+    $datah  = mysqli_fetch_array($hasil);
+    $lastNo = $datah['last'];
+    $nextNo = $lastNo + 1;
     $data = [
-        'nama_keluar' => $_POST['nama_keluar'],
-        'status' => $status
+        'id_master'     => $_POST['id_master'],
+        'tgl_surat'     => $today,
+        'nama_surat'    => $surat['nama_surat'],
+        'kode_surat'    => $surat['kode_surat'],
+        'no_surat'      => $nextNo,
+        'id_bulan'      => $bulan,
+        'id_tahun'      => $tahun,
+        'id_daftar'     => $_POST['id_daftar'],
+        'id_ptk'        => $_POST['id_ptk']
     ];
-    $id_keluar = $_POST['id_keluar'];
-    update($koneksi, 'keu_keluar', $data, ['id_keluar' => $id_keluar]);
-}
-if ($pg == 'tambahkeluar') {
-    $data = [
-        'id_keluar'     => $_POST['id_keluar'],
-        'nama_keluar'   => $_POST['nama_keluar'],
-        'status'         => 1
-    ];
-    $exec = insert($koneksi, 'keu_pengeluaran', $data);
+    $exec = insert($koneksi, 's_arsip', $data);
     echo $exec;
 }
-if ($pg == 'hapuskeluar') {
-    $id_keluar = $_POST['id_keluar'];
-    delete($koneksi, 'keu_pengeluaran', ['id_keluar' => $id_keluar]);
+if ($pg == 'hapussurat') {
+    $id_surat = $_POST['id_surat'];
+    delete($koneksi, 's_arsip', ['id_surat' => $id_surat]);
 }
