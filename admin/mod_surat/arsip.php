@@ -24,34 +24,34 @@
                                 <?php } ?>
                             </select>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Nama Siswa</label>
-                        <select class="form-control select2" style="width: 100%" name="id_daftar" required>
-                            <option value="">Pilih Siswa</option>
-                            <?php
-                            $query = mysqli_query($koneksi, "select * from daftar");
-                            while ($siswa = mysqli_fetch_array($query)) {
-                            ?>
-                                <option value="<?= $siswa['id_daftar'] ?>"><?= $siswa['nama'] ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Nama Guru</label>
-                        <select class="form-control select2" style="width: 100%" name="id_ptk" required>
-                            <option value="">Pilih Guru</option>
-                            <?php
-                            $query = mysqli_query($koneksi, "select * from ptk");
-                            while ($guru = mysqli_fetch_array($query)) {
-                            ?>
-                                <option value="<?= $guru['id_ptk'] ?>"><?= $guru['nama'] ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <div class="form-group">
+                            <label>Nama Siswa</label>
+                            <select class="form-control select2" style="width: 100%" name="id_daftar" required>
+                                <option value="">Pilih Siswa</option>
+                                <?php
+                                $query = mysqli_query($koneksi, "select * from daftar");
+                                while ($siswa = mysqli_fetch_array($query)) {
+                                ?>
+                                    <option value="<?= $siswa['id_daftar'] ?>"><?= $siswa['nama'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Nama Guru</label>
+                            <select class="form-control select2" style="width: 100%" name="id_ptk" required>
+                                <option value="">Pilih Guru</option>
+                                <?php
+                                $query = mysqli_query($koneksi, "select * from ptk");
+                                while ($guru = mysqli_fetch_array($query)) {
+                                ?>
+                                    <option value="<?= $guru['id_ptk'] ?>"><?= $guru['nama'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
                     </div>
                 </form>
             </div>
