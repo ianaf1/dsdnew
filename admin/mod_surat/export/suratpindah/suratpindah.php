@@ -7,18 +7,6 @@ $id_surat = dekripsi($_GET['id']);
 $surat = fetch($koneksi, 's_arsip', ['id_surat' => $id_surat]);
 $siswa = fetch($koneksi, 'daftar', ['id_daftar' => $surat['id_daftar']]);
 
-// $tempdir = "../../temp/"; //Nama folder tempat menyimpan file qrcode
-// if (!file_exists($tempdir)) //Buat folder bername temp
-//     mkdir($tempdir);
-
-// //isi qrcode jika di scan
-// $codeContents = $bayar['id_bayar'] . '-' . $siswa['nama'];
-
-// //simpan file kedalam temp
-// //nilai konfigurasi Frame di bawah 4 tidak direkomendasikan
-
-// QRcode::png($codeContents, $tempdir . $id_bayar . '.png', QR_ECLEVEL_L, 3, 6);
-
 ?>
 
 <!DOCTYPE html>
@@ -96,18 +84,3 @@ $siswa = fetch($koneksi, 'daftar', ['id_daftar' => $surat['id_daftar']]);
 </body>
 
 </html>
-<!-- <?php
-
-        // $html = ob_get_clean();
-        // require_once '../../../../vendor/autoload.php';
-
-        // use Dompdf\Dompdf;
-
-        // $dompdf = new Dompdf();
-        // $dompdf->loadHtml($html);
-        // $dompdf->setPaper('F4', 'portrait');
-        // $dompdf->render();
-        // $dompdf->stream("surat_pindah.pdf", array("Attachment" => false));
-
-        // exit(0);
-        ?> -->
