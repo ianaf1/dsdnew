@@ -27,7 +27,7 @@ ini_set('display_errors', 1);
                 <div class="modal-body">
                     <div class="form-group">
                         <label>NIS</label>
-                        <input type="text" name="nis" class="form-control nis" readonly value="<?php echo $nisbaru ?>" required="">
+                        <input type="text" name="nis" class="form-control nis" readonly value="<?= $nisbaru ?>" required="">
                     </div>
                     <div class="form-group">
                         <label>Nama Siswa</label>
@@ -194,10 +194,8 @@ ini_set('display_errors', 1);
                                 <td class="text-center">
                                     <?php if ($daftar['status'] == 1) { ?>
                                         <span class="badge badge-success">Aktif</span>
-                                    <?php } elseif ($daftar['status'] == 2) { ?>
-                                        <span class="badge badge-danger">Mutasi</span>
                                     <?php } else { ?>
-                                        <span class="badge badge-warning">Berhenti/DO</span>
+                                        <span class="badge badge-danger">Mutasi</span>
                                     <?php } ?>
                                 </td>
                                 <td class="text-center">

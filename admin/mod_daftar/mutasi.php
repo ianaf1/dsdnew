@@ -53,7 +53,7 @@ ini_set('display_errors', 1);
                     </tfoot>
                     <tbody>
                         <?php
-                        $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas where a.status='0' order by b.nama_kelas");
+                        $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas where a.status <>'1' order by b.nama_kelas");
                         $no = 0;
                         while ($daftar = mysqli_fetch_array($query)) {
                             $no++;
@@ -68,10 +68,8 @@ ini_set('display_errors', 1);
                                 <td class="text-center">
                                     <?php if ($daftar['status'] == 1) { ?>
                                         <span class="badge badge-success">Aktif</span>
-                                    <?php } elseif ($daftar['status'] == 0) { ?>
-                                        <span class="badge badge-danger">Mutasi</span>
                                     <?php } else { ?>
-                                        <span class="badge badge-warning">Berhenti/DO</span>
+                                        <span class="badge badge-danger">Mutasi</span>
                                     <?php } ?>
                                 </td>
                                 <td class="text-center">
