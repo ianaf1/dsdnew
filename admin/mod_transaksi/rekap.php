@@ -26,8 +26,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <!-- <button type="submit" class="btn btn-primary">Download</button> -->
-                    <a target="_blank" href="mod_transaksi/export/export_kas.php?id=<?= enkripsi($bulan['id_bulan']) ?>" class="btn btn-danger btn-sm"><i class="fas fa-download"></i></i></a>
+                    <button type="submit" class="btn btn-primary">Download</button>
                 </div>
             </form>
         </div>
@@ -46,16 +45,65 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">NO</th>
-                                    <th class="text-center">Nama Laporan</th>
+                                    <th class="text-center">Nama Rekap</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td class="text-center">1</td>
-                                    <td class="text-center">Buku Kas Bulanan</td>
+                                    <td class="text-center">Bos-Triwulan 1</td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-kas"><i class="fas fa-download"></i></button>
+                                        <a target='_blank' href='#' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">Wali Siswa-Triwulan 1</td>
+                                    <td class="text-center">
+                                        <a target='_blank' href='#' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">Bos-Triwulan 2</td>
+                                    <td class="text-center">
+                                        <a target='_blank' href='#' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">4</td>
+                                    <td class="text-center">Wali Siswa-Triwulan 2</td>
+                                    <td class="text-center">
+                                        <a target='_blank' href='#' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">5</td>
+                                    <td class="text-center">Bos-Triwulan 3</td>
+                                    <td class="text-center">
+                                        <a target='_blank' href='#' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">6</td>
+                                    <td class="text-center">Wali Siswa-Triwulan 3</td>
+                                    <td class="text-center">
+                                        <a target='_blank' href='#' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">7</td>
+                                    <td class="text-center">Bos-Triwulan 4</td>
+                                    <td class="text-center">
+                                        <a target='_blank' href='#' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">8</td>
+                                    <td class="text-center">Wali Siswa-Triwulan 4</td>
+                                    <td class="text-center">
+                                        <a target='_blank' href='#' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>
                                     </td>
                                 </tr>
                             </tbody>
