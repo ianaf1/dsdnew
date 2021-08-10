@@ -144,7 +144,7 @@ header("Content-Disposition: attachment; filename=Buku Kas Bulan $bulan[nama_bul
                 </b></td>
         </tr>
         <?php
-        $query = mysqli_query($koneksi, "select * from transaksi a join bulan b ON a.id_bulan=b.id_bulan where a.id_bulan='$bulan[id_bulan]' order by id_transaksi");
+        $query = mysqli_query($koneksi, "select * from transaksi a join bulan b ON a.id_bulan=b.id_bulan where a.id_bulan='$bulan[id_bulan]' order by a.tgl_bayar asc");
         $no = 0;
         $saldo = $saldoawal;
         while ($transaksi = mysqli_fetch_array($query)) {
