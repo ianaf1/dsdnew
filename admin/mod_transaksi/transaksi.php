@@ -204,7 +204,7 @@ $saldoawal = $saldolama;
                             <?php
                             if (isset($_GET['id']) <> '') {
                                 $bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['id'])]);
-                                $query = mysqli_query($koneksi, "select * from transaksi a join bulan b ON a.id_bulan=b.id_bulan where a.id_bulan='$bulan[id_bulan]' order by a.tgl_bayar asc");
+                                $query = mysqli_query($koneksi, "select * from transaksi a join bulan b ON a.id_bulan=b.id_bulan where a.id_bulan='$bulan[id_bulan]' order by a.id_transaksi asc");
                             } else {
                                 $bulan = date('m');
                                 $query = mysqli_query($koneksi, "select * from transaksi where id_bulan = $bulan order by id_transaksi");
