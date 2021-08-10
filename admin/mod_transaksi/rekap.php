@@ -52,56 +52,56 @@
                             <tbody>
                                 <tr>
                                     <td class="text-center">1</td>
-                                    <td class="text-center">Bos-Triwulan 1</td>
+                                    <td>Bos-Triwulan 1</td>
                                     <td class="text-center">
                                         <a target='_blank' href='#' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">2</td>
-                                    <td class="text-center">Wali Siswa-Triwulan 1</td>
+                                    <td>Wali Siswa-Triwulan 1</td>
                                     <td class="text-center">
                                         <a target='_blank' href='#' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">3</td>
-                                    <td class="text-center">Bos-Triwulan 2</td>
+                                    <td>Bos-Triwulan 2</td>
                                     <td class="text-center">
                                         <a target='_blank' href='#' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">4</td>
-                                    <td class="text-center">Wali Siswa-Triwulan 2</td>
+                                    <td>Wali Siswa-Triwulan 2</td>
                                     <td class="text-center">
                                         <a target='_blank' href='#' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">5</td>
-                                    <td class="text-center">Bos-Triwulan 3</td>
+                                    <td>Bos-Triwulan 3</td>
                                     <td class="text-center">
                                         <a target='_blank' href='#' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">6</td>
-                                    <td class="text-center">Wali Siswa-Triwulan 3</td>
+                                    <td>Wali Siswa-Triwulan 3</td>
                                     <td class="text-center">
                                         <a target='_blank' href='#' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">7</td>
-                                    <td class="text-center">Bos-Triwulan 4</td>
+                                    <td>Bos-Triwulan 4</td>
                                     <td class="text-center">
                                         <a target='_blank' href='#' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">8</td>
-                                    <td class="text-center">Wali Siswa-Triwulan 4</td>
+                                    <td>Wali Siswa-Triwulan 4</td>
                                     <td class="text-center">
                                         <a target='_blank' href='#' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>
                                     </td>
