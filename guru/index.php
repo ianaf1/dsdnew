@@ -71,24 +71,6 @@ if (isset($_SESSION['id_ptk'])) {
         height: 35px;
       }
     </style>
-    <!-- Smartsupp Live Chat script -->
-    <!-- <script type="text/javascript">
-      var _smartsupp = _smartsupp || {};
-      _smartsupp.key = '77ed94a8e63dac9adf98be37bff919ff119b315b';
-      window.smartsupp || (function(d) {
-        var s, c, o = smartsupp = function() {
-          o._.push(arguments)
-        };
-        o._ = [];
-        s = d.getElementsByTagName('script')[0];
-        c = d.createElement('script');
-        c.type = 'text/javascript';
-        c.charset = 'utf-8';
-        c.async = true;
-        c.src = 'https://www.smartsuppchat.com/loader.js?';
-        s.parentNode.insertBefore(c, s);
-      })(document);
-    </script> -->
   </head>
 
   <body>
@@ -167,14 +149,6 @@ if (isset($_SESSION['id_ptk'])) {
     <script src="../assets/modules/moment.min.js"></script>
     <script src="../assets/js/stisla.js"></script>
 
-    <!-- JS Libraies -->
-    <!-- <script src="../assets/modules/simple-weather/jquery.simpleWeather.min.js"></script>
-    <script src="../assets/modules/chart.min.js"></script>
-    <script src="../assets/modules/jqvmap/dist/jquery.vmap.min.js"></script>
-    <script src="../assets/modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../assets/modules/summernote/summernote-bs4.js"></script>
-    <script src="../assets/modules/chocolat/dist/js/jquery.chocolat.min.js"></script> -->
-
     <!-- JS DATATABLE -->
     <script src="../assets/modules/datatables/datatables.min.js"></script>
     <script src="../assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
@@ -193,40 +167,8 @@ if (isset($_SESSION['id_ptk'])) {
 
     <!-- Template JS File -->
     <script src="../assets/js/scripts.js"></script>
-    <script src="../assets/js/custom.js"></script>
-    <!-- <script type='text/javascript' data-cfasync='false'>
-      window.purechatApi = {
-        l: [],
-        t: [],
-        on: function() {
-          this.l.push(arguments);
-        }
-      };
-      (function() {
-        var done = false;
-        var script = document.createElement('script');
-        script.async = true;
-        script.type = 'text/javascript';
-        script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript';
-        document.getElementsByTagName('HEAD').item(0).appendChild(script);
-        script.onreadystatechange = script.onload = function(e) {
-          if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) {
-            var w = new PCWidget({
-              c: '3a902ebc-63db-4345-b136-90e1351bd3bd',
-              f: true
-            });
-            done = true;
-          }
-        };
-      })();
-    </script> -->
-    <!-- ***** IKLAN ***** -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8017078778323364" crossorigin="anonymous"></script>
-    <!-- yastu -->
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8017078778323364" data-ad-slot="3404898820" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <scri src="../assets/js/custom.js">
+      </script>
   </body>
 
   </html>

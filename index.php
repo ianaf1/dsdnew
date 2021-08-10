@@ -18,7 +18,7 @@ require "config/functions.crud.php";
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <title>DSD - MA AT TAQWA YASTU</title>
+    <title>MA AT TAQWA YASTU</title>
     <link rel="shortcut icon" href="../<?= $setting['logo'] ?>" />
 
     <!-- Bootstrap core CSS -->
@@ -41,8 +41,8 @@ require "config/functions.crud.php";
     <link rel="stylesheet" href="dist/assets/css/animated.css">
     <link rel="stylesheet" href="dist/assets/css/owl.css">
 
-    <script language='JavaScript'>
-        var txt = "DSD - MA AT TAQWA YASTU ";
+    <!-- <script language='JavaScript'>
+        var txt = "MA AT TAQWA YASTU ";
         var speed = 300;
         var refresh = null;
 
@@ -52,7 +52,7 @@ require "config/functions.crud.php";
             refresh = setTimeout("action()", speed);
         }
         action();
-    </script>
+    </script> -->
 </head>
 
 <body>
@@ -165,13 +165,6 @@ require "config/functions.crud.php";
             </div>
         </div>
     </div>
-    <!-- ***** IKLAN ***** -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8017078778323364" crossorigin="anonymous"></script>
-    <!-- yastu -->
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8017078778323364" data-ad-slot="3404898820" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
     <footer>
         <div class="container">
             <div class="row">
