@@ -68,7 +68,7 @@
                         </thead>
                         <tbody>
                             <?php
-                            $query = mysqli_query($koneksi, "select * from keu_pengeluaran order by id_keluar asc");
+                            $query = mysqli_query($koneksi, "select * from keu_pengeluaran");
                             $no = 0;
                             while ($keu_pengeluaran = mysqli_fetch_array($query)) {
                                 $no++;
