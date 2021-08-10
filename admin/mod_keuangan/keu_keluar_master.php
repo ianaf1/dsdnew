@@ -20,6 +20,16 @@
                             <label>Nama Pengeluaran</label>
                             <input type="text" name="nama_keluar" class="form-control" required="">
                         </div>
+                        <div class="form-group">
+                            <label>Sumber</label>
+                            <div>
+                                <select class='form-control' name='sumber'>
+                                    <option value=''>Pilih Sumber</option>
+                                    <option value='siswa'>Siswa</option>
+                                    <option value='bos'>BOS</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -52,7 +62,7 @@
                                 </th>
                                 <th class="text-center">Kode</th>
                                 <th class="text-center">Nama Pengeluaran</th>
-                                <th class="text-center">status</th>
+                                <th class="text-center">Sumber</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -69,10 +79,12 @@
                                     <td><?= $keu_pengeluaran['nama_keluar'] ?></td>
                                     <!-- <td><?= $keu_pengeluaran['jumlah'] ?></td> -->
                                     <td class="text-center">
-                                        <?php if ($keu_pengeluaran['status'] == 1) { ?>
-                                            <span class="badge badge-success">Aktif</span>
-                                        <?php } else { ?>
-                                            <span class="badge badge-danger">Non Aktif</span>
+                                        <?php if ($keu_pengeluaran['sumber'] == 'siswa') { ?>
+                                            <span class="badge badge-success">Siswa</span>
+                                        <?php } elseif ($keu_pengeluaran['sumber'] == 'bos') { ?>
+                                            <span class="badge badge-danger">BOS</span>
+                                        <?php } elseif ($keu_pengeluaran['sumber'] == 'sekolah') { ?>
+                                            <span class="badge badge-danger">Sekolah</span>
                                         <?php } ?>
                                     </td>
                                     <td class="text-center">
@@ -99,19 +111,16 @@
                                                                 <label>Nama Pengeluaran</label>
                                                                 <input type="text" name="nama_keluar" value="<?= $keu_pengeluaran['nama_keluar'] ?>" class="form-control" required="">
                                                             </div>
-                                                            <!-- <div class="form-group">
-                                                                <label>Jumlah Biaya Rp.</label>
-                                                                <input type="text" name="jumlah" value="<?= $keu_pengeluaran['jumlah'] ?>" class="form-control" required="">
-                                                            </div> -->
                                                             <div class="form-group">
-                                                                <div class="control-label">Status Pengeluaran</div>
-                                                                <label class="custom-switch mt-2">
-                                                                    <input type="checkbox" name="status" class="custom-switch-input" value='1' <?php if ($keu_pengeluaran['status'] == 1) {
-                                                                                                                                                    echo "checked";
-                                                                                                                                                } ?>>
-                                                                    <span class="custom-switch-indicator"></span>
-                                                                    <span class="custom-switch-description"> Pilih Status</span>
-                                                                </label>
+                                                                <label>Sumber</label>
+                                                                <div>
+                                                                    <select class='form-control' name='sumber'>
+                                                                        <option value=''>Pilih Sumber</option>
+                                                                        <option value='siswa'>Siswa</option>
+                                                                        <option value='sekolah'>Sekolah</option>
+                                                                        <option value='bos'>BOS</option>
+                                                                    </select>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">

@@ -34,7 +34,7 @@ if ($pg == 'ubahkeluar') {
     $status = (isset($_POST['status'])) ? 1 : 0;
     $data = [
         'nama_keluar' => $_POST['nama_keluar'],
-        'status' => $status
+        'sumber'    => $_POST['sumber']
     ];
     $id_keluar = $_POST['id_keluar'];
     update($koneksi, 'keu_keluar', $data, ['id_keluar' => $id_keluar]);
@@ -43,6 +43,7 @@ if ($pg == 'tambahkeluar') {
     $data = [
         'id_keluar'     => $_POST['id_keluar'],
         'nama_keluar'   => $_POST['nama_keluar'],
+        'sumber'    => $_POST['sumber'],
         'status'         => 1
     ];
     $exec = insert($koneksi, 'keu_pengeluaran', $data);
