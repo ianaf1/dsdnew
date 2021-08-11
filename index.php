@@ -21,6 +21,9 @@ require "config/functions.crud.php";
     <title>MA AT TAQWA YASTU</title>
     <link rel="shortcut icon" href="../<?= $setting['logo'] ?>" />
 
+    <!-- Custom styles for this template-->
+    <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
+
     <!-- Bootstrap core CSS -->
     <link href="dist/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
