@@ -323,7 +323,7 @@ if (isset($_SESSION['id_user'])) {
               padding: 10,
               // Include a dollar sign in the ticks
               callback: function(value, index, values) {
-                return '$' + number_format(value);
+                return 'Rp.' + number_format(value);
               }
             },
             gridLines: {
