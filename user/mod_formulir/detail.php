@@ -133,7 +133,7 @@
                                             <td align="left"><?= $siswa['kode_pos']  ?></td>
                                         </tr>
                                         <tr>
-                                            <td align="left"><b>Tinggal Bersama</b></td>
+                                            <td align="left"><b>Status Tempat Tinggal</b></td>
                                             <td align="left"><?= $siswa['tinggal']  ?></td>
                                         </tr>
                                         <tr>
@@ -281,26 +281,39 @@
                         <div class="activity-detail">
                             <h5>Data Diri Siswa</h5>
                             <?php
-                            // $datadiri = [
-                            //     $siswa['nisn'],
-                            //     $siswa['nik'],
-                            //     $siswa['tempat_lahir'],
-                            //     $siswa['tgl_lahir'],
-                            //     $siswa['asal_sekolah'],
-                            //     $siswa['anak_ke'],
-                            //     $siswa['no_hp'],
-                            //     $siswa['anak_ke'],
-                            //     $siswa['saudara'],
-                            //     $siswa['tinggi'],
-                            //     $siswa['berat'],
-                            //     $siswa['status_keluarga']
-                            // ];
                             if (
+                                $siswa['nis'] &&
+                                $siswa['password'] &&
                                 $siswa['nisn'] &&
                                 $siswa['nik'] &&
-                                $siswa['tempat_lahir'] <> ''
+                                $siswa['no_kk'] &&
+                                $siswa['nama'] &&
+                                $siswa['tempat_lahir'] &&
+                                $siswa['tgl_lahir'] &&
+                                $siswa['jenkel'] &&
+                                $siswa['no_hp'] &&
+                                $siswa['asal_sekolah'] &&
+                                $siswa['status_keluarga'] &&
+                                $siswa['anak_ke'] &&
+                                $siswa['saudara'] &&
+                                $siswa['tinggi'] &&
+                                $siswa['berat'] &&
+                                $siswa['cita'] &&
+                                $siswa['hobi'] &&
+                                $siswa['agama'] &&
+                                $siswa['no_kip'] &&
+                                $siswa['no_kks'] &&
+                                $siswa['no_pkh'] &&
+                                $siswa['tk'] &&
+                                $siswa['paud'] &&
+                                $siswa['hepatitis_b'] &&
+                                $siswa['bcg'] &&
+                                $siswa['dpt'] &&
+                                $siswa['polio'] &&
+                                $siswa['campak'] &&
+                                $siswa['covid'] <> ''
                             ) { ?>
-                                <p><span class="badge badge-success"><i class="fas fa-times-circle    "></i>
+                                <p><span class="badge badge-success"><i class="fas fa-check"></i>
                                         Lengkap</span></p>
                             <?php } else { ?>
                                 <p><span class="badge badge-danger"><i class="fas fa-times-circle    "></i>
@@ -317,8 +330,27 @@
                         </div>
                         <div class="activity-detail">
                             <h5>Data Alamat Siswa</h5>
-                            <p><span class="badge badge-danger"><i class="fas fa-times-circle    "></i>
-                                    Belum lengkap</span></p>
+                            <?php
+                            if (
+                                $siswa['alamat'] &&
+                                $siswa['rt'] &&
+                                $siswa['rw'] &&
+                                $siswa['desa'] &&
+                                $siswa['kecamatan'] &&
+                                $siswa['kota'] &&
+                                $siswa['provinsi'] &&
+                                $siswa['kode_pos'] &&
+                                $siswa['tinggal'] &&
+                                $siswa['jarak'] &&
+                                $siswa['waktu'] &&
+                                $siswa['transportasi'] <> ''
+                            ) { ?>
+                                <p><span class="badge badge-success"><i class="fas fa-check"></i>
+                                        Lengkap</span></p>
+                            <?php } else { ?>
+                                <p><span class="badge badge-danger"><i class="fas fa-times-circle    "></i>
+                                        Belum lengkap</span></p>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
