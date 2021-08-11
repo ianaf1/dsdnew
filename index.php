@@ -122,9 +122,6 @@ require "config/functions.crud.php";
                                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah Siswa</div>
                                                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?= rowcount($koneksi, 'daftar', ['status' => 1]) ?></div>
                                                     </div>
-                                                    <div class="col-auto">
-                                                        <i class="fas fa-user fa-2x text-gray-300"></i>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -137,9 +134,6 @@ require "config/functions.crud.php";
                                                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Laki Laki</div>
                                                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where jenkel = 'L' && status = '1'")) ?></div>
                                                     </div>
-                                                    <div class="col-auto">
-                                                        <i class="fas fas fa-user fa-2x text-gray-300"></i>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -151,9 +145,6 @@ require "config/functions.crud.php";
                                                     <div class="col mr-2">
                                                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Perempuan</div>
                                                         <div class="h5 mb-0 font-weight-bold text-gray-800"><?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where jenkel = 'P' && status = '1'")) ?></div>
-                                                    </div>
-                                                    <div class="col-auto">
-                                                        <i class="fas fas fa-user fa-2x text-gray-300"></i>
                                                     </div>
                                                 </div>
                                             </div>
