@@ -212,15 +212,28 @@ ini_set('display_errors', 1);
                                     <?php } ?>
                                 </td>
                                 <td class="text-center">
-                                    <a data-toggle="tooltip" data-placement="top" title="" data-original-title="detail siswa" href="?pg=detail&id=<?= enkripsi($daftar['id_daftar']) ?>" class="btn btn-sm btn-success"><i class="fas fa-eye    "></i></a>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Action :</div>
+                                            <a class="dropdown-item" href="?pg=detail&id=<?= enkripsi($daftar['id_daftar']) ?>">Detail Siswa</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#modal-edit<?= $no ?>">Edit Status</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#modal-editkelas<?= $no ?>">Edit Kelas</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a data-id="<?= $daftar['id_daftar'] ?>" class="hapus dropdown-item">Hapus Siswa</a>
+                                        </div>
+                                    </div>
+                                    <!-- <a data-toggle="tooltip" data-placement="top" title="" data-original-title="detail siswa" href="?pg=detail&id=<?= enkripsi($daftar['id_daftar']) ?>" class="btn btn-sm btn-success"><i class="fas fa-eye    "></i></a> -->
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-edit<?= $no ?>">
+                                    <!-- <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-edit<?= $no ?>">
                                         <i class="fas fa-edit    "></i>
                                     </button>
                                     <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#modal-editkelas<?= $no ?>">
                                         <i class="fas fa-edit    "></i>
                                     </button>
-                                    <button data-id="<?= $daftar['id_daftar'] ?>" class="hapus btn-sm btn btn-danger"><i class="fas fa-trash    "></i></button>
+                                    <button data-id="<?= $daftar['id_daftar'] ?>" class="hapus btn-sm btn btn-danger"><i class="fas fa-trash    "></i></button> -->
                                     <!-- Modal -->
                                     <div class="modal fade" id="modal-edit<?= $no ?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
