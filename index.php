@@ -277,17 +277,17 @@ require "config/functions.crud.php";
     <script src="dist/assets/js/custom.js"></script>
 
     <!-- General JS Scripts -->
-    <script src="assets/modules/jquery.min.js"></script>
+    <!-- <script src="assets/modules/jquery.min.js"></script>
     <script src="assets/modules/popper.js"></script>
     <script src="assets/modules/tooltip.js"></script>
     <script src="assets/modules/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
     <script src="assets/modules/moment.min.js"></script>
-    <script src="assets/js/stisla.js"></script>
+    <script src="assets/js/stisla.js"></script> -->
 
     <!-- JS Libraies -->
-    <script src="assets/modules/select2/dist/js/select2.full.min.js"></script>
-    <script src="assets/modules/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- <script src="assets/modules/select2/dist/js/select2.full.min.js"></script>
+    <script src="assets/modules/bootstrap-daterangepicker/daterangepicker.js"></script> -->
     <script src="assets/modules/izitoast/js/iziToast.min.js"></script>
 
     <script>
@@ -342,38 +342,6 @@ require "config/functions.crud.php";
             });
             return false;
         });
-        if (jQuery().daterangepicker) {
-            if ($(".datepicker").length) {
-                $('.datepicker').daterangepicker({
-                    locale: {
-                        format: 'YYYY-MM-DD'
-                    },
-                    singleDatePicker: true,
-                });
-            }
-            if ($(".datetimepicker").length) {
-                $('.datetimepicker').daterangepicker({
-                    locale: {
-                        format: 'YYYY-MM-DD hh:mm'
-                    },
-                    singleDatePicker: true,
-                    timePicker: true,
-                    timePicker24Hour: true,
-                });
-            }
-            if ($(".daterange").length) {
-                $('.daterange').daterangepicker({
-                    locale: {
-                        format: 'YYYY-MM-DD'
-                    },
-                    drops: 'down',
-                    opens: 'right'
-                });
-            }
-        }
-        if (jQuery().select2) {
-            $(".select2").select2();
-        }
     </script>
 
 </body>
