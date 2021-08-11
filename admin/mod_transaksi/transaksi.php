@@ -253,7 +253,7 @@ $saldoawal = $saldolama;
                                 $totalsaldo = $totaldebit - $totalkredit
                             ?>
                                 <tr>
-                                    <td class="text-center" colspan="6"><b>TOTAL</b></td>
+                                    <td class="text-center" colspan="5"><b>TOTAL</b></td>
                                     <td><b><?= "Rp. " . number_format($totaldebit, 0, ",", ".") ?></b></td>
                                     <td><b><?= "Rp. " . number_format($totalkredit, 0, ",", ".") ?></b></td>
                                     <td><b><?= "Rp. " . number_format($totalsaldo, 0, ",", ".") ?></b></td>
