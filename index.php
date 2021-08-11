@@ -112,7 +112,7 @@ require "config/functions.crud.php";
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="col-lg-6 align-self-center">
-                            <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                            <div class="left-content wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <h2>DATA SEKOLAH DIGITAL</h2>
