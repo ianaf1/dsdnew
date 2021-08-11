@@ -9,7 +9,7 @@
             </div>
             <div class="card-body">
                 <div class="author-box-left">
-                    <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle author-box-picture">
+                    <img alt="image" src="../assets/img/avatar/avatar1.png" class="rounded-circle author-box-picture">
                     <div class="clearfix"></div>
                     <br>
                     <div class="author-box-job">Status Data</div>
