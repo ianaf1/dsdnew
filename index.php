@@ -3,14 +3,10 @@ require "config/database.php";
 require "config/function.php";
 require "config/functions.crud.php";
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <script data-ad-client="ca-pub-8017078778323364" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8017078778323364" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -22,7 +18,7 @@ require "config/functions.crud.php";
     <link rel="shortcut icon" href="../<?= $setting['logo'] ?>" />
 
     <!-- Custom styles for this template-->
-    <!-- <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet"> -->
+    <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
     <link href="dist/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
