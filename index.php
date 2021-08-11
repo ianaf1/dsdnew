@@ -23,13 +23,6 @@ require "config/functions.crud.php";
     <!-- Bootstrap core CSS -->
     <link href="dist/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- General CSS Files -->
-    <!-- <link rel="stylesheet" href="assets/modules/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/modules/fontawesome/css/all.min.css"> -->
-
-    <!-- CSS Libraries -->
-    <!-- <link rel="stylesheet" href="assets/modules/select2/dist/css/select2.min.css">
-    <link rel="stylesheet" href="assets/modules/bootstrap-daterangepicker/daterangepicker.css"> -->
     <link rel="stylesheet" href="assets/modules/izitoast/css/iziToast.min.css">
     <!-- <link rel="stylesheet" href="assets/modules/animate/animate.css"> -->
 
@@ -39,19 +32,6 @@ require "config/functions.crud.php";
     <link rel="stylesheet" href="dist/assets/css/templatemo-seo-dream.css">
     <link rel="stylesheet" href="dist/assets/css/animated.css">
     <link rel="stylesheet" href="dist/assets/css/owl.css">
-
-    <!-- <script language='JavaScript'>
-        var txt = "MA AT TAQWA YASTU ";
-        var speed = 300;
-        var refresh = null;
-
-        function action() {
-            document.title = txt;
-            txt = txt.substring(1, txt.length) + txt.charAt(0);
-            refresh = setTimeout("action()", speed);
-        }
-        action();
-    </script> -->
 </head>
 
 <body>
@@ -275,19 +255,6 @@ require "config/functions.crud.php";
     <script src="dist/assets/js/animation.js"></script>
     <script src="dist/assets/js/imagesloaded.js"></script>
     <script src="dist/assets/js/custom.js"></script>
-
-    <!-- General JS Scripts -->
-    <!-- <script src="assets/modules/jquery.min.js"></script>
-    <script src="assets/modules/popper.js"></script>
-    <script src="assets/modules/tooltip.js"></script>
-    <script src="assets/modules/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
-    <script src="assets/modules/moment.min.js"></script>
-    <script src="assets/js/stisla.js"></script> -->
-
-    <!-- JS Libraies -->
-    <!-- <script src="assets/modules/select2/dist/js/select2.full.min.js"></script>
-    <script src="assets/modules/bootstrap-daterangepicker/daterangepicker.js"></script> -->
     <script src="assets/modules/izitoast/js/iziToast.min.js"></script>
 
     <script>
