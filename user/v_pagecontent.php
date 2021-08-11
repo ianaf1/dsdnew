@@ -5,12 +5,16 @@
 
 <!-- Content Row -->
 <div class="row">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            <span class="sr-only">Close</span>
-        </button>
-        Silahkan lengkapi data diri anda klik tombol ini untuk melengkapi <a class="btn btn-success" href="?pg=formulir" role="button">Lengkapi Data</a>
+    <div class="col-12 col-sm-8 col-lg-8">
+        <div class="card author-box card-primary">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                Silahkan lengkapi data diri anda klik tombol ini untuk melengkapi <a class="btn btn-success" href="?pg=formulir" role="button">Lengkapi Data</a>
+            </div>
+        </div>
     </div>
 </div>
 <?php include "mod_formulir/detail.php" ?>
