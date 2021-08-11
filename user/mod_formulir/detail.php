@@ -281,33 +281,24 @@
                         <div class="activity-detail">
                             <h5>Data Diri Siswa</h5>
                             <?php
-                            $datadiri = [
-                                $siswa['nisn'],
-                                $siswa['nik'],
-                                $siswa['tempat_lahir'],
-                                $siswa['tgl_lahir'],
-                                $siswa['asal_sekolah'],
-                                $siswa['anak_ke'],
-                                $siswa['no_hp'],
-                                $siswa['anak_ke'],
-                                $siswa['saudara'],
-                                $siswa['tinggi'],
-                                $siswa['berat'],
-                                $siswa['status_keluarga']
-                            ];
+                            // $datadiri = [
+                            //     $siswa['nisn'],
+                            //     $siswa['nik'],
+                            //     $siswa['tempat_lahir'],
+                            //     $siswa['tgl_lahir'],
+                            //     $siswa['asal_sekolah'],
+                            //     $siswa['anak_ke'],
+                            //     $siswa['no_hp'],
+                            //     $siswa['anak_ke'],
+                            //     $siswa['saudara'],
+                            //     $siswa['tinggi'],
+                            //     $siswa['berat'],
+                            //     $siswa['status_keluarga']
+                            // ];
                             if (
                                 $siswa['nisn'] &&
                                 $siswa['nik'] &&
-                                $siswa['tempat_lahir'] &&
-                                $siswa['tgl_lahir'] &&
-                                $siswa['asal_sekolah'] &&
-                                $siswa['anak_ke'] &&
-                                $siswa['no_hp'] &&
-                                $siswa['anak_ke'] &&
-                                $siswa['saudara'] &&
-                                $siswa['tinggi'] &&
-                                $siswa['berat'] &&
-                                $siswa['status_keluarga'] <> ''
+                                $siswa['tempat_lahir'] <> ''
                             ) { ?>
                                 <p><span class="badge badge-success"><i class="fas fa-times-circle    "></i>
                                         Lengkap</span></p>
