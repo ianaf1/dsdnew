@@ -166,13 +166,33 @@ $saldoawal = $saldolama;
                     echo "<h5 class='m-0 font-weight-bold text-primary'>Data Transaksi $namabulan</h5>";
                 }
                 ?>
-                <div class="card-header-action">
+                <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-header">Menu Siswa:</div>
+                        <?php
+                        if (isset($_GET['id']) == '') {
+                            $bulan = date('m');
+                            echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan'>Download</a>";
+                        } else {
+                            echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan[id_bulan]'>Download</a>";
+                        }
+                        ?>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#tambahdebit">Pemasukan</a>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#tambahkredit">Pengeluaran</a>
+                        <!-- <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" data-toggle="modal" data-target="#hapusdata">Hapus Data</a> -->
+                    </div>
+                </div>
+                <!-- <div class="card-header-action">
                     <?php
                     if (isset($_GET['id']) == '') {
                         $bulan = date('m');
-                        echo "<a target='_blank' href='mod_transaksi/export_kas.php?id=$bulan' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>";
+                        echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan'>Download</a>";
                     } else {
-                        echo "<a target='_blank' href='mod_transaksi/export_kas.php?id=$bulan[id_bulan]' class='btn btn-danger btn-sm'><i class='fas fa-download'></i> Download</a>";
+                        echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan[id_bulan]'>Download</a>";
                     }
                     ?>
                     <button type="button" class="btn btn-sm btn-icon icon-left btn-primary" data-toggle="modal" data-target="#tambahdebit">
@@ -181,7 +201,7 @@ $saldoawal = $saldolama;
                     <button type="button" class="btn btn-sm btn-icon icon-left btn-danger" data-toggle="modal" data-target="#tambahkredit">
                         <i class="far fa-edit"></i> Pengeluaran
                     </button>
-                </div>
+                </div> -->
             </div>
             <div class="card-body">
                 <div class="table-responsive">
