@@ -14,7 +14,7 @@
                     <br>
                     <div class="author-box-job">Status Data</div>
                     <?php if ($siswa['status'] == 1) { ?>
-                        <span class="badge badge-success">Lengkap</span>
+                        <span class="badge badge-success">Aktif</span>
                     <?php } else { ?>
                         <span class="badge badge-danger">Belum Lengkap</span>
                     <?php } ?>
