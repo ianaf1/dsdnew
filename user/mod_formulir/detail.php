@@ -84,16 +84,8 @@
                                             <td align="left"><?= $siswa['saudara']  ?></td>
                                         </tr>
                                         <tr>
-                                            <td align="left"><b>Saudara</b></td>
-                                            <td align="left"><?= $siswa['saudara']  ?></td>
-                                        </tr>
-                                        <tr>
                                             <td align="left"><b>Tinggi Badan (Cm)</b></td>
                                             <td align="left"><?= $siswa['tinggi']  ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td align="left"><b>Berat Badan (Kg)</b></td>
-                                            <td align="left"><?= $siswa['berat']  ?></td>
                                         </tr>
                                         <tr>
                                             <td align="left"><b>Berat Badan (Kg)</b></td>
@@ -288,8 +280,41 @@
                         </div>
                         <div class="activity-detail">
                             <h5>Data Diri Siswa</h5>
-                            <p><span class="badge badge-danger"><i class="fas fa-times-circle    "></i>
-                                    Belum lengkap</span></p>
+                            <?php
+                            $datadiri = [
+                                $siswa['nisn'],
+                                $siswa['nik'],
+                                $siswa['tempat_lahir'],
+                                $siswa['tgl_lahir'],
+                                $siswa['asal_sekolah'],
+                                $siswa['anak_ke'],
+                                $siswa['no_hp'],
+                                $siswa['anak_ke'],
+                                $siswa['saudara'],
+                                $siswa['tinggi'],
+                                $siswa['berat'],
+                                $siswa['status_keluarga']
+                            ];
+                            if (
+                                $siswa['nisn'] &&
+                                $siswa['nik'] &&
+                                $siswa['tempat_lahir'] &&
+                                $siswa['tgl_lahir'] &&
+                                $siswa['asal_sekolah'] &&
+                                $siswa['anak_ke'] &&
+                                $siswa['no_hp'] &&
+                                $siswa['anak_ke'] &&
+                                $siswa['saudara'] &&
+                                $siswa['tinggi'] &&
+                                $siswa['berat'] &&
+                                $siswa['status_keluarga'] <> ''
+                            ) { ?>
+                                <p><span class="badge badge-success"><i class="fas fa-times-circle    "></i>
+                                        Lengkap</span></p>
+                            <?php } else { ?>
+                                <p><span class="badge badge-danger"><i class="fas fa-times-circle    "></i>
+                                        Belum lengkap</span></p>
+                            <?php } ?>
                         </div>
                     </div>
 
