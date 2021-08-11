@@ -140,7 +140,20 @@ ini_set('display_errors', 1);
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <h5 class="m-0 font-weight-bold text-primary">Siswa Aktif</h5>
-            <div class="card-header-action">
+            <div class="dropdown no-arrow">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                    <div class="dropdown-header">Menu Siswa:</div>
+                    <a class="dropdown-item" href="mod_daftar/export/export_excel.php">Download</a>
+                    <a class="dropdown-item" data-toggle="modal" data-target="#importdata">Import</a>
+                    <a class="dropdown-item" data-toggle="modal" data-target="#tambahdata">Tambah Data</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" data-toggle="modal" data-target="#hapusdata">Hapus Data</a>
+                </div>
+            </div>
+            <!-- <div class="card-header-action">
                 <a class="btn btn-primary btn-sm" href="mod_daftar/export/export_excel.php" role="button"><i class="fas fa-download"></i> Download Excel</a>
                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#importdata">
                     <i class="fas fa-file-excel"></i> Import Data</button>
@@ -150,7 +163,7 @@ ini_set('display_errors', 1);
                 <button type="button" class="btn btn-icon icon-left btn-danger btn-sm" data-toggle="modal" data-target="#hapusdata">
                     <i class="fa fa-trash"></i> Hapus Data
                 </button>
-            </div>
+            </div> -->
         </div>
         <div class="card-body">
             <div class="table-responsive">
