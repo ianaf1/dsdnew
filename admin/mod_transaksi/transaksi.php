@@ -190,7 +190,7 @@ $saldoawal = $saldolama;
                             <tr>
                                 <th class="text-center">No</th>
                                 <th class="text-center">Tgl Transaksi</th>
-                                <th class="text-center">Bulan</th>
+                                <!-- <th class="text-center">Bulan</th> -->
                                 <!-- <th class="text-center">Kode</th> -->
                                 <th class="text-center">Keterangan</th>
                                 <th class="text-center">Ref</th>
@@ -224,7 +224,7 @@ $saldoawal = $saldolama;
                                 <tr>
                                     <td class="text-center"><?= $no; ?></td>
                                     <td class="text-center"><?= $transaksi['tgl_bayar'] ?></td>
-                                    <td class="text-center"><?= $transaksi['id_bulan'] ?></td>
+                                    <!-- <td class="text-center"><?= $transaksi['id_bulan'] ?></td> -->
                                     <!-- <td class="text-center"><?= $transaksi['kode_transaksi'] ?></td> -->
                                     <td><?= $transaksi['keterangan'] ?></td>
                                     <td class="text-center"><?= $transaksi['ref'] ?></td>
@@ -253,7 +253,7 @@ $saldoawal = $saldolama;
                                 $totalsaldo = $totaldebit - $totalkredit
                             ?>
                                 <tr>
-                                    <td class="text-center" colspan="5"><b>TOTAL</b></td>
+                                    <td class="text-center" colspan="4"><b>TOTAL</b></td>
                                     <td><b><?= "Rp. " . number_format($totaldebit, 0, ",", ".") ?></b></td>
                                     <td><b><?= "Rp. " . number_format($totalkredit, 0, ",", ".") ?></b></td>
                                     <td><b><?= "Rp. " . number_format($totalsaldo, 0, ",", ".") ?></b></td>
