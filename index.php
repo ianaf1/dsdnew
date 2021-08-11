@@ -83,7 +83,7 @@ require "config/functions.crud.php";
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                            <li class="scroll-to-section"><a href="#features">Features</a></li>
+                            <li class="scroll-to-section"><a href="#tutor">Tutorial</a></li>
                             <li class="scroll-to-section"><a href="#about">About Us</a></li>
                             <li class="scroll-to-section"><a href="#services">Services</a></li>
                             <li class="scroll-to-section"><a href="#portfolio">Portfolio</a></li>
@@ -165,6 +165,28 @@ require "config/functions.crud.php";
             </div>
         </div>
     </div>
+
+    <div id="tutor" class="about-us section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="left-image wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+                        <img src="assets/images/about-left-image.png" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 align-self-center wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                    <div class="section-heading">
+                        <h4>Tutorial Pengisian</h4>
+                    </div>
+                    <div class="row">
+                        <iframe width="420" height="345" src="https://www.youtube.com/watch?v=8ym4C67XyRE">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
             <div class="row">
