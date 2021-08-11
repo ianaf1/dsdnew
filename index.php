@@ -192,11 +192,11 @@ require "config/functions.crud.php";
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="left-image wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+                    <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
                         <img src="dist/assets/images/about-left-image.png" alt="">
                     </div>
                 </div>
-                <div class="col-lg-6 align-self-center wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
                     <div class="section-heading">
                         <h3>Tutorial Pengisian</h3>
                     </div>
