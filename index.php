@@ -171,12 +171,12 @@ require "config/functions.crud.php";
             <div class="row">
                 <div class="col-lg-6">
                     <div class="left-image wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
-                        <img src="assets/images/about-left-image.png" alt="">
+                        <img src="dist/assets/images/about-left-image.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 align-self-center wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
                     <div class="section-heading">
-                        <h4>Tutorial Pengisian</h4>
+                        <h3>Tutorial Pengisian</h3>
                     </div>
                     <div class="row">
                         <div id="player">
