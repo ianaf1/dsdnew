@@ -13,6 +13,7 @@
         </button>
         Silahkan lengkapi data diri anda klik tombol ini untuk melengkapi <a class="btn btn-success" href="?pg=formulir" role="button">Lengkapi Data</a>
     </div>
+    <?php include "mod_formulir/detail.php" ?>
     <div class="row">
         <div class="col-12">
             <div class="card">
