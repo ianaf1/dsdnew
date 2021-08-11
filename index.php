@@ -18,20 +18,20 @@ require "config/functions.crud.php";
     <link rel="shortcut icon" href="../<?= $setting['logo'] ?>" />
 
     <!-- Custom styles for this template-->
-    <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
     <link href="dist/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- General CSS Files -->
-    <link rel="stylesheet" href="assets/modules/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/modules/fontawesome/css/all.min.css">
+    <!-- <link rel="stylesheet" href="assets/modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/modules/fontawesome/css/all.min.css"> -->
 
     <!-- CSS Libraries -->
-    <link rel="stylesheet" href="assets/modules/select2/dist/css/select2.min.css">
-    <link rel="stylesheet" href="assets/modules/bootstrap-daterangepicker/daterangepicker.css">
+    <!-- <link rel="stylesheet" href="assets/modules/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="assets/modules/bootstrap-daterangepicker/daterangepicker.css"> -->
     <link rel="stylesheet" href="assets/modules/izitoast/css/iziToast.min.css">
-    <link rel="stylesheet" href="assets/modules/animate/animate.css">
+    <!-- <link rel="stylesheet" href="assets/modules/animate/animate.css"> -->
 
 
     <!-- Additional CSS Files -->
