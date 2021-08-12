@@ -170,7 +170,14 @@ ini_set('display_errors', 1);
                 </a>
                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                     <div class="dropdown-header">Menu Siswa:</div>
-                    <a class="dropdown-item" href="mod_daftar/export/export_excel.php">Download</a>
+                    <?php
+                    if (isset($_GET['id']) == '') {
+                        echo "<a class='dropdown-item' href='mod_daftar/export/export_excel.php?id='>Download</a>";
+                    } else {
+                        $kelas = $_GET['id'];
+                        echo "<a class='dropdown-item' href='mod_daftar/export/export_excel.php?id=$kelas'>Download</a>";
+                    }
+                    ?>
                     <a class="dropdown-item" data-toggle="modal" data-target="#importdata">Import</a>
                     <a class="dropdown-item" data-toggle="modal" data-target="#tambahdata">Tambah Data</a>
                     <div class="dropdown-divider"></div>
