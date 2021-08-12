@@ -35,6 +35,23 @@ require "config/functions.crud.php";
 </head>
 
 <body>
+    <!-- Pop UP -->
+    <div id="popup" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h2 class="modal-title text-center">PENTING !!</h2>
+                </div>
+                <div class="modal-body">
+                    <h4 class="text-center">Liat video tutorial dibawah sebelum mengisi data siswa, jika masih ada kendala silahkan menghubungi Pak Ian</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- ***** Preloader Start ***** -->
     <div id="js-preloader" class="js-preloader">
         <div class="preloader-inner">
@@ -310,7 +327,9 @@ require "config/functions.crud.php";
             return false;
         });
     </script>
-
+    <script>
+        $('#popup').modal('show');
+    </script>
 </body>
 
 </html>
