@@ -136,9 +136,13 @@
                                     <div class="col-sm-12 col-md-7">
                                         <select class='form-control' name='status_keluarga'>
                                             <option value=''>Pilih</option>
-                                            <option value='kandung'>Anak Kandung</option>
-                                            <option value='angkat'>Anak Angkat</option>
-                                            <option value='tiri'>Anak Tiri</option>
+                                            <?php foreach ($status_keluarga as $val => $key) { ?>
+                                                <?php if ($siswa['status_keluarga'] == $val) { ?>
+                                                    <option value='<?= $val ?>' selected><?= $key ?> </option>
+                                                <?php  } else { ?>
+                                                    <option value='<?= $val ?>'><?= $key ?> </option>
+                                                <?php } ?>
+                                            <?php } ?>
                                         </select>
                                     </div>
                                 </div>

@@ -221,6 +221,11 @@ $agama = [
 	"Budha",
 	"Khong Hucu"
 ];
+$status_keluarga = [
+	"Anak Kandung",
+	"Anak Tiri",
+	"Anak Angkat"
+];
 $statuskawin = [
 	"Belum Kawin",
 	"Kawin",
