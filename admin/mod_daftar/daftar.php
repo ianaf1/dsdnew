@@ -135,6 +135,24 @@ ini_set('display_errors', 1);
 <div class="container-fluid">
     <!-- Page Heading -->
     <h1 class="h3 mb-2 font-weight-bold text-gray-800">DATA SISWA</h1>
+    <form style="width: 80%">
+        <input type="hidden" name="pg" value="daftar">
+        <div class="form-row">
+            <div class="col-xs-5">
+                <div class="form-group">
+                    <select class="form-control select2" style="width: 100%" name="id" required>
+                        <option value="">Pilih Bulan</option>
+                        <option value="10">Kelas 10</option>
+                        <option value="11">Kelas 11</option>
+                        <option value="12">Kelas 12</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-5">
+                &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-9"><i class="fas fa-search"></i> Cari</button>
+            </div>
+        </div>
+    </form>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -146,24 +164,6 @@ ini_set('display_errors', 1);
                 echo "<h5 class='m-0 font-weight-bold text-primary'>Siswa Kelas $kelas</h5>";
             }
             ?>
-            <form style="width: 80%">
-                <input type="hidden" name="pg" value="daftar">
-                <div class="form-row">
-                    <div class="col-xs-5">
-                        <div class="form-group">
-                            <select class="form-control select2" style="width: 100%" name="id" required>
-                                <option value="">Pilih Bulan</option>
-                                <option value="10">Kelas 10</option>
-                                <option value="11">Kelas 10</option>
-                                <option value="12">Kelas 10</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-xs-5">
-                        &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-9"><i class="fas fa-search"></i> Cari</button>
-                    </div>
-                </div>
-            </form>
             <div class="dropdown no-arrow">
                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
