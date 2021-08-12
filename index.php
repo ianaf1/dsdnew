@@ -273,6 +273,8 @@ require "config/functions.crud.php";
     <script src="dist/assets/js/imagesloaded.js"></script>
     <script src="dist/assets/js/custom.js"></script>
     <script src="assets/modules/izitoast/js/iziToast.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
     <script>
         $('#form-login').submit(function(e) {
