@@ -15,7 +15,7 @@ $saldoawal = $saldolama;
     <form style="width: 80%">
         <input type="hidden" name="pg" value="transaksi">
         <div class="form-row">
-            <div class="col-md-5 col-xs-5">
+            <div class="col-xs-6">
                 <div class="form-group">
                     <select class="form-control select2" style="width: 100%" name="id" required>
                         <option value="">Pilih Bulan</option>
