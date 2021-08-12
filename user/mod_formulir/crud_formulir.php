@@ -119,6 +119,7 @@ if ($pg == 'simpanortu') {
         'pekerjaan_ibu'       => $_POST['pekerjaan_ibu'],
         'penghasilan_ibu'     => $_POST['penghasilan_ibu'],
         'no_hp_ibu'           => $_POST['nohpibu'],
+        'status_wali'            => $_POST['status_wali'],
         'nik_wali'            => $_POST['nikwali'],
         'nama_wali'           => mysqli_escape_string($koneksi, $_POST['namawali']),
         'tempat_wali'         => mysqli_escape_string($koneksi, $_POST['tempatwali']),

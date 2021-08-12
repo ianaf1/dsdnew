@@ -404,7 +404,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Tinggal Bersama</label>
+                                    <label class="col-sm-2 col-form-label">Status Tempat Tinggal</label>
                                     <div class="col-sm-12 col-md-7">
                                         <select class='form-control' name='tinggal'>
                                             <option value=''>Pilih Tinggal</option>";
@@ -727,33 +727,44 @@
                                 </div>
                                 <h5><i class="fas fa-user-check    "></i> Data Lengkap wali</h5>
                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Status Wali</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <select class='form-control' name='status_wali'>
+                                            <option value='<?= $siswa['status_wali'] ?>'><?= $siswa['status_wali'] ?></option>";
+                                            <option value='Sama Dengan Ayah'>Sama Dengan Ayah</option>";
+                                            <option value='Sama Dengan Ibu'>Sama Dengan Ibu</option>";
+                                            <option value='Lainnya'>Lainnya</option>";
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">NIK wali</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="number" name="nikwali" class="form-control" value="<?= $siswa['nik_wali'] ?>">
+                                        <input type="number" name="nikwali" class="form-control" value="<?= $siswa['nik_wali'] ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Nama wali</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="namawali" class="form-control" value="<?= $siswa['nama_wali'] ?>">
+                                        <input type="text" name="namawali" class="form-control" value="<?= $siswa['nama_wali'] ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Tempat Lahir</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="tempatwali" class="form-control" value="<?= $siswa['tempat_wali'] ?>">
+                                        <input type="text" name="tempatwali" class="form-control" value="<?= $siswa['tempat_wali'] ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="tglwali" class="datepicker form-control" value="<?= $siswa['tgl_lahir_wali'] ?>">
+                                        <input type="text" name="tglwali" class="datepicker form-control" value="<?= $siswa['tgl_lahir_wali'] ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Pendidikan</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <select class='form-control' name='pendidikan_wali'>
+                                        <select class='form-control' name='pendidikan_wali' readonly>
                                             <option value=''>Pilih Penghasilan</option>";
                                             <?php foreach ($pendidikan as $val) { ?>
                                                 <?php if ($siswa['pendidikan_wali'] == $val) { ?>
@@ -768,43 +779,43 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Alamat</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="alamat_wali" class="form-control" value="<?= $siswa['alamat_wali'] ?>" placeholder="Nama jalan / Kampung">
+                                        <input type="text" name="alamat_wali" class="form-control" value="<?= $siswa['alamat_wali'] ?>" placeholder="Nama jalan / Kampung" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Desa/Kelurahan</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="desa_wali" class="form-control" value="<?= $siswa['desa_wali'] ?>">
+                                        <input type="text" name="desa_wali" class="form-control" value="<?= $siswa['desa_wali'] ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Kecamatan</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="kec_wali" class="form-control" value="<?= $siswa['kec_wali'] ?>">
+                                        <input type="text" name="kec_wali" class="form-control" value="<?= $siswa['kec_wali'] ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Kabupaten / Kota</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="kab_wali" class="form-control" value="<?= $siswa['kab_wali'] ?>">
+                                        <input type="text" name="kab_wali" class="form-control" value="<?= $siswa['kab_wali'] ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Provinsi</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="prov_wali" class="form-control" value="<?= $siswa['prov_wali'] ?>">
+                                        <input type="text" name="prov_wali" class="form-control" value="<?= $siswa['prov_wali'] ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Kode Pos</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="number" name="kodepos_wali" class="form-control" value="<?= $siswa['kodepos_wali'] ?>">
+                                        <input type="number" name="kodepos_wali" class="form-control" value="<?= $siswa['kodepos_wali'] ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Pekerjaan</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <select class='form-control' name='pekerjaan_wali'>
+                                        <select class='form-control' name='pekerjaan_wali' readonly>
                                             <option value=''>Pilih Pekerjaan</option>";
                                             <?php foreach ($pekerjaan as $val) { ?>
                                                 <?php if ($siswa['pekerjaan_wali'] == $val) { ?>
@@ -819,7 +830,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Penghasilan</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <select class='form-control' name='penghasilan_wali'>
+                                        <select class='form-control' name='penghasilan_wali' readonly>
                                             <option value=''>Pilih Penghasilan</option>";
                                             <?php foreach ($penghasilan as $val) { ?>
                                                 <?php if ($siswa['penghasilan_wali'] == $val) { ?>
@@ -834,7 +845,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">No HP wali</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="number" name="nohpwali" class="form-control" value="<?= $siswa['no_hp_wali'] ?>">
+                                        <input type="number" name="nohpwali" class="form-control" value="<?= $siswa['no_hp_wali'] ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -851,119 +862,6 @@
             </div>
         </div>
     </div>
-    <!--<div class="col-12 col-sm-4 col-lg-4">
-        <div class="card author-box card-primary">
-            <div class="card-header">
-                <h4>STATUS PENGISIAN FORMULIR</h4>
-                <div class="card-header-action">
-
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="activities">
-                    <div class="activity">
-                        <div class="activity-icon bg-primary text-white shadow-primary">
-                            1
-                        </div>
-                        <div class="activity-detail">
-                            <h5>Data Diri Siswa</h5>
-                            <?php
-                            $cek = mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where
-                             id_daftar         = '$siswa[id_daftar]' and
-                             nisn               is  null and
-                             nik                is  null and
-                             no_kk              is  null and
-                             nama               is  null and
-                             tempat_lahir       is  null and
-                             tgl_lahir          is  null and
-                             jenkel             is  null and
-                             agama              is  null and
-                             no_hp              is  null and
-                             asal_sekolah       is  null and
-                             anak_ke            is  null and
-                             saudara            is  null and
-                             tinggi             is  null and
-                             berat              is  null and
-                             cita               is  null and
-                             hobi               is  null
-                            "));
-                            if ($cek <> 0) { ?>
-                                <p><span class="badge badge-danger"><i class="fas fa-times-circle"></i> Belum Lengkap</span></p>
-                            <?php } else { ?>
-                                <p><span class="badge badge-success"><i class="fas fa-check-circle"></i> Lengkap</span></p>
-                            <?php } ?>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="activities">
-                    <div class="activity">
-                        <div class="activity-icon bg-primary text-white shadow-primary">
-                            2
-                        </div>
-                        <div class="activity-detail">
-                            <h5>Data Alamat Siswa</h5>
-                            <?php
-                            $cek = mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where
-                             id_daftar         = '$siswa[id_daftar]' and
-                             alamat                 is  null and
-                             rt                     is  null and 
-                             rw                     is  null and
-                             desa                   is  null and
-                             kecamatan              is  null and
-                             kota                   is  null and
-                             provinsi               is  null and
-                             kode_pos               is  null and
-                             tinggal                is  null and
-                             jarak                  is  null and
-                             waktu                  is  null and
-                             transportasi           is  null
-                            "));
-                            if ($cek <> 0) { ?>
-                                <p><span class="badge badge-danger"><i class="fas fa-times-circle"></i> Belum Lengkap</span></p>
-                            <?php } else { ?>
-                                <p><span class="badge badge-success"><i class="fas fa-check-circle"></i> Lengkap</span></p>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </div>
-                <div class="activities">
-                    <div class="activity">
-                        <div class="activity-icon bg-primary text-white shadow-primary">
-                            3
-                        </div>
-                        <div class="activity-detail">
-                            <h5>Data Orang Tua</h5>
-                            <?php
-                            $cek = mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where
-                             id_daftar         = '$siswa[id_daftar]' and
-                             nik_ayah                 is  null and
-                             nama_ayah                     is  null and 
-                             tempat_ayah                    is  null and
-                             tgl_lahir_ayah                   is  null and
-                             pendidikan_ayah              is  null and
-                             pekerjaan_ayah                  is  null and
-                             penghasilan_ayah              is  null and
-                             nik_ibu                 is  null and
-                             nama_ibu                     is  null and 
-                             tempat_ibu                    is  null and
-                             tgl_lahir_ibu                   is  null and
-                             pendidikan_ibu              is  null and
-                             pekerjaan_ibu                 is  null and
-                             penghasilan_ibu              is  null 
-                             
-                            "));
-                            if ($cek <> 0) { ?>
-                                <p><span class="badge badge-danger"><i class="fas fa-times-circle"></i> Belum Lengkap</span></p>
-                            <?php } else { ?>
-                                <p><span class="badge badge-success"><i class="fas fa-check-circle"></i> Lengkap</span></p>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>-->
 </div>
 <script>
     // $('.form-control').keyup(function(event) {
@@ -1064,38 +962,204 @@
             });
             return false;
         });
-        // $("#form-datadiri").validate({
-        //     rules: {
-        //         "b[firstname]": {
-        //             : true
-        //         },
-        //         "b[email]": {
-        //             : true,
-        //             email: true
-        //         },
-        //         "book[contact]": {
-        //             : true
-        //         }
-        //     },
-        //     submitHandler: function(form) {
-        //         var formData = $(form).serialize();
-        //         alert(formData); // for demo
-        //         // comment out ajax for demo
-        //         /*
-        //         $.ajax({
-        //             url: "bs_client_function.php?action=new_b",
-        //             type: "post",
-        //             data: formData,
-        //             beforeSend: function () {
+    });
+</script>
+<!-- STATUS WALI -->
 
-        //             },
-        //             success: function (data) {
+<script>
+    $("input[name=status_wali]").change(function() {
+        var status_wali = $(this).val();
 
-        //             }
-        //         });
-        //         */
-        //     }
-        // });
+        if (status_wali == 'Lainnya') {
+            $("input[name=namawali]").removeAttr("readonly");
+        } else if (status_wali == 'Sama Dengan Ayah') {
+            $("input[name=namawali]").val($("input[name=namaayah]").val());
+        } else if (status_wali == 'Sama Dengan Ibu') {
+            $("input[name=namawali]").val($("input[name=namaibu]").val());
+        } else {
+            $("input[name=namawali]").attr("readonly", true);
+        }
+    });
 
+    $("input[name=status_wali]").change(function() {
+        var status_wali = $(this).val();
+
+        if (status_wali == 'Lainnya') {
+            $("input[name=nikwali]").removeAttr("readonly");
+        } else if (status_wali == 'Sama Dengan Ayah') {
+            $("input[name=nikwali]").val($("input[name=nikayah]").val());
+        } else if (status_wali == 'Sama Dengan Ibu') {
+            $("input[name=nikwali]").val($("input[name=nikibu]").val());
+        } else {
+            $("input[name=nikwali]").attr("readonly", true);
+        }
+    });
+
+    $("input[name=status_wali]").change(function() {
+        var status_wali = $(this).val();
+
+        if (status_wali == 'Lainnya') {
+            $("input[name=tempatwali]").removeAttr("readonly");
+        } else if (status_wali == 'Sama Dengan Ayah') {
+            $("input[name=tempatwali]").val($("input[name=tempatayah]").val());
+        } else if (status_wali == 'Sama Dengan Ibu') {
+            $("input[name=tempatwali]").val($("input[name=tempatibu]").val());
+        } else {
+            $("input[name=tempatwali]").attr("readonly", true);
+        }
+    });
+
+    $("input[name=status_wali]").change(function() {
+        var status_wali = $(this).val();
+
+        if (status_wali == 'Lainnya') {
+            $("input[name=tglwali]").removeAttr("readonly");
+        } else if (status_wali == 'Sama Dengan Ayah') {
+            $("input[name=tglwali]").val($("input[name=tglayah]").val());
+        } else if (status_wali == 'Sama Dengan Ibu') {
+            $("input[name=tglwali]").val($("input[name=tglibu]").val());
+        } else {
+            $("input[name=tglwali]").attr("readonly", true);
+        }
+    });
+
+    $("input[name=status_wali]").change(function() {
+        var status_wali = $(this).val();
+
+        if (status_wali == 'Lainnya') {
+            $("select[name=pendidikan_wali]").removeAttr("readonly");
+        } else if (status_wali == 'Sama Dengan Ayah') {
+            $("select[name=pendidikan_wali]").val($("select[name=pendidikan_ayah]").val());
+        } else if (status_wali == 'Sama Dengan Ibu') {
+            $("select[name=pendidikan_wali]").val($("select[name=pendidikan_ibu]").val());
+        } else {
+            $("select[name=pendidikan_wali]").attr("readonly", true);
+        }
+    });
+
+    $("input[name=status_wali]").change(function() {
+        var status_wali = $(this).val();
+
+        if (status_wali == 'Lainnya') {
+            $("select[name=pekerjaan_wali]").removeAttr("readonly");
+        } else if (status_wali == 'Sama Dengan Ayah') {
+            $("select[name=pekerjaan_wali]").val($("select[name=pekerjaan_ayah]").val());
+        } else if (status_wali == 'Sama Dengan Ibu') {
+            $("select[name=pekerjaan_wali]").val($("select[name=pekerjaan_ibu]").val());
+        } else {
+            $("select[name=pekerjaan_wali]").attr("readonly", true);
+        }
+    });
+
+    $("input[name=status_wali]").change(function() {
+        var status_wali = $(this).val();
+
+        if (status_wali == 'Lainnya') {
+            $("select[name=penghasilan_wali]").removeAttr("readonly");
+        } else if (status_wali == 'Sama Dengan Ayah') {
+            $("select[name=penghasilan_wali]").val($("select[name=penghasilan_ayah]").val());
+        } else if (status_wali == 'Sama Dengan Ibu') {
+            $("select[name=penghasilan_wali]").val($("select[name=penghasilan_ibu]").val());
+        } else {
+            $("select[name=penghasilan_wali]").attr("readonly", true);
+        }
+    });
+
+    $("input[name=status_wali]").change(function() {
+        var status_wali = $(this).val();
+
+        if (status_wali == 'Lainnya') {
+            $("input[name=nohpwali]").removeAttr("readonly");
+        } else if (status_wali == 'Sama Dengan Ayah') {
+            $("input[name=nohpwali]").val($("input[name=nohpayah]").val());
+        } else if (status_wali == 'Sama Dengan Ibu') {
+            $("input[name=nohpwali]").val($("input[name=nohpibu]").val());
+        } else {
+            $("input[name=nohpwali]").attr("readonly", true);
+        }
+    });
+
+    $("input[name=status_wali]").change(function() {
+        var status_wali = $(this).val();
+
+        if (status_wali == 'Lainnya') {
+            $("input[name=prov_wali]").removeAttr("readonly");
+        } else if (status_wali == 'Sama Dengan Ayah') {
+            $("input[name=prov_wali]").val($("input[name=prov_ayah]").val());
+        } else if (status_wali == 'Sama Dengan Ibu') {
+            $("input[name=prov_wali]").val($("input[name=prov_ibu]").val());
+        } else {
+            $("input[name=prov_wali]").attr("readonly", true);
+        }
+    });
+
+    $("input[name=status_wali]").change(function() {
+        var status_wali = $(this).val();
+
+        if (status_wali == 'Lainnya') {
+            $("input[name=kab_wali]").removeAttr("readonly");
+        } else if (status_wali == 'Sama Dengan Ayah') {
+            $("input[name=kab_wali]").val($("input[name=kab_ayah]").val());
+        } else if (status_wali == 'Sama Dengan Ibu') {
+            $("input[name=kab_wali]").val($("input[name=kab_ibu]").val());
+        } else {
+            $("input[name=kab_wali]").attr("readonly", true);
+        }
+    });
+
+    $("input[name=status_wali]").change(function() {
+        var status_wali = $(this).val();
+
+        if (status_wali == 'Lainnya') {
+            $("input[name=kec_wali]").removeAttr("readonly");
+        } else if (status_wali == 'Sama Dengan Ayah') {
+            $("input[name=kec_wali]").val($("input[name=kec_ayah]").val());
+        } else if (status_wali == 'Sama Dengan Ibu') {
+            $("input[name=kec_wali]").val($("input[name=kec_ibu]").val());
+        } else {
+            $("input[name=kec_wali]").attr("readonly", true);
+        }
+    });
+
+    $("input[name=status_wali]").change(function() {
+        var status_wali = $(this).val();
+
+        if (status_wali == 'Lainnya') {
+            $("input[name=desa_wali]").removeAttr("readonly");
+        } else if (status_wali == 'Sama Dengan Ayah') {
+            $("input[name=desa_wali]").val($("input[name=desa_ayah]").val());
+        } else if (status_wali == 'Sama Dengan Ibu') {
+            $("input[name=desa_wali]").val($("input[name=desa_ibu]").val());
+        } else {
+            $("input[name=desa_wali]").attr("readonly", true);
+        }
+    });
+
+    $("input[name=status_wali]").change(function() {
+        var status_wali = $(this).val();
+
+        if (status_wali == 'Lainnya') {
+            $("input[name=alamat_wali]").removeAttr("readonly");
+        } else if (status_wali == 'Sama Dengan Ayah') {
+            $("input[name=alamat_wali]").val($("input[name=alamat_ayah]").val());
+        } else if (status_wali == 'Sama Dengan Ibu') {
+            $("input[name=alamat_wali]").val($("input[name=alamat_ibu]").val());
+        } else {
+            $("input[name=alamat_wali]").attr("readonly", true);
+        }
+    });
+
+    $("input[name=status_wali]").change(function() {
+        var status_wali = $(this).val();
+
+        if (status_wali == 'Lainnya') {
+            $("input[name=kodepos_wali]").removeAttr("readonly");
+        } else if (status_wali == 'Sama Dengan Ayah') {
+            $("input[name=kodepos_wali]").val($("input[name=kodepos_ayah]").val());
+        } else if (status_wali == 'Sama Dengan Ibu') {
+            $("input[name=kodepos_wali]").val($("input[name=kodepos_ibu]").val());
+        } else {
+            $("input[name=kodepos_wali]").attr("readonly", true);
+        }
     });
 </script>

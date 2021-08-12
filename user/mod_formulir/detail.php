@@ -293,25 +293,25 @@
                                 $siswa['jenkel'] &&
                                 $siswa['no_hp'] &&
                                 $siswa['asal_sekolah'] &&
-                                $siswa['status_keluarga'] &&
+                                // $siswa['status_keluarga'] &&
                                 $siswa['anak_ke'] &&
                                 $siswa['saudara'] &&
                                 $siswa['tinggi'] &&
                                 $siswa['berat'] &&
-                                $siswa['cita'] &&
-                                $siswa['hobi'] &&
-                                $siswa['agama'] &&
-                                $siswa['no_kip'] &&
-                                $siswa['no_kks'] &&
-                                $siswa['no_pkh'] &&
-                                $siswa['tk'] &&
-                                $siswa['paud'] &&
-                                $siswa['hepatitis_b'] &&
-                                $siswa['bcg'] &&
-                                $siswa['dpt'] &&
-                                $siswa['polio'] &&
-                                $siswa['campak'] &&
-                                $siswa['covid'] <> ''
+                                // $siswa['cita'] &&
+                                // $siswa['hobi'] &&
+                                $siswa['agama'] <> ''
+                                // $siswa['no_kip'] &&
+                                // $siswa['no_kks'] &&
+                                // $siswa['no_pkh'] &&
+                                // $siswa['tk'] &&
+                                // $siswa['paud'] &&
+                                // $siswa['hepatitis_b'] &&
+                                // $siswa['bcg'] &&
+                                // $siswa['dpt'] &&
+                                // $siswa['polio'] &&
+                                // $siswa['campak'] &&
+                                // $siswa['covid'] 
                             ) { ?>
                                 <p><span class="badge badge-success"><i class="fas fa-check"></i>
                                         Lengkap</span></p>
@@ -361,8 +361,30 @@
                         </div>
                         <div class="activity-detail">
                             <h5>Data Orang Tua</h5>
-                            <p><span class="badge badge-danger"><i class="fas fa-times-circle    "></i>
-                                    Belum lengkap</span></p>
+                            <?php
+                            if (
+                                $siswa['status_wali'] &&
+                                $siswa['nik_wali'] &&
+                                $siswa['nama_wali'] &&
+                                $siswa['tempat_wali'] &&
+                                $siswa['tgl_lahir_wali'] &&
+                                $siswa['pendidikan_wali'] &&
+                                $siswa['alamat_wali'] &&
+                                $siswa['desa_wali'] &&
+                                $siswa['kec_wali'] &&
+                                $siswa['kab_wali'] &&
+                                $siswa['pekerjaan_wali'] &&
+                                $siswa['penghasilan_wali'] &&
+                                $siswa['prov_wali'] &&
+                                $siswa['no_hp_wali'] &&
+                                $siswa['kodepos_wali'] <> ''
+                            ) { ?>
+                                <p><span class="badge badge-success"><i class="fas fa-check"></i>
+                                        Lengkap</span></p>
+                            <?php } else { ?>
+                                <p><span class="badge badge-danger"><i class="fas fa-times-circle    "></i>
+                                        Belum lengkap</span></p>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
