@@ -290,7 +290,7 @@ require "config/functions.crud.php";
     <script src="dist/assets/js/custom.js"></script>
     <script src="assets/modules/izitoast/js/iziToast.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor/jquery/jquery.min.js"></script>
