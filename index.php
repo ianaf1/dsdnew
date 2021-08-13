@@ -33,6 +33,26 @@ require "config/functions.crud.php";
     <link rel="stylesheet" href="dist/assets/css/templatemo-seo-dream.css">
     <link rel="stylesheet" href="dist/assets/css/animated.css">
     <link rel="stylesheet" href="dist/assets/css/owl.css">
+
+    <style type="text/css">
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -176,7 +196,7 @@ require "config/functions.crud.php";
                                     <h7 class="m-0 font-weight-bold text-primary">Tutorial Pengisian</h7>
                                 </div>
                                 <div class="card-body">
-                                    <div id="player">
+                                    <div class="video-container" id="player">
                                         <iframe width="560" height="315" src="https://www.youtube.com/watch?v=8ym4C67XyRE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </div>
 
