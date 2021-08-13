@@ -714,7 +714,7 @@
                                 </div>
                                 <h5><i class="fas fa-user-check    "></i> Data Lengkap wali</h5>
                                 <div class="form-group col-md-12">
-                                    <div class="text-info"><strong>Status wali</strong></div>
+                                    <label class="col-sm-2 col-form-label">Status Wali</label>
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" id="status_wali" name="status_wali" class="custom-control-input" value="Sama Dengan Ayah" <?php if ($siswa['status_wali'] == 'Sama Dengan Ayah') echo 'checked' ?>>
                                         <label class="custom-control-label" for="status_wali">Sama Dengan Ayah</label>
