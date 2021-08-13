@@ -229,9 +229,12 @@ require "config/functions.crud.php";
                 </div>
                 <div class="col-lg-6">
                     <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                        <div class="section-heading">
+                            <h3>Tutorial Pengisian</h3>
+                        </div>
                         <div class="card shadow mb-4">
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h5 class="m-0 font-weight-bold text-primary">Hasil Pencarian</h5>
+                                <h5 class="m-0 font-weight-bold text-primary">Data Siswa</h5>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
