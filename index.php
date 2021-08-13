@@ -231,11 +231,11 @@ require "config/functions.crud.php";
                     <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h5 class="m-0 font-weight-bold text-primary">Siswa Aktif</h5>
+                                <h7 class="m-0 font-weight-bold text-primary">Siswa Aktif</h5>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table style="font-size: 14px" class="table table-bordered table-sm" id="dataTable">
+                                    <table class="table table-striped table-sm" id="dataTable">
                                         <thead>
                                             <tr>
                                                 <th class="text-center">Nama Siswa</th>
