@@ -35,23 +35,6 @@ require "config/functions.crud.php";
 </head>
 
 <body>
-    <!-- Pop UP -->
-    <div id="popup" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h2 class="modal-title text-center">PENTING !!</h2>
-                </div>
-                <div class="modal-body">
-                    <h4 class="text-center">Liat video tutorial dibawah sebelum mengisi data siswa, jika masih ada kendala silahkan menghubungi Pak Ian</h4>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- ***** Preloader Start ***** -->
     <div id="js-preloader" class="js-preloader">
         <div class="preloader-inner">
@@ -252,6 +235,72 @@ require "config/functions.crud.php";
         </div>
     </div>
 
+    <div id="contact" class="contact-us section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
+                    <form style="width: 80%">
+                        <div class="form-row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <select class="form-control select2" style="width: 100%" name="id" required>
+                                        <option value="">Cari Siswa</option>
+                                        <?php
+                                        $query = mysqli_query($koneksi, "select * from daftar where status=1 order by nama asc");
+                                        while ($siswa = mysqli_fetch_array($query)) {
+                                        ?>
+                                            <option value="<?= enkripsi($siswa['id_daftar']) ?>"><?= $siswa['nama'] ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-xs-5">
+                                &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-9"><i class="fas fa-search"></i> Cari</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h5 class="m-0 font-weight-bold text-primary">Hasil Pencarian</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table style="font-size: 12px" class="table table-bordered table-sm" id="dataTable">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">Nama</th>
+                                                    <th class="text-center">NIS</th>
+                                                    <th class="text-center">Kelas</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $siswa = fetch($koneksi, 'daftar', ['id_daftar' => dekripsi($_GET['id'])]);
+                                                $query = mysqli_query($koneksi, "SELECT * FROM daftar a JOIN rombel b ON a.id_daftar=b.id_daftar WHERE a.id_daftar='$siswa[id_siswa]'");
+                                                while ($daftar = mysqli_fetch_array($query)) {
+                                                ?>
+                                                    <tr>
+                                                        <td><?= $daftar['nama'] ?></td>
+                                                        <td class="text-center"><?= $daftar['nis'] ?></td>
+                                                        <td class="text-center"><?= $daftar['nama_kelas'] ?></td>
+                                                    </tr>
+                                                <?php }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
             <div class="row">
@@ -328,9 +377,6 @@ require "config/functions.crud.php";
             });
             return false;
         });
-    </script>
-    <script>
-        $('#popup').modal('show');
     </script>
 </body>
 
