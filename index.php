@@ -185,7 +185,7 @@ require "config/functions.crud.php";
         </div>
     </div>
 
-    <div id="tutor" class="about-us section">
+    <div id="tutor" class="contact-us section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-14">
@@ -196,7 +196,7 @@ require "config/functions.crud.php";
                                     <h7 class="m-0 font-weight-bold text-primary">Tutorial Pengisian</h7>
                                 </div>
                                 <div class="card-body">
-                                    <div id="player">
+                                    <div id="player" class="video-container">
                                         <iframe width="560" height="315" src="https://www.youtube.com/watch?v=8ym4C67XyRE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </div>
 
@@ -259,7 +259,7 @@ require "config/functions.crud.php";
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive">
-                                            <table style="font-size: 12px;" class="table table-striped table-xs-2" id="dataTable">
+                                            <table style="font-size: 12px;" class="table table-striped table-sm" id="dataTable">
                                                 <thead>
                                                     <tr>
                                                         <th class="text-center">Nama Siswa</th>
