@@ -188,15 +188,15 @@ require "config/functions.crud.php";
     <div id="tutor" class="about-us section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-14">
                     <div class="row">
-                        <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+                        <div class="col-lg-7 align-self-center wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h7 class="m-0 font-weight-bold text-primary">Tutorial Pengisian</h7>
                                 </div>
                                 <div class="card-body">
-                                    <div class="video-container" id="player">
+                                    <div id="player">
                                         <iframe width="560" height="315" src="https://www.youtube.com/watch?v=8ym4C67XyRE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </div>
 
@@ -251,7 +251,7 @@ require "config/functions.crud.php";
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 align-self-center">
+                        <div class="col-lg-7 align-self-center">
                             <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
