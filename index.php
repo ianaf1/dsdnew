@@ -185,7 +185,7 @@ require "config/functions.crud.php";
         </div>
     </div>
 
-    <div id="tutor" class="contact-us section">
+    <div id="tutor" class="about-us section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
