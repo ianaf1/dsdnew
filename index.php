@@ -229,70 +229,34 @@ require "config/functions.crud.php";
                 </div>
                 <div class="col-lg-6">
                     <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                        <img src="dist/assets/images/about-left-image.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="contact" class="contact-us section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
-                    <form style="width: 80%">
-                        <div class="form-row">
-                            <div class="col-xs-6">
-                                <div class="form-group">
-                                    <select class="form-control select2" style="width: 100%" name="id" required>
-                                        <option value="">Cari Siswa</option>
-                                        <?php
-                                        $query = mysqli_query($koneksi, "select * from daftar where status=1 order by nama asc");
-                                        while ($siswa = mysqli_fetch_array($query)) {
-                                        ?>
-                                            <option value="<?= enkripsi($siswa['id_daftar']) ?>"><?= $siswa['nama'] ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h5 class="m-0 font-weight-bold text-primary">Hasil Pencarian</h5>
                             </div>
-                            <div class="col-md-5 col-xs-5">
-                                &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-9"><i class="fas fa-search"></i> Cari</button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h5 class="m-0 font-weight-bold text-primary">Hasil Pencarian</h5>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table style="font-size: 12px" class="table table-bordered table-sm" id="dataTable">
-                                            <thead>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table style="font-size: 12px" class="table table-bordered table-sm" id="dataTable">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">Nama</th>
+                                                <th class="text-center">NIS</th>
+                                                <th class="text-center">Kelas</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $query = mysqli_query($koneksi, "SELECT * FROM daftar a JOIN rombel b ON a.id_daftar=b.id_daftar order by a.nama asc");
+                                            while ($daftar = mysqli_fetch_array($query)) {
+                                            ?>
                                                 <tr>
-                                                    <th class="text-center">Nama</th>
-                                                    <th class="text-center">NIS</th>
-                                                    <th class="text-center">Kelas</th>
+                                                    <td><?= $daftar['nama'] ?></td>
+                                                    <td class="text-center"><?= $daftar['nis'] ?></td>
+                                                    <td class="text-center"><?= $daftar['nama_kelas'] ?></td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                $siswa = fetch($koneksi, 'daftar', ['id_daftar' => dekripsi($_GET['id'])]);
-                                                $query = mysqli_query($koneksi, "SELECT * FROM daftar a JOIN rombel b ON a.id_daftar=b.id_daftar WHERE a.id_daftar='$siswa[id_siswa]'");
-                                                while ($daftar = mysqli_fetch_array($query)) {
-                                                ?>
-                                                    <tr>
-                                                        <td><?= $daftar['nama'] ?></td>
-                                                        <td class="text-center"><?= $daftar['nis'] ?></td>
-                                                        <td class="text-center"><?= $daftar['nama_kelas'] ?></td>
-                                                    </tr>
-                                                <?php }
-                                                ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                            <?php }
+                                            ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
