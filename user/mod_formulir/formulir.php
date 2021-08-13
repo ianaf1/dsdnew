@@ -51,19 +51,6 @@
                                     </div>
                                 </div>
 
-                                <!--<div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Jurusan</label>
-                                    <div class="col-sm-12 col-md-6">
-                                        <input type="text" name="jurusan" class="form-control" value="<?= $siswa['jurusan'] ?>" disabled>
-                                    </div>
-                                </div>-->
-                                <!--<div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Ukuran Baju</label>
-                                    <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="baju" class="form-control" value="<?= $siswa['baju'] ?>" placeholder="M/L/XL/XXL/XXXL" >
-                                    </div>
-                                </div>-->
-
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">NIK</label>
                                     <div class="col-sm-12 col-md-7">
@@ -726,15 +713,19 @@
                                     </div>
                                 </div>
                                 <h5><i class="fas fa-user-check    "></i> Data Lengkap wali</h5>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Status Wali</label>
-                                    <div class="col-sm-12 col-md-7">
-                                        <select class='form-control' name='status_wali'>
-                                            <option value='<?= $siswa['status_wali'] ?>'><?= $siswa['status_wali'] ?></option>";
-                                            <option value='Sama Dengan Ayah'>Sama Dengan Ayah</option>";
-                                            <option value='Sama Dengan Ibu'>Sama Dengan Ibu</option>";
-                                            <option value='Lainnya'>Lainnya</option>";
-                                        </select>
+                                <div class="form-group col-md-12">
+                                    <div class="text-info"><strong>Status wali</strong></div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="status_wali" name="status_wali" class="custom-control-input" value="Sama Dengan Ayah" <?php if ($siswa['status_wali'] == 'Sama Dengan Ayah') echo 'checked' ?>>
+                                        <label class="custom-control-label" for="status_wali">Sama Dengan Ayah</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="Sama Dengan Ibu_wali" name="status_wali" class="custom-control-input" value="Sama Dengan Ibu" <?php if ($siswa['status_wali'] == 'Sama Dengan Ibu') echo 'checked' ?>>
+                                        <label class="custom-control-label" for="Sama Dengan Ibu_wali">Sama Dengan Ibu</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="Lainnya_wali" name="status_wali" class="custom-control-input" value="Lainnya" <?php if ($siswa['status_wali'] == 'Lainnya') echo 'checked' ?>>
+                                        <label class="custom-control-label" for="Lainnya_wali">Lainnya</label>
                                     </div>
                                 </div>
                                 <div class="form-group row">
