@@ -168,99 +168,103 @@ require "config/functions.crud.php";
     <div id="tutor" class="about-us section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h7 class="m-0 font-weight-bold text-primary">Tutorial Pengisian</h7>
-                        </div>
-                        <div class="card-body">
-                            <div id="player">
-                                <iframe width="560" height="315" src="https://www.youtube.com/watch?v=8ym4C67XyRE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h7 class="m-0 font-weight-bold text-primary">Tutorial Pengisian</h7>
+                                </div>
+                                <div class="card-body">
+                                    <div id="player">
+                                        <iframe width="560" height="315" src="https://www.youtube.com/watch?v=8ym4C67XyRE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
 
-                            <script>
-                                // 2. This code loads the IFrame Player API code asynchronously.
-                                var tag = document.createElement('script');
+                                    <script>
+                                        // 2. This code loads the IFrame Player API code asynchronously.
+                                        var tag = document.createElement('script');
 
-                                tag.src = "https://www.youtube.com/iframe_api";
-                                var firstScriptTag = document.getElementsByTagName('script')[0];
-                                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                                        tag.src = "https://www.youtube.com/iframe_api";
+                                        var firstScriptTag = document.getElementsByTagName('script')[0];
+                                        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-                                // 3. This function creates an <iframe> (and YouTube player)
-                                //    after the API code downloads.
-                                var player;
+                                        // 3. This function creates an <iframe> (and YouTube player)
+                                        //    after the API code downloads.
+                                        var player;
 
-                                function onYouTubeIframeAPIReady() {
-                                    player = new YT.Player('player', {
-                                        height: '390',
-                                        width: '640',
-                                        videoId: '8ym4C67XyRE',
-                                        playerVars: {
-                                            'playsinline': 1
-                                        },
-                                        events: {
-                                            'onReady': onPlayerReady,
-                                            'onStateChange': onPlayerStateChange
+                                        function onYouTubeIframeAPIReady() {
+                                            player = new YT.Player('player', {
+                                                height: '390',
+                                                width: '640',
+                                                videoId: '8ym4C67XyRE',
+                                                playerVars: {
+                                                    'playsinline': 1
+                                                },
+                                                events: {
+                                                    'onReady': onPlayerReady,
+                                                    'onStateChange': onPlayerStateChange
+                                                }
+                                            });
                                         }
-                                    });
-                                }
 
-                                // 4. The API will call this function when the video player is ready.
-                                function onPlayerReady(event) {
-                                    event.target.playVideo();
-                                }
+                                        // 4. The API will call this function when the video player is ready.
+                                        function onPlayerReady(event) {
+                                            event.target.playVideo();
+                                        }
 
-                                // 5. The API calls this function when the player's state changes.
-                                //    The function indicates that when playing a video (state=1),
-                                //    the player should play for six seconds and then stop.
-                                var done = false;
+                                        // 5. The API calls this function when the player's state changes.
+                                        //    The function indicates that when playing a video (state=1),
+                                        //    the player should play for six seconds and then stop.
+                                        var done = false;
 
-                                function onPlayerStateChange(event) {
-                                    if (event.data == YT.PlayerState.PLAYING && !done) {
-                                        setTimeout(stopVideo, 6000);
-                                        done = true;
-                                    }
-                                }
+                                        function onPlayerStateChange(event) {
+                                            if (event.data == YT.PlayerState.PLAYING && !done) {
+                                                setTimeout(stopVideo, 6000);
+                                                done = true;
+                                            }
+                                        }
 
-                                function stopVideo() {
-                                    player.stopVideo();
-                                }
-                            </script>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 align-self-center">
-                    <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h7 class="m-0 font-weight-bold text-primary">Siswa Aktif</h5>
+                                        function stopVideo() {
+                                            player.stopVideo();
+                                        }
+                                    </script>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table style="font-size: 12px;" class="table table-striped table-xs" id="dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center">Nama Siswa</th>
-                                                <th class="text-center">NIS</th>
-                                                <th class="text-center">Kelas</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas where a.status='1' order by a.nama asc");
-                                            while ($daftar = mysqli_fetch_array($query)) {
-                                                $no++;
-                                                $bayar = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$daftar[id_daftar]' "));
-                                            ?>
-                                                <tr>
-                                                    <td><?= $daftar['nama'] ?></td>
-                                                    <td class="text-center"><?= $daftar['nis'] ?></td>
-                                                    <td class="text-center"><?= $daftar['nama_kelas'] ?></td>
-                                                </tr>
-                                            <?php }
-                                            ?>
-                                        </tbody>
-                                    </table>
+                        </div>
+                        <div class="col-lg-6 align-self-center">
+                            <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h7 class="m-0 font-weight-bold text-primary">Siswa Aktif</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table style="font-size: 12px;" class="table table-striped table-xs" id="dataTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">Nama Siswa</th>
+                                                        <th class="text-center">NIS</th>
+                                                        <th class="text-center">Kelas</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas where a.status='1' order by a.nama asc");
+                                                    while ($daftar = mysqli_fetch_array($query)) {
+                                                        $no++;
+                                                        $bayar = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$daftar[id_daftar]' "));
+                                                    ?>
+                                                        <tr>
+                                                            <td><?= $daftar['nama'] ?></td>
+                                                            <td class="text-center"><?= $daftar['nis'] ?></td>
+                                                            <td class="text-center"><?= $daftar['nama_kelas'] ?></td>
+                                                        </tr>
+                                                    <?php }
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
