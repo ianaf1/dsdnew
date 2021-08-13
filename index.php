@@ -18,7 +18,7 @@ require "config/functions.crud.php";
     <link rel="shortcut icon" href="../<?= $setting['logo'] ?>" />
 
     <!-- Custom styles for this template-->
-    <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- <link href="assets/css/sb-admin-2.min.css" rel="stylesheet"> -->
     <link href="assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
@@ -200,55 +200,6 @@ require "config/functions.crud.php";
                                         <!-- <iframe width="560" height="315" src="https://www.youtube.com/watch?v=8ym4C67XyRE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                                         <iframe width="560" height="315" src="https://www.youtube.com/embed/8ym4C67XyRE" frameborder="0" allowfullscreen></iframe>
                                     </div>
-
-                                    <script>
-                                        // 2. This code loads the IFrame Player API code asynchronously.
-                                        var tag = document.createElement('script');
-
-                                        tag.src = "https://www.youtube.com/iframe_api";
-                                        var firstScriptTag = document.getElementsByTagName('script')[0];
-                                        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-                                        // 3. This function creates an <iframe> (and YouTube player)
-                                        //    after the API code downloads.
-                                        var player;
-
-                                        function onYouTubeIframeAPIReady() {
-                                            player = new YT.Player('player', {
-                                                height: '390',
-                                                width: '640',
-                                                videoId: '8ym4C67XyRE',
-                                                playerVars: {
-                                                    'playsinline': 1
-                                                },
-                                                events: {
-                                                    'onReady': onPlayerReady,
-                                                    'onStateChange': onPlayerStateChange
-                                                }
-                                            });
-                                        }
-
-                                        // 4. The API will call this function when the video player is ready.
-                                        function onPlayerReady(event) {
-                                            event.target.playVideo();
-                                        }
-
-                                        // 5. The API calls this function when the player's state changes.
-                                        //    The function indicates that when playing a video (state=1),
-                                        //    the player should play for six seconds and then stop.
-                                        var done = false;
-
-                                        function onPlayerStateChange(event) {
-                                            if (event.data == YT.PlayerState.PLAYING && !done) {
-                                                setTimeout(stopVideo, 6000);
-                                                done = true;
-                                            }
-                                        }
-
-                                        function stopVideo() {
-                                            player.stopVideo();
-                                        }
-                                    </script>
                                 </div>
                             </div>
                         </div>
