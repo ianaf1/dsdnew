@@ -227,7 +227,7 @@ require "config/functions.crud.php";
                         </script>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-6 align-self-center">
                     <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
