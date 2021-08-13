@@ -259,7 +259,7 @@ require "config/functions.crud.php";
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive">
-                                            <table style="font-size: 12px;" class="table table-striped table-xs" id="dataTable">
+                                            <table style="font-size: 12px;" class="table table-striped table-xs-2" id="dataTable">
                                                 <thead>
                                                     <tr>
                                                         <th class="text-center">Nama Siswa</th>
