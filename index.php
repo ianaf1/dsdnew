@@ -227,29 +227,28 @@ require "config/functions.crud.php";
                         </script>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                     <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                        <div class="section-heading">
-                            <h3>Tutorial Pengisian</h3>
-                        </div>
                         <div class="card shadow mb-4">
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h5 class="m-0 font-weight-bold text-primary">Data Siswa</h5>
+                                <h5 class="m-0 font-weight-bold text-primary">Siswa Aktif</h5>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table style="font-size: 12px" class="table table-bordered table-sm" id="dataTable">
+                                    <table style="font-size: 14px" class="table table-bordered table-sm" id="dataTable">
                                         <thead>
                                             <tr>
-                                                <th class="text-center">Nama</th>
+                                                <th class="text-center">Nama Siswa</th>
                                                 <th class="text-center">NIS</th>
                                                 <th class="text-center">Kelas</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $query = mysqli_query($koneksi, "SELECT * FROM daftar a JOIN rombel b ON a.id_daftar=b.id_daftar order by a.nama asc");
+                                            $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas where a.status='1' order by a.nama asc");
                                             while ($daftar = mysqli_fetch_array($query)) {
+                                                $no++;
+                                                $bayar = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$daftar[id_daftar]' "));
                                             ?>
                                                 <tr>
                                                     <td><?= $daftar['nama'] ?></td>
