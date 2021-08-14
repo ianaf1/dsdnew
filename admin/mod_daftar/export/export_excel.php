@@ -6,7 +6,7 @@ header("Content-type: application/vnd-ms-excel");
 if ($kelas = '') {
     header("Content-Disposition: attachment; filename=DATA_SISWA.xls");
 } else {
-    header("Content-Disposition: attachment; filename=DATA_SISWA_'$kelas'.xls");
+    header("Content-Disposition: attachment; filename=DATA_SISWA_$kelas.xls");
 }
 session_start();
 if (!isset($_SESSION['id_user'])) {
