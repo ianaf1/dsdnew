@@ -198,7 +198,7 @@ require "config/functions.crud.php";
                                 <div class="card-body">
                                     <div class="video-container">
                                         <!-- <iframe width="560" height="315" src="https://www.youtube.com/watch?v=8ym4C67XyRE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/8ym4C67XyRE" frameborder="0" allowfullscreen></iframe>
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/yf82LjbSV-8" frameborder="0" allowfullscreen></iframe>
                                     </div>
                                 </div>
                             </div>
