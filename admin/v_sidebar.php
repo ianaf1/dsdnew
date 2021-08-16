@@ -64,9 +64,9 @@
                     <h6 class="collapse-header">Data Siswa</h6>
                     <a class="collapse-item" href="?pg=daftar">Siswa Aktif</a>
                     <a class="collapse-item" href="?pg=mutasi">Siswa Mutasi</a>
-                    <a class="collapse-item" href="?pg=kelas10">Kelas 10</a>
+                    <!-- <a class="collapse-item" href="?pg=kelas10">Kelas 10</a>
                     <a class="collapse-item" href="?pg=kelas11">Kelas 11</a>
-                    <a class="collapse-item" href="?pg=kelas12">Kelas 12</a>
+                    <a class="collapse-item" href="?pg=kelas12">Kelas 12</a> -->
                 </div>
             </div>
         </li>
