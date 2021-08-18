@@ -343,13 +343,12 @@ ini_set('display_errors', 1);
                                                             <label class="col-sm-2 col-form-label">Rombel</label>
                                                             <div class="col-sm-4">
                                                                 <select class='form-control' name='rombel'>
-                                                                    <option value=''>Pilih Kelas</option>";
-                                                                    <?php foreach ($rombel['id_kelas'] as $val) { ?>
-                                                                        <?php if ($daftar['id_kelas'] == $val) { ?>
-                                                                            <option value='<?= $val ?>' selected><?= $val ?> </option>
-                                                                        <?php  } else { ?>
-                                                                            <option value='<?= $val ?>'><?= $val ?> </option>
-                                                                        <?php } ?>
+                                                                    <option value=''>Pilih Rombel</option>";
+                                                                    <?php
+                                                                    $query = mysqli_query($koneksi, "select * from kelas by nama_kelas asc");
+                                                                    while ($rombel = mysqli_fetch_array($query)) {
+                                                                    ?>
+                                                                        <option value="<?= $rombel['id_kelas'] ?>"><?= $rombel['nama_kelas'] ?></option>
                                                                     <?php } ?>
                                                                 </select>
                                                             </div>
