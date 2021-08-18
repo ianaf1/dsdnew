@@ -171,7 +171,9 @@ $saldoawal = $saldolama;
                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Menu Siswa:</div>
+                        <div class="dropdown-header">Menu :</div>
+                        <a href="#" class="dropdown-item" data-toggle="modal" data-target="#tambahdebit">Pemasukan</a>
+                        <a href="#" class="dropdown-item" data-toggle="modal" data-target="#tambahkredit">Pengeluaran</a>
                         <?php
                         if (isset($_GET['id']) == '') {
                             $bulan = date('m');
@@ -180,8 +182,6 @@ $saldoawal = $saldolama;
                             echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan[id_bulan]'>Download</a>";
                         }
                         ?>
-                        <a class="dropdown-item" data-toggle="modal" data-target="#tambahdebit">Pemasukan</a>
-                        <a class="dropdown-item" data-toggle="modal" data-target="#tambahkredit">Pengeluaran</a>
                         <!-- <div class="dropdown-divider"></div>
                     <a class="dropdown-item" data-toggle="modal" data-target="#hapusdata">Hapus Data</a> -->
                     </div>
