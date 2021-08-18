@@ -345,11 +345,10 @@ ini_set('display_errors', 1);
                                                                 <select class='form-control' name='rombel'>
                                                                     <option value=''>Pilih Rombel</option>";
                                                                     <?php
-                                                                    $query = mysqli_query($koneksi, "select * from kelas by nama_kelas asc");
-                                                                    while ($rombel = mysqli_fetch_array($query)) {
+                                                                    $squil = mysqli_query($koneksi, "select * from kelas by nama_kelas asc");
+                                                                    $rombel = mysqli_fetch_array($squil)
                                                                     ?>
-                                                                        <option value="<?= $rombel['id_kelas'] ?>"><?= $rombel['nama_kelas'] ?></option>
-                                                                    <?php } ?>
+                                                                    <option value="<?= $rombel['id_kelas'] ?>"><?= $rombel['nama_kelas'] ?></option>
                                                                 </select>
                                                             </div>
                                                         </div>
