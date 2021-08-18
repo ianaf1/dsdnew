@@ -338,6 +338,20 @@ ini_set('display_errors', 1);
                                                                 </select>
                                                             </div>
                                                         </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label">Rombel</label>
+                                                            <div class="col-sm-10">
+                                                                <select class='form-control' name='id_kelas'>
+                                                                    <option value=''>Pilih Kelas</option>";
+                                                                    <?php
+                                                                    $query = mysqli_query($koneksi, "select * from kelas where status='1' order by nama_kelas asc");
+                                                                    while ($kelas = mysqli_fetch_array($query)) {
+                                                                    ?>
+                                                                        <option value="<?= enkripsi($kelas['id_kelas']) ?>"><?= $kelas['nama_kelas'] ?></option>
+                                                                    <?php } ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
