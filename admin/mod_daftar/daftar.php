@@ -138,7 +138,7 @@ ini_set('display_errors', 1);
     <form style="width: 80%">
         <input type="hidden" name="pg" value="daftar">
         <div class="form-row">
-            <div class="col-xs-4">
+            <div class="col-xs-6">
                 <div class="form-group">
                     <select class="form-control select2" style="width: 100%" name="id" required>
                         <option value="">Pilih Kelas</option>
@@ -184,6 +184,17 @@ ini_set('display_errors', 1);
                     <a class="dropdown-item" data-toggle="modal" data-target="#hapusdata">Hapus Data</a>
                 </div>
             </div>
+            <!-- <div class="card-header-action">
+                <a class="btn btn-primary btn-sm" href="mod_daftar/export/export_excel.php" role="button"><i class="fas fa-download"></i> Download Excel</a>
+                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#importdata">
+                    <i class="fas fa-file-excel"></i> Import Data</button>
+                <button type="button" class="btn btn-icon icon-left btn-primary btn-sm" data-toggle="modal" data-target="#tambahdata">
+                    <i class="far fa-edit"></i> Tambah Data
+                </button>
+                <button type="button" class="btn btn-icon icon-left btn-danger btn-sm" data-toggle="modal" data-target="#hapusdata">
+                    <i class="fa fa-trash"></i> Hapus Data
+                </button>
+            </div> -->
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -250,6 +261,15 @@ ini_set('display_errors', 1);
                                             <a data-id="<?= $daftar['id_daftar'] ?>" class="hapus dropdown-item">Hapus Siswa</a>
                                         </div>
                                     </div>
+                                    <!-- <a data-toggle="tooltip" data-placement="top" title="" data-original-title="detail siswa" href="?pg=detail&id=<?= enkripsi($daftar['id_daftar']) ?>" class="btn btn-sm btn-success"><i class="fas fa-eye    "></i></a> -->
+                                    <!-- Button trigger modal -->
+                                    <!-- <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-edit<?= $no ?>">
+                                        <i class="fas fa-edit    "></i>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#modal-editkelas<?= $no ?>">
+                                        <i class="fas fa-edit    "></i>
+                                    </button>
+                                    <button data-id="<?= $daftar['id_daftar'] ?>" class="hapus btn-sm btn btn-danger"><i class="fas fa-trash    "></i></button> -->
                                     <!-- Modal -->
                                     <div class="modal fade" id="modal-edit<?= $no ?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
@@ -314,20 +334,6 @@ ini_set('display_errors', 1);
                                                                         <?php  } else { ?>
                                                                             <option value='<?= $val ?>'><?= $val ?> </option>
                                                                         <?php } ?>
-                                                                    <?php } ?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Rombel</label>
-                                                            <div class="col-sm-10">
-                                                                <select class="form-control select2" style="width: 100%" name="id_kelas" required>
-                                                                    <option value="">Cari Data Kelas</option>
-                                                                    <?php
-                                                                    $query = mysqli_query($koneksi, "select * from kelas where status='1' order by nama_kelas asc");
-                                                                    while ($kelas = mysqli_fetch_array($query)) {
-                                                                    ?>
-                                                                        <option value="<?= enkripsi($kelas['id_kelas']) ?>"><?= $kelas['nama_kelas'] ?></option>
                                                                     <?php } ?>
                                                                 </select>
                                                             </div>
