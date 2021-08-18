@@ -138,7 +138,7 @@ ini_set('display_errors', 1);
     <form style="width: 80%">
         <input type="hidden" name="pg" value="daftar">
         <div class="form-row">
-            <div class="col-sm">
+            <div class="col-sm-4">
                 <div class="form-group">
                     <select class="form-control select2" style="width: 100%" name="id" required>
                         <option value="">Pilih Kelas</option>
@@ -319,7 +319,7 @@ ini_set('display_errors', 1);
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Kelas</label>
+                                                            <label class="col-sm-2 col-form-label">Rombel</label>
                                                             <div class="col-sm-10">
                                                                 <select class="form-control select2" style="width: 100%" name="id_kelas" required>
                                                                     <option value="">Cari Data Kelas</option>
