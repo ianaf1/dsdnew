@@ -345,9 +345,9 @@ ini_set('display_errors', 1);
                                                                     <option value=''>Pilih Kelas</option>";
                                                                     <?php
                                                                     $query = mysqli_query($koneksi, "select * from kelas where status='1' order by nama_kelas asc");
-                                                                    while ($kelas = mysqli_fetch_array($query)) {
+                                                                    while ($id_kelas = mysqli_fetch_array($query)) {
                                                                     ?>
-                                                                        <option value="<?= enkripsi($kelas['id_kelas']) ?>"><?= $kelas['nama_kelas'] ?></option>
+                                                                        <option value="<?= enkripsi($id_kelas['id_kelas']) ?>"><?= $id_kelas['nama_kelas'] ?></option>
                                                                     <?php } ?>
                                                                 </select>
                                                             </div>
