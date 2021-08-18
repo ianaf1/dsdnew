@@ -339,19 +339,6 @@ ini_set('display_errors', 1);
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <!-- <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Rombel</label>
-                                                            <div class="col-sm-4">
-                                                                <select class='form-control' name='rombel'>
-                                                                    <option value=''>Pilih Rombel</option>";
-                                                                    <?php
-                                                                    $squil = mysqli_query($koneksi, "select * from kelas by nama_kelas asc");
-                                                                    $rombel = mysqli_fetch_array($squil)
-                                                                    ?>
-                                                                    <option value="<?= $rombel['id_kelas'] ?>"><?= $rombel['nama_kelas'] ?></option>
-                                                                </select>
-                                                            </div>
-                                                        </div> -->
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
