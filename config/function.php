@@ -213,6 +213,7 @@ $kelas = [
 	"11",
 	"12",
 ];
+$rombel = mysqli_query($koneksi, "select from rombel order by nama_kelas");
 $agama = [
 	"Islam",
 	"Kristen",

@@ -344,11 +344,12 @@ ini_set('display_errors', 1);
                                                             <div class="col-sm-4">
                                                                 <select class='form-control' name='rombel'>
                                                                     <option value=''>Pilih Kelas</option>";
-                                                                    <?php
-                                                                    $rombel = mysqli_query($koneksi, "select * from kelas where status='1' order by nama_kelas asc");
-                                                                    while ($id_rombel = mysqli_fetch_array($query)) {
-                                                                    ?>
-                                                                        <option value="<?= enkripsi($id_rombel['id_kelas']) ?>"><?= $id_rombel['nama_kelas'] ?></option>
+                                                                    <?php foreach ($rombel['id_kelas'] as $val) { ?>
+                                                                        <?php if ($daftar['id_kelas'] == $val) { ?>
+                                                                            <option value='<?= $val ?>' selected><?= $val ?> </option>
+                                                                        <?php  } else { ?>
+                                                                            <option value='<?= $val ?>'><?= $val ?> </option>
+                                                                        <?php } ?>
                                                                     <?php } ?>
                                                                 </select>
                                                             </div>
