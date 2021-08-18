@@ -111,7 +111,7 @@
                                             <select class="form-control select2" style="width: 100%" name="id_daftar" required>
                                                 <option value="">Pilih Siswa</option>
                                                 <?php
-                                                $query = mysqli_query($koneksi, "select * from daftar where kelas = '$kelas[id_jenjang]' && status='1' && id_kelas=''");
+                                                $query = mysqli_query($koneksi, "select * from daftar where kelas = '$kelas[id_jenjang]' && status='1'");
                                                 while ($siswa = mysqli_fetch_array($query)) {
                                                 ?>
                                                     <option value="<?= $siswa['id_daftar'] ?>"><?= $siswa['nama'] ?></option>
@@ -137,7 +137,7 @@
                                     <th>NIS</th>
                                     <th>Nama Siswa</th>
                                     <th>Jenis Kelamin</th>
-                                    <th>Action</th>
+                                    <!-- <th>Action</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -152,9 +152,9 @@
                                         <td><?= $rombel['nis'] ?></td>
                                         <td><?= $rombel['nama'] ?></td>
                                         <td><?= $rombel['jenkel'] ?></td>
-                                        <td>
+                                        <!-- <td>
                                             <button data-id="<?= $rombel['id_daftar'] ?>" class="edit btn btn-danger btn-sm"><i class="fas fa-trash    "></i></button>
-                                        </td>
+                                        </td> -->
                                     </tr>
                                 <?php }
                                 ?>
