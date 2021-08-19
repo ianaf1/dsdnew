@@ -226,7 +226,7 @@ ini_set('display_errors', 1);
                     <tbody>
                         <?php
                         if (isset($_GET['id']) == '') {
-                            $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas where a.status='1' order by b.nama_kelas asc");
+                            $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.kelas=b.id_jenjang where a.status='1' order by b.nama_kelas asc");
                         } else {
                             $kelas = $_GET['id'];
                             $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas where a.kelas='$kelas' && a.status='1' order by b.nama_kelas asc");
