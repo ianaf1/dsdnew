@@ -207,7 +207,7 @@ ini_set('display_errors', 1);
                             <th class="text-center">Nama Siswa</th>
                             <th class="text-center">NIS</th>
                             <th class="text-center">TTL</th>
-                            <th class="text-center">Kelas</th>
+                            <th class="text-center">Tingkat</th>
                             <th class="text-center">Status</th>
                             <th class="text-center">Action</th>
                         </tr>
