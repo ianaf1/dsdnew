@@ -166,7 +166,7 @@ $saldoawal = $saldolama;
                     echo "<h5 class='m-0 font-weight-bold text-primary'>Data Transaksi $namabulan</h5>";
                 }
                 ?>
-                <div class="dropdown mb-4">
+                <div class="dropdown m-0">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Menu
                     </button>
