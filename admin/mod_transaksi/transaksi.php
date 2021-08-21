@@ -11,50 +11,50 @@ $saldoawal = $saldolama;
 ?>
 
 <div class="section-header">
-    <div class="py-3 d-flex flex-row align-items-center justify-content-between">
-        <form style="width: 100%">
-            <input type="hidden" name="pg" value="transaksi">
-            <div class="form-row">
-                <div class="col-md-6 col-xs-6">
-                    <div class="form-group">
-                        <select class="form-control select2" style="width: 100%" name="id" required>
-                            <option value="">Pilih Bulan</option>
-                            <?php
-                            $query = mysqli_query($koneksi, "select * from bulan");
-                            while ($bulan = mysqli_fetch_array($query)) {
-                            ?>
-                                <option value="<?= enkripsi($bulan['id_bulan']) ?>"><?= $bulan['nama_bulan'] ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-9"><i class="fas fa-search"></i> Cari</button>
+
+    <form style="width: 100%">
+        <input type="hidden" name="pg" value="transaksi">
+        <div class="form-row">
+            <div class="col-md-6 col-xs-6">
+                <div class="form-group">
+                    <select class="form-control select2" style="width: 100%" name="id" required>
+                        <option value="">Pilih Bulan</option>
+                        <?php
+                        $query = mysqli_query($koneksi, "select * from bulan");
+                        while ($bulan = mysqli_fetch_array($query)) {
+                        ?>
+                            <option value="<?= enkripsi($bulan['id_bulan']) ?>"><?= $bulan['nama_bulan'] ?></option>
+                        <?php } ?>
+                    </select>
                 </div>
             </div>
-        </form>
-        <form style="width: 100%">
-            <input type="hidden" name="pg" value="bayar">
-            <div class="form-row">
-                <div class="col-md-6 col-xs-6">
-                    <div class="form-group">
-                        <select class="form-control select2" style="width: 100%" name="id" required>
-                            <option value="">Cari Data Pendaftar</option>
-                            <?php
-                            $query = mysqli_query($koneksi, "select * from daftar where status='1'");
-                            while ($siswa = mysqli_fetch_array($query)) {
-                            ?>
-                                <option value="<?= enkripsi($siswa['id_daftar']) ?>"><?= $siswa['nis'] ?> <?= $siswa['nama'] ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-10"><i class="fas fa-search    "></i> Cari</button>
+            <div class="col-md-6">
+                &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-9"><i class="fas fa-search"></i> Cari</button>
+            </div>
+        </div>
+    </form>
+    <form style="width: 100%">
+        <input type="hidden" name="pg" value="bayar">
+        <div class="form-row">
+            <div class="col-md-6 col-xs-6">
+                <div class="form-group">
+                    <select class="form-control select2" style="width: 100%" name="id" required>
+                        <option value="">Cari Data Pendaftar</option>
+                        <?php
+                        $query = mysqli_query($koneksi, "select * from daftar where status='1'");
+                        while ($siswa = mysqli_fetch_array($query)) {
+                        ?>
+                            <option value="<?= enkripsi($siswa['id_daftar']) ?>"><?= $siswa['nis'] ?> <?= $siswa['nama'] ?></option>
+                        <?php } ?>
+                    </select>
                 </div>
             </div>
-        </form>
-    </div>
+            <div class="col-md-6">
+                &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-10"><i class="fas fa-search    "></i> Cari</button>
+            </div>
+        </div>
+    </form>
+
     <!-- Modal -->
     <div class="modal fade" id="tambahdebit" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog" role="document">
