@@ -70,7 +70,7 @@ if (isset($_SESSION['id_user'])) {
     <link rel="stylesheet" href="../assets/modules/bootstrap-daterangepicker/daterangepicker.css">
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
     <link rel="stylesheet" href="../assets/css/components.css">
 
     <script src="../assets/modules/jquery.min.js"></script>
