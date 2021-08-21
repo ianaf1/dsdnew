@@ -11,7 +11,7 @@ $saldoawal = $saldolama;
 ?>
 
 <div class="section-header">
-    <div class="row">
+    <div class="py-3 d-flex flex-row align-items-center justify-content-between">
         <form style="width: 80%">
             <input type="hidden" name="pg" value="transaksi">
             <div class="form-row">
