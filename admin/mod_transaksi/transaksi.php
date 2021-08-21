@@ -11,8 +11,7 @@ $saldoawal = $saldolama;
 ?>
 
 <div class="section-header">
-
-    <form style="width: 80%">
+    <form style="width: 100%">
         <input type="hidden" name="pg" value="transaksi">
         <div class="form-row">
             <div class="col-xs-6">
@@ -28,7 +27,7 @@ $saldoawal = $saldolama;
                     </select>
                 </div>
             </div>
-            <div class="col-md-5 col-xs-5">
+            <div class="col-xs-6">
                 &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-9"><i class="fas fa-search"></i> Cari</button>
             </div>
         </div>
