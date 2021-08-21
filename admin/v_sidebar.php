@@ -36,7 +36,7 @@
             <div id="collapseMaster" class="collapse" aria-labelledby="headingMaster" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Data Master</h6>
-                    <a class="collapse-item" href="?pg=mastersurat">Master Surat</a>
+                    <!-- <a class="collapse-item" href="?pg=mastersurat">Master Surat</a> -->
                     <a class="collapse-item" href="?pg=jenjang">Master Jenjang</a>
                     <a class="collapse-item" href="?pg=mastermasuk">Master Pemasukan</a>
                     <a class="collapse-item" href="?pg=masterkeluar">Master Pengeluaran</a>
@@ -47,11 +47,11 @@
         </li>
 
 
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link" href="?pg=guru">
                 <i class="fas fa-address-card"></i>
                 <span>Data Guru</span></a>
-        </li>
+        </li> -->
 
         <!-- Nav Item - Pages Siswa Menu -->
         <li class="nav-item">
@@ -88,15 +88,15 @@
                     <h6 class="collapse-header">Data Keuangan</h6>
                     <a class="collapse-item" href="?pg=transaksi">Buku Kas</a>
                     <a class="collapse-item" href="?pg=bayar">Pembayaran</a>
-                    <a class="collapse-item" href="?pg=rekap">Rekap</a>
+                    <!-- <a class="collapse-item" href="?pg=rekap">Rekap</a> -->
                 </div>
             </div>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link" href="?pg=arsip">
                 <i class="fas fa-address-card"></i>
                 <span>Arsip Surat</span></a>
-        </li>
+        </li> -->
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
