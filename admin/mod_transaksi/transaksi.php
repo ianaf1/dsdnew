@@ -166,7 +166,24 @@ $saldoawal = $saldolama;
                     echo "<h5 class='m-0 font-weight-bold text-primary'>Data Transaksi $namabulan</h5>";
                 }
                 ?>
-                <div class="dropdown no-arrow">
+                <div class="dropdown mb-4">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Menu
+                    </button>
+                    <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
+                        <a href="#" class="dropdown-item" data-toggle="modal" data-target="#tambahdebit">Pemasukan</a>
+                        <a href="#" class="dropdown-item" data-toggle="modal" data-target="#tambahkredit">Pengeluaran</a>
+                        <?php
+                        if (isset($_GET['id']) == '') {
+                            $bulan = date('m');
+                            echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan'>Download</a>";
+                        } else {
+                            echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan[id_bulan]'>Download</a>";
+                        }
+                        ?>
+                    </div>
+                </div>
+                <!-- <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                     </a>
@@ -182,25 +199,7 @@ $saldoawal = $saldolama;
                             echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan[id_bulan]'>Download</a>";
                         }
                         ?>
-                        <!-- <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" data-toggle="modal" data-target="#hapusdata">Hapus Data</a> -->
                     </div>
-                </div>
-                <!-- <div class="card-header-action">
-                    <?php
-                    if (isset($_GET['id']) == '') {
-                        $bulan = date('m');
-                        echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan'>Download</a>";
-                    } else {
-                        echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan[id_bulan]'>Download</a>";
-                    }
-                    ?>
-                    <button type="button" class="btn btn-sm btn-icon icon-left btn-primary" data-toggle="modal" data-target="#tambahdebit">
-                        <i class="far fa-edit"></i> Pemasukan
-                    </button>
-                    <button type="button" class="btn btn-sm btn-icon icon-left btn-danger" data-toggle="modal" data-target="#tambahkredit">
-                        <i class="far fa-edit"></i> Pengeluaran
-                    </button>
                 </div> -->
             </div>
             <div class="card-body">
