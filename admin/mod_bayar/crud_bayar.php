@@ -37,6 +37,7 @@ if ($pg == 'tambah') {
     ];
     $data2 = [
         'kode_transaksi'    => $nextNoTransaksi,
+        'id_daftar'         => $_POST['id'],
         'keterangan'        => $_POST['keterangan'],
         'id_masuk'          => $_POST['id_masuk'],
         'ref'               => $_POST['id_masuk'],
