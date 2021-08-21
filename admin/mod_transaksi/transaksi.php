@@ -14,7 +14,7 @@ $saldoawal = $saldolama;
     <form style="width: 100%">
         <input type="hidden" name="pg" value="transaksi">
         <div class="form-row">
-            <div class="col-xs-6">
+            <div class="col-xs">
                 <div class="form-group">
                     <select class="form-control select2" style="width: 100%" name="id" required>
                         <option value="">Pilih Bulan</option>
@@ -27,7 +27,7 @@ $saldoawal = $saldolama;
                     </select>
                 </div>
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs">
                 &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-9"><i class="fas fa-search"></i> Cari</button>
             </div>
         </div>
