@@ -76,54 +76,54 @@ require "config/functions.crud.php";
 </head>
 
 <body>
-    <div id="particles-js">
-        <!-- ***** Preloader Start ***** -->
-        <div id="js-preloader" class="js-preloader">
-            <div class="preloader-inner">
-                <span class="dot"></span>
-                <div class="dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.php" class="logo">
+                            <h4>MA AT-TAQWA</h4>
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="#tutor">Tutorial</a></li>
+                            <li class="scroll-to-section"><a href="#about">About Us</a></li>
+                            <li class="scroll-to-section"><a href="#services">Services</a></li>
+                            <li class="scroll-to-section"><a href="#portfolio">Portfolio</a></li>
+                            <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>
+                            <li class="scroll-to-section">
+                                <div class="main-blue-button"><a href="#contact">Get Your Quote</a></div>
+                            </li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
                 </div>
             </div>
         </div>
-        <!-- ***** Preloader End ***** -->
-
-        <!-- ***** Header Area Start ***** -->
-        <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <nav class="main-nav">
-                            <!-- ***** Logo Start ***** -->
-                            <a href="index.php" class="logo">
-                                <h4>MA AT-TAQWA</h4>
-                            </a>
-                            <!-- ***** Logo End ***** -->
-                            <!-- ***** Menu Start ***** -->
-                            <ul class="nav">
-                                <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                                <li class="scroll-to-section"><a href="#tutor">Tutorial</a></li>
-                                <li class="scroll-to-section"><a href="#about">About Us</a></li>
-                                <li class="scroll-to-section"><a href="#services">Services</a></li>
-                                <li class="scroll-to-section"><a href="#portfolio">Portfolio</a></li>
-                                <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>
-                                <li class="scroll-to-section">
-                                    <div class="main-blue-button"><a href="#contact">Get Your Quote</a></div>
-                                </li>
-                            </ul>
-                            <a class='menu-trigger'>
-                                <span>Menu</span>
-                            </a>
-                            <!-- ***** Menu End ***** -->
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- ***** Header Area End ***** -->
-
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <div id="particles-js">
         <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
             <div class="container">
                 <div class="row">
@@ -267,130 +267,130 @@ require "config/functions.crud.php";
                 </div>
             </div>
         </div>
-
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <p>
-                            Copyright &copy; <?= date('Y') ?> MA AT-TAQWA YASTU.
-                            <br>By <a href="https://www.instagram.com/ianfatah1/">Ian Fatah</a>
-                        </p>
-                    </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>
+                        Copyright &copy; <?= date('Y') ?> MA AT-TAQWA YASTU.
+                        <br>By <a href="https://www.instagram.com/ianfatah1/">Ian Fatah</a>
+                    </p>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-        <!-- Scripts -->
-        <script src="dist/vendor/jquery/jquery.min.js"></script>
-        <script src="dist/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="dist/assets/js/owl-carousel.js"></script>
-        <script src="dist/assets/js/animation.js"></script>
-        <script src="dist/assets/js/imagesloaded.js"></script>
-        <script src="dist/assets/js/custom.js"></script>
-        <script src="assets/modules/izitoast/js/iziToast.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Scripts -->
+    <script src="dist/vendor/jquery/jquery.min.js"></script>
+    <script src="dist/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="dist/assets/js/owl-carousel.js"></script>
+    <script src="dist/assets/js/animation.js"></script>
+    <script src="dist/assets/js/imagesloaded.js"></script>
+    <script src="dist/assets/js/custom.js"></script>
+    <script src="assets/modules/izitoast/js/iziToast.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="assets/vendor/jquery/jquery.min.js"></script>
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="assets/js/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="assets/js/sb-admin-2.min.js"></script>
 
-        <!-- Page level plugins -->
-        <script src="assets/vendor/datatables/jquery.dataTables.min.js"></script>
-        <script src="assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="assets/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-        <!-- Page level custom scripts -->
-        <script src="assets/js/demo/datatables-demo.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="assets/js/demo/datatables-demo.js"></script>
 
-        <script>
-            $('#form-login').submit(function(e) {
-                e.preventDefault();
-                $.ajax({
-                    type: 'POST',
-                    url: 'crud_web.php?pg=login',
-                    data: $(this).serialize(),
-                    beforeSend: function() {
-                        $('#btnsimpan').prop('disabled', true);
-                    },
-                    success: function(data) {
-                        var json = $.parseJSON(data);
-                        $('#btnsimpan').prop('disabled', false);
-                        if (json.pesan == 'siswa') {
-                            iziToast.success({
-                                title: 'Mantap!',
-                                message: 'Login Berhasil',
-                                position: 'topRight'
-                            });
-                            setTimeout(function() {
-                                window.location.href = "user";
-                            }, 2000);
-                        } else if (json.pesan == 'admin') {
-                            iziToast.success({
-                                title: 'Mantap!',
-                                message: 'Login Berhasil',
-                                position: 'topRight'
-                            });
-                            setTimeout(function() {
-                                window.location.href = "admin";
-                            }, 2000);
-                        } else if (json.pesan == 'guru') {
-                            iziToast.success({
-                                title: 'Mantap!',
-                                message: 'Login Berhasil',
-                                position: 'topRight'
-                            });
-                            setTimeout(function() {
-                                window.location.href = "guru";
-                            }, 2000);
-                        } else {
-                            iziToast.error({
-                                title: 'Maaf!',
-                                message: json.pesan,
-                                position: 'topCenter'
-                            });
-                        }
-                        //$('#bodyreset').load(location.href + ' #bodyreset');
-                    }
-                });
-                return false;
-            });
-        </script>
-        <script>
-            particlesJS({
-                "particles": {
-                    "number": {
-                        "value": 100
-                    },
-                    "shape": {
-                        "type": "circle"
-                    },
-                    "size": {
-                        "value": 10,
-                        "random": true
-                    },
-                    "line_linked": {
-                        "enable": false
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 2,
-                        "direction": "bottom",
-                        "straight": false
-                    }
+    <script>
+        $('#form-login').submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: 'crud_web.php?pg=login',
+                data: $(this).serialize(),
+                beforeSend: function() {
+                    $('#btnsimpan').prop('disabled', true);
                 },
-                "interactivity": {
-
+                success: function(data) {
+                    var json = $.parseJSON(data);
+                    $('#btnsimpan').prop('disabled', false);
+                    if (json.pesan == 'siswa') {
+                        iziToast.success({
+                            title: 'Mantap!',
+                            message: 'Login Berhasil',
+                            position: 'topRight'
+                        });
+                        setTimeout(function() {
+                            window.location.href = "user";
+                        }, 2000);
+                    } else if (json.pesan == 'admin') {
+                        iziToast.success({
+                            title: 'Mantap!',
+                            message: 'Login Berhasil',
+                            position: 'topRight'
+                        });
+                        setTimeout(function() {
+                            window.location.href = "admin";
+                        }, 2000);
+                    } else if (json.pesan == 'guru') {
+                        iziToast.success({
+                            title: 'Mantap!',
+                            message: 'Login Berhasil',
+                            position: 'topRight'
+                        });
+                        setTimeout(function() {
+                            window.location.href = "guru";
+                        }, 2000);
+                    } else {
+                        iziToast.error({
+                            title: 'Maaf!',
+                            message: json.pesan,
+                            position: 'topCenter'
+                        });
+                    }
+                    //$('#bodyreset').load(location.href + ' #bodyreset');
                 }
             });
-        </script>
-    </div>
+            return false;
+        });
+    </script>
+    <script>
+        particlesJS({
+            "particles": {
+                "number": {
+                    "value": 100
+                },
+                "shape": {
+                    "type": "circle"
+                },
+                "size": {
+                    "value": 10,
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": false
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "bottom",
+                    "straight": false
+                }
+            },
+            "interactivity": {
+
+            }
+        });
+    </script>
+
 </body>
 
 </html>
