@@ -22,7 +22,6 @@
             </div>
         </div>
     </form>
-
 </div>
 <?php if (isset($_GET['id']) == '') { ?>
     <?php if ($user['level'] == 'admin' or $user['level'] == 'bendahara' or $user['level'] == 'kepala') { ?>
