@@ -12,7 +12,7 @@ $saldoawal = $saldolama;
 
 <div class="section-header">
     <div class="py-3 d-flex flex-row align-items-center justify-content-between">
-        <form style="width: 80%">
+        <form style="width: 100%">
             <input type="hidden" name="pg" value="transaksi">
             <div class="form-row">
                 <div class="col-md-6 col-xs-6">
@@ -33,7 +33,7 @@ $saldoawal = $saldolama;
                 </div>
             </div>
         </form>
-        <form style="width: 80%">
+        <form style="width: 100%">
             <input type="hidden" name="pg" value="bayar">
             <div class="form-row">
                 <div class="col-md-6 col-xs-6">
