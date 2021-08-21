@@ -171,8 +171,8 @@ $saldoawal = $saldolama;
                         Menu
                     </button>
                     <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
-                        <a href="#" class="dropdown-item" data-toggle="modal" data-target="#tambahdebit">Pemasukan</a>
                         <a href="#" class="dropdown-item" data-toggle="modal" data-target="#tambahkredit">Pengeluaran</a>
+                        <a href="#" class="dropdown-item" data-toggle="modal" data-target="#tambahdebit">Pemasukan</a>
                         <?php
                         if (isset($_GET['id']) == '') {
                             $bulan = date('m');
