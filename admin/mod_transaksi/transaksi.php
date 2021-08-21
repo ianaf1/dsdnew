@@ -166,26 +166,27 @@ $saldoawal = $saldolama;
                     echo "<h5 class='m-0 font-weight-bold text-primary'>Data Transaksi $namabulan</h5>";
                 }
                 ?>
-            </div>
-            <div class="dropdown">
-                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                    <div class="dropdown-header">Menu :</div>
-                    <a href="#" class="dropdown-item" data-toggle="modal" data-target="#tambahdebit">Pemasukan</a>
-                    <a href="#" class="dropdown-item" data-toggle="modal" data-target="#tambahkredit">Pengeluaran</a>
-                    <?php
-                    if (isset($_GET['id']) == '') {
-                        $bulan = date('m');
-                        echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan'>Download</a>";
-                    } else {
-                        echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan[id_bulan]'>Download</a>";
-                    }
-                    ?>
+                <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-header">Menu :</div>
+                        <a href="#" class="dropdown-item" data-toggle="modal" data-target="#tambahdebit">Pemasukan</a>
+                        <a href="#" class="dropdown-item" data-toggle="modal" data-target="#tambahkredit">Pengeluaran</a>
+                        <?php
+                        if (isset($_GET['id']) == '') {
+                            $bulan = date('m');
+                            echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan'>Download</a>";
+                        } else {
+                            echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan[id_bulan]'>Download</a>";
+                        }
+                        ?>
+                        <!-- <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" data-toggle="modal" data-target="#hapusdata">Hapus Data</a> -->
+                    </div>
                 </div>
-            </div>
-            <!-- <div class="card-header-action">
+                <!-- <div class="card-header-action">
                     <?php
                     if (isset($_GET['id']) == '') {
                         $bulan = date('m');
@@ -201,91 +202,91 @@ $saldoawal = $saldolama;
                         <i class="far fa-edit"></i> Pengeluaran
                     </button>
                 </div> -->
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table style="font-size: 12px" class="table table-bordered table-sm" id="dataTable">
-                    <thead>
-                        <tr>
-                            <th class="text-center">No</th>
-                            <th class="text-center">Tgl Transaksi</th>
-                            <!-- <th class="text-center">Bulan</th> -->
-                            <!-- <th class="text-center">Kode</th> -->
-                            <th class="text-center">Keterangan</th>
-                            <th class="text-center">Ref</th>
-                            <th class="text-center">Debet (Rp)</th>
-                            <th class="text-center">Kredit (Rp)</th>
-                            <th class="text-center">Saldo (Rp)</th>
-                            <th class="text-center">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        if (isset($_GET['id']) <> '') {
-                            $bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['id'])]);
-                            $query = mysqli_query($koneksi, "SELECT * FROM transaksi a JOIN bulan b ON a.id_bulan=b.id_bulan WHERE a.id_bulan='$bulan[id_bulan]' ORDER BY a.tgl_bayar ASC");
-                        } else {
-                            $bulan = date('m');
-                            $query = mysqli_query($koneksi, "select * from transaksi where id_bulan = $bulan order by tgl_bayar asc");
-                        }
-                        $no = 0;
-                        $saldo = $saldoawal;
-                        while ($transaksi = mysqli_fetch_array($query)) {
-                            $debit = $transaksi['debit'];
-                            $kredit = $transaksi['kredit'];
-                            $no++;
-                            if ($transaksi['debit'] == 0) {
-                                $saldo = $saldo + $transaksi['debit'] - $transaksi['kredit'];
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table style="font-size: 12px" class="table table-bordered table-sm" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th class="text-center">No</th>
+                                <th class="text-center">Tgl Transaksi</th>
+                                <!-- <th class="text-center">Bulan</th> -->
+                                <!-- <th class="text-center">Kode</th> -->
+                                <th class="text-center">Keterangan</th>
+                                <th class="text-center">Ref</th>
+                                <th class="text-center">Debet (Rp)</th>
+                                <th class="text-center">Kredit (Rp)</th>
+                                <th class="text-center">Saldo (Rp)</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if (isset($_GET['id']) <> '') {
+                                $bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['id'])]);
+                                $query = mysqli_query($koneksi, "SELECT * FROM transaksi a JOIN bulan b ON a.id_bulan=b.id_bulan WHERE a.id_bulan='$bulan[id_bulan]' ORDER BY a.tgl_bayar ASC");
                             } else {
-                                $saldo = $saldo + $transaksi['debit'];
+                                $bulan = date('m');
+                                $query = mysqli_query($koneksi, "select * from transaksi where id_bulan = $bulan order by tgl_bayar asc");
                             }
-                        ?>
-                            <tr>
-                                <td class="text-center"><?= $no; ?></td>
-                                <td class="text-center"><?= $transaksi['tgl_bayar'] ?></td>
-                                <!-- <td class="text-center"><?= $transaksi['id_bulan'] ?></td> -->
-                                <!-- <td class="text-center"><?= $transaksi['kode_transaksi'] ?></td> -->
-                                <td><?= $transaksi['keterangan'] ?></td>
-                                <td class="text-center"><?= $transaksi['ref'] ?></td>
-                                <td><?= "Rp. " . number_format($debit, 0, ",", ".") ?></td>
-                                <td><?= "Rp. " . number_format($kredit, 0, ",", ".") ?></td>
-                                <td><?= "Rp. " . number_format($saldo, 0, ",", ".") ?></td>
-                                <td class="text-center">
-                                    <button data-id="<?= $transaksi['id_transaksi'] ?>" class="hapus btn-sm btn btn-danger"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                        <?php }
-                        ?>
-                    </tbody>
-                    <tfoot>
-                        <?php
-                        if (isset($_GET['id']) <> '') {
-                            $bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['id'])]);
-                            $total = mysqli_query($koneksi, "select sum(debit) as totaldebit, sum(kredit) as totalkredit from transaksi a join bulan b ON a.id_bulan=b.id_bulan where a.id_bulan='$bulan[id_bulan]'");
-                        } else {
-                            $bulan = date('m');
-                            $total = mysqli_query($koneksi, "select sum(debit) as totaldebit, sum(kredit) as totalkredit from transaksi where id_bulan = $bulan");
-                        }
-                        while ($transaksi = mysqli_fetch_array($total)) {
-                            $totaldebit = $transaksi['totaldebit'];
-                            $totalkredit = $transaksi['totalkredit'];
-                            $totalsaldo = $totaldebit - $totalkredit
-                        ?>
-                            <tr>
-                                <td class="text-center" colspan="4"><b>TOTAL</b></td>
-                                <td><b><?= "Rp. " . number_format($totaldebit, 0, ",", ".") ?></b></td>
-                                <td><b><?= "Rp. " . number_format($totalkredit, 0, ",", ".") ?></b></td>
-                                <td><b><?= "Rp. " . number_format($totalsaldo, 0, ",", ".") ?></b></td>
-                                <td class="text-center"><b>Action</b></td>
-                            </tr>
-                        <?php }
-                        ?>
-                    </tfoot>
-                </table>
+                            $no = 0;
+                            $saldo = $saldoawal;
+                            while ($transaksi = mysqli_fetch_array($query)) {
+                                $debit = $transaksi['debit'];
+                                $kredit = $transaksi['kredit'];
+                                $no++;
+                                if ($transaksi['debit'] == 0) {
+                                    $saldo = $saldo + $transaksi['debit'] - $transaksi['kredit'];
+                                } else {
+                                    $saldo = $saldo + $transaksi['debit'];
+                                }
+                            ?>
+                                <tr>
+                                    <td class="text-center"><?= $no; ?></td>
+                                    <td class="text-center"><?= $transaksi['tgl_bayar'] ?></td>
+                                    <!-- <td class="text-center"><?= $transaksi['id_bulan'] ?></td> -->
+                                    <!-- <td class="text-center"><?= $transaksi['kode_transaksi'] ?></td> -->
+                                    <td><?= $transaksi['keterangan'] ?></td>
+                                    <td class="text-center"><?= $transaksi['ref'] ?></td>
+                                    <td><?= "Rp. " . number_format($debit, 0, ",", ".") ?></td>
+                                    <td><?= "Rp. " . number_format($kredit, 0, ",", ".") ?></td>
+                                    <td><?= "Rp. " . number_format($saldo, 0, ",", ".") ?></td>
+                                    <td class="text-center">
+                                        <button data-id="<?= $transaksi['id_transaksi'] ?>" class="hapus btn-sm btn btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            <?php }
+                            ?>
+                        </tbody>
+                        <tfoot>
+                            <?php
+                            if (isset($_GET['id']) <> '') {
+                                $bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['id'])]);
+                                $total = mysqli_query($koneksi, "select sum(debit) as totaldebit, sum(kredit) as totalkredit from transaksi a join bulan b ON a.id_bulan=b.id_bulan where a.id_bulan='$bulan[id_bulan]'");
+                            } else {
+                                $bulan = date('m');
+                                $total = mysqli_query($koneksi, "select sum(debit) as totaldebit, sum(kredit) as totalkredit from transaksi where id_bulan = $bulan");
+                            }
+                            while ($transaksi = mysqli_fetch_array($total)) {
+                                $totaldebit = $transaksi['totaldebit'];
+                                $totalkredit = $transaksi['totalkredit'];
+                                $totalsaldo = $totaldebit - $totalkredit
+                            ?>
+                                <tr>
+                                    <td class="text-center" colspan="4"><b>TOTAL</b></td>
+                                    <td><b><?= "Rp. " . number_format($totaldebit, 0, ",", ".") ?></b></td>
+                                    <td><b><?= "Rp. " . number_format($totalkredit, 0, ",", ".") ?></b></td>
+                                    <td><b><?= "Rp. " . number_format($totalsaldo, 0, ",", ".") ?></b></td>
+                                    <td class="text-center"><b>Action</b></td>
+                                </tr>
+                            <?php }
+                            ?>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <script>
     $('#form-tambahdebit').submit(function(e) {
