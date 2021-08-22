@@ -130,6 +130,9 @@
 
                                     <?php
                                     $query = mysqli_query($koneksi, "select * from bayar a join daftar b ON a.id_daftar=b.id_daftar where a.verifikasi='1'");
+                                    $masukq = mysqli_query($koneksi, "select * from keu_pemasukan where status='1'");
+                                    $biayaq = mysqli_query($koneksi, "select * from biaya where id_kelas='$siswa[kelas]'");
+                                    $bulanq = mysqli_query($koneksi, "select * from bulan");
                                     $no = 0;
 
                                     while ($bayar = mysqli_fetch_array($query)) {
@@ -184,21 +187,23 @@
                                                                         <select class="form-control select2" style="width: 100%" name="id_masuk" required>
                                                                             <option value="">Pilih Kode Referensi</option>
                                                                             <?php
-                                                                            $masukq = mysqli_query($koneksi, "select * from keu_pemasukan where status='1'");
-                                                                            $masuk = mysqli_fetch_array($masukq);
+                                                                            // $query = mysqli_query($koneksi, "select * from keu_pemasukan where status='1'");
+                                                                            while ($masuk = mysqli_fetch_array($masukq)) {
                                                                             ?>
-                                                                            <option value="<?= $masuk['id_masuk'] ?>"><?= $masuk['id_masuk'] ?> <?= $masuk['nama_masuk'] ?></option>
+                                                                                <option value="<?= $masuk['id_masuk'] ?>"><?= $masuk['id_masuk'] ?> <?= $masuk['nama_masuk'] ?></option>
+                                                                            <?php } ?>
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label>Pembayaran</label>
                                                                         <select class="form-control select2" style="width: 100%" name="id_biaya" required>
                                                                             <?php
-                                                                            $biayaq = mysqli_query($koneksi, "select * from biaya where id_kelas='$siswa[kelas]'");
-                                                                            $biaya = mysqli_fetch_array($biayaq)
+                                                                            // $query = mysqli_query($koneksi, "select * from biaya where id_kelas='$siswa[kelas]'");
+                                                                            while ($biaya = mysqli_fetch_array($biayaq)) {
                                                                             ?>
-                                                                            <option value="">Pembayaran</option>
-                                                                            <option value="<?= $biaya['id_biaya'] ?>"><?= $biaya['nama_biaya'] ?></option>
+                                                                                <option value="">Pembayaran</option>
+                                                                                <option value="<?= $biaya['id_biaya'] ?>"><?= $biaya['nama_biaya'] ?></option>
+                                                                            <?php } ?>
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group">
@@ -210,10 +215,11 @@
                                                                         <select class="form-control select2" style="width: 100%" name="id_bulan" required>
                                                                             <option value="">Pilih Bulan</option>
                                                                             <?php
-                                                                            $bulanq = mysqli_query($koneksi, "select * from bulan");
-                                                                            $bulan = mysqli_fetch_array($bulanq)
+                                                                            // $query = mysqli_query($koneksi, "select * from bulan");
+                                                                            while ($bulan = mysqli_fetch_array($bulanq)) {
                                                                             ?>
-                                                                            <option value="<?= $bulan['id_bulan'] ?>"><?= $bulan['nama_bulan'] ?></option>
+                                                                                <option value="<?= $bulan['id_bulan'] ?>"><?= $bulan['nama_bulan'] ?></option>
+                                                                            <?php } ?>
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group">
