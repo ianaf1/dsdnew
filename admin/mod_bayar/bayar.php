@@ -217,22 +217,22 @@
                                                 <?php } ?>
                                             </select>
                                         </div>
-                                        <?php
-                                        $query = mysqli_query($koneksi, "select * from biaya where id_kelas='$siswa[kelas]'");
-                                        while ($biaya = mysqli_fetch_array($query)) {
-                                        ?>
-                                            <div class="form-group">
-                                                <label>Kode Referensi</label>
-                                                <select class="form-control select2" style="width: 100%" name="id_biaya" required>
+                                        <div class="form-group">
+                                            <label>Kode Referensi</label>
+                                            <select class="form-control select2" style="width: 100%" name="id_biaya" required>
+                                                <?php
+                                                $query = mysqli_query($koneksi, "select * from biaya where id_kelas='$siswa[kelas]'");
+                                                while ($biaya = mysqli_fetch_array($query)) {
+                                                ?>
                                                     <option value="">Pembayaran</option>
                                                     <option value="<?= $biaya['id_biaya'] ?>"><?= $biaya['nama_biaya'] ?></option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="jumlah">Jumlah Pembayaran Rp.</label>
-                                                <input value="<?= $biaya['jumlah'] ?>" type="text" class="form-control uang" name="jumlah" id="jumlah" aria-describedby="helpjumlah" placeholder="" readonly>
-                                            </div>
-                                        <?php } ?>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="jumlah">Jumlah Pembayaran Rp.</label>
+                                            <input value="<?= $biaya['jumlah'] ?>" type="text" class="form-control uang" name="jumlah" id="jumlah" aria-describedby="helpjumlah" placeholder="">
+                                        </div>
                                         <div class="form-group">
                                             <label>Bulan</label>
                                             <select class="form-control select2" style="width: 100%" name="id_bulan" required>
