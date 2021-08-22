@@ -95,6 +95,6 @@ if ($pg == 'editbayar') {
 
     ];
     $exec = update($koneksi, 'bayar', $data, ['id_bayar' => $id_bayar]);
-    $exec = update($koneksi, 'bayar', $data, ['id_bayar' => $id_bayar]);
+    $exec = update($koneksi, 'transaksi', $data, ['id_bayar' => $id_bayar]);
     echo $exec;
 }
