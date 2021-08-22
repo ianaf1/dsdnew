@@ -53,11 +53,10 @@ ini_set('display_errors', 1);
                     </tfoot>
                     <tbody>
                         <?php
-                        $query = mysqli_query($koneksi, "select * from daftar where status <>'1' order by a.nama");
+                        $query = mysqli_query($koneksi, "select * from daftar where status !='1' order by a.nama");
                         $no = 0;
                         while ($daftar = mysqli_fetch_array($query)) {
                             $no++;
-                            $bayar = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$daftar[id_daftar]' "));
                         ?>
                             <tr>
                                 <td class="text-center"><?= $no; ?></td>

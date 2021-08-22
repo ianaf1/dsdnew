@@ -50,7 +50,7 @@ ini_set('display_errors', 1);
                         ?>
                             <tr>
                                 <td class="text-center"><?= $no; ?></td>
-                                <td class="text-center"><?= $rombel['nama'] ?></td>
+                                <td class="text-center"><?= $rombel['nama_rombel'] ?></td>
                                 <td class="text-center"><?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where status=1 && jenkel='L' && id_kelas = '$rombel[id_kelas]'")) ?></td>
                                 <td class="text-center"><?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where status=1 && jenkel='P' && id_kelas = '$rombel[id_kelas]'")) ?></td>
                                 <td class="text-center"><?= mysqli_num_rows(mysqli_query($koneksi, "select * from rombel where nama_rombel = '$rombel[nama_rombel]'")) ?></td>
