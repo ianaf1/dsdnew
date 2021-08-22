@@ -156,10 +156,106 @@
                                             </td>
                                             <td>
                                                 <button data-id="<?= $bayar['id_bayar'] ?>" class="batal btn btn-danger btn-sm"><i class="fas fa-times-circle    "></i></button>
-                                                <a target="_blank" href="mod_bayar/print_kwitansi.php?id=<?= enkripsi($bayar['id_bayar']) ?>" class="btn btn-primary btn-sm"><i class="fas fa-print    "></i></a>
+                                                <!-- <a target="_blank" href="mod_bayar/print_kwitansi.php?id=<?= enkripsi($bayar['id_bayar']) ?>" class="btn btn-primary btn-sm"><i class="fas fa-edit    "></i></a> -->
+                                                <button class="edit btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit-bayar<?= $no; ?>"><i class="fas fa-edit    "></i></button>
                                                 <button data-id="<?= $bayar['id_bayar'] ?>" class="hapus btn btn-danger btn-sm"><i class="fas fa-trash-alt    "></i></button>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="modal-edit-bayar<?= $no; ?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Edit Pembayaran</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <form id="form-edit-bayar<?= $no; ?>">
+                                                                <div class="modal-body">
+                                                                    <input type="hidden" value="<?= $bayar['id_bayar'] ?>" name="id_bayar">
+                                                                    <input type="hidden" value="<?= $bayar['id_daftar'] ?>" name="id_daftar">
+                                                                    <div class="form-group">
+                                                                        <label>Keterangan</label>
+                                                                        <input type="text" name="keterangan" value="<?= $bayar['keterangan'] ?>" class="form-control" required="">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Kode Referensi</label>
+                                                                        <select class="form-control select2" style="width: 100%" name="id_masuk" required>
+                                                                            <option value="">Pilih Kode Referensi</option>
+                                                                            <?php
+                                                                            $query = mysqli_query($koneksi, "select * from keu_pemasukan where status='1'");
+                                                                            while ($masuk = mysqli_fetch_array($query)) {
+                                                                            ?>
+                                                                                <option value="<?= $masuk['id_masuk'] ?>"><?= $masuk['id_masuk'] ?> <?= $masuk['nama_masuk'] ?></option>
+                                                                            <?php } ?>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Pembayaran</label>
+                                                                        <select class="form-control select2" style="width: 100%" name="id_biaya" required>
+                                                                            <?php
+                                                                            $query = mysqli_query($koneksi, "select * from biaya where id_kelas='$siswa[kelas]'");
+                                                                            while ($biaya = mysqli_fetch_array($query)) {
+                                                                            ?>
+                                                                                <option value="">Pembayaran</option>
+                                                                                <option value="<?= $biaya['id_biaya'] ?>"><?= $biaya['nama_biaya'] ?></option>
+                                                                            <?php } ?>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="jumlah">Jumlah Pembayaran Rp.</label>
+                                                                        <input value="<?= $bayar['jumlah'] ?>" type="text" class="form-control uang" name="jumlah" id="jumlah" aria-describedby="helpjumlah" placeholder="">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Bulan</label>
+                                                                        <select class="form-control select2" style="width: 100%" name="id_bulan" required>
+                                                                            <option value="">Pilih Bulan</option>
+                                                                            <?php
+                                                                            $query = mysqli_query($koneksi, "select * from bulan");
+                                                                            while ($bulan = mysqli_fetch_array($query)) {
+                                                                            ?>
+                                                                                <option value="<?= $bulan['id_bulan'] ?>"><?= $bulan['nama_bulan'] ?></option>
+                                                                            <?php } ?>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="tgl">Tanggal Pembayaran</label>
+                                                                        <input type="text" class="form-control datepicker" value="<?= $bayar['tgl_bayar'] ?>" name="tgl" id="tgl" placeholder="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-primary">Save</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
+                                        <script>
+                                            $('#form-edit-bayar<?= $no ?>').submit(function(e) {
+                                                e.preventDefault();
+                                                $.ajax({
+                                                    type: 'POST',
+                                                    url: 'mod_bayar/crud_bayar.php?pg=editbayar',
+                                                    data: $(this).serialize(),
+                                                    success: function(data) {
+
+                                                        iziToast.success({
+                                                            title: 'OKee!',
+                                                            message: 'Data Berhasil diubah',
+                                                            position: 'topRight'
+                                                        });
+                                                        setTimeout(function() {
+                                                            window.location.reload();
+                                                        }, 2000);
+                                                        $('#modal-edit-bayar<?= $no ?>').modal('hide');
+                                                        //$('#bodyreset').load(location.href + ' #bodyreset');
+                                                    }
+                                                });
+                                                return false;
+                                            });
+                                        </script>
                                     <?php }
                                     ?>
                                 </tbody>

@@ -34,6 +34,7 @@ if ($pg == 'tambah') {
         'tgl_bayar'     => $_POST['tgl'],
         'id_user'       => $_SESSION['id_user'],
         'id_biaya'      => $_POST['id_biaya'],
+        'keterangan'        => $_POST['keterangan'],
         'verifikasi' => 1
 
     ];
@@ -71,4 +72,29 @@ if ($pg == 'batalverifikasi') {
         'verifikasi' => 0
     ];
     update($koneksi, 'bayar', $data, ['id_bayar' => $id_bayar]);
+}
+if ($pg == 'editbayar') {
+    $id_bayar = $_POST['id_bayar'];
+    $data = [
+        'jumlah'        => str_replace(",", "", $_POST['jumlah']),
+        'tgl_bayar'     => $_POST['tgl'],
+        'id_biaya'      => $_POST['id_biaya'],
+        'keterangan'        => $_POST['keterangan'],
+        'id_bulan'          => $_POST['id_bulan'],
+
+    ];
+    $data2 = [
+        'id_daftar'         => $_POST['id'],
+        'keterangan'        => $_POST['keterangan'],
+        'id_masuk'          => $_POST['id_masuk'],
+        'ref'               => $_POST['id_masuk'],
+        'debit'             => str_replace(",", "", $_POST['jumlah']),
+        'tgl_bayar'         => $_POST['tgl'],
+        'id_user'           => $_SESSION['id_user'],
+        'id_bulan'          => $_POST['id_bulan']
+
+    ];
+    $exec = update($koneksi, 'bayar', $data, ['id_bayar' => $id_bayar]);
+    $exec = update($koneksi, 'bayar', $data, ['id_bayar' => $id_bayar]);
+    echo $exec;
 }
