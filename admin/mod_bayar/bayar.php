@@ -173,7 +173,7 @@
                                                             <form id="form-edit-bayar<?= $no; ?>">
                                                                 <div class="modal-body">
                                                                     <input type="hidden" value="<?= $bayar['id_bayar'] ?>" name="id_bayar">
-                                                                    <input type="hidden" value="<?= $bayar['id_daftar'] ?>" name="id_daftar">
+                                                                    <input value="<?= $bayar['id_daftar'] ?>" name="id_daftar">
                                                                     <div class="form-group">
                                                                         <label>Keterangan</label>
                                                                         <input type="text" name="keterangan" value="<?= $bayar['keterangan'] ?>" class="form-control" required="">

@@ -84,7 +84,7 @@ if ($pg == 'editbayar') {
 
     ];
     $data2 = [
-        'id_daftar'         => $_POST['id'],
+        'id_daftar'         => $_POST['id_daftar'],
         'keterangan'        => $_POST['keterangan'],
         'id_masuk'          => $_POST['id_masuk'],
         'ref'               => $_POST['id_masuk'],
