@@ -33,6 +33,7 @@ if ($pg == 'tambah') {
         'jumlah'        => str_replace(",", "", $_POST['jumlah']),
         'tgl_bayar'     => $_POST['tgl'],
         'id_user'       => $_SESSION['id_user'],
+        'id_biaya'      => $_POST['id_biaya'],
         'verifikasi' => 1
 
     ];
