@@ -3,10 +3,10 @@ require("../../../config/database.php");
 // Skrip berikut ini adalah skrip yang bertugas untuk meng-export data tadi ke excell
 $kelas = $_GET['id'];
 header("Content-type: application/vnd-ms-excel");
-if ($kelas = '') {
-    header("Content-Disposition: attachment; filename=DATA_SISWA.xls");
-} else {
+if ($kelas <> '') {
     header("Content-Disposition: attachment; filename=DATA_SISWA_$kelas.xls");
+} else {
+    header("Content-Disposition: attachment; filename=DATA_SISWA.xls");
 }
 session_start();
 if (!isset($_SESSION['id_user'])) {
