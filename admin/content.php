@@ -12,12 +12,8 @@ if ($pg == '') {
     include "mod_daftar/daftar.php";
 } elseif ($pg == 'mutasi') {
     include "mod_daftar/mutasi.php";
-} elseif ($pg == 'kelas10') {
-    include "mod_daftar/kelas10.php";
-} elseif ($pg == 'kelas11') {
-    include "mod_daftar/kelas11.php";
-} elseif ($pg == 'kelas12') {
-    include "mod_daftar/kelas12.php";
+} elseif ($pg == 'rekap_siswa') {
+    include "mod_daftar/rekap_siswa.php";
 } elseif ($pg == 'detail') {
     include "mod_daftar/edit_detail.php";  //Modul Detail Pendaftaran
 } elseif ($pg == 'diterima') {
