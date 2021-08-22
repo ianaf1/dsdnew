@@ -130,8 +130,9 @@
 
                                     <?php
                                     $query = mysqli_query($koneksi, "select * from bayar a join daftar b ON a.id_daftar=b.id_daftar where a.verifikasi='1'");
+                                    $bayar = mysqli_fetch_array($query);
                                     $masukq = mysqli_query($koneksi, "select * from keu_pemasukan where status='1'");
-                                    $biayaq = mysqli_query($koneksi, "select * from biaya where id_kelas='$siswa[kelas]'");
+                                    $biayaq = mysqli_query($koneksi, "select * from biaya where id_kelas='$bayar[kelas]'");
                                     $bulanq = mysqli_query($koneksi, "select * from bulan");
                                     $no = 0;
 
