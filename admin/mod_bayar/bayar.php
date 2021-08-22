@@ -218,7 +218,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label>Kode Referensi</label>
+                                            <label>Pembayaran</label>
                                             <select class="form-control select2" style="width: 100%" name="id_biaya" required>
                                                 <?php
                                                 $query = mysqli_query($koneksi, "select * from biaya where id_kelas='$siswa[kelas]'");
