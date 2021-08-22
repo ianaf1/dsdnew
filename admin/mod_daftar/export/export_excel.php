@@ -3,7 +3,7 @@ require("../../../config/database.php");
 // Skrip berikut ini adalah skrip yang bertugas untuk meng-export data tadi ke excell
 $kelas = $_GET['id'];
 header("Content-type: application/vnd-ms-excel");
-if ($kelas = 0) {
+if ($kelas = '') {
     header("Content-Disposition: attachment; filename=DATA_SISWA.xls");
 } else {
     header("Content-Disposition: attachment; filename=DATA_SISWA_$kelas.xls");
@@ -131,7 +131,7 @@ if (!isset($_SESSION['id_user'])) {
     </thead>
     <tbody>
         <?php
-        if (isset($_GET['id']) == 0) {
+        if (isset($_GET['id']) == '') {
             $query = mysqli_query($koneksi, "select * from daftar where status = '1' order by kelas asc");
         } else {
             $kelas = $_GET['id'];
