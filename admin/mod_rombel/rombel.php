@@ -49,7 +49,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $query = mysqli_query($koneksi, "select DISTINCT nama_rombel, id_jenjang from rombel order by nama_rombel asc");
+                                    $query = mysqli_query($koneksi, "select DISTINCT id_kelas, nama_rombel, id_jenjang from rombel order by nama_rombel asc");
                                     $no = 0;
                                     while ($rombel = mysqli_fetch_array($query)) {
                                         $no++;
@@ -61,7 +61,7 @@
                                             <td><?= $rombel['id_jenjang'] ?></td>
                                             <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from rombel where nama_rombel = '$rombel[nama_rombel]'")) ?></td>
                                             <td>
-                                                <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail kelas" href="?pg=rombel&id=<?= enkripsi($kelas['id_kelas']) ?>" class="btn btn-sm btn-success"><i class="fas fa-eye    "></i></a>
+                                                <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail kelas" href="?pg=rombel&id=<?= enkripsi($rombel['id_kelas']) ?>" class="btn btn-sm btn-success"><i class="fas fa-eye    "></i></a>
                                             </td>
                                         </tr>
                                     <?php }
