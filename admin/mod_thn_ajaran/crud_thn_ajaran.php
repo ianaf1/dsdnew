@@ -17,7 +17,7 @@ if ($pg == 'update') {
         ];
         $id_semester = $_POST['id_semester'];
         update($koneksi, 'semester', $sem_aktif, ['id_semester' => $id_semester]);
-        update($koneksi, 'semester', $sem_nonaktif, $semester_aktif['id_semester']);
+        update($koneksi, 'semester', $sem_nonaktif, ['id_semester' => $semester_aktif['id_semester']]);
     }
     $data = [
         'nama_thn_ajaran' => $_POST['thn_ajaran'],
@@ -26,6 +26,6 @@ if ($pg == 'update') {
     $thn_nonaktif = [
         'thn_ajaran_aktif' => 0
     ];
-    update($koneksi, 'thn_ajaran', $thn_nonaktif, $tahun_ajaran_aktif['id_thn_ajaran']);
+    update($koneksi, 'thn_ajaran', $thn_nonaktif, ['id_thn_ajaran' => $tahun_ajaran_aktif['id_thn_ajaran']]);
     insert($koneksi, 'thn_ajaran', $data);
 }

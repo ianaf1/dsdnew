@@ -28,7 +28,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <center><button id="btnsimpan" type="submit" class="btn btn-primary btn-sm mt-2">Simpan Data Diri</button></center>
+                            <center><button id="btnsimpan" type="submit" class="btn btn-primary btn-sm mt-2">Simpan</button></center>
                         </div>
                     </form>
                 </div>
