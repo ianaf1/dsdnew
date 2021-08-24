@@ -20,7 +20,7 @@
                             <select class="form-control select2" style="width: 100%" name="id_semester" required>
                                 <option value="">Pilih Semester</option>
                                 <?php
-                                $query = mysqli_query($koneksi, "select * from Semester");
+                                $query = mysqli_query($koneksi, "select * from semester");
                                 while ($semester = mysqli_fetch_array($query)) {
                                 ?>
                                     <option value="<?= $semester['id_semester'] ?>"><?= $semester['nama_semester'] ?></option>
@@ -28,7 +28,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <right><button id="btnsimpan" type="submit" class="btn btn-primary btn-lg mt-2">Simpan Data Diri</button></right>
+                            <center><button id="btnsimpan" type="submit" class="btn btn-primary btn-sm mt-2">Simpan Data Diri</button></center>
                         </div>
                     </form>
                 </div>
