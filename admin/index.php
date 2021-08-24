@@ -3,6 +3,7 @@ session_start();
 require("../config/database.php");
 require("../config/function.php");
 require("../config/functions.crud.php");
+require("../config/tahun.ajaran.php");
 
 $jan = mysqli_fetch_array(mysqli_query($koneksi, "select sum(debit) as totaldebit, sum(kredit) as totalkredit from transaksi where id_bulan=1"));
 $feb = mysqli_fetch_array(mysqli_query($koneksi, "select sum(debit) as totaldebit, sum(kredit) as totalkredit from transaksi where id_bulan=2"));
