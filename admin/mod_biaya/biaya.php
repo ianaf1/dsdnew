@@ -91,14 +91,13 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">
-                                        #
+                                        No
                                     </th>
-                                    <th>Kode Biaya</th>
-                                    <th>Kelas</th>
-                                    <th>Nama Biaya</th>
-                                    <th>Jumlah Biaya</th>
-                                    <th>status</th>
-                                    <th>Action</th>
+                                    <th class="text-center">Kelas</th>
+                                    <th class="text-center">Nama Biaya</th>
+                                    <th class="text-center">Jumlah Biaya</th>
+                                    <th class="text-center">Semester</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -110,10 +109,9 @@
                                 ?>
                                     <tr>
                                         <td><?= $no; ?></td>
-                                        <td><?= $biaya['kode_biaya'] ?></td>
                                         <td><?= $biaya['id_kelas'] ?></td>
                                         <td><?= $biaya['nama_biaya'] ?></td>
-                                        <td><?= $biaya['jumlah'] ?></td>
+                                        <td><?= "Rp. " . number_format($biaya['jumlah'], 0, ",", ".") ?></td>
                                         <td><?= $biaya['nama_semester'] ?></td>
                                         <td>
                                             <button data-id="<?= $biaya['id_biaya'] ?>" class="hapus btn btn-sm btn-danger">Hapus</button>
