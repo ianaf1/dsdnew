@@ -26,7 +26,7 @@ if ($pg == 'update') {
     $thn_nonaktif = [
         'thn_ajaran_aktif' => 0
     ];
-    // update($koneksi, 'thn_ajaran', $thn_nonaktif, ['id_thn_ajaran' => $tahun_ajaran_aktif['id_thn_ajaran']]);
+    update($koneksi, 'thn_ajaran', $thn_nonaktif, ['id_thn_ajaran' => $tahun_ajaran_aktif['id_thn_ajaran']]);
     insert($koneksi, 'thn_ajaran', $data);
-    delete($koneksi, 'thn_ajaran', ['id_thn_ajaran' => $tahun_ajaran_aktif['id_thn_ajaran']]);
+    // delete($koneksi, 'thn_ajaran', ['id_thn_ajaran' => $tahun_ajaran_aktif['id_thn_ajaran']]);
 }
