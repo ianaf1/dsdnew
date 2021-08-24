@@ -26,6 +26,18 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label>Semester</label>
+                            <select class="form-control select2" style="width: 100%" name="id_semester" required>
+                                <option value="">Pilih Semester</option>
+                                <?php
+                                $query = mysqli_query($koneksi, "select * from Semester");
+                                while ($semester = mysqli_fetch_array($query)) {
+                                ?>
+                                    <option value="<?= $semester['id_semester'] ?>"><?= $semester['nama_semester'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label>Kode Biaya</label>
                             <select class="form-control select2" style="width: 100%" name="kode_biaya" required>
                                 <option value="">Kode Biaya</option>
@@ -91,7 +103,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $query = mysqli_query($koneksi, "select * from biaya");
+                                $query = mysqli_query($koneksi, "select * from biaya a join semester b on a.id_semester=b.id_semester where b.is_active=1");
                                 $no = 0;
                                 while ($biaya = mysqli_fetch_array($query)) {
                                     $no++;
@@ -102,13 +114,7 @@
                                         <td><?= $biaya['id_kelas'] ?></td>
                                         <td><?= $biaya['nama_biaya'] ?></td>
                                         <td><?= $biaya['jumlah'] ?></td>
-                                        <td>
-                                            <?php if ($biaya['status'] == 1) { ?>
-                                                <span class="badge badge-success">Aktif</span>
-                                            <?php } else { ?>
-                                                <span class="badge badge-danger">Non Aktif</span>
-                                            <?php } ?>
-                                        </td>
+                                        <td><?= $biaya['nama_semester'] ?></td>
                                         <td>
                                             <button data-id="<?= $biaya['id_biaya'] ?>" class="hapus btn btn-sm btn-danger">Hapus</button>
                                             <!-- Button trigger modal -->
