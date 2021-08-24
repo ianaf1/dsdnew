@@ -26,18 +26,6 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Semester</label>
-                            <select class="form-control select2" style="width: 100%" name="id_semester" required>
-                                <option value="">Pilih Semester</option>
-                                <?php
-                                $query = mysqli_query($koneksi, "select * from Semester");
-                                while ($semester = mysqli_fetch_array($query)) {
-                                ?>
-                                    <option value="<?= $semester['id_semester'] ?>"><?= $semester['nama_semester'] ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label>Kode Biaya</label>
                             <select class="form-control select2" style="width: 100%" name="kode_biaya" required>
                                 <option value="">Kode Biaya</option>
@@ -102,7 +90,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $query = mysqli_query($koneksi, "select * from biaya a join semester b on a.id_semester=b.id_semester where a.id_semester='$semester_aktif[id_semester]'");
+                                $query = mysqli_query($koneksi, "select * from biaya a join semester b on a.id_semester=b.id_semester where a.id_semester='$semester_aktif[id_semester]' && a.thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]'");
                                 $no = 0;
                                 while ($biaya = mysqli_fetch_array($query)) {
                                     $no++;
