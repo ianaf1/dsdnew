@@ -108,12 +108,12 @@
                                     $no++;
                                 ?>
                                     <tr>
-                                        <td><?= $no; ?></td>
-                                        <td><?= $biaya['id_kelas'] ?></td>
+                                        <td class="text-center"><?= $no; ?></td>
+                                        <td class="text-center"><?= $biaya['id_kelas'] ?></td>
                                         <td><?= $biaya['nama_biaya'] ?></td>
                                         <td><?= "Rp. " . number_format($biaya['jumlah'], 0, ",", ".") ?></td>
-                                        <td><?= $biaya['nama_semester'] ?></td>
-                                        <td>
+                                        <td class="text-center"><?= $biaya['nama_semester'] ?></td>
+                                        <td class="text-center">
                                             <button data-id="<?= $biaya['id_biaya'] ?>" class="hapus btn btn-sm btn-danger">Hapus</button>
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit<?= $no ?>">

@@ -56,4 +56,6 @@ if ($pg == '') {
     include "mod_surat/m_surat.php";
 } elseif ($pg == 'arsip') {
     include "mod_surat/arsip.php";
+} elseif ($pg == 'thn_ajaran') {
+    include "mod_thn_ajaran/thn_ajaran.php";
 }
