@@ -231,7 +231,7 @@ $saldoawal = $saldolama;
                             <tr>
                                 <th class="text-center">No</th>
                                 <th class="text-center">Tgl Transaksi</th>
-                                <!-- <th class="text-center">Bulan</th> -->
+                                <th class="text-center">Siswa</th>
                                 <!-- <th class="text-center">Kode</th> -->
                                 <th class="text-center">Keterangan</th>
                                 <th class="text-center">Ref</th>
@@ -245,10 +245,10 @@ $saldoawal = $saldolama;
                             <?php
                             if (isset($_GET['id']) <> '') {
                                 $bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['id'])]);
-                                $query = mysqli_query($koneksi, "SELECT * FROM transaksi a JOIN bulan b ON a.id_bulan=b.id_bulan WHERE a.id_bulan='$bulan[id_bulan]' ORDER BY a.tgl_bayar ASC");
+                                $query = mysqli_query($koneksi, "SELECT * FROM transaksi a JOIN daftar b ON a.id_daftar=b.id_daftar WHERE a.id_bulan='$bulan[id_bulan]' ORDER BY a.tgl_bayar ASC");
                             } else {
                                 $bulan = date('m');
-                                $query = mysqli_query($koneksi, "select * from transaksi where id_bulan = $bulan order by tgl_bayar asc");
+                                $query = mysqli_query($koneksi, "SELECT * from transaksi a JOIN daftar b ON a.id_daftar=b.id_daftar where id_bulan = $bulan order by tgl_bayar asc");
                             }
                             $no = 0;
                             $saldo = $saldoawal;
@@ -265,7 +265,7 @@ $saldoawal = $saldolama;
                                 <tr>
                                     <td class="text-center"><?= $no; ?></td>
                                     <td class="text-center"><?= $transaksi['tgl_bayar'] ?></td>
-                                    <!-- <td class="text-center"><?= $transaksi['id_bulan'] ?></td> -->
+                                    <td class="text-center"><?= $transaksi['nama'] ?></td>
                                     <!-- <td class="text-center"><?= $transaksi['kode_transaksi'] ?></td> -->
                                     <td><?= $transaksi['keterangan'] ?></td>
                                     <td class="text-center"><?= $transaksi['ref'] ?></td>
