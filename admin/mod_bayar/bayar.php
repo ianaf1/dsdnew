@@ -197,8 +197,9 @@
                                                                             $biayaq = mysqli_query($koneksi, "select * from biaya where id_kelas='$bayar[kelas]'");
                                                                             while ($biaya = mysqli_fetch_array($biayaq)) {
                                                                             ?>
-                                                                                <option value="">Pembayaran</option>
+                                                                                <option value="">Jenis Pembayaran</option>
                                                                                 <option value="<?= $biaya['id_biaya'] ?>"><?= $biaya['nama_biaya'] ?></option>
+                                                                                <option value="L">Tunggakan</option>
                                                                             <?php } ?>
                                                                         </select>
                                                                     </div>
