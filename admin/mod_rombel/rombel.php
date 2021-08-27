@@ -142,7 +142,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $query = mysqli_query($koneksi, "select * from daftar a  join kelas b ON a.id_kelas = b.id_kelas where a.id_kelas='$kelas[id_kelas]' order by a.nama asc");
+                                $query = mysqli_query($koneksi, "select * from daftar a  join kelas b ON a.id_kelas = b.id_kelas where a.id_kelas='$kelas[id_kelas]' && a.status='1' order by a.nama asc");
                                 $no = 0;
                                 while ($rombel = mysqli_fetch_array($query)) {
                                     $no++;
