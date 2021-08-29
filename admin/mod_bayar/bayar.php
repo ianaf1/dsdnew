@@ -53,11 +53,10 @@
                                     $q2 = mysqli_query($koneksi, "select sum(jumlah) as total from biaya where id_kelas='$daftar[kelas]' && id_semester!='$semester_aktif[id_semester]' && thn_ajaran!='$tahun_ajaran_aktif[nama_thn_ajaran]'");
                                     $q3 = mysqli_query($koneksi, "select sum(jumlah) as total from siswa_tunggakan where id_daftar='$daftar[id_daftar]'");
                                     $q4 = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$daftar[id_daftar]' && id_biaya='L'");
-                                    while ($daftar = mysqli_fetch_array($query)
-                                        || $tunggakansiswa = mysqli_fetch_array($q3)
-                                        || $biayasiswa = mysqli_fetch_array($q2)
-                                        || $siswabayar = mysqli_fetch_array($q4)
-                                    ) {
+                                    while ($daftar = mysqli_fetch_array($query)) {
+                                        $tunggakansiswa = mysqli_fetch_array($q3);
+                                        $biayasiswa = mysqli_fetch_array($q2);
+                                        $siswabayar = mysqli_fetch_array($q4);
                                         // if ($biayasiswa['total'] == null) {
                                         //     $biayasiswa['total'] = "0";
                                         // } else {
