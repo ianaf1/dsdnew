@@ -49,20 +49,12 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $query = mysqli_query($koneksi, "select
-                                    daftar.id_daftar, daftar.kelas, daftar.nama,
-                                    sum(tunggakan_siswa.jumlah) as jumlah_tunggakan, tunggakan_siswa.id_daftar
-                                    sum(bayar.jumlah) as jumlah_bayar where id_biaya='L', bayar.id_daftar, bayar.id_biaya,
-                                    sum(biaya.jumlah) where biaya.id_semester!='$semester_aktif[id_semester]' && biaya.thn_ajaran!='$thn_ajaran_aktif[nama_thn_ajaran]' as jumlah_biaya,
-                                    biaya.id_kelas
-                                    from bayar a 
-                                    join daftar b ON a.id_daftar=b.id_daftar
-                                    join tunggakan c ON c.id_daftar=b.id_daftar
-                                    join biaya d ON d.id_kelas=b.kelas
-                                    ");
-                                    while ($tunggakan = mysqli_fetch_array($query)) {
-                                        $totaltunggakan = $tunggakan['jumlah_tunggakan'] + $tunggakan['jumlah_biaya'] - $tunggakan['jumlah_bayar'];
-
+                                    $query = mysqli_query($koneksi, "select id_daftar, nama, kelas from daftar where status='1'");
+                                    while ($daftar = mysqli_fetch_array($query)) {
+                                        $biayasiswa = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from biaya where id_kelas='$daftar[kelas]' && id_semester!='$semester_aktif[id_semester]' && thn_ajaran!='$tahun_ajaran_aktif[nama_thn_ajaran]'"));
+                                        $tunggakansiswa = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from siswa_tunggakan where id_daftar='$daftar[id_daftar]'"));
+                                        $siswabayar = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from bayar where id_daftar='$daftar[id_daftar]' && id_biaya='L'"));
+                                        $totaltunggakan = $biayasiswa + $tunggakansiswa - $siswabayar;
                                         $no++;
                                     ?>
                                         <tr>
