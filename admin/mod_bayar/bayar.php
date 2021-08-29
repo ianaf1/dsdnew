@@ -53,7 +53,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="jumlah">Jumlah Pembayaran Rp.</label>
+                                            <label for="jumlah">Jumlah Tunggakan Rp.</label>
                                             <input type="text" class="form-control uang" name="jumlah" id="jumlah" aria-describedby="helpjumlah" placeholder="">
                                         </div>
                                     </div>
@@ -104,7 +104,7 @@
                                         <tr>
                                             <td class="text-center"><?= $no; ?></td>
                                             <td><?= $daftar['nama'] ?></td>
-                                            <td><?= "Rp " . number_format($totaltunggakan, 0, ",", ".") ?></td>
+                                            <td class="text-center"><?= "Rp " . number_format($totaltunggakan, 0, ",", ".") ?></td>
                                             <td class="text-center">
                                                 <?php if ($totaltunggakan <= 0) { ?>
                                                     <span class="badge badge-success">LUNAS</span>
@@ -456,7 +456,7 @@
             success: function(data) {
                 if (data == 'OK') {
                     $('#tambahtunggakan').modal('hide');
-                    swal.fire({
+                    swal({
                         title: 'Mantaap!',
                         message: 'Data Berhasil Ditambahkan Guys...',
                         icon: 'success'
