@@ -50,21 +50,18 @@
                                 <tbody>
                                     <?php
                                     $query = mysqli_query($koneksi, "select id_daftar, nama, kelas from daftar where status='1'");
+                                    $biayasiswa = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from biaya where id_kelas='$daftar[kelas]' && id_semester!='$semester_aktif[id_semester]' && thn_ajaran!='$tahun_ajaran_aktif[nama_thn_ajaran]'"));
+                                    $tunggakansiswa = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from siswa_tunggakan where id_daftar='$daftar[id_daftar]'"));
+                                    $siswabayar = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from bayar where id_daftar='$daftar[id_daftar]' && id_biaya='L'"));
                                     while ($daftar = mysqli_fetch_array($query)) {
-                                        if ($biayasiswa = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from biaya where id_kelas='$daftar[kelas]' && id_semester!='$semester_aktif[id_semester]' && thn_ajaran!='$tahun_ajaran_aktif[nama_thn_ajaran]'")) == null) {
+                                        if ($biayasiswa == null) {
                                             $biayasiswa = "0";
-                                        } else {
-                                            $biayasiswa = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from biaya where id_kelas='$daftar[kelas]' && id_semester!='$semester_aktif[id_semester]' && thn_ajaran!='$tahun_ajaran_aktif[nama_thn_ajaran]'"));
                                         }
-                                        if ($tunggakansiswa = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from siswa_tunggakan where id_daftar='$daftar[id_daftar]'")) == null) {
+                                        if ($tunggakansiswa  == null) {
                                             $tunggakansiswa = "0";
-                                        } else {
-                                            $tunggakansiswa = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from siswa_tunggakan where id_daftar='$daftar[id_daftar]'"));
                                         }
-                                        if ($siswabayar = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from bayar where id_daftar='$daftar[id_daftar]' && id_biaya='L'")) == null) {
+                                        if ($siswabayar  == null) {
                                             $siswabayar = "0";
-                                        } else {
-                                            $siswabayar = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from bayar where id_daftar='$daftar[id_daftar]' && id_biaya='L'"));
                                         }
                                         $totaltunggakan = $biayasiswa + $tunggakansiswa - $siswabayar;
                                         $no++;
