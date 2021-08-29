@@ -56,12 +56,18 @@
                                     while ($daftar = mysqli_fetch_array($query)) {
                                         if ($biayasiswa['total'] == null) {
                                             $biayasiswa['total'] = "0";
+                                        } else {
+                                            $biayasiswa['total'];
                                         }
                                         if ($tunggakansiswa['total']  == null) {
                                             $tunggakansiswa['total'] = "0";
+                                        } else {
+                                            $tunggakansiswa['total'];
                                         }
                                         if ($siswabayar['total'] == null) {
                                             $siswabayar['total'] = "0";
+                                        } else {
+                                            $siswabayar['total'];
                                         }
                                         $totaltunggakan = $biayasiswa['total'] + $tunggakansiswa['total'] - $siswabayar['total'];
                                         $no++;
