@@ -460,10 +460,9 @@
                         title: 'Mantaap!',
                         text: 'Data Berhasil Ditambahkan Guys...',
                         icon: 'success'
+                    }).then(function() {
+                        location.reload();
                     });
-                    // setTimeout(function() {
-                    //     window.location.reload();
-                    // }, 5000);
 
                 } else {
                     iziToast.error({
