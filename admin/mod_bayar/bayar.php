@@ -53,12 +53,18 @@
                                     while ($daftar = mysqli_fetch_array($query)) {
                                         if ($biayasiswa = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from biaya where id_kelas='$daftar[kelas]' && id_semester!='$semester_aktif[id_semester]' && thn_ajaran!='$tahun_ajaran_aktif[nama_thn_ajaran]'")) == null) {
                                             $biayasiswa = "0";
+                                        } else {
+                                            $biayasiswa = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from biaya where id_kelas='$daftar[kelas]' && id_semester!='$semester_aktif[id_semester]' && thn_ajaran!='$tahun_ajaran_aktif[nama_thn_ajaran]'"));
                                         }
                                         if ($tunggakansiswa = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from siswa_tunggakan where id_daftar='$daftar[id_daftar]'")) == null) {
                                             $tunggakansiswa = "0";
+                                        } else {
+                                            $tunggakansiswa = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from siswa_tunggakan where id_daftar='$daftar[id_daftar]'"));
                                         }
                                         if ($siswabayar = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from bayar where id_daftar='$daftar[id_daftar]' && id_biaya='L'")) == null) {
                                             $siswabayar = "0";
+                                        } else {
+                                            $siswabayar = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from bayar where id_daftar='$daftar[id_daftar]' && id_biaya='L'"));
                                         }
                                         $totaltunggakan = $biayasiswa + $tunggakansiswa - $siswabayar;
                                         $no++;
