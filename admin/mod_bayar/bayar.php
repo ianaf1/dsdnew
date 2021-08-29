@@ -50,20 +50,20 @@
                                 <tbody>
                                     <?php
                                     $query = mysqli_query($koneksi, "select id_daftar, nama, kelas from daftar where status='1'");
-                                    $biayasiswa = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from biaya where id_kelas='$daftar[kelas]' && id_semester!='$semester_aktif[id_semester]' && thn_ajaran!='$tahun_ajaran_aktif[nama_thn_ajaran]'"));
-                                    $tunggakansiswa = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from siswa_tunggakan where id_daftar='$daftar[id_daftar]'"));
-                                    $siswabayar = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) from bayar where id_daftar='$daftar[id_daftar]' && id_biaya='L'"));
+                                    $biayasiswa = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) as total from biaya where id_kelas='$daftar[kelas]' && id_semester!='$semester_aktif[id_semester]' && thn_ajaran!='$tahun_ajaran_aktif[nama_thn_ajaran]'"));
+                                    $tunggakansiswa = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) as total from siswa_tunggakan where id_daftar='$daftar[id_daftar]'"));
+                                    $siswabayar = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$daftar[id_daftar]' && id_biaya='L'"));
                                     while ($daftar = mysqli_fetch_array($query)) {
-                                        if ($biayasiswa == null) {
-                                            $biayasiswa = "0";
+                                        if ($biayasiswa['total'] == null) {
+                                            $biayasiswa['total'] = "0";
                                         }
-                                        if ($tunggakansiswa  == null) {
-                                            $tunggakansiswa = "0";
+                                        if ($tunggakansiswa['total']  == null) {
+                                            $tunggakansiswa['total'] = "0";
                                         }
-                                        if ($siswabayar  == null) {
-                                            $siswabayar = "0";
+                                        if ($siswabayar['total'] == null) {
+                                            $siswabayar['total'] = "0";
                                         }
-                                        $totaltunggakan = $biayasiswa + $tunggakansiswa - $siswabayar;
+                                        $totaltunggakan = $biayasiswa['total'] + $tunggakansiswa['total'] - $siswabayar['total'];
                                         $no++;
                                     ?>
                                         <tr>
