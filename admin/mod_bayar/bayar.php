@@ -59,7 +59,7 @@
                                     ?>
                                         <tr>
                                             <td><?= $no; ?></td>
-                                            <td><?= $tunggakan['nama'] ?></td>
+                                            <td><?= $daftar['nama'] ?></td>
                                             <td><?= "Rp " . number_format($totaltunggakan, 0, ",", ".") ?></td>
                                         </tr>
                                     <?php }
