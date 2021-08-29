@@ -29,7 +29,7 @@
             <div class="col-12">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h5 class='m-0 font-weight-bold text-primary'>Data Belum Verifikasi</h5>
+                        <h5 class='m-0 font-weight-bold text-primary'>Data Tunggakan Siswa</h5>
                         <div class="card-header-action">
                             <a class="btn btn-primary" href="mod_bayar/export_bayar.php" role="button"> Download Excel</a>
                         </div>
@@ -40,55 +40,35 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">
-                                            #
+                                            No
                                         </th>
-                                        <th>Kode Transaksi</th>
                                         <th>Nama Siswa</th>
-                                        <th>Jumlah Bayar</th>
-                                        <th>Tgl Bayar</th>
-                                        <th>Penerima</th>
-                                        <th>verifikasi</th>
-                                        <th>Bukti</th>
-                                        <th>Action</th>
+                                        <th>Jumlah Tunggakan</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $query = mysqli_query($koneksi, "select * from bayar a join daftar b ON a.id_daftar=b.id_daftar where a.verifikasi='0' ");
-                                    $no = 0;
-                                    while ($bayar = mysqli_fetch_array($query)) {
-                                        $user = fetch($koneksi, 'user', ['id_user' => $bayar['id_user']]);
+                                    $query = mysqli_query($koneksi, "select
+                                    daftar.id_daftar, daftar.kelas, daftar.nama,
+                                    sum(tunggakan_siswa.jumlah) as jumlah_tunggakan, tunggakan_siswa.id_daftar
+                                    sum(bayar.jumlah) as jumlah_bayar where id_biaya='L', bayar.id_daftar, bayar.id_biaya,
+                                    sum(biaya.jumlah) where biaya.id_semester!='$semester_aktif[id_semester]' && biaya.thn_ajaran!='$thn_ajaran_aktif[nama_thn_ajaran]' as jumlah_biaya,
+                                    biaya.id_kelas
+                                    from bayar a 
+                                    join daftar b ON a.id_daftar=b.id_daftar
+                                    join tunggakan c ON c.id_daftar=b.id_daftar
+                                    join biaya d ON d.id_kelas=b.kelas
+                                    ");
+                                    while ($tunggakan = mysqli_fetch_array($query)) {
+                                        $totaltunggakan = $tunggakan['jumlah_tunggakan'] + $tunggakan['jumlah_biaya'] - $tunggakan['jumlah_bayar'];
+
                                         $no++;
                                     ?>
                                         <tr>
                                             <td><?= $no; ?></td>
-                                            <td><?= $bayar['id_bayar'] ?></td>
-                                            <td><?= $bayar['nama'] ?></td>
-                                            <td><?= "Rp " . number_format($bayar['jumlah'], 0, ",", ".") ?></td>
-                                            <td><?= $bayar['tgl_bayar'] ?></td>
-                                            <td><?php if ($user) {
-                                                    echo $user['nama_user'];
-                                                } else {
-                                                    echo "Online";
-                                                } ?>
-                                            </td>
-
-                                            <td>
-                                                <?php if ($bayar['verifikasi'] == 1) { ?>
-                                                    <span class="badge badge-success">Sudah Dicek</span>
-                                                <?php } else { ?>
-                                                    <span class="badge badge-warning">Belum Dicek</span>
-                                                <?php } ?>
-                                            </td>
-                                            <td>
-                                                <?php if ($bayar['bukti'] <> null) { ?>
-                                                    <a target="_blank" href="../user/mod_bayar/<?= $bayar['bukti'] ?>" class="badge badge-primary"><i class="fas fa-eye"></i></a>
-                                                <?php }  ?>
-                                            </td>
-                                            <td>
-                                                <button data-id="<?= $bayar['id_bayar'] ?>" class="cek btn btn-success btn-sm"><i class="fas fa-check-circle    "></i></button>
-                                                <button data-id="<?= $bayar['id_bayar'] ?>" class="hapus btn btn-danger btn-sm"><i class="fas fa-trash-alt    "></i></button>
-                                            </td>
+                                            <td><?= $tunggakan['nama'] ?></td>
+                                            <td><?= "Rp " . number_format($totaltunggakan, 0, ",", ".") ?></td>
                                         </tr>
                                     <?php }
                                     ?>
