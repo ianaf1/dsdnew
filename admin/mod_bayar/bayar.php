@@ -458,12 +458,12 @@
                     $('#tambahtunggakan').modal('hide');
                     swal({
                         title: 'Mantaap!',
-                        message: 'Data Berhasil Ditambahkan Guys...',
+                        text: 'Data Berhasil Ditambahkan Guys...',
                         icon: 'success'
                     });
                     setTimeout(function() {
                         window.location.reload();
-                    }, 2000);
+                    }, 5000);
 
                 } else {
                     iziToast.error({
