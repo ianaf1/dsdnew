@@ -456,14 +456,14 @@
             success: function(data) {
                 if (data == 'OK') {
                     $('#tambahtunggakan').modal('hide');
-                    swal.fire(
-                        'Mantaap!',
-                        'Data Berhasil Ditambahkan Guys...',
-                        'success'
-                    );
-                    // setTimeout(function() {
-                    //     window.location.reload();
-                    // }, 2000);
+                    swal.fire({
+                        title: 'Mantaap!',
+                        message: 'Data Berhasil Ditambahkan Guys...',
+                        icon: 'success'
+                    });
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 2000);
 
                 } else {
                     iziToast.error({
