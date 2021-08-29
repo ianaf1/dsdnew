@@ -9,6 +9,7 @@ if (!isset($_SESSION['id_user'])) {
 if ($pg == 'tambahdebit') {
     $today = date("Ymd");
     $bulan = date('m');
+    $tahun = date('Y');
     $query = "SELECT max(kode_transaksi) AS last FROM transaksi WHERE kode_transaksi LIKE '$today%'";
     $hasil = mysqli_query($koneksi, $query);
     $data  = mysqli_fetch_array($hasil);
@@ -24,7 +25,8 @@ if ($pg == 'tambahdebit') {
         'debit'             => str_replace(",", "", $_POST['debit']),
         'tgl_bayar'         => $_POST['tgl'],
         'id_user'           => $_SESSION['id_user'],
-        'id_bulan'          => $_POST['id_bulan']
+        'id_bulan'          => $_POST['id_bulan'],
+        'tahun'             => $tahun
 
     ];
     $exec = insert($koneksi, 'transaksi', $data);
@@ -33,6 +35,7 @@ if ($pg == 'tambahdebit') {
 if ($pg == 'tambahkredit') {
     $today = date("Ymd");
     $bulan = date('m');
+    $tahun = date('Y');
 
     // cari id transaksi terakhir yang berawalan tanggal hari ini
     $query = "SELECT max(id_transaksi) AS last FROM transaksi WHERE id_transaksi LIKE '$today%'";
@@ -50,8 +53,8 @@ if ($pg == 'tambahkredit') {
         'kredit'            => str_replace(",", "", $_POST['kredit']),
         'tgl_bayar'         => $_POST['tgl'],
         'id_user'           => $_SESSION['id_user'],
-        'id_bulan'          => $_POST['id_bulan']
-
+        'id_bulan'          => $_POST['id_bulan'],
+        'tahun'             => $tahun
     ];
     $exec = insert($koneksi, 'transaksi', $data);
     echo $exec;

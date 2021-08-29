@@ -28,10 +28,50 @@
         <div class="row">
             <div class="col-12">
                 <div class="card shadow mb-4">
+                    <!-- Modal -->
+                    <div class="modal fade" id="tambahtunggakan" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Tambah Tunggakan</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form id="form-tambahtunggakan">
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label>Siswa</label>
+                                            <select class="form-control select2" style="width: 100%" name="id_daftar" required>
+                                                <option value="">Pilih Siswa</option>
+                                                <?php
+                                                $query = mysqli_query($koneksi, "select * from daftar where status='1'");
+                                                while ($siswa = mysqli_fetch_array($query)) {
+                                                ?>
+                                                    <option value="<?= $siswa['id_daftar'] ?>"><?= $siswa['nama'] ?>, <?= $siswa['kelas'] ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="jumlah">Jumlah Pembayaran Rp.</label>
+                                            <input type="text" class="form-control uang" name="jumlah" id="jumlah" aria-describedby="helpjumlah" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h5 class='m-0 font-weight-bold text-primary'>Data Tunggakan Siswa</h5>
                         <div class="card-header-action">
-                            <a class="btn btn-primary" href="mod_bayar/export_bayar.php" role="button"> Download Excel</a>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#tambahtunggakan">
+                                <i class="fas fa-plus-circle    "></i> Tambah Tunggakan
+                            </button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -42,9 +82,9 @@
                                         <th class="text-center">
                                             No
                                         </th>
-                                        <th>Nama Siswa</th>
-                                        <th>Jumlah Tunggakan</th>
-
+                                        <th class="text-center">Nama Siswa</th>
+                                        <th class="text-center">Jumlah Tunggakan</th>
+                                        <th class="text-center">Keterangan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,28 +98,20 @@
                                         $tunggakansiswa = mysqli_fetch_array($q3);
                                         $biayasiswa = mysqli_fetch_array($q2);
                                         $siswabayar = mysqli_fetch_array($q4);
-                                        // if ($biayasiswa['total'] == null) {
-                                        //     $biayasiswa['total'] = "0";
-                                        // } else {
-                                        //     $biayasiswa['total'];
-                                        // }
-                                        // if ($tunggakansiswa['total']  == null) {
-                                        //     $tunggakansiswa['total'] = "0";
-                                        // } else {
-                                        //     $tunggakansiswa['total'];
-                                        // }
-                                        // if ($siswabayar['total'] == null) {
-                                        //     $siswabayar['total'] = "0";
-                                        // } else {
-                                        //     $siswabayar['total'];
-                                        // }
                                         $totaltunggakan = $biayasiswa['total'] + $tunggakansiswa['total'] - $siswabayar['total'];
                                         $no++;
                                     ?>
                                         <tr>
-                                            <td><?= $no; ?></td>
+                                            <td class="text-center"><?= $no; ?></td>
                                             <td><?= $daftar['nama'] ?></td>
                                             <td><?= "Rp " . number_format($totaltunggakan, 0, ",", ".") ?></td>
+                                            <td class="text-center">
+                                                <?php if ($totaltunggakan <= 0) { ?>
+                                                    <span class="badge badge-success">LUNAS</span>
+                                                <?php } else { ?>
+                                                    <span class="badge badge-danger">BELUM LUNAS</span>
+                                                <?php } ?>
+                                            </td>
                                         </tr>
                                     <?php }
                                     ?>
@@ -95,7 +127,7 @@
             <div class="col-12">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h5 class='m-0 font-weight-bold text-primary'>Data Sudah Verifikasi</h5>
+                        <h5 class='m-0 font-weight-bold text-primary'>Data Pembayaran Siswa</h5>
                         <!-- <div class="card-header-action">
                         <a class="btn btn-primary" href="mod_bayar/export_bayar.php" role="button"> Download Excel</a>
                     </div> -->
@@ -410,6 +442,42 @@
     </script>
 <?php } ?>
 <script>
+    $('#form-tambahtunggakan').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: 'mod_bayar/crud_bayar.php?pg=tambahtunggakan',
+            data: $(this).serialize(),
+            beforeSend: function() {
+                $('form button').on("click", function(e) {
+                    e.preventDefault();
+                });
+            },
+            success: function(data) {
+                if (data == 'OK') {
+                    $('#tambahtunggakan').modal('hide');
+                    swal.fire(
+                        'Mantaap!',
+                        'Data Berhasil Ditambahkan Guys...',
+                        'success'
+                    );
+                    // setTimeout(function() {
+                    //     window.location.reload();
+                    // }, 2000);
+
+                } else {
+                    iziToast.error({
+                        title: 'Maaf!',
+                        message: 'data gagal disimpan',
+                        position: 'topRight'
+                    });
+                }
+                //$('#bodyreset').load(location.href + ' #bodyreset');
+            }
+        });
+        return false;
+    });
+
     $('#form-bayar').submit(function(e) {
         e.preventDefault();
         $.ajax({

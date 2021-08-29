@@ -16,8 +16,18 @@ if ($pg == 'ubah') {
     $excec = update($koneksi, 'bayar', $data, ['id_bayar' => $id_bayar]);
     echo $exec;
 }
+if ($pg == 'tambahtunggakan') {
+    $data = [
+        'id_daftar'     => $_POST['id_daftar'],
+        'jumlah'        => str_replace(",", "", $_POST['jumlah']),
+
+    ];
+    $exec = insert($koneksi, 'siswa_tunggakan', $data);
+    echo $exec;
+}
 if ($pg == 'tambah') {
     $today = date("Ymd");
+    $tahun = date('Y');
 
     // cari id transaksi terakhir yang berawalan tanggal hari ini
     $query = "SELECT max(kode_transaksi) AS last FROM transaksi WHERE kode_transaksi LIKE '$today%'";
@@ -47,7 +57,8 @@ if ($pg == 'tambah') {
         'debit'             => str_replace(",", "", $_POST['jumlah']),
         'tgl_bayar'         => $_POST['tgl'],
         'id_user'           => $_SESSION['id_user'],
-        'id_bulan'          => $_POST['id_bulan']
+        'id_bulan'          => $_POST['id_bulan'],
+        'tahun'             => $tahun
 
     ];
     $exec = insert($koneksi, 'bayar', $data);
@@ -75,6 +86,7 @@ if ($pg == 'batalverifikasi') {
 }
 if ($pg == 'editbayar') {
     $id_bayar = $_POST['id_bayar'];
+    $tahun = date('Y');
     $data = [
         'jumlah'        => str_replace(",", "", $_POST['jumlah']),
         'tgl_bayar'     => $_POST['tgl'],
@@ -91,7 +103,8 @@ if ($pg == 'editbayar') {
         'debit'             => str_replace(",", "", $_POST['jumlah']),
         'tgl_bayar'         => $_POST['tgl'],
         'id_user'           => $_SESSION['id_user'],
-        'id_bulan'          => $_POST['id_bulan']
+        'id_bulan'          => $_POST['id_bulan'],
+        'tahun'             => $tahun
 
     ];
     $exec = update($koneksi, 'bayar', $data, ['id_bayar' => $id_bayar]);
