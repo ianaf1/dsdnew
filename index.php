@@ -117,8 +117,8 @@ require "config/functions.crud.php";
                                             <div class="card-body">
                                                 <div class="row no-gutters align-items-center">
                                                     <div class="col mr-2">
-                                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah Siswa Kelas 10</div>
-                                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where kelas='10' && status = '1'")) ?></div>
+                                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah Siswa</div>
+                                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where status = '1'")) ?></div>
                                                         <!-- <div class="h5 mb-0 font-weight-bold text-gray-800"><?= rowcount($koneksi, 'daftar', ['status' => 1]) ?></div> -->
                                                     </div>
                                                 </div>
@@ -131,7 +131,7 @@ require "config/functions.crud.php";
                                                 <div class="row no-gutters align-items-center">
                                                     <div class="col mr-2">
                                                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Laki Laki</div>
-                                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where kelas = '10' && jenkel = 'L' && status = '1'")) ?></div>
+                                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where jenkel = 'L' AND status = '1'")) ?></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -143,7 +143,7 @@ require "config/functions.crud.php";
                                                 <div class="row no-gutters align-items-center">
                                                     <div class="col mr-2">
                                                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Perempuan</div>
-                                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where kelas = '10' && jenkel = 'P' && status = '1'")) ?></div>
+                                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where jenkel = 'P' AND status = '1'")) ?></div>
                                                     </div>
                                                 </div>
                                             </div>
