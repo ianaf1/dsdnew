@@ -301,9 +301,9 @@
                     <h5 class='m-0 font-weight-bold text-primary'><?= $siswa['nama'] ?></h5>
                     <div class="card-header-action">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahdata">
+                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahdata">
                             <i class="fas fa-plus-circle    "></i> Tambah Bayar
-                        </button>
+                        </button> -->
                     </div>
                 </div>
                 <div class="card-body">
@@ -406,9 +406,9 @@
                                         <td><?= $biaya['nama_biaya'] ?></td>
                                         <td><?= "Rp " . number_format($biaya['jumlah'], 0, ",", ".") ?></td>
                                         <td>
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahdata"><i class="fas fa-check-circle    "></i></button>
+                                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambahdata<?= $no ?>"><i class="fas fa-check-circle    "></i></button>
                                             <!-- Modal -->
-                                            <div class="modal fade" id="tambahdata" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                            <div class="modal fade" id="tambahdata<?= $no ?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
