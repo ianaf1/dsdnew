@@ -301,15 +301,15 @@
                     <h5 class='m-0 font-weight-bold text-primary'><?= $siswa['nama'] ?></h5>
                     <div class="card-header-action">
                         <!-- Button trigger modal -->
-                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahdata">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahdata">
                             <i class="fas fa-plus-circle    "></i> Tambah Bayar
-                        </button> -->
+                        </button>
                     </div>
                 </div>
                 <div class="card-body">
 
 
-                    <!-- Modal
+                    <!-- Modal -->
                     <div class="modal fade" id="tambahdata" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -378,7 +378,7 @@
                                 </form>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-striped table-sm" id="table-2" style="font-size: 12px">
                             <thead>
@@ -419,12 +419,15 @@
                                                         </div>
                                                         <form id="form-bayar">
                                                             <div class="modal-body">
-                                                                <input type="text" value="<?= $siswa['id_daftar'] ?>" name="id">
-                                                                <input type="text" value="<?= $biaya['nama_biaya'] ?>" name="keterangan">
-                                                                <input type="text" value="<?= $biaya['kode_biaya'] ?>" name="id_masuk">
-                                                                <input type="text" value="<?= $biaya['id_biaya'] ?>" name="id_biaya">
-                                                                <input type="text" value="<?= $biaya['jumlah'] ?>" name="jumlah">
-                                                                <input type="text" value="<?= date('m') ?>" name="bulan">
+                                                                <input type="hidden" value="<?= $siswa['id_daftar'] ?>" name="id">
+                                                                <input type="hidden" value="<?= $biaya['nama_biaya'] ?>" name="keterangan">
+                                                                <input type="hidden" value="<?= $biaya['kode_biaya'] ?>" name="id_masuk">
+                                                                <input type="hidden" value="<?= $biaya['id_biaya'] ?>" name="id_biaya">
+                                                                <input type="hidden" value="<?= $biaya['jumlah'] ?>" name="jumlah">
+                                                                <div class="form-group">
+                                                                    <label>Bulan</label>
+                                                                    <input type="text" value="<?= date('m') ?>" name="id_bulan">
+                                                                </div>
                                                                 <div class="form-group">
                                                                     <label for="tgl">Tanggal Pembayaran</label>
                                                                     <input type="text" class="form-control datepicker" name="tgl" id="tgl" placeholder="">
