@@ -309,7 +309,7 @@
                 <div class="card-body">
 
 
-                    <!-- Modal -->
+                    <!-- Modal
                     <div class="modal fade" id="tambahdata" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -378,7 +378,7 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="table-responsive">
                         <table class="table table-striped table-sm" id="table-2" style="font-size: 12px">
                             <thead>
@@ -386,44 +386,59 @@
                                     <th class="text-center">
                                         #
                                     </th>
-                                    <th>Kode Transaksi</th>
-                                    <th>Nama Siswa</th>
-                                    <th>Jumlah Bayar</th>
-                                    <th>Tgl Bayar</th>
-                                    <th>Petugas</th>
-                                    <th>verifikasi</th>
+                                    <th>Kode Biaya</th>
+                                    <th>Nama Biaya</th>
+                                    <th>Jumlah Biaya</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $query = mysqli_query($koneksi, "select * from bayar a join daftar b ON a.id_daftar=b.id_daftar where a.id_daftar='$siswa[id_daftar]'");
+                                $query = mysqli_query($koneksi, "select * 
+                                from biaya a join daftar b ON a.id_kelas=b.kelas where a.id_semester='$semester_aktif[id_semester]' AND a.thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]'");
                                 $no = 0;
-                                while ($bayar = mysqli_fetch_array($query)) {
-                                    $user = fetch($koneksi, 'user', ['id_user' => $bayar['id_user']]);
+                                while ($biaya = mysqli_fetch_array($query)) {
+                                    $user = fetch($koneksi, 'user', ['id_user' => $biaya['id_user']]);
                                     $no++;
                                 ?>
                                     <tr>
                                         <td><?= $no; ?></td>
-                                        <td><?= $bayar['id_bayar'] ?></td>
-                                        <td><?= $bayar['nama'] ?></td>
-                                        <td><?= "Rp " . number_format($bayar['jumlah'], 0, ",", ".") ?></td>
-                                        <td><?= $bayar['tgl_bayar'] ?></td>
-                                        <td><?php if ($user) {
-                                                echo $user['nama_user'];
-                                            } else {
-                                                echo "Online";
-                                            } ?></td>
+                                        <td><?= $biaya['kode_biaya'] ?></td>
+                                        <td><?= $biaya['nama_biaya'] ?></td>
+                                        <td><?= "Rp " . number_format($biaya['jumlah'], 0, ",", ".") ?></td>
                                         <td>
-                                            <?php if ($bayar['verifikasi'] == 1) { ?>
-                                                <span class="badge badge-success">Sudah Dicek</span>
-                                            <?php } else { ?>
-                                                <span class="badge badge-warning">Belum Dicek</span>
-                                            <?php } ?>
-                                        </td>
-                                        <td>
-                                            <a target="_blank" href="mod_bayar/print_kwitansi.php?id=<?= enkripsi($bayar['id_bayar']) ?>" class="btn btn-primary btn-sm"><i class="fas fa-print    "></i></a>
-                                            <button data-id="<?= $bayar['id_bayar'] ?>" class="hapus btn btn-danger btn-sm"><i class="fas fa-trash    "></i></button>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahdata"><i class="fas fa-check-circle    "></i></button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="tambahdata" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Tambah Pembayaran</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <form id="form-bayar">
+                                                            <div class="modal-body">
+                                                                <input type="text" value="<?= $siswa['id_daftar'] ?>" name="id">
+                                                                <input type="text" value="<?= $biaya['nama_biaya'] ?>" name="keterangan">
+                                                                <input type="text" value="<?= $biaya['kode_biaya'] ?>" name="id_masuk">
+                                                                <input type="text" value="<?= $biaya['id_biaya'] ?>" name="id_biaya">
+                                                                <input type="text" value="<?= $biaya['jumlah'] ?>" name="jumlah">
+                                                                <input type="text" value="<?= date('m') ?>" name="bulan">
+                                                                <div class="form-group">
+                                                                    <label for="tgl">Tanggal Pembayaran</label>
+                                                                    <input type="text" class="form-control datepicker" name="tgl" id="tgl" placeholder="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">Save</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                 <?php }

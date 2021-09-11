@@ -90,7 +90,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $query = mysqli_query($koneksi, "select * from biaya a join semester b on a.id_semester=b.id_semester where a.id_semester='$semester_aktif[id_semester]' && a.thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]'");
+                                $query = mysqli_query($koneksi, "select * from biaya a join semester b on a.id_semester=b.id_semester where a.id_semester='$semester_aktif[id_semester]' AND a.thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]'");
                                 $no = 0;
                                 while ($biaya = mysqli_fetch_array($query)) {
                                     $no++;
