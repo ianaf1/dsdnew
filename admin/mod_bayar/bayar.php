@@ -409,7 +409,8 @@
                                         <td><?= $no; ?></td>
                                         <td><?= $biaya['kode_biaya'] ?></td>
                                         <td><?= $biaya['nama_biaya'] ?></td>
-                                        <td><?= "Rp " . number_format($sisabayar, 0, ",", ".") ?></td>
+                                        <td><?= "Rp " . number_format($biaya['jumlah'], 0, ",", ".") ?></td>
+                                        <td><?= "Rp " . number_format($sbayar['jumlah'], 0, ",", ".") ?></td>
                                         <td>
                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambahdata<?= $no ?>"><i class="fas fa-check-circle    "></i></button>
                                             <!-- Modal -->
