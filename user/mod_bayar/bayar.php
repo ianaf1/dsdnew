@@ -133,7 +133,7 @@
                         </thead>
                         <tbody>
                             <?php
-                            $query = mysqli_query($koneksi, "select * from tunggakan a join daftar b ON a.id_daftar=b.id_daftar where a.id_daftar='$siswa[id_daftar]'");
+                            $query = mysqli_query($koneksi, "select * from tunggakan where a.id_daftar='$siswa[id_daftar]'");
                             $no = 0;
                             while ($tunggakan = mysqli_fetch_array($query)) {
                                 $no++;
