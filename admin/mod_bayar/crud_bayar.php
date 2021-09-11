@@ -45,6 +45,8 @@ if ($pg == 'tambah') {
         'id_user'       => $_SESSION['id_user'],
         'id_biaya'      => $_POST['id_biaya'],
         'keterangan'        => $_POST['keterangan'],
+        'id_semester'   => $_POST['semester'],
+        'thn_ajaran'    => $_POST['thn_ajaran'],
         'verifikasi' => 1
 
     ];
@@ -93,6 +95,8 @@ if ($pg == 'editbayar') {
         'id_biaya'      => $_POST['id_biaya'],
         'keterangan'        => $_POST['keterangan'],
         'id_bulan'          => $_POST['id_bulan'],
+        'id_semester'   => $_POST['semester'],
+        'thn_ajaran'    => $_POST['thn_ajaran']
 
     ];
     $data2 = [

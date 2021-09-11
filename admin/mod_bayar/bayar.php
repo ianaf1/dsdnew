@@ -218,7 +218,7 @@
                                                                         <select class="form-control select2" style="width: 100%" name="id_biaya" required>
                                                                             <option value="">Jenis Pembayaran</option>
                                                                             <?php
-                                                                            $biayaq = mysqli_query($koneksi, "select * from biaya where id_kelas='$bayar[kelas]'");
+                                                                            $biayaq = mysqli_query($koneksi, "select * from biaya where id_kelas='$bayar[kelas]' id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]'");
                                                                             while ($biaya = mysqli_fetch_array($biayaq)) {
                                                                             ?>
                                                                                 <option value="<?= $biaya['id_biaya'] ?>"><?= $biaya['nama_biaya'] ?></option>
@@ -226,6 +226,7 @@
                                                                             <option value="L">Tunggakan</option>
                                                                         </select>
                                                                     </div>
+                                                                    <input type="hidden" value="<?= $bayar['id_bayar'] ?>" name="id_bayar">
                                                                     <div class="form-group">
                                                                         <label for="jumlah">Jumlah Pembayaran Rp.</label>
                                                                         <input value="<?= $bayar['jumlah'] ?>" type="text" class="form-control uang" name="jumlah" id="jumlah" aria-describedby="helpjumlah" placeholder="">
@@ -343,7 +344,7 @@
                                             <select class="form-control select2" style="width: 100%" name="id_biaya">
                                                 <option value="">Jenis Pembayaran</option>
                                                 <?php
-                                                $query = mysqli_query($koneksi, "select * from biaya where id_kelas='$siswa[kelas]'");
+                                                $query = mysqli_query($koneksi, "select * from biaya where id_kelas='$siswa[kelas]' id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]'");
                                                 while ($biaya = mysqli_fetch_array($query)) {
                                                 ?>
                                                     <option value="<?= $biaya['id_biaya'] ?>"><?= $biaya['nama_biaya'] ?></option>
@@ -400,7 +401,7 @@
                                 <?php
                                 $totalq = mysqli_query($koneksi, "select sum(jumlah) as total, id_biaya from biaya where id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]' AND id_kelas='$siswa[kelas]'");
                                 while ($total = mysqli_fetch_array($totalq)) {
-                                    $qb = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]' AND id_biaya='$total[id_biaya]'");
+                                    $qb = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]' AND id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]'");
                                     $sbayar = mysqli_fetch_array($qb);
                                     $sisabayar = $total['total'] - $sbayar['total'];
                                 ?>
@@ -461,6 +462,8 @@
                                                         <form id="form-bayar<?= $no ?>">
                                                             <div class="modal-body">
                                                                 <input type="hidden" value="<?= $siswa['id_daftar'] ?>" name="id">
+                                                                <input type="hidden" value="<?= $biaya['id_semester'] ?>" name="semester">
+                                                                <input type="hidden" value="<?= $siswa['thn_ajaran'] ?>" name="thn_ajaran">
                                                                 <input type="hidden" value="<?= $biaya['nama_biaya'] ?>" name="keterangan">
                                                                 <input type="hidden" value="<?= $biaya['kode_biaya'] ?>" name="id_masuk">
                                                                 <input type="hidden" value="<?= $biaya['id_biaya'] ?>" name="id_biaya">
