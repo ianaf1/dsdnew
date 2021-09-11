@@ -136,7 +136,6 @@
                             $query = mysqli_query($koneksi, "select * from tunggakan a join daftar b ON a.id_daftar=b.id_daftar where a.id_daftar='$siswa[id_daftar]'");
                             $no = 0;
                             while ($tunggakan = mysqli_fetch_array($query)) {
-                                $user = fetch($koneksi, 'user', ['id_user' => $tunggakan['id_user']]);
                                 $no++;
                             ?>
                                 <tr>
@@ -150,7 +149,6 @@
                                         <?php } ?>
                                     </td>
                                     <td><?= "Rp " . number_format($tunggakan['jumlah'], 0, ",", ".") ?></td>
-                                    <td><?= $tunggakan['tgl_tunggakan'] ?></td>
                                 </tr>
                             <?php }
                             ?>
@@ -158,110 +156,7 @@
                     </table>
 
                 </div>
-                <!-- <?php
-                        $bayar = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]'"));
-                        $sisa = $total['total'] - $bayar['total'];
-                        ?>
-                <table class="table table-sm table-striped mt-4" style="font-size:15px">
-                    <tbody>
-                        <tr>
-                            <th scope="row" width="200">TOTAL PEMBAYARAN</th>
-                            <td><?= "Rp " . number_format($bayar['total'], 0, ",", ".") ?></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">SISA BAYAR</th>
-                            <td><?= "Rp " . number_format($sisa, 0, ",", ".") ?></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">STATUS</th>
-                            <td>
-                                <?php if ($sisa <= 0) { ?>
-                                    <span class="badge badge-success">SUDAH LUNAS</span>
-                                <?php } else { ?>
-                                    <span class="badge badge-danger">BELUM LUNAS</span>
-                                <?php } ?>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table> -->
             </div>
         </div>
     </div>
 </div>
-<script>
-    var cleaveI = new Cleave('.uang', {
-        numeral: true
-    });
-</script>
-
-<script>
-    $('#form-bayar').submit(function(e) {
-        e.preventDefault();
-        $.ajax({
-            type: 'POST',
-            url: 'mod_bayar/crud_bayar.php?pg=tambah',
-            data: new FormData(this),
-            processData: false,
-            contentType: false,
-            cache: false,
-            beforeSend: function() {
-                $('form button').on("click", function(e) {
-                    e.preventDefault();
-                });
-            },
-            success: function(data) {
-                if (data == 'ok') {
-                    $('#tambahdata').modal('hide');
-                    iziToast.success({
-                        title: 'Mantap!',
-                        message: 'Data berhasil disimpan',
-                        position: 'topRight'
-                    });
-                    setTimeout(function() {
-                        window.location.reload();
-                    }, 2000);
-
-                } else {
-                    iziToast.error({
-                        title: 'Maaf!',
-                        message: 'data gagal disimpan',
-                        position: 'topRight'
-                    });
-                }
-                //$('#bodyreset').load(location.href + ' #bodyreset');
-            }
-        });
-        return false;
-    });
-
-
-    $('#tablebayar').on('click', '.hapus', function() {
-        var id = $(this).data('id');
-        console.log(id);
-        swal({
-            title: 'Are you sure?',
-            text: 'Akan menghapus data ini!',
-            icon: 'warning',
-            buttons: true,
-            dangerMode: true,
-        }).then((result) => {
-            if (result) {
-                $.ajax({
-                    url: 'mod_bayar/crud_bayar.php?pg=hapus',
-                    method: "POST",
-                    data: 'id_bayar=' + id,
-                    success: function(data) {
-                        iziToast.error({
-                            title: 'Hmm!',
-                            message: 'Pembayaran berhasil dibatalkan',
-                            position: 'topRight'
-                        });
-                        setTimeout(function() {
-                            window.location.reload();
-                        }, 2000);
-                    }
-                });
-            }
-        })
-    });
-</script>
