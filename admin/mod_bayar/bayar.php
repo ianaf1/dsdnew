@@ -480,9 +480,9 @@
                                 ?>
                                     <tr>
                                         <td class="text-center" colspan="3"><b>TOTAL</b></td>
-                                        <td><b><?= "Rp. " . number_format($totaldebit, 0, ",", ".") ?></b></td>
-                                        <td><b><?= "Rp. " . number_format($totalkredit, 0, ",", ".") ?></b></td>
-                                        <td><b><?= "Rp. " . number_format($totalsaldo, 0, ",", ".") ?></b></td>
+                                        <td><b><?= "Rp. " . number_format($total['total'], 0, ",", ".") ?></b></td>
+                                        <td><b><?= "Rp. " . number_format($sbayar['total'], 0, ",", ".") ?></b></td>
+                                        <td><b><?= "Rp. " . number_format($sisabayar, 0, ",", ".") ?></b></td>
                                         <td class="text-center"><b>Action</b></td>
                                     </tr>
                                 <?php }
