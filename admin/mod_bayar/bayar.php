@@ -392,6 +392,7 @@
                                     <th>Jumlah Biaya</th>
                                     <th>Terbayar</th>
                                     <th>Tagihan</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -413,6 +414,13 @@
                                         <td><?= "Rp " . number_format($biaya['jumlah'], 0, ",", ".") ?></td>
                                         <td><?= "Rp " . number_format($sbayar['total'], 0, ",", ".") ?></td>
                                         <td><?= "Rp " . number_format($sisabayar, 0, ",", ".") ?></td>
+                                        <td class="text-center">
+                                            <?php if ($sisabayar <= 0) { ?>
+                                                <span class="badge badge-success">LUNAS</span>
+                                            <?php } else { ?>
+                                                <span class="badge badge-danger">BELUM LUNAS</span>
+                                            <?php } ?>
+                                        </td>
                                         <td>
                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambahdata<?= $no ?>"><i class="fas fa-check-circle    "></i></button>
                                             <!-- Modal -->
