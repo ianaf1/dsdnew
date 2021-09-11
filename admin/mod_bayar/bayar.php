@@ -220,7 +220,7 @@
                                                                         <select class="form-control select2" style="width: 100%" name="id_biaya" required>
                                                                             <option value="">Jenis Pembayaran</option>
                                                                             <?php
-                                                                            $biayaq = mysqli_query($koneksi, "select * from biaya where id_kelas='$bayar[kelas]' id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]'");
+                                                                            $biayaq = mysqli_query($koneksi, "select * from biaya where id_kelas='$bayar[kelas]' AND id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]'");
                                                                             while ($biaya = mysqli_fetch_array($biayaq)) {
                                                                             ?>
                                                                                 <option value="<?= $biaya['id_biaya'] ?>"><?= $biaya['nama_biaya'] ?></option>
@@ -346,7 +346,7 @@
                                             <select class="form-control select2" style="width: 100%" name="id_biaya">
                                                 <option value="">Jenis Pembayaran</option>
                                                 <?php
-                                                $query = mysqli_query($koneksi, "select * from biaya where id_kelas='$siswa[kelas]' id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]'");
+                                                $query = mysqli_query($koneksi, "select * from biaya where id_kelas='$siswa[kelas]' AND id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]'");
                                                 while ($biaya = mysqli_fetch_array($query)) {
                                                 ?>
                                                     <option value="<?= $biaya['id_biaya'] ?>"><?= $biaya['nama_biaya'] ?></option>
