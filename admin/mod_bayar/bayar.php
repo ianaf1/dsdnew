@@ -399,7 +399,7 @@
                                 $query = mysqli_query($koneksi, "select * from biaya where id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]' AND id_kelas='$siswa[kelas]'");
                                 $no = 0;
                                 while ($biaya = mysqli_fetch_array($query)) {
-                                    $qb = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]' AND id_biaya='$biaya[id_biaya]'");
+                                    $qb = mysqli_query($koneksi, "select * from bayar where id_daftar='$siswa[id_daftar]' AND id_biaya='$biaya[id_biaya]'");
                                     $sbayar = mysqli_fetch_array($qb);
                                     $sisabayar = $biaya['jumlah'] - $sbayar['jumlah'];
                                     $user = fetch($koneksi, 'user', ['id_user' => $biaya['id_user']]);
