@@ -390,6 +390,7 @@
                                     <th>Kode Biaya</th>
                                     <th>Nama Biaya</th>
                                     <th>Jumlah Biaya</th>
+                                    <th>Terbayar</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -398,6 +399,9 @@
                                 $query = mysqli_query($koneksi, "select * from biaya where id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]' AND id_kelas='$siswa[kelas]'");
                                 $no = 0;
                                 while ($biaya = mysqli_fetch_array($query)) {
+                                    $qb = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]' AND id_biaya='$biaya[id_biaya]'");
+                                    $sbayar = mysqli_fetch_array($qb);
+                                    $sisabayar = $biaya['jumlah'] - $sbayar['jumlah'];
                                     $user = fetch($koneksi, 'user', ['id_user' => $biaya['id_user']]);
                                     $no++;
                                 ?>
@@ -405,7 +409,7 @@
                                         <td><?= $no; ?></td>
                                         <td><?= $biaya['kode_biaya'] ?></td>
                                         <td><?= $biaya['nama_biaya'] ?></td>
-                                        <td><?= "Rp " . number_format($biaya['jumlah'], 0, ",", ".") ?></td>
+                                        <td><?= "Rp " . number_format($sisabayar, 0, ",", ".") ?></td>
                                         <td>
                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambahdata<?= $no ?>"><i class="fas fa-check-circle    "></i></button>
                                             <!-- Modal -->
@@ -424,7 +428,7 @@
                                                                 <input type="hidden" value="<?= $biaya['nama_biaya'] ?>" name="keterangan">
                                                                 <input type="hidden" value="<?= $biaya['kode_biaya'] ?>" name="id_masuk">
                                                                 <input type="hidden" value="<?= $biaya['id_biaya'] ?>" name="id_biaya">
-                                                                <input type="hidden" value="<?= $biaya['jumlah'] ?>" name="jumlah">
+                                                                <input type="hidden" value="<?= $sisabayar ?>" name="jumlah">
                                                                 <div class="form-group">
                                                                     <label>Bulan</label>
                                                                     <select class="form-control select2" style="width: 100%" name="id_bulan" required>
