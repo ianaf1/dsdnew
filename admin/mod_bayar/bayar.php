@@ -357,7 +357,15 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Bulan</label>
-                                            <input value="<?= date('m') ?>" type="text" name="bulan" class="form-control" required="">
+                                            <select class="form-control select2" style="width: 100%" name="id_bulan" required>
+                                                <option value="">Pilih Bulan</option>
+                                                <?php
+                                                $query = mysqli_query($koneksi, "select * from bulan");
+                                                while ($bulan = mysqli_fetch_array($query)) {
+                                                ?>
+                                                    <option value="<?= $bulan['id_bulan'] ?>"><?= $bulan['nama_bulan'] ?></option>
+                                                <?php } ?>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="tgl">Tanggal Pembayaran</label>
@@ -417,7 +425,7 @@
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
-                                                        <form id="form-bayar">
+                                                        <form id="form-bayar<?= $no ?>">
                                                             <div class="modal-body">
                                                                 <input type="hidden" value="<?= $siswa['id_daftar'] ?>" name="id">
                                                                 <input type="hidden" value="<?= $biaya['nama_biaya'] ?>" name="keterangan">
@@ -516,6 +524,41 @@
             success: function(data) {
                 if (data == 'OK') {
                     $('#tambahdata').modal('hide');
+                    iziToast.success({
+                        title: 'Mantap!',
+                        message: 'Data berhasil disimpan',
+                        position: 'topRight'
+                    });
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 2000);
+
+                } else {
+                    iziToast.error({
+                        title: 'Maaf!',
+                        message: 'data gagal disimpan',
+                        position: 'topRight'
+                    });
+                }
+                //$('#bodyreset').load(location.href + ' #bodyreset');
+            }
+        });
+        return false;
+    });
+    $('#form-bayar<?= $no ?>').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: 'mod_bayar/crud_bayar.php?pg=tambah',
+            data: $(this).serialize(),
+            beforeSend: function() {
+                $('form button').on("click", function(e) {
+                    e.preventDefault();
+                });
+            },
+            success: function(data) {
+                if (data == 'OK') {
+                    $('#tambahdata<?= $no ?>').modal('hide');
                     iziToast.success({
                         title: 'Mantap!',
                         message: 'Data berhasil disimpan',
