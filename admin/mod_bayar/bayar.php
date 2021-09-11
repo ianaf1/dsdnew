@@ -400,9 +400,9 @@
                                 $query = mysqli_query($koneksi, "select * from biaya where id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]' AND id_kelas='$siswa[kelas]'");
                                 $no = 0;
                                 while ($biaya = mysqli_fetch_array($query)) {
-                                    $qb = mysqli_query($koneksi, "select * from bayar where id_daftar='$siswa[id_daftar]' AND id_biaya='$biaya[id_biaya]'");
+                                    $qb = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]' AND id_biaya='$biaya[id_biaya]'");
                                     $sbayar = mysqli_fetch_array($qb);
-                                    $sisabayar = $biaya['jumlah'] - $sbayar['jumlah'];
+                                    $sisabayar = $biaya['jumlah'] - $sbayar['total'];
                                     $user = fetch($koneksi, 'user', ['id_user' => $biaya['id_user']]);
                                     $no++;
                                 ?>
@@ -411,7 +411,7 @@
                                         <td><?= $biaya['kode_biaya'] ?></td>
                                         <td><?= $biaya['nama_biaya'] ?></td>
                                         <td><?= "Rp " . number_format($biaya['jumlah'], 0, ",", ".") ?></td>
-                                        <td><?= "Rp " . number_format($sbayar['jumlah'], 0, ",", ".") ?></td>
+                                        <td><?= "Rp " . number_format($sbayar['total'], 0, ",", ".") ?></td>
                                         <td><?= "Rp " . number_format($sisabayar, 0, ",", ".") ?></td>
                                         <td>
                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambahdata<?= $no ?>"><i class="fas fa-check-circle    "></i></button>
