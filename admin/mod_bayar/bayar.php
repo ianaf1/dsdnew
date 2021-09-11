@@ -197,6 +197,8 @@
                                                                 <div class="modal-body">
                                                                     <input type="hidden" value="<?= $bayar['id_bayar'] ?>" name="id_bayar">
                                                                     <input type="hidden" value="<?= $bayar['id_daftar'] ?>" name="id_daftar">
+                                                                    <input type="hidden" value="<?= $semester_aktif['id_semester'] ?>" name="semester">
+                                                                    <input type="hidden" value="<?= $tahun_ajaran_aktif['nama_thn_ajaran'] ?>" name="thn_ajaran">
                                                                     <div class="form-group">
                                                                         <label>Keterangan</label>
                                                                         <input type="text" name="keterangan" value="<?= $bayar['keterangan'] ?>" class="form-control" required="">
@@ -463,7 +465,7 @@
                                                             <div class="modal-body">
                                                                 <input type="hidden" value="<?= $siswa['id_daftar'] ?>" name="id">
                                                                 <input type="hidden" value="<?= $biaya['id_semester'] ?>" name="semester">
-                                                                <input type="hidden" value="<?= $siswa['thn_ajaran'] ?>" name="thn_ajaran">
+                                                                <input type="hidden" value="<?= $biaya['thn_ajaran'] ?>" name="thn_ajaran">
                                                                 <input type="hidden" value="<?= $biaya['nama_biaya'] ?>" name="keterangan">
                                                                 <input type="hidden" value="<?= $biaya['kode_biaya'] ?>" name="id_masuk">
                                                                 <input type="hidden" value="<?= $biaya['id_biaya'] ?>" name="id_biaya">
