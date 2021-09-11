@@ -357,15 +357,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Bulan</label>
-                                            <select class="form-control select2" style="width: 100%" name="id_bulan" required>
-                                                <option value="">Pilih Bulan</option>
-                                                <?php
-                                                $query = mysqli_query($koneksi, "select * from bulan");
-                                                while ($bulan = mysqli_fetch_array($query)) {
-                                                ?>
-                                                    <option value="<?= $bulan['id_bulan'] ?>"><?= $bulan['nama_bulan'] ?></option>
-                                                <?php } ?>
-                                            </select>
+                                            <input value="<?= date('m') ?>" type="text" name="bulan" class="form-control" required="">
                                         </div>
                                         <div class="form-group">
                                             <label for="tgl">Tanggal Pembayaran</label>
