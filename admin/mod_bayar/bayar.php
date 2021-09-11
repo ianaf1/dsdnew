@@ -216,14 +216,14 @@
                                                                     <div class="form-group">
                                                                         <label>Pembayaran</label>
                                                                         <select class="form-control select2" style="width: 100%" name="id_biaya" required>
+                                                                            <option value="">Jenis Pembayaran</option>
                                                                             <?php
                                                                             $biayaq = mysqli_query($koneksi, "select * from biaya where id_kelas='$bayar[kelas]'");
                                                                             while ($biaya = mysqli_fetch_array($biayaq)) {
                                                                             ?>
-                                                                                <option value="">Jenis Pembayaran</option>
                                                                                 <option value="<?= $biaya['id_biaya'] ?>"><?= $biaya['nama_biaya'] ?></option>
-                                                                                <option value="L">Tunggakan</option>
                                                                             <?php } ?>
+                                                                            <option value="L">Tunggakan</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group">
@@ -341,13 +341,14 @@
                                         <div class="form-group">
                                             <label>Pembayaran</label>
                                             <select class="form-control select2" style="width: 100%" name="id_biaya">
+                                                <option value="">Jenis Pembayaran</option>
                                                 <?php
                                                 $query = mysqli_query($koneksi, "select * from biaya where id_kelas='$siswa[kelas]'");
                                                 while ($biaya = mysqli_fetch_array($query)) {
                                                 ?>
-                                                    <option value="">Pembayaran</option>
                                                     <option value="<?= $biaya['id_biaya'] ?>"><?= $biaya['nama_biaya'] ?></option>
                                                 <?php } ?>
+                                                <option value="L">Tunggakan</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
