@@ -90,10 +90,8 @@
     <div class="col-12 col-sm-12 col-lg-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h5 class="m-0 font-weight-bold text-primary">DATA PEMBAYARAN</h5>
+                <h5 class="m-0 font-weight-bold text-primary">DATA Tunggakan</h5>
                 <div class="card-header-action">
-                    <!-- Button trigger modal -->
-                    <!-- Button trigger modal -->
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modelId">
                         <i class="fas fa-info-circle    "></i> Info Pembayaran
                     </button>
@@ -117,93 +115,42 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahdata">
-                        <i class="fas fa-plus-circle    "></i> Tambah Bayar
-                    </button> -->
                 </div>
             </div>
             <div class="card-body">
-                <!-- Modal -->
-                <div class="modal fade" id="tambahdata" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Tambah Pembayaran</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form id="form-bayar">
-                                <div class="modal-body">
-                                    <input type="hidden" value="<?= $siswa['id_daftar'] ?>" name="id">
-                                    <div class="form-group">
-                                        <label for="jumlah">Jumlah Pembayaran Rp.</label>
-                                        <input type="text" class="form-control uang" name="jumlah" id="jumlah" aria-describedby="helpjumlah" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="tgl">Tanggal Pembayaran</label>
-                                        <input type="text" class="form-control datepicker" name="tgl" id="tgl" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="bukti">Bukti Pembayaran</label>
-                                        <input type="file" class="form-control-file" name="bukti" id="bukti" accept="image/*" aria-describedby="fileHelpId" required>
-                                        <small id="fileHelpId" class="form-text text-muted">Upload file JPG/PNG</small>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
                 <div class="table-responsive">
-                    <table class="table table-striped table-sm" id="tablebayar" style="font-size: 12px">
+                    <table class="table table-striped table-sm" id="DataTable" style="font-size: 12px">
                         <thead>
                             <tr>
                                 <th class="text-center">
                                     #
                                 </th>
-                                <th>Kode Transaksi</th>
-                                <th>Nama Siswa</th>
-                                <th>Jumlah Bayar</th>
-                                <th>Tgl Bayar</th>
-                                <th>verifikasi</th>
-                                <th>Bukti</th>
-                                <th>Action</th>
+                                <th>Keterangan</th>
+                                <th>Semester</th>
+                                <th>Tahun Ajaran</th>
+                                <th>Jumlah</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $query = mysqli_query($koneksi, "select * from bayar a join daftar b ON a.id_daftar=b.id_daftar where a.id_daftar='$siswa[id_daftar]'");
+                            $query = mysqli_query($koneksi, "select * from tunggakan a join daftar b ON a.id_daftar=b.id_daftar where a.id_daftar='$siswa[id_daftar]'");
                             $no = 0;
-                            while ($bayar = mysqli_fetch_array($query)) {
-                                $user = fetch($koneksi, 'user', ['id_user' => $bayar['id_user']]);
+                            while ($tunggakan = mysqli_fetch_array($query)) {
+                                $user = fetch($koneksi, 'user', ['id_user' => $tunggakan['id_user']]);
                                 $no++;
                             ?>
                                 <tr>
                                     <td><?= $no; ?></td>
-                                    <td><?= $bayar['id_bayar'] ?></td>
-                                    <td><?= $bayar['nama'] ?></td>
-                                    <td><?= "Rp " . number_format($bayar['jumlah'], 0, ",", ".") ?></td>
-                                    <td><?= $bayar['tgl_bayar'] ?></td>
+                                    <td><?= $tunggakan['keterangan'] ?></td>
                                     <td>
-                                        <?php if ($bayar['verifikasi'] == 1) { ?>
-                                            <span class="badge badge-success">Pembayaran diterima</span>
+                                        <?php if ($tunggakan['id_semester'] == 1) { ?>
+                                            <span class="badge badge-success">Ganjil</span>
                                         <?php } else { ?>
-                                            <span class="badge badge-warning">Proses Cek</span>
+                                            <span class="badge badge-warning">Genap</span>
                                         <?php } ?>
                                     </td>
-                                    <td><a target="_blank" class="btn btn-primary btn-sm" href="mod_bayar/<?= $bayar['bukti'] ?>" role="button"><i class="fas fa-eye"></i> bukti</a></td>
-                                    <td>
-                                        <?php if ($bayar['verifikasi'] == 0) { ?>
-                                            <button data-id="<?= $bayar['id_bayar'] ?>" class="hapus btn btn-danger btn-sm"><i class="fas fa-trash    "></i> Batal</button>
-                                        <?php } else { ?>
-                                            <a target="_blank" href="mod_bayar/print_kwitansi.php?id=<?= enkripsi($bayar['id_bayar']) ?>" class="btn btn-primary btn-sm"><i class="fas fa-print    "></i> Cetak</a>
-
-                                        <?php } ?>
-                                    </td>
+                                    <td><?= "Rp " . number_format($tunggakan['jumlah'], 0, ",", ".") ?></td>
+                                    <td><?= $tunggakan['tgl_tunggakan'] ?></td>
                                 </tr>
                             <?php }
                             ?>
@@ -211,10 +158,10 @@
                     </table>
 
                 </div>
-                <?php
-                $bayar = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]'"));
-                $sisa = $total['total'] - $bayar['total'];
-                ?>
+                <!-- <?php
+                        $bayar = mysqli_fetch_array(mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]'"));
+                        $sisa = $total['total'] - $bayar['total'];
+                        ?>
                 <table class="table table-sm table-striped mt-4" style="font-size:15px">
                     <tbody>
                         <tr>
@@ -236,7 +183,7 @@
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table> -->
             </div>
         </div>
     </div>
