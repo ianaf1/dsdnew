@@ -25,7 +25,6 @@
                                 <th>Terbayar</th>
                                 <th>Tagihan</th>
                                 <th class="text-center">Status</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         <tfoot>
@@ -48,7 +47,6 @@
                                             <span class="badge badge-danger">BELUM LUNAS</span>
                                         <?php } ?>
                                     </td>
-                                    <td class="text-center"><b>Action</b></td>
                                 </tr>
                             <?php }
                             ?>
