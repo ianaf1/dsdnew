@@ -465,29 +465,48 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <script>
+                                                $('#form-bayar<?= $no ?>').submit(function(e) {
+                                                    e.preventDefault();
+                                                    $.ajax({
+                                                        type: 'POST',
+                                                        url: 'mod_bayar/crud_bayar.php?pg=tambah',
+                                                        data: $(this).serialize(),
+                                                        beforeSend: function() {
+                                                            $('form button').on("click", function(e) {
+                                                                e.preventDefault();
+                                                            });
+                                                        },
+                                                        success: function(data) {
+                                                            if (data == 'OK') {
+                                                                $('#tambahdata<?= $no ?>').modal('hide');
+                                                                iziToast.success({
+                                                                    title: 'Mantap!',
+                                                                    message: 'Data berhasil disimpan',
+                                                                    position: 'topRight'
+                                                                });
+                                                                setTimeout(function() {
+                                                                    window.location.reload();
+                                                                }, 2000);
+
+                                                            } else {
+                                                                iziToast.error({
+                                                                    title: 'Maaf!',
+                                                                    message: 'data gagal disimpan',
+                                                                    position: 'topRight'
+                                                                });
+                                                            }
+                                                            //$('#bodyreset').load(location.href + ' #bodyreset');
+                                                        }
+                                                    });
+                                                    return false;
+                                                });
+                                            </script>
                                         </td>
                                     </tr>
                                 <?php }
                                 ?>
                             </tbody>
-                            <!-- <tfoot>
-                                <?php
-                                $sqlt = mysqli_query($koneksi, "select sum(jumlah) as total, id_biaya from biaya where id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]' AND id_kelas='$siswa[kelas]'");
-                                while ($total = mysqli_fetch_array($sqlt)) {
-                                    $qb = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]' AND id_biaya = '$total[id_biaya]'");
-                                    $sbayar = mysqli_fetch_array($qb);
-                                    $sisabayar = $total['total'] - $sbayar['total'];
-                                ?>
-                                    <tr>
-                                        <td class="text-center" colspan="3"><b>TOTAL</b></td>
-                                        <td><b><?= "Rp. " . number_format($total['total'], 0, ",", ".") ?></b></td>
-                                        <td><b><?= "Rp. " . number_format($sbayar['total'], 0, ",", ".") ?></b></td>
-                                        <td><b><?= "Rp. " . number_format($sisabayar, 0, ",", ".") ?></b></td>
-                                        <td class="text-center"><b>Action</b></td>
-                                    </tr>
-                                <?php }
-                                ?>
-                            </tfoot> -->
                         </table>
                     </div>
                 </div>
@@ -571,42 +590,6 @@
         });
         return false;
     });
-    $('#form-bayar<?= $no ?>').submit(function(e) {
-        e.preventDefault();
-        $.ajax({
-            type: 'POST',
-            url: 'mod_bayar/crud_bayar.php?pg=tambah',
-            data: $(this).serialize(),
-            beforeSend: function() {
-                $('form button').on("click", function(e) {
-                    e.preventDefault();
-                });
-            },
-            success: function(data) {
-                if (data == 'OK') {
-                    $('#tambahdata<?= $no ?>').modal('hide');
-                    iziToast.success({
-                        title: 'Mantap!',
-                        message: 'Data berhasil disimpan',
-                        position: 'topRight'
-                    });
-                    setTimeout(function() {
-                        window.location.reload();
-                    }, 2000);
-
-                } else {
-                    iziToast.error({
-                        title: 'Maaf!',
-                        message: 'data gagal disimpan',
-                        position: 'topRight'
-                    });
-                }
-                //$('#bodyreset').load(location.href + ' #bodyreset');
-            }
-        });
-        return false;
-    });
-
     $('#dataTable').on('click', '.hapus', function() {
         var id = $(this).data('id');
         console.log(id);
