@@ -392,7 +392,7 @@
                                     <th>Jumlah Biaya</th>
                                     <th>Terbayar</th>
                                     <th>Tagihan</th>
-                                    <th>Status</th>
+                                    <th class="text-center">Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -408,7 +408,7 @@
                                     $no++;
                                 ?>
                                     <tr>
-                                        <td><?= $no; ?></td>
+                                        <td class="text-center"><?= $no; ?></td>
                                         <td><?= $biaya['kode_biaya'] ?></td>
                                         <td><?= $biaya['nama_biaya'] ?></td>
                                         <td><?= "Rp " . number_format($biaya['jumlah'], 0, ",", ".") ?></td>
