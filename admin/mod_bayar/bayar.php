@@ -470,7 +470,7 @@
                                 <?php }
                                 ?>
                             </tbody>
-                            <tfoot>
+                            <!-- <tfoot>
                                 <?php
                                 $sqlt = mysqli_query($koneksi, "select sum(jumlah) as total, id_biaya from biaya where id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]' AND id_kelas='$siswa[kelas]'");
                                 while ($total = mysqli_fetch_array($sqlt)) {
@@ -487,7 +487,7 @@
                                     </tr>
                                 <?php }
                                 ?>
-                            </tfoot>
+                            </tfoot> -->
                         </table>
                     </div>
                 </div>
