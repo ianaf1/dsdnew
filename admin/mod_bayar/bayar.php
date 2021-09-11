@@ -470,6 +470,24 @@
                                 <?php }
                                 ?>
                             </tbody>
+                            <tfoot>
+                                <?php
+                                $sqlt = mysqli_query($koneksi, "select sum(jumlah) as total, id_biaya from biaya where id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]' AND id_kelas='$siswa[kelas]'");
+                                while ($total = mysqli_fetch_array($sqlt)) {
+                                    $qb = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]' AND id_biaya = '$total[id_biaya]'");
+                                    $sbayar = mysqli_fetch_array($qb);
+                                    $sisabayar = $total['total'] - $sbayar['total'];
+                                ?>
+                                    <tr>
+                                        <td class="text-center" colspan="3"><b>TOTAL</b></td>
+                                        <td><b><?= "Rp. " . number_format($totaldebit, 0, ",", ".") ?></b></td>
+                                        <td><b><?= "Rp. " . number_format($totalkredit, 0, ",", ".") ?></b></td>
+                                        <td><b><?= "Rp. " . number_format($totalsaldo, 0, ",", ".") ?></b></td>
+                                        <td class="text-center"><b>Action</b></td>
+                                    </tr>
+                                <?php }
+                                ?>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
