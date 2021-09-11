@@ -148,6 +148,7 @@
                                             <span class="badge badge-warning">Genap</span>
                                         <?php } ?>
                                     </td>
+                                    <td><?= $tunggakan['thn_ajaran'] ?></td>
                                     <td><?= "Rp " . number_format($tunggakan['jumlah'], 0, ",", ".") ?></td>
                                 </tr>
                             <?php }
