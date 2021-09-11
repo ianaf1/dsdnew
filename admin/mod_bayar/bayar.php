@@ -394,8 +394,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $query = mysqli_query($koneksi, "select * 
-                                from biaya a join daftar b ON a.id_kelas=b.kelas where a.id_semester='$semester_aktif[id_semester]' AND a.thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]'");
+                                $query = mysqli_query($koneksi, "select * from biaya where id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]' AND id_kelas='$siswa[kelas]'");
                                 $no = 0;
                                 while ($biaya = mysqli_fetch_array($query)) {
                                     $user = fetch($koneksi, 'user', ['id_user' => $biaya['id_user']]);
