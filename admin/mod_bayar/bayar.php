@@ -340,7 +340,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Pembayaran</label>
-                                            <select class="form-control select2" style="width: 100%" name="id_biaya" required>
+                                            <select class="form-control select2" style="width: 100%" name="id_biaya">
                                                 <?php
                                                 $query = mysqli_query($koneksi, "select * from biaya where id_kelas='$siswa[kelas]'");
                                                 while ($biaya = mysqli_fetch_array($query)) {
@@ -426,7 +426,15 @@
                                                                 <input type="hidden" value="<?= $biaya['jumlah'] ?>" name="jumlah">
                                                                 <div class="form-group">
                                                                     <label>Bulan</label>
-                                                                    <input type="text" value="<?= date('m') ?>" name="id_bulan">
+                                                                    <select class="form-control select2" style="width: 100%" name="id_bulan" required>
+                                                                        <option value="">Pilih Bulan</option>
+                                                                        <?php
+                                                                        $bulanq = mysqli_query($koneksi, "select * from bulan");
+                                                                        while ($bulan = mysqli_fetch_array($bulanq)) {
+                                                                        ?>
+                                                                            <option value="<?= $bulan['id_bulan'] ?>"><?= $bulan['nama_bulan'] ?></option>
+                                                                        <?php } ?>
+                                                                    </select>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="tgl">Tanggal Pembayaran</label>
