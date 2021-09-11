@@ -3,7 +3,7 @@ session_start();
 require("../config/database.php");
 require("../config/function.php");
 require("../config/functions.crud.php");
-
+require("../config/tahun.ajaran.php");
 
 if (isset($_SESSION['id_siswa'])) {
   $siswa = fetch($koneksi, 'daftar', ['id_daftar' => $_SESSION['id_siswa']]);

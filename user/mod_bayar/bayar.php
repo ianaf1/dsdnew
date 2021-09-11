@@ -3,7 +3,7 @@
     <div class="col-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h5 class="m-0 font-weight-bold text-primary">Data biaya</h5>
+                <h5 class="m-0 font-weight-bold text-primary">Biaya Semester</h5>
                 <div class="card-header-action">
                     <?php $query = mysqli_query($koneksi, "select sum(jumlah) as total from biaya where id_kelas='$siswa[kelas]'");
                     $total = mysqli_fetch_array($query);
@@ -19,24 +19,68 @@
                                 <th class="text-center">
                                     #
                                 </th>
+                                <th>Kode Biaya</th>
                                 <th>Nama Biaya</th>
                                 <th>Jumlah Biaya</th>
-
+                                <th>Terbayar</th>
+                                <th>Tagihan</th>
+                                <th class="text-center">Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
+                        <tfoot>
+                            <?php
+                            $totalq = mysqli_query($koneksi, "select sum(jumlah) as total, id_biaya from biaya where id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]' AND id_kelas='$siswa[kelas]'");
+                            while ($total = mysqli_fetch_array($totalq)) {
+                                $qb = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]' AND id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]'");
+                                $sbayar = mysqli_fetch_array($qb);
+                                $sisabayar = $total['total'] - $sbayar['total'];
+                            ?>
+                                <tr>
+                                    <td class="text-center" colspan="3"><b>TOTAL</b></td>
+                                    <td><b><?= "Rp. " . number_format($total['total'], 0, ",", ".") ?></b></td>
+                                    <td><b><?= "Rp. " . number_format($sbayar['total'], 0, ",", ".") ?></b></td>
+                                    <td><b><?= "Rp. " . number_format($sisabayar, 0, ",", ".") ?></b></td>
+                                    <td class="text-center">
+                                        <?php if ($sisabayar <= 0) { ?>
+                                            <span class="badge badge-success">LUNAS</span>
+                                        <?php } else { ?>
+                                            <span class="badge badge-danger">BELUM LUNAS</span>
+                                        <?php } ?>
+                                    </td>
+                                    <td class="text-center"><b>Action</b></td>
+                                </tr>
+                            <?php }
+                            ?>
+                        </tfoot>
                         <tbody>
                             <?php
-                            $query = mysqli_query($koneksi, "select * from biaya where id_kelas='$siswa[kelas]'");
+                            $query = mysqli_query($koneksi, "select * from biaya where id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]' AND id_kelas='$siswa[kelas]'");
                             $no = 0;
                             while ($biaya = mysqli_fetch_array($query)) {
+                                $qb = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]' AND id_biaya='$biaya[id_biaya]'");
+                                $sbayar = mysqli_fetch_array($qb);
+                                $sisabayar = $biaya['jumlah'] - $sbayar['total'];
+                                $user = fetch($koneksi, 'user', ['id_user' => $biaya['id_user']]);
                                 $no++;
                             ?>
                                 <tr>
-                                    <td><?= $no; ?></td>
+                                    <td class="text-center"><?= $no; ?></td>
+                                    <td><?= $biaya['kode_biaya'] ?></td>
                                     <td><?= $biaya['nama_biaya'] ?></td>
-                                    <td><?= "Rp. " . number_format($biaya['jumlah'], 0, ",", ".") ?></td>
+                                    <td><?= "Rp " . number_format($biaya['jumlah'], 0, ",", ".") ?></td>
+                                    <td><?= "Rp " . number_format($sbayar['total'], 0, ",", ".") ?></td>
+                                    <td><?= "Rp " . number_format($sisabayar, 0, ",", ".") ?></td>
+                                    <td class="text-center">
+                                        <?php if ($sisabayar <= 0) { ?>
+                                            <span class="badge badge-success">LUNAS</span>
+                                        <?php } else { ?>
+                                            <span class="badge badge-danger">BELUM LUNAS</span>
+                                        <?php } ?>
+                                    </td>
                                 </tr>
-                            <?php } ?>
+                            <?php }
+                            ?>
                         </tbody>
                     </table>
                 </div>
