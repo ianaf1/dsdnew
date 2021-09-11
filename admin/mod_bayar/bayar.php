@@ -400,7 +400,7 @@
                                 <?php
                                 $totalq = mysqli_query($koneksi, "select sum(jumlah) as total, id_biaya from biaya where id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]' AND id_kelas='$siswa[kelas]'");
                                 while ($total = mysqli_fetch_array($totalq)) {
-                                    $qb = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]' AND id_biaya='$biaya[id_biaya]'");
+                                    $qb = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]' AND id_biaya='$total[id_biaya]'");
                                     $sbayar = mysqli_fetch_array($qb);
                                     $sisabayar = $total['total'] - $sbayar['total'];
                                 ?>
