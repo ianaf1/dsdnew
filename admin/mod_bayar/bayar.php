@@ -391,7 +391,7 @@
                                     <th>Nama Biaya</th>
                                     <th>Jumlah Biaya</th>
                                     <th>Terbayar</th>
-                                    <th>Belum Terbayar</th>
+                                    <th>Tagihan</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
