@@ -53,6 +53,22 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
+                                            <label for="keterangan">Keterangan</label>
+                                            <input type="text" class="form-control uang" name="keterangan" id="keterangan" placeholder="Keterangan" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Semester</label>
+                                            <select class="form-control select2" style="width: 100%" name="id_semester" required>
+                                                <option value="">Pilih Semester</option>
+                                                <option value="1">Ganjil</option>
+                                                <option value="2">Genap</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="thn_ajaran">Tahun Ajaran</label>
+                                            <input type="text" class="form-control uang" name="thn_ajaran" id="thn_ajaran" placeholder="Contoh 2020/2021" required>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="jumlah">Jumlah Tunggakan Rp.</label>
                                             <input type="text" class="form-control uang" name="jumlah" id="jumlah" aria-describedby="helpjumlah" placeholder="">
                                         </div>

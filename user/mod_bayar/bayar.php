@@ -90,7 +90,7 @@
     <div class="col-12 col-sm-12 col-lg-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h5 class="m-0 font-weight-bold text-primary">DATA Tunggakan</h5>
+                <h5 class="m-0 font-weight-bold text-primary">Data Tunggakan</h5>
                 <div class="card-header-action">
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modelId">
                         <i class="fas fa-info-circle    "></i> Info Pembayaran
@@ -119,7 +119,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-striped table-sm" id="DataTable" style="font-size: 12px">
+                    <table class="table table-striped table-sm" id="table-1" style="font-size: 12px">
                         <thead>
                             <tr>
                                 <th class="text-center">

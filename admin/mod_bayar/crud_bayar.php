@@ -20,6 +20,9 @@ if ($pg == 'tambahtunggakan') {
     $data = [
         'id_daftar'     => $_POST['id_daftar'],
         'jumlah'        => str_replace(",", "", $_POST['jumlah']),
+        'id_semester'   => $_POST['id_semester'],
+        'thn_ajaran'    => $_POST['thn_ajaran'],
+        'keterangan'    => $_POST['keterangan']
 
     ];
     $exec = insert($koneksi, 'siswa_tunggakan', $data);
