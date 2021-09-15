@@ -612,6 +612,166 @@
             </div>
         </div>
     </div>
+
+    <!-- Tabel Pembayaran -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h5 class='m-0 font-weight-bold text-primary'>Data Pembayaran <?= $siswa['nama'] ?></h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm" id="table-1" style="font-size: 12px">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">
+                                        #
+                                    </th>
+                                    <th>Kode Transaksi</th>
+                                    <th>Nama Keterangan</th>
+                                    <th>Jumlah Bayar</th>
+                                    <th>Tgl Bayar</th>
+                                    <th>Penerima</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <?php
+                                $query = mysqli_query($koneksi, "select * from bayar a join daftar b ON a.id_daftar=b.id_daftar where a.id_daftar='$siswa[id_daftar]'");
+                                $no = 0;
+                                while ($bayar = mysqli_fetch_array($query)) {
+                                    $user = fetch($koneksi, 'user', ['id_user' => $bayar['id_user']]);
+                                    $no++;
+                                ?>
+                                    <tr>
+                                        <td><?= $no; ?></td>
+                                        <td><?= $bayar['id_bayar'] ?></td>
+                                        <td><?= $bayar['nama'] ?></td>
+                                        <td><?= "Rp " . number_format($bayar['jumlah'], 0, ",", ".") ?></td>
+                                        <td><?= $bayar['tgl_bayar'] ?></td>
+                                        <td><?php if ($user) {
+                                                echo $user['nama_user'];
+                                            } else {
+                                                echo "Online";
+                                            } ?>
+                                        </td>
+                                        <td>
+                                            <button data-id="<?= $bayar['id_bayar'] ?>" class="batal btn btn-danger btn-sm"><i class="fas fa-times-circle    "></i></button>
+                                            <!-- <a target="_blank" href="mod_bayar/print_kwitansi.php?id=<?= enkripsi($bayar['id_bayar']) ?>" class="btn btn-primary btn-sm"><i class="fas fa-edit    "></i></a> -->
+                                            <button class="edit btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit-bayar<?= $no; ?>"><i class="fas fa-edit    "></i></button>
+                                            <button data-id="<?= $bayar['id_bayar'] ?>" class="hapus btn btn-danger btn-sm"><i class="fas fa-trash-alt    "></i></button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modal-edit-bayar<?= $no; ?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Edit Pembayaran</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <form id="form-edit-bayar<?= $no; ?>">
+                                                            <div class="modal-body">
+                                                                <input type="hidden" value="<?= $bayar['id_bayar'] ?>" name="id_bayar">
+                                                                <input type="hidden" value="<?= $bayar['id_daftar'] ?>" name="id_daftar">
+                                                                <input type="hidden" value="<?= $semester_aktif['id_semester'] ?>" name="semester">
+                                                                <input type="hidden" value="<?= $tahun_ajaran_aktif['nama_thn_ajaran'] ?>" name="thn_ajaran">
+                                                                <div class="form-group">
+                                                                    <label>Keterangan</label>
+                                                                    <input type="text" name="keterangan" value="<?= $bayar['keterangan'] ?>" class="form-control" required="">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Kode Referensi</label>
+                                                                    <select class="form-control select2" style="width: 100%" name="id_masuk" required>
+                                                                        <option value="">Pilih Kode Referensi</option>
+                                                                        <?php
+                                                                        $masukq = mysqli_query($koneksi, "select * from keu_pemasukan");
+                                                                        while ($masuk = mysqli_fetch_array($masukq)) {
+                                                                        ?>
+                                                                            <option value="<?= $masuk['id_masuk'] ?>"><?= $masuk['id_masuk'] ?> <?= $masuk['nama_masuk'] ?></option>
+                                                                        <?php } ?>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Pembayaran</label>
+                                                                    <select class="form-control select2" style="width: 100%" name="id_biaya" required>
+                                                                        <option value="">Jenis Pembayaran</option>
+                                                                        <?php
+                                                                        $biayaq = mysqli_query($koneksi, "select * from biaya where id_kelas='$bayar[kelas]' AND id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]'");
+                                                                        while ($biaya = mysqli_fetch_array($biayaq)) {
+                                                                        ?>
+                                                                            <option value="<?= $biaya['id_biaya'] ?>"><?= $biaya['nama_biaya'] ?></option>
+                                                                        <?php } ?>
+                                                                        <option value="L">Tunggakan</option>
+                                                                    </select>
+                                                                </div>
+                                                                <input type="hidden" value="<?= $bayar['id_bayar'] ?>" name="id_bayar">
+                                                                <div class="form-group">
+                                                                    <label for="jumlah">Jumlah Pembayaran Rp.</label>
+                                                                    <input value="<?= $bayar['jumlah'] ?>" type="text" class="form-control uang" name="jumlah" id="jumlah" aria-describedby="helpjumlah" placeholder="">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Bulan</label>
+                                                                    <select class="form-control select2" style="width: 100%" name="id_bulan" required>
+                                                                        <option value="">Pilih Bulan</option>
+                                                                        <?php
+                                                                        $bulanq = mysqli_query($koneksi, "select * from bulan");
+                                                                        while ($bulan = mysqli_fetch_array($bulanq)) {
+                                                                        ?>
+                                                                            <option value="<?= $bulan['id_bulan'] ?>"><?= $bulan['nama_bulan'] ?></option>
+                                                                        <?php } ?>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="tgl">Tanggal Pembayaran</label>
+                                                                    <input type="text" class="form-control datepicker" value="<?= $bayar['tgl_bayar'] ?>" name="tgl" id="tgl" placeholder="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">Save</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <script>
+                                        $('#form-edit-bayar<?= $no ?>').submit(function(e) {
+                                            e.preventDefault();
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: 'mod_bayar/crud_bayar.php?pg=editbayar',
+                                                data: $(this).serialize(),
+                                                success: function(data) {
+
+                                                    iziToast.success({
+                                                        title: 'OKee!',
+                                                        message: 'Data Berhasil diubah',
+                                                        position: 'topRight'
+                                                    });
+                                                    setTimeout(function() {
+                                                        window.location.reload();
+                                                    }, 2000);
+                                                    $('#modal-edit-bayar<?= $no ?>').modal('hide');
+                                                    //$('#bodyreset').load(location.href + ' #bodyreset');
+                                                }
+                                            });
+                                            return false;
+                                        });
+                                    </script>
+                                <?php }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <?php } ?>
 <script>
     $('#form-tambahtunggakan').submit(function(e) {
