@@ -158,7 +158,7 @@
                                         <th>Jumlah Bayar</th>
                                         <th>Tgl Bayar</th>
                                         <th>Penerima</th>
-                                        <th>verifikasi</th>
+                                        <th>Keterangan</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -183,14 +183,7 @@
                                                     echo "Online";
                                                 } ?>
                                             </td>
-
-                                            <td>
-                                                <?php if ($bayar['verifikasi'] == 1) { ?>
-                                                    <span class="badge badge-success">Sudah Dicek</span>
-                                                <?php } else { ?>
-                                                    <span class="badge badge-warning">Belum Dicek</span>
-                                                <?php } ?>
-                                            </td>
+                                            <td><?= $bayar['keterangan'] ?></td>
                                             <td>
                                                 <button data-id="<?= $bayar['id_bayar'] ?>" class="batal btn btn-danger btn-sm"><i class="fas fa-times-circle    "></i></button>
                                                 <!-- <a target="_blank" href="mod_bayar/print_kwitansi.php?id=<?= enkripsi($bayar['id_bayar']) ?>" class="btn btn-primary btn-sm"><i class="fas fa-edit    "></i></a> -->
@@ -629,7 +622,7 @@
                                         #
                                     </th>
                                     <th>Kode Transaksi</th>
-                                    <th>Nama Keterangan</th>
+                                    <th>Keterangan</th>
                                     <th>Jumlah Bayar</th>
                                     <th>Tgl Bayar</th>
                                     <th>Penerima</th>
@@ -648,7 +641,7 @@
                                     <tr>
                                         <td><?= $no; ?></td>
                                         <td><?= $bayar['id_bayar'] ?></td>
-                                        <td><?= $bayar['nama'] ?></td>
+                                        <td><?= $bayar['keterangan'] ?></td>
                                         <td><?= "Rp " . number_format($bayar['jumlah'], 0, ",", ".") ?></td>
                                         <td><?= $bayar['tgl_bayar'] ?></td>
                                         <td><?php if ($user) {
