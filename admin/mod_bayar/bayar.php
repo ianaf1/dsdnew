@@ -561,7 +561,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-sm" id="dataTable" style="font-size: 12px">
+                        <table class="table table-striped table-sm" id="table-1" style="font-size: 12px">
                             <thead>
                                 <tr>
                                     <th class="text-center">
@@ -582,7 +582,7 @@
                                     $sisaTunggakan = $totaltunggakan['total'] - $bayartunggakan['total'];
                                 ?>
                                     <tr>
-                                        <td class="text-center" colspan="4"><b>TOTAL Tunggakan</b></td>
+                                        <td class="text-center" colspan="4"><b>TOTAL TUNGGAKAN</b></td>
                                         <td><b><?= "Rp. " . number_format($totaltunggakan['total'], 0, ",", ".") ?></b></td>
                                     </tr>
                                     <!-- <tr>
@@ -635,7 +635,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-sm" id="table-1" style="font-size: 12px">
+                        <table class="table table-striped table-sm" id="dataTable" style="font-size: 12px">
                             <thead>
                                 <tr>
                                     <th class="text-center">
