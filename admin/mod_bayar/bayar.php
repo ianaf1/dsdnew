@@ -602,22 +602,21 @@
                                 $totaltunggakan = mysqli_fetch_array($qttl);
                                 $qbyr = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]' AND id_biaya='L'");
                                 $bayartunggakan = mysqli_fetch_array($qbyr);
-                                $sisaTunggakan = $totaltunggakan['total'] - $bayartunggakan['total'];
-                                ?>
-                                <tr>
-                                    <td class="text-center" colspan="4"><b>TOTAL TUNGGAKAN</b></td>
-                                    <td><b><?= "Rp. " . number_format($totaltunggakan['total'], 0, ",", ".") ?></b></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center" colspan="4"><b>TOTAL Bayar</b></td>
-                                    <td><b><?= "Rp. " . number_format($bayartunggakan['total'], 0, ",", ".") ?></b></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center" colspan="4"><b>Sisa Tunggakan</b></td>
-                                    <td><b><?= "Rp. " . number_format($sisaTunggakan, 0, ",", ".") ?></b></td>
-                                </tr>
-                                <!-- <?php
-                                        ?> -->
+                                $sisaTunggakan = $totaltunggakan['total'] - $bayartunggakan['total']; { ?>
+                                    <tr>
+                                        <td class="text-center" colspan="4"><b>TOTAL TUNGGAKAN</b></td>
+                                        <td><b><?= "Rp. " . number_format($totaltunggakan['total'], 0, ",", ".") ?></b></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center" colspan="4"><b>TOTAL Bayar</b></td>
+                                        <td><b><?= "Rp. " . number_format($bayartunggakan['total'], 0, ",", ".") ?></b></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center" colspan="4"><b>Sisa Tunggakan</b></td>
+                                        <td><b><?= "Rp. " . number_format($sisaTunggakan, 0, ",", ".") ?></b></td>
+                                    </tr>
+                                <?php
+                                } ?>
                             </tfoot>
                         </table>
                     </div>
