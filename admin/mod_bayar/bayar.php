@@ -598,7 +598,7 @@
                             </tbody>
                             <tfoot>
                                 <?php
-                                $qttl = mysqli_query($koneksi, "select sum(jumlah) as total, id_biaya from siswa_tunggakan where id_daftar='$siswa[id_daftar]'");
+                                $qttl = mysqli_query($koneksi, "select sum(jumlah) as total from siswa_tunggakan where id_daftar='$siswa[id_daftar]'");
                                 $totaltunggakan = mysqli_fetch_array($qttl);
                                 $qbyr = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]' AND id_biaya='L'");
                                 $bayartunggakan = mysqli_fetch_array($qbyr);

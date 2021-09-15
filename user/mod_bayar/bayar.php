@@ -95,7 +95,6 @@
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modelId">
                         <i class="fas fa-info-circle    "></i> Info Pembayaran
                     </button>
-
                     <!-- Modal -->
                     <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -163,7 +162,6 @@
                             ?>
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>
