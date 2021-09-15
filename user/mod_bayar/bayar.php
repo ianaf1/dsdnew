@@ -129,11 +129,12 @@
                                 <th>Semester</th>
                                 <th>Tahun Ajaran</th>
                                 <th>Jumlah</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $query = mysqli_query($koneksi, "select * from tunggakan where id_daftar='$siswa[id_daftar]'");
+                            $query = mysqli_query($koneksi, "select * from siswa_tunggakan where id_daftar='$siswa[id_daftar]'");
                             $no = 0;
                             while ($tunggakan = mysqli_fetch_array($query)) {
                                 $no++;
@@ -150,6 +151,13 @@
                                     </td>
                                     <td><?= $tunggakan['thn_ajaran'] ?></td>
                                     <td><?= "Rp " . number_format($tunggakan['jumlah'], 0, ",", ".") ?></td>
+                                    <td>
+                                        <?php if ($tunggakan['status'] == 1) { ?>
+                                            <span class="badge badge-success">LUNAS</span>
+                                        <?php } else { ?>
+                                            <span class="badge badge-warning">BELUM LUNAS</span>
+                                        <?php } ?>
+                                    </td>
                                 </tr>
                             <?php }
                             ?>

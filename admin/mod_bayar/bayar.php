@@ -7,7 +7,7 @@
             <div class="col-md-6 col-xs-6">
                 <div class="form-group">
                     <select class="form-control select2" style="width: 100%" name="id" required>
-                        <option value="">Cari Data Pendaftar</option>
+                        <option value="">Cari Siswa</option>
                         <?php
                         $query = mysqli_query($koneksi, "select * from daftar where status='1'");
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -144,9 +144,6 @@
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h5 class='m-0 font-weight-bold text-primary'>Data Pembayaran Siswa</h5>
-                        <!-- <div class="card-header-action">
-                        <a class="btn btn-primary" href="mod_bayar/export_bayar.php" role="button"> Download Excel</a>
-                    </div> -->
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -564,6 +561,57 @@
             numeral: true
         });
     </script>
+    <!-- Tabel Tunggakan -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h5 class='m-0 font-weight-bold text-primary'>Rincian Tunggakan</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm" id="table-1" style="font-size: 12px">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">
+                                        #
+                                    </th>
+                                    <th>Keterangan</th>
+                                    <th>Semester</th>
+                                    <th>Tahun Ajaran</th>
+                                    <th>Jumlah</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <?php
+                                $query = mysqli_query($koneksi, "select * from siswa_tunggakan where id_daftar='$siswa[id_daftar]'");
+                                $no = 0;
+                                while ($tunggakan = mysqli_fetch_array($query)) {
+                                    $no++;
+                                ?>
+                                    <tr>
+                                        <td><?= $no; ?></td>
+                                        <td><?= $tunggakan['keterangan'] ?></td>
+                                        <td>
+                                            <?php if ($tunggakan['id_semester'] == 1) { ?>
+                                                <span class="badge badge-success">Ganjil</span>
+                                            <?php } else { ?>
+                                                <span class="badge badge-warning">Genap</span>
+                                            <?php } ?>
+                                        </td>
+                                        <td><?= $tunggakan['thn_ajaran'] ?></td>
+                                        <td><?= "Rp " . number_format($tunggakan['jumlah'], 0, ",", ".") ?></td>
+                                    </tr>
+                                <?php }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <?php } ?>
 <script>
     $('#form-tambahtunggakan').submit(function(e) {
