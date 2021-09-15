@@ -598,18 +598,18 @@
                             </tbody>
                             <tfoot>
                                 <?php
-                                $qttl = mysqli_query($koneksi, "select sum(jumlah) as total from siswa_tunggakan where id_daftar='$siswa[id_daftar]'");
+                                $qttl = mysqli_query($koneksi, "select sum(jumlah) as ttl from siswa_tunggakan where id_daftar='$siswa[id_daftar]'");
                                 $totaltunggakan = mysqli_fetch_array($qttl);
-                                $qbyr = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]' AND id_biaya='L'");
+                                $qbyr = mysqli_query($koneksi, "select sum(jumlah) as ttl from bayar where id_daftar='$siswa[id_daftar]' AND id_biaya='L'");
                                 $bayartunggakan = mysqli_fetch_array($qbyr);
-                                $sisaTunggakan = $totaltunggakan['total'] - $bayartunggakan['total']; { ?>
+                                $sisaTunggakan = $totaltunggakan['ttl'] - $bayartunggakan['ttl']; { ?>
                                     <tr>
                                         <td class="text-center" colspan="4"><b>TOTAL TUNGGAKAN</b></td>
-                                        <td><b><?= "Rp. " . number_format($totaltunggakan['total'], 0, ",", ".") ?></b></td>
+                                        <td><b><?= "Rp. " . number_format($totaltunggakan['ttl'], 0, ",", ".") ?></b></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center" colspan="4"><b>TOTAL Bayar</b></td>
-                                        <td><b><?= "Rp. " . number_format($bayartunggakan['total'], 0, ",", ".") ?></b></td>
+                                        <td><b><?= "Rp. " . number_format($bayartunggakan['ttl'], 0, ",", ".") ?></b></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center" colspan="4"><b>Sisa Tunggakan</b></td>
