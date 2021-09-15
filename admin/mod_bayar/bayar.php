@@ -585,14 +585,14 @@
                                         <td class="text-center" colspan="4"><b>TOTAL Tunggakan</b></td>
                                         <td><b><?= "Rp. " . number_format($totaltunggakan['total'], 0, ",", ".") ?></b></td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <td class="text-center" colspan="4"><b>TOTAL Bayar</b></td>
                                         <td><b><?= "Rp. " . number_format($bayartunggakan['total'], 0, ",", ".") ?></b></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center" colspan="4"><b>Sisa Tunggakan</b></td>
                                         <td><b><?= "Rp. " . number_format($sisaTunggakan, 0, ",", ".") ?></b></td>
-                                    </tr>
+                                    </tr> -->
                                 <?php }
                                 ?>
                             </tfoot>
