@@ -578,8 +578,8 @@
                                 $qttl = mysqli_query($koneksi, "select sum(jumlah) as total, id_biaya from siswa_tunggakan where id_daftar='$siswa[id_daftar]'");
                                 while ($totaltunggakan = mysqli_fetch_array($qttl)) {
                                     $qbyr = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$siswa[id_daftar]' AND id_biaya='L'");
-                                    $tbayar = mysqli_fetch_array($qbyr);
-                                    $sisaTunggakan = $totaltunggakan['total'] - $tbayar['total'];
+                                    $bayartunggakan = mysqli_fetch_array($qbyr);
+                                    $sisaTunggakan = $totaltunggakan['total'] - $bayartunggakan['total'];
                                 ?>
                                     <tr>
                                         <td class="text-center" colspan="4"><b>TOTAL Tunggakan</b></td>
@@ -587,7 +587,7 @@
                                     </tr>
                                     <tr>
                                         <td class="text-center" colspan="4"><b>TOTAL Bayar</b></td>
-                                        <td><b><?= "Rp. " . number_format($tbayar['total'], 0, ",", ".") ?></b></td>
+                                        <td><b><?= "Rp. " . number_format($bayartunggakan['total'], 0, ",", ".") ?></b></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center" colspan="4"><b>Sisa Tunggakan</b></td>
