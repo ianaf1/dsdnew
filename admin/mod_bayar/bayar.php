@@ -316,8 +316,6 @@
                     </div>
                 </div>
                 <div class="card-body">
-
-
                     <!-- Modal -->
                     <div class="modal fade" id="tambahdata" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -615,7 +613,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-sm" id="table-1" style="font-size: 12px">
+                        <table class="table table-striped table-sm" id="table-3" style="font-size: 12px">
                             <thead>
                                 <tr>
                                     <th class="text-center">
