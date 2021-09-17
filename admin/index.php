@@ -82,9 +82,9 @@ if (isset($_SESSION['id_user'])) {
     <script src="../assets/modules/cleave-js/dist/cleave.min.js"></script>
 
     <!-- scan qr -->
-    <!-- <link href="../assets/webcodecam/css/bootstrap.min.css" rel="stylesheet"> -->
-    <link href="../assets/webcodecam/css/style.css" rel="stylesheet">
-
+    <link rel="stylesheet" rel="preload" as="style" onload="this.rel='stylesheet';this.onload=null" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" rel="preload" as="style" onload="this.rel='stylesheet';this.onload=null" href="https://unpkg.com/normalize.css@8.0.0/normalize.css">
+    <link rel="stylesheet" rel="preload" as="style" onload="this.rel='stylesheet';this.onload=null" href="https://unpkg.com/milligram@1.3.0/dist/milligram.min.css">
   </head>
 
   <body id="page-top">
