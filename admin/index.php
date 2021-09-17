@@ -82,7 +82,7 @@ if (isset($_SESSION['id_user'])) {
     <script src="../assets/modules/cleave-js/dist/cleave.min.js"></script>
 
     <!-- scan qr -->
-    <link href="../assets/webcodecam/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="../assets/webcodecam/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="../assets/webcodecam/css/style.css" rel="stylesheet">
 
   </head>
