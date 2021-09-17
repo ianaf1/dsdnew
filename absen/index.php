@@ -10,8 +10,8 @@ require("../config/tahun.ajaran.php");
 <head>
     <meta charset="UTF-8">
     <title>WebCodeCamJS</title>
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/webcodecam/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/webcodecam/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -75,7 +75,7 @@ require("../config/tahun.ajaran.php");
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="../assets/js/filereader.js"></script>
+        <script type="text/javascript" src="../assets/webcodecam/js/filereader.js"></script>
         <!-- Using jquery version: -->
         <!--
             <script type="text/javascript" src="../assets/js/jquery.js"></script>
@@ -83,9 +83,9 @@ require("../config/tahun.ajaran.php");
             <script type="text/javascript" src="../assets/js/webcodecamjquery.js"></script>
             <script type="text/javascript" src="../assets/js/mainjquery.js"></script>
         -->
-        <script type="text/javascript" src="../assets/js/qrcodelib.js"></script>
-        <script type="text/javascript" src="../assets/js/webcodecamjs.js"></script>
-        <script type="text/javascript" src="../assets/js/main.js"></script>
+        <script type="text/javascript" src="../assets/webcodecam/js/qrcodelib.js"></script>
+        <script type="text/javascript" src="../assets/webcodecam/js/webcodecamjs.js"></script>
+        <script type="text/javascript" src="../assets/webcodecam/js/main.js"></script>
 </body>
 
 </html>
