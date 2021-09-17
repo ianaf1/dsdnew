@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>WebCodeCamJS</title>
-    <link href="assets/webcodecamjs/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/webcodecamjs/css/style.css" rel="stylesheet">
+    <link href="../assets/webcodecamjs/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/webcodecamjs/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -49,10 +49,10 @@
                     </div>
                 </div>
             </div>
-            <script type="text/javascript" src="assets/webcodecamjs/js/filereader.js"></script>
-            <script type="text/javascript" src="assets/webcodecamjs/js/qrcodelib.js"></script>
-            <script type="text/javascript" src="assets/webcodecamjs/js/webcodecamjs.js"></script>
-            <script type="text/javascript" src="assets/webcodecamjs/js/main.js"></script>
+            <script type="text/javascript" src="../assets/webcodecamjs/js/filereader.js"></script>
+            <script type="text/javascript" src="../assets/webcodecamjs/js/qrcodelib.js"></script>
+            <script type="text/javascript" src="../assets/webcodecamjs/js/webcodecamjs.js"></script>
+            <script type="text/javascript" src="../assets/webcodecamjs/js/main.js"></script>
 </body>
 
 </html>
