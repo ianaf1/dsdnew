@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or die("ip anda sudah tercatat oleh sistem kami") ?>
 
-<!-- <link href="../assets/webcodecam/css/bootstrap.min.css" rel="stylesheet">
-<link href="../assets/webcodecam/css/style.css" rel="stylesheet"> -->
+<!-- <link href="../assets/webcodecam/css/bootstrap.min.css" rel="stylesheet"> -->
+<link href="../assets/webcodecam/css/style.css" rel="stylesheet">
 <div class="row">
     <div class="col-12">
         <div class="col-12">
