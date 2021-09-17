@@ -32,9 +32,9 @@
                     </div>
                     <div class="col-md-6">
                         <div class="thumbnail" id="result">
-                            <!-- <div class="well" style="overflow: hidden;">
+                            <div class="well" style="overflow: hidden;">
                                 <img width="320" height="240" id="scanned-img" src="">
-                            </div> -->
+                            </div>
                             <div class="caption">
                                 <h3>Scanned result</h3>
                                 <p id="scanned-QR"></p>
