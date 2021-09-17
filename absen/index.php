@@ -10,98 +10,11 @@ require("../config/tahun.ajaran.php");
 <head>
     <meta charset="UTF-8">
     <title>WebCodeCamJS</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="page-header text-center">
-        <h1 style="color: cadetblue;">WebCodeCamJS 2.7.0<br>&amp;<br>
-            WebCodeCamJQuery 2.7.0<br>
-            <small>Download from:
-                <a href="https://github.com/andrastoth/WebCodeCamJS" target="_blank"> GitHub </a> Or
-                <a href="http://www.jsclasses.org/package/446-JavaScript-Qr-and-barcode-decoder.html" target="_blank"> JSclasses </a>
-            </small>
-        </h1>
-        <p style="font-style: italic;">
-            <span class="glyphicon glyphicon-info-sign"></span>
-            News in this version 2.7.0 fully works on Edge, Chrome, Fiirefox, Opera
-            <span class="glyphicon glyphicon-info-sign"></span><br>
-            News in this version 2.1.0 extend BuildSelectMenu function
-            <span class="glyphicon glyphicon-info-sign"></span><br>
-            <span class="glyphicon glyphicon-info-sign"></span>
-            News in this version 2.0.5 Add parameter tryVertical to options
-            <span class="glyphicon glyphicon-info-sign"></span><br>
-            <span class="glyphicon glyphicon-info-sign"></span>
-            News in this version 2.0.1 Add successTimeout, codeRepetition parameters to options
-            <span class="glyphicon glyphicon-info-sign"></span><br>
-            <span class="glyphicon glyphicon-info-sign"></span>
-            News in this version 2.0.0: Add UPC-A, UPC-E support.
-            <span class="glyphicon glyphicon-info-sign"></span><br>
-            <span class="glyphicon glyphicon-info-sign"></span>
-            News in this version 1.9.0: Decode from url.
-            <span class="glyphicon glyphicon-info-sign"></span><br>
-            <span class="glyphicon glyphicon-info-sign"></span>
-            News in this version 1.8.0: Decode local image.
-            <span class="glyphicon glyphicon-info-sign"></span>
-        </p>
-        <p>
-            New versions of popular WebCodeCam jQuery plugin
-            Available jquery or javascript version.<br>
-        <ul style="display:inline-block;"><span style="font-weight:bold;">Advantages compared to the previous version:</span>
-            <li>Built in camera selector menu creation</li>
-            <li>Faster</li>
-            <li>Lower CPU and Memory usage</li>
-            <li>More configurable</li>
-        </ul>
-        </p>
-    </div>
-    <div class="container text-center">
-        <h2>Compatibility Table</h2>
-        <p>Current state of browser compatibility 2017-10-01</p>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Functions</th>
-                    <th><a>IOS Safari</a><img src="css/safari-icon.png"></th>
-                    <th><a>Microsoft IE 11</a><img src="css/Internet_Explorer_9.png"></th>
-                    <th><a>MS Edge latest</a><img src="css/949320192f43b9d8.png"></th>
-                    <th><a>Chrome latest</a><img src="css/google-chrome.png"></th>
-                    <th><a>Firefox latest</a><img src="css/mozilla_firefox.png"></th>
-                    <th><a>Opera latest</a><img src="css/opera.png"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong><a>Media stream capture &amp; decode</a></strong></td>
-                    <td class="danger">No</td>
-                    <td class="danger">No</td>
-                    <td class="success">Yes</td>
-                    <td class="success">Yes</td>
-                    <td class="success">Yes</td>
-                    <td class="success">Yes</td>
-                </tr>
-                <tr>
-                    <td><strong><a>Build select menu</a></strong></td>
-                    <td class="danger">No</td>
-                    <td class="danger">No</td>
-                    <td class="success">Yes</td>
-                    <td class="success">Yes</td>
-                    <td class="success">Yes</td>
-                    <td class="success">Yes</td>
-                </tr>
-                <tr>
-                    <td><strong><a>Decode image(url/local)</a></strong></td>
-                    <td class="success">Yes</td>
-                    <td class="success">Yes</td>
-                    <td class="success">Yes</td>
-                    <td class="success">Yes</td>
-                    <td class="success">Yes</td>
-                    <td class="success">Yes</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
     <div class="container" id="QR-Code">
         <div class="panel panel-info">
             <div class="panel-heading">
@@ -162,17 +75,17 @@ require("../config/tahun.ajaran.php");
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="js/filereader.js"></script>
+        <script type="text/javascript" src="../assets/js/filereader.js"></script>
         <!-- Using jquery version: -->
         <!--
-            <script type="text/javascript" src="js/jquery.js"></script>
-            <script type="text/javascript" src="js/qrcodelib.js"></script>
-            <script type="text/javascript" src="js/webcodecamjquery.js"></script>
-            <script type="text/javascript" src="js/mainjquery.js"></script>
+            <script type="text/javascript" src="../assets/js/jquery.js"></script>
+            <script type="text/javascript" src="../assets/js/qrcodelib.js"></script>
+            <script type="text/javascript" src="../assets/js/webcodecamjquery.js"></script>
+            <script type="text/javascript" src="../assets/js/mainjquery.js"></script>
         -->
-        <script type="text/javascript" src="js/qrcodelib.js"></script>
-        <script type="text/javascript" src="js/webcodecamjs.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="../assets/js/qrcodelib.js"></script>
+        <script type="text/javascript" src="../assets/js/webcodecamjs.js"></script>
+        <script type="text/javascript" src="../assets/js/main.js"></script>
 </body>
 
 </html>
