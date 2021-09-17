@@ -175,10 +175,10 @@ if (isset($_SESSION['id_user'])) {
     <script src="../assets/modules/summernote/summernote-bs4.js"></script>
 
     <!-- Scan QR -->
-    <script type="text/javascript" src="../assets/webcodecam/js/filereader.js"></script>
+    <!-- <script type="text/javascript" src="../assets/webcodecam/js/filereader.js"></script>
     <script type="text/javascript" src="../assets/webcodecam/js/qrcodelib.js"></script>
     <script type="text/javascript" src="../assets/webcodecam/js/webcodecamjs.js"></script>
-    <script type="text/javascript" src="../assets/webcodecam/js/main.js"></script>
+    <script type="text/javascript" src="../assets/webcodecam/js/main.js"></script> -->
 
     <!-- Page Specific JS File -->
     <script src="../assets/js/page/index-0.js"></script>

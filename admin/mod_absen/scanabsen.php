@@ -14,87 +14,40 @@
                     <select class="form-control" id="camera-select"></select>
                 </div>
                 <div class="card-body">
-                    <div>
-                        <a class="button" id="startButton">Start</a>
-                        <a class="button" id="resetButton">Reset</a>
-                    </div>
-
-                    <div>
-                        <video id="video" width="300" height="200" style="border: 1px solid gray"></video>
-                    </div>
-
-                    <div id="sourceSelectPanel" style="display:none">
-                        <label for="sourceSelect">Change video source:</label>
-                        <select id="sourceSelect" style="max-width:400px">
-                        </select>
-                    </div>
-
-                    <div style="display: table">
-                        <label for="decoding-style"> Decoding Style:</label>
-                        <select id="decoding-style" size="1">
-                            <option value="once">Decode once</option>
-                            <option value="continuously">Decode continuously</option>
-                        </select>
-                    </div>
-
-                    <label>Result:</label>
-                    <pre><code id="result"></code></pre>
+                    <section class='content' id="demo-content">
+                        <div class='row'>
+                            <div class='col-xs-12'>
+                                <div class='box'>
+                                    <div class='box-header'></div>
+                                    <div class='box-body'>
+                                        <form id="form-scan">
+                                            <div id="sourceSelectPanel" style="display:none">
+                                                <label for="sourceSelect">Change video source:</label>
+                                                <select id="sourceSelect" style="max-width:400px"></select>
+                                            </div>
+                                            <div>
+                                                <video id="video" width="100%" height="100%" style="border: 1px solid gray"></video>
+                                            </div>
+                                            <textarea hidden="" name="id_karyawan" id="result" readonly></textarea>
+                                            <span> <input type="submit" id="button" class="btn btn-success btn-md" value="Cek Kehadiran"></span>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script type="text/javascript" src="https://unpkg.com/@zxing/library@latest"></script>
+<script type="text/javascript" src="../../assets/modules/zxing/zxing.min.js"></script>
 <script type="text/javascript">
-    function decodeOnce(codeReader, selectedDeviceId) {
-        codeReader.decodeFromInputVideoDevice(selectedDeviceId, 'video').then((result) => {
-            console.log(result)
-            document.getElementById('result').textContent = result.text
-        }).catch((err) => {
-            console.error(err)
-            document.getElementById('result').textContent = err
-        })
-    }
-
-    function decodeContinuously(codeReader, selectedDeviceId) {
-        codeReader.decodeFromInputVideoDeviceContinuously(selectedDeviceId, 'video', (result, err) => {
-            if (result) {
-                // properly decoded qr code
-                console.log('Found QR code!', result)
-                document.getElementById('result').textContent = result.text
-            }
-
-            if (err) {
-                // As long as this error belongs into one of the following categories
-                // the code reader is going to continue as excepted. Any other error
-                // will stop the decoding loop.
-                //
-                // Excepted Exceptions:
-                //
-                //  - NotFoundException
-                //  - ChecksumException
-                //  - FormatException
-
-                if (err instanceof ZXing.NotFoundException) {
-                    console.log('No QR code found.')
-                }
-
-                if (err instanceof ZXing.ChecksumException) {
-                    console.log('A code was found, but it\'s read value was not valid.')
-                }
-
-                if (err instanceof ZXing.FormatException) {
-                    console.log('A code was found, but it was in a invalid format.')
-                }
-            }
-        })
-    }
-
     window.addEventListener('load', function() {
         let selectedDeviceId;
+        let audio = new Audio("assets/audio/beep.mp3");
         const codeReader = new ZXing.BrowserQRCodeReader()
         console.log('ZXing code reader initialized')
-
         codeReader.getVideoInputDevices()
             .then((videoInputDevices) => {
                 const sourceSelect = document.getElementById('sourceSelect')
@@ -106,34 +59,24 @@
                         sourceOption.value = element.deviceId
                         sourceSelect.appendChild(sourceOption)
                     })
-
                     sourceSelect.onchange = () => {
                         selectedDeviceId = sourceSelect.value;
                     };
-
                     const sourceSelectPanel = document.getElementById('sourceSelectPanel')
                     sourceSelectPanel.style.display = 'block'
                 }
-
-                document.getElementById('startButton').addEventListener('click', () => {
-
-                    const decodingStyle = document.getElementById('decoding-style').value;
-
-                    if (decodingStyle == "once") {
-                        decodeOnce(codeReader, selectedDeviceId);
-                    } else {
-                        decodeContinuously(codeReader, selectedDeviceId);
+                codeReader.decodeFromInputVideoDevice(selectedDeviceId, 'video').then((result) => {
+                    console.log(result)
+                    document.getElementById('result').textContent = result.text
+                    if (result != null) {
+                        audio.play();
                     }
-
-                    console.log(`Started decode from camera with id ${selectedDeviceId}`)
+                    $('#button').submit();
+                }).catch((err) => {
+                    console.error(err)
+                    document.getElementById('result').textContent = err
                 })
-
-                document.getElementById('resetButton').addEventListener('click', () => {
-                    codeReader.reset()
-                    document.getElementById('result').textContent = '';
-                    console.log('Reset.')
-                })
-
+                console.log(`Started continous decode from camera with id ${selectedDeviceId}`)
             })
             .catch((err) => {
                 console.error(err)
