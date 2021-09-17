@@ -1,6 +1,6 @@
-/* body {
+body {
     padding-top: 50px;
-} */
+}
 
 .thumbnail {
     border: 0;
@@ -15,7 +15,7 @@
     width: auto;
 }
 
-/* .btn {
+.btn {
     margin-bottom: 2px;
 }
 
@@ -88,7 +88,7 @@ button {
 
 .table-bordered th, .table-bordered td {
     vertical-align: middle !important;
-} */
+}
 
 .scanner-laser {
     position: absolute;
