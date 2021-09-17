@@ -29,6 +29,8 @@
                                                 <video id="video" width="100%" height="100%" style="border: 1px solid gray"></video>
                                             </div>
                                             <textarea name="id_karyawan" id="result" readonly></textarea>
+                                            <label>Result:</label>
+                                            <pre><code id="result"></code></pre>
                                             <span> <input type="submit" id="button" class="btn btn-success btn-md" value="Cek Kehadiran"></span>
                                         </form>
                                     </div>
