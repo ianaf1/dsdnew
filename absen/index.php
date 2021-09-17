@@ -1,3 +1,9 @@
+<?php
+require("../config/database.php");
+require("../config/function.php");
+require("../config/functions.crud.php");
+require("../config/tahun.ajaran.php");
+?>
 <!DOCTYPE html>
 <html>
 
