@@ -116,7 +116,7 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../absen/">
+            <a class="nav-link" href="?pg=scanabsen">
                 <i class="fas fa-qrcode"></i>
                 <span>Scan QR</span></a>
         </li>

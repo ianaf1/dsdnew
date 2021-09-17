@@ -59,5 +59,5 @@ if ($pg == '') {
 } elseif ($pg == 'thn_ajaran') {
     include "mod_thn_ajaran/thn_ajaran.php";
 } elseif ($pg == 'scanabsen') {
-    include "../absen/scanabsen.php";
+    include "../mod_absen/scanabsen.php";
 }

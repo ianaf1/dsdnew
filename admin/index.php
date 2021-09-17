@@ -82,22 +82,8 @@ if (isset($_SESSION['id_user'])) {
     <script src="../assets/modules/cleave-js/dist/cleave.min.js"></script>
 
     <!-- scan qr -->
-    <!-- <link href="../assets/webcodecam/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/webcodecam/css/style.css" rel="stylesheet"> -->
-
-
-    <!-- <script language='JavaScript'>
-      var txt = "DSD - MA AT TAQWA YASTU ";
-      var speed = 300;
-      var refresh = null;
-
-      function action() {
-        document.title = txt;
-        txt = txt.substring(1, txt.length) + txt.charAt(0);
-        refresh = setTimeout("action()", speed);
-      }
-      action();
-    </script> -->
+    <link href="../assets/webcodecam/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/webcodecam/css/style.css" rel="stylesheet">
 
   </head>
 
@@ -189,10 +175,10 @@ if (isset($_SESSION['id_user'])) {
     <script src="../assets/modules/summernote/summernote-bs4.js"></script>
 
     <!-- Scan QR -->
-    <!-- <script type="text/javascript" src="../assets/webcodecam/js/filereader.js"></script>
+    <script type="text/javascript" src="../assets/webcodecam/js/filereader.js"></script>
     <script type="text/javascript" src="../assets/webcodecam/js/qrcodelib.js"></script>
     <script type="text/javascript" src="../assets/webcodecam/js/webcodecamjs.js"></script>
-    <script type="text/javascript" src="../assets/webcodecam/js/main.js"></script> -->
+    <script type="text/javascript" src="../assets/webcodecam/js/main.js"></script>
 
     <!-- Page Specific JS File -->
     <script src="../assets/js/page/index-0.js"></script>
