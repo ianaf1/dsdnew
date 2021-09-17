@@ -116,8 +116,8 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../absen/scanabsen.php">
-                <i class="fas fa-school"></i>
+            <a class="nav-link" href="../absen/">
+                <i class="fas fa-qrcode"></i>
                 <span>Scan QR</span></a>
         </li>
 
