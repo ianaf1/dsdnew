@@ -58,4 +58,6 @@ if ($pg == '') {
     include "mod_surat/arsip.php";
 } elseif ($pg == 'thn_ajaran') {
     include "mod_thn_ajaran/thn_ajaran.php";
+} elseif ($pg == 'scanabsen') {
+    include "mod_absen/scanabsen.php";
 }

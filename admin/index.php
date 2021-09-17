@@ -81,6 +81,9 @@ if (isset($_SESSION['id_user'])) {
     <!-- JS Libraies -->
     <script src="../assets/modules/cleave-js/dist/cleave.min.js"></script>
 
+    <!-- scan qr -->
+    <link href="assets/webcodecam/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/webcodecam/css/style.css" rel="stylesheet">
 
 
     <!-- <script language='JavaScript'>
@@ -184,6 +187,12 @@ if (isset($_SESSION['id_user'])) {
     <script src="../assets/modules/select2/dist/js/select2.full.min.js"></script>
     <script src="../assets/modules/bootstrap-daterangepicker/daterangepicker.js"></script>
     <script src="../assets/modules/summernote/summernote-bs4.js"></script>
+
+    <!-- Scan QR -->
+    <script type="text/javascript" src="assets/webcodecam/js/filereader.js"></script>
+    <script type="text/javascript" src="assets/webcodecam/js/qrcodelib.js"></script>
+    <script type="text/javascript" src="assets/webcodecam/js/webcodecamjs.js"></script>
+    <script type="text/javascript" src="assets/webcodecam/js/main.js"></script>
 
     <!-- Page Specific JS File -->
     <script src="../assets/js/page/index-0.js"></script>
