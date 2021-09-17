@@ -77,12 +77,12 @@ require("../config/tahun.ajaran.php");
         </div>
         <script type="text/javascript" src="../assets/webcodecam/js/filereader.js"></script>
         <!-- Using jquery version: -->
-        <!--
-            <script type="text/javascript" src="../assets/js/jquery.js"></script>
-            <script type="text/javascript" src="../assets/js/qrcodelib.js"></script>
-            <script type="text/javascript" src="../assets/js/webcodecamjquery.js"></script>
-            <script type="text/javascript" src="../assets/js/mainjquery.js"></script>
-        -->
+
+        <script type="text/javascript" src="../assets/webcodecam/js/jquery.js"></script>
+        <script type="text/javascript" src="../assets/webcodecam/js/qrcodelib.js"></script>
+        <script type="text/javascript" src="../assets/webcodecam/js/webcodecamjquery.js"></script>
+        <script type="text/javascript" src="../assets/webcodecam/js/mainjquery.js"></script>
+
         <script type="text/javascript" src="../assets/webcodecam/js/qrcodelib.js"></script>
         <script type="text/javascript" src="../assets/webcodecam/js/webcodecamjs.js"></script>
         <script type="text/javascript" src="../assets/webcodecam/js/main.js"></script>
