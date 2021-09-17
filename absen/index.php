@@ -86,6 +86,7 @@ require("../config/tahun.ajaran.php");
         <script type="text/javascript" src="../assets/webcodecam/js/qrcodelib.js"></script>
         <script type="text/javascript" src="../assets/webcodecam/js/webcodecamjs.js"></script>
         <script type="text/javascript" src="../assets/webcodecam/js/main.js"></script>
+    </div>
 </body>
 
 </html>
