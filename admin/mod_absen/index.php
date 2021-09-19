@@ -23,7 +23,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="./"><?= $hari_ini ?></a>
+        <a class="navbar-brand" href="./">Presensi Siswa MA AT-TAQWA YASTU</a>
       </div>
     </div>
   </nav>
@@ -33,7 +33,7 @@
       <div class="col-md-4 col-md-offset-4">
         <div class="panel panel-danger">
           <div class="panel-heading">
-            <h3 class="panel-title">Arahkan Kode QR Ke Kamera!</h3>
+            <h3 class="panel-title">Presensi Siswa Hari <?= $hari_ini ?></h3>
           </div>
           <div class="panel-body text-center">
             <canvas></canvas>
