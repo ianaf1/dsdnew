@@ -11,7 +11,7 @@ if ($pg == 'ubah') {
     $data = [
         'nama_hari'         => $_POST['nama_hari'],
         'jam_masuk'         => $_POST['jam_masuk'],
-        'jam_keluar'       => $_POST['jam_keluar'],
+        'jam_keluar'       => $_POST['jam_keluar']
     ];
     $id_hari = $_POST['id_hari'];
     update($koneksi, 'hari', $data, ['id_hari' => $id_hari]);
@@ -20,7 +20,7 @@ if ($pg == 'tambah') {
     $data = [
         'nama_hari' => $_POST['nama_hari'],
         'jam_masuk'       => $_POST['jam_masuk'],
-        'jam_keluar'       => $_POST['jam_keluar'],
+        'jam_keluar'       => $_POST['jam_keluar']
     ];
     insert($koneksi, 'hari', $data);
     echo $exec;
