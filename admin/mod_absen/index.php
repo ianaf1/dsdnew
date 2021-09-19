@@ -59,7 +59,7 @@
       resultFunction: function(result) {
         $.ajax({
           type: 'POST',
-          url: 'crud_absen.php',
+          url: 'crud_absen.php?pg=presensi',
           data: 'nis=' + result.code,
           success: function(pesan) {
             var json = $.parseJSON(pesan);
