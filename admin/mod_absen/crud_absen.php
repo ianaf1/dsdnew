@@ -48,6 +48,11 @@ if ($pg == 'presen') {
                 'pesan' => 'sudah_absen'
             ];
             echo json_encode($pesan);
+        } elseif (mysqli_num_rows($presensiQ) == 1 && $presensiR['jam_msk'] > '00:00:00' && $presensiR['jam_plg'] > '00:00:00') {
+            $pesan = [
+                'pesan' => 'sudah_presensi'
+            ];
+            echo json_encode($pesan);
         }
     } else {
         $pesan = [
