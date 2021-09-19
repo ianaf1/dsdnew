@@ -57,16 +57,16 @@
   <script type="text/javascript" src="js/qrcodelib.js"></script>
   <script type="text/javascript" src="js/webcodecamjquery.js"></script>
   <script type="text/javascript">
-    // var arg = {
-    //   resultFunction: function(result) {
-    //     //$('.hasilscan').append($('<input name="noijazah" value=' + result.code + ' readonly><input type="submit" value="Cek"/>'));
-    //     // $.post("../cek.php", { noijazah: result.code} );
-    //     var redirect = 'crud_absen.php';
-    //     $.redirectPost(redirect, {
-    //       nis: result.code
-    //     });
-    //   }
-    // };
+    var arg = {
+      resultFunction: function(result) {
+        //$('.hasilscan').append($('<input name="noijazah" value=' + result.code + ' readonly><input type="submit" value="Cek"/>'));
+        // $.post("../cek.php", { noijazah: result.code} );
+        var redirect = 'crud_absen.php';
+        $.redirectPost(redirect, {
+          nis: result.code
+        });
+      }
+    };
     var decoder = $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery;
     decoder.buildSelectMenu("select");
     decoder.play();
