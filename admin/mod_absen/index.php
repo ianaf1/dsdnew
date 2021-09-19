@@ -61,7 +61,7 @@
         // $.redirectPost(redirect, {
         //   nis: result.code
         // });
-        e.preventDefault();
+        // e.preventDefault();
         $.ajax({
           type: 'POST',
           url: 'crud_absen.php?pg=presen',
