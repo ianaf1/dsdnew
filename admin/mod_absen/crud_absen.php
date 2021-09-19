@@ -13,7 +13,7 @@ if ($pg == 'presen') {
     $presensiQ = mysqli_query($koneksi, "SELECT * FROM presensi WHERE nis='$siswaR[nis]' AND tgl='$tgl'");
     $presensiR = mysqli_fetch_array($presensiQ);
     if (mysqli_num_rows($siswaQ) == 1) {
-        if (mysqli_num_rows($presensiQ) < 1) {
+        if (mysqli_num_rows($presensiQ) == 0 && $jam < '20:00:00') {
             $data = [
                 'nis' => $_POST['nis'],
                 'tgl' => $tgl
@@ -23,7 +23,12 @@ if ($pg == 'presen') {
             ];
             echo json_encode($pesan);
             insert($koneksi, 'presensi', $data);
-        } else {
+        } elseif (mysqli_num_rows($presensiQ) == 0 && $jam > '20:30:00') {
+            $pesan = [
+                'pesan' => 'ggl_masuk'
+            ];
+            echo json_encode($pesan);
+        } elseif (mysqli_num_rows($presensiQ) == 1 && $jam > '21:00:00') {
             $data = [
                 'jam_plg' => $jam,
                 'ket' => 'Hadir'
@@ -33,6 +38,16 @@ if ($pg == 'presen') {
             ];
             echo json_encode($pesan);
             update($koneksi, 'presensi', $data, ['nis' => $_POST['nis']]);
+        } elseif (mysqli_num_rows($presensiQ) == 1 && $jam < '21:00:00') {
+            $pesan = [
+                'pesan' => 'ggl_pulang'
+            ];
+            echo json_encode($pesan);
         }
+    } else {
+        $pesan = [
+            'pesan' => 'tdk_ditemukan'
+        ];
+        echo json_encode($pesan);
     }
 }

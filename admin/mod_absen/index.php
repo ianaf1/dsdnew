@@ -78,13 +78,31 @@
             if (json.pesan == 'masuk') {
               iziToast.success({
                 title: 'Mantap!',
-                message: 'Presensi Berhasil',
+                message: 'Absen Masuk Berhasil',
+                position: 'topRight'
+              });
+            } else if (json.pesan == 'keluar') {
+              iziToast.success({
+                title: 'Mantap!',
+                message: 'Absen Pulang Berhasil',
+                position: 'topRight'
+              });
+            } else if (json.pesan == 'ggl_masuk') {
+              iziToast.error({
+                title: 'Gagal',
+                message: 'Jadwal Absen Sudah Lewat',
+                position: 'topRight'
+              });
+            } else if (json.pesan == 'ggl_keluar') {
+              iziToast.error({
+                title: 'Gagal',
+                message: 'Belum Jam Pulang',
                 position: 'topRight'
               });
             } else {
               iziToast.error({
-                title: 'Maaf!',
-                message: 'data gagal disimpan',
+                title: 'Gagal',
+                message: 'Data Tidak Ditemukan',
                 position: 'topRight'
               });
             }
