@@ -340,4 +340,5 @@ function hari_ini()
 			$hari_ini = "Tidak di ketahui";
 			break;
 	}
+	return "<b>" . $hari_ini . "</b>";
 }
