@@ -10,7 +10,7 @@ if ($pg == 'presen') {
     $nis = mysqli_escape_string($koneksi, $_POST['nis']);
     $siswaQ = mysqli_query($koneksi, "SELECT * FROM daftar WHERE nis='$nis'");
     $siswaR = mysqli_fetch_array($siswaQ);
-    $presensiQ = mysqli_query($koneksi, "SELECT * FROM presensi WHERE nis='$nis' AND tgl='$tgl'");
+    $presensiQ = mysqli_query($koneksi, "SELECT * FROM presensi WHERE nis='$siswaR[nis]' AND tgl='$tgl'");
     $presensiR = mysqli_fetch_array($presensiQ);
     if (mysqli_num_rows($siswaQ) == 1) {
         if (mysqli_num_rows($presensiQ) < 1) {
