@@ -23,7 +23,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="./">Presensi siswa dengan QR Code</a>
+        <a class="navbar-brand" href="./"><?= $hari_ini ?></a>
       </div>
     </div>
   </nav>
