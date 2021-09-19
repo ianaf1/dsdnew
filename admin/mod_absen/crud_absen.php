@@ -13,7 +13,7 @@ if ($pg == 'presensi') {
     $presensiQ = mysqli_query($koneksi, "SELECT * FROM presensi WHERE nis='$nis' AND tgl='$tgl'");
     $presensiR = mysqli_fetch_array($presensiQ);
     if (mysqli_num_rows($cek_siswa) == 1) {
-        if (mysqli_num_rows($presensiQ) < 1) {
+        if (mysqli_num_rows($presensiQ) == 0) {
             $data = [
                 'nis' => $nis,
                 'tgl' => $tgl,
