@@ -74,6 +74,7 @@
           //     });
           // },
           success: function(pesan) {
+            var json = $.parseJSON(pesan);
             if (pesan == 'masuk') {
               iziToast.success({
                 title: 'Mantap!',
