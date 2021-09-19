@@ -53,47 +53,45 @@
   <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/qrcodelib.js"></script>
   <script type="text/javascript" src="js/webcodecamjquery.js"></script>
-  <script src="../../assets/modules/izitoast/js/iziToast.min.js"></script>
   <script type="text/javascript">
     var arg = {
       resultFunction: function(result) {
+        //$('.hasilscan').append($('<input name="noijazah" value=' + result.code + ' readonly><input type="submit" value="Cek"/>'));
+        // $.post("../cek.php", { noijazah: result.code} );
+        // var redirect = 'crud_absen.php';
+        // $.redirectPost(redirect, {
+        //   nis: result.code
+        // });
+        // e.preventDefault();
         $.ajax({
           type: 'POST',
-          url: 'crud_absen.php?pg=presensi',
+          url: 'crud_absen.php?pg=presen',
           data: 'nis=' + result.code,
-          // success: function(pesan) {
-          //   var json = $.parseJSON(pesan);
-          //   if (json.pesan == 'masuk') {
+          // beforeSend: function() {
+          //     $('form button').on("click", function(e) {
+          //         e.preventDefault();
+          //     });
+          // },
+          // success: function(data) {
+          //   if (data == 'OK') {
+          //     $('#tambahdata').modal('hide');
           //     iziToast.success({
           //       title: 'Mantap!',
-          //       message: 'Absen Masuk',
+          //       message: 'Presensi Berhasil',
           //       position: 'topRight'
           //     });
-          //   } else if (json.pesan == 'ditolak') {
-          //     iziToast.error({
-          //       title: 'Siang Amat!',
-          //       message: 'Absen Ditolak',
-          //       position: 'topRight'
-          //     });
-          //   } else if (json.pesan == 'pulang') {
-          //     iziToast.success({
-          //       title: 'Mantap!',
-          //       message: 'Absen Pulang Berhasil',
-          //       position: 'topRight'
-          //     });
-          //   } else if (json.pesan == 'blm_pulang') {
-          //     iziToast.error({
-          //       title: 'Mau Kemana',
-          //       message: 'Ini Belum Jam Pulang',
-          //       position: 'topCenter'
-          //     });
+          //     setTimeout(function() {
+          //       window.location.reload();
+          //     }, 2000);
+
           //   } else {
           //     iziToast.error({
-          //       title: 'QR Code Salah',
-          //       message: 'Data Tidak Ditemukan',
-          //       position: 'topCenter'
-          //     })
+          //       title: 'Maaf!',
+          //       message: 'data gagal disimpan',
+          //       position: 'topRight'
+          //     });
           //   }
+          //   //$('#bodyreset').load(location.href + ' #bodyreset');
           // }
         });
         return false;
@@ -108,6 +106,17 @@
     $('select').on('change', function() {
       decoder.stop().play();
     });
+
+    // jquery extend function
+    // $.extend({
+    //   redirectPost: function(location, args) {
+    //     var form = '';
+    //     $.each(args, function(key, value) {
+    //       form += '<input type="hidden" name="' + key + '" value="' + value + '">';
+    //     });
+    //     $('<form action="' + location + '" method="POST">' + form + '</form>').appendTo('body').submit();
+    //   }
+    // });
   </script>
 </body>
 
