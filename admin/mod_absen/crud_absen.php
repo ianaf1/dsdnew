@@ -12,7 +12,7 @@ $cek_siswa = mysqli_query($koneksi, "SELECT * FROM daftar WHERE nis='$nis'");
 $presensiQ = mysqli_query($koneksi, "SELECT * FROM presensi WHERE nis='$nis' AND tgl='$tgl'");
 $presensiR = mysqli_fetch_array($presensiQ);
 if (mysqli_num_rows($cek_siswa) == 1) {
-    if (mysqli_num_rows($presensiQ) <= 1 && $jam < '08:00:00') {
+    if (mysqli_num_rows($presensiQ) <= 1) {
         $data = [
             'nis' => $nis,
             'tgl' => $tgl,
