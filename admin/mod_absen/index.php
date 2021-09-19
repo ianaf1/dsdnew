@@ -105,6 +105,12 @@
                 message: 'Belum Jam Pulang',
                 position: 'topRight'
               });
+            } else if (json.pesan == 'sudah_presensi') {
+              iziToast.error({
+                title: 'Gagal',
+                message: 'Absen Sudah Dilakukan',
+                position: 'topRight'
+              });
             } else {
               iziToast.error({
                 title: 'Gagal',
