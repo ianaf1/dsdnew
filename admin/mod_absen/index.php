@@ -75,7 +75,7 @@
           // },
           success: function(pesan) {
             var json = $.parseJSON(pesan);
-            if (pesan == 'masuk') {
+            if (json.pesan == 'masuk') {
               iziToast.success({
                 title: 'Mantap!',
                 message: 'Presensi Berhasil',
