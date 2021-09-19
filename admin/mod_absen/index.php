@@ -93,6 +93,12 @@
                 message: 'Jadwal Absen Sudah Lewat',
                 position: 'topRight'
               });
+            } else if (json.pesan == 'sudah_absen') {
+              iziToast.error({
+                title: 'Gagal',
+                message: 'Sudah Absen Masuk',
+                position: 'topRight'
+              });
             } else if (json.pesan == 'ggl_keluar') {
               iziToast.error({
                 title: 'Gagal',

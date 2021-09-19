@@ -38,9 +38,14 @@ if ($pg == 'presen') {
             ];
             echo json_encode($pesan);
             update($koneksi, 'presensi', $data, ['nis' => $_POST['nis']]);
-        } elseif (mysqli_num_rows($presensiQ) == 1 && $jam < '21:00:00') {
+        } elseif (mysqli_num_rows($presensiQ) == 1 && $presensiR['jam_msk'] > '00:00:00' && $jam > '20:30:00' && $jam < '21:00:00') {
             $pesan = [
                 'pesan' => 'ggl_pulang'
+            ];
+            echo json_encode($pesan);
+        } elseif (mysqli_num_rows($presensiQ) == 1 && $presensiR['jam_msk'] > '00:00:00' && $jam < '20:30:00') {
+            $pesan = [
+                'pesan' => 'sudah_absen'
             ];
             echo json_encode($pesan);
         }
