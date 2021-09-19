@@ -61,40 +61,40 @@
           type: 'POST',
           url: 'crud_absen.php?pg=presensi',
           data: 'nis=' + result.code,
-          success: function(pesan) {
-            var json = $.parseJSON(pesan);
-            if (json.pesan == 'masuk') {
-              iziToast.success({
-                title: 'Mantap!',
-                message: 'Absen Masuk',
-                position: 'topRight'
-              });
-            } else if (json.pesan == 'ditolak') {
-              iziToast.error({
-                title: 'Siang Amat!',
-                message: 'Absen Ditolak',
-                position: 'topRight'
-              });
-            } else if (json.pesan == 'pulang') {
-              iziToast.success({
-                title: 'Mantap!',
-                message: 'Absen Pulang Berhasil',
-                position: 'topRight'
-              });
-            } else if (json.pesan == 'blm_pulang') {
-              iziToast.error({
-                title: 'Mau Kemana',
-                message: 'Ini Belum Jam Pulang',
-                position: 'topCenter'
-              });
-            } else {
-              iziToast.error({
-                title: 'QR Code Salah',
-                message: 'Data Tidak Ditemukan',
-                position: 'topCenter'
-              })
-            }
-          }
+          // success: function(pesan) {
+          //   var json = $.parseJSON(pesan);
+          //   if (json.pesan == 'masuk') {
+          //     iziToast.success({
+          //       title: 'Mantap!',
+          //       message: 'Absen Masuk',
+          //       position: 'topRight'
+          //     });
+          //   } else if (json.pesan == 'ditolak') {
+          //     iziToast.error({
+          //       title: 'Siang Amat!',
+          //       message: 'Absen Ditolak',
+          //       position: 'topRight'
+          //     });
+          //   } else if (json.pesan == 'pulang') {
+          //     iziToast.success({
+          //       title: 'Mantap!',
+          //       message: 'Absen Pulang Berhasil',
+          //       position: 'topRight'
+          //     });
+          //   } else if (json.pesan == 'blm_pulang') {
+          //     iziToast.error({
+          //       title: 'Mau Kemana',
+          //       message: 'Ini Belum Jam Pulang',
+          //       position: 'topCenter'
+          //     });
+          //   } else {
+          //     iziToast.error({
+          //       title: 'QR Code Salah',
+          //       message: 'Data Tidak Ditemukan',
+          //       position: 'topCenter'
+          //     })
+          //   }
+          // }
         });
         return false;
       }
