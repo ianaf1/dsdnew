@@ -39,7 +39,7 @@ require("../../config/tahun.ajaran.php");
       <div class="col-md-4 col-md-offset-4">
         <div class="panel panel-danger">
           <div class="panel-heading">
-            <h3 class="panel-title">Presensi Siswa Hari <?= $hari_ini ?></h3>
+            <h3 class="panel-title">Presensi Siswa Hari <?= hari_ini(); ?></h3>
           </div>
           <div class="panel-body text-center">
             <canvas></canvas>
