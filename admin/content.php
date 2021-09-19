@@ -60,4 +60,6 @@ if ($pg == '') {
     include "mod_thn_ajaran/thn_ajaran.php";
 } elseif ($pg == 'scanabsen') {
     include "mod_absen/scanabsen.php";
+} elseif ($pg == 'masterabsen') {
+    include "mod_absen_master/absen_master.php";
 }
