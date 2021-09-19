@@ -7,7 +7,7 @@ require("../../config/tahun.ajaran.php");
 if ($pg == 'presen') {
     $tgl = date('Ymd');
     $jam = date('H:i:s');
-    $jam_msk = '20:30:00';
+    $jam_msk = '20:00:00';
     $jam_plg = '21:30:00';
     $nis = mysqli_escape_string($koneksi, $_POST['nis']);
     $siswaQ = mysqli_query($koneksi, "SELECT * FROM daftar WHERE nis='$nis'");
