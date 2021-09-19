@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/font-awesome.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../assets/modules/izitoast/css/iziToast.min.css">
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <link rel="icon" href="../assets/img/logo.png">
@@ -55,43 +56,44 @@
   <script type="text/javascript">
     var arg = {
       resultFunction: function(result) {
-        //$('.hasilscan').append($('<input name="noijazah" value=' + result.code + ' readonly><input type="submit" value="Cek"/>'));
-        // $.post("../cek.php", { noijazah: result.code} );
-        // var redirect = 'crud_absen.php';
-        // $.redirectPost(redirect, {
-        //   nis: result.code
-        // });
-        // e.preventDefault();
         $.ajax({
           type: 'POST',
-          url: 'crud_absen.php?pg=presen',
+          url: 'crud_absen.php',
           data: 'nis=' + result.code,
-          // beforeSend: function() {
-          //     $('form button').on("click", function(e) {
-          //         e.preventDefault();
-          //     });
-          // },
-          // success: function(data) {
-          //   if (data == 'OK') {
-          //     $('#tambahdata').modal('hide');
-          //     iziToast.success({
-          //       title: 'Mantap!',
-          //       message: 'Presensi Berhasil',
-          //       position: 'topRight'
-          //     });
-          //     setTimeout(function() {
-          //       window.location.reload();
-          //     }, 2000);
-
-          //   } else {
-          //     iziToast.error({
-          //       title: 'Maaf!',
-          //       message: 'data gagal disimpan',
-          //       position: 'topRight'
-          //     });
-          //   }
-          //   //$('#bodyreset').load(location.href + ' #bodyreset');
-          // }
+          success: function(pesan) {
+            var json = $.parseJSON(pesan);
+            if (json.pesan == 'masuk') {
+              iziToast.success({
+                title: 'Mantap!',
+                message: 'Absen Masuk',
+                position: 'topRight'
+              });
+            } else if (json.pesan == 'ditolak') {
+              iziToast.error({
+                title: 'Siang Amat!',
+                message: 'Absen Ditolak',
+                position: 'topRight'
+              });
+            } else if (json.pesan == 'pulang') {
+              iziToast.success({
+                title: 'Mantap!',
+                message: 'Absen Pulang Berhasil',
+                position: 'topRight'
+              });
+            } else if (json.pesan == 'blm_pulang') {
+              iziToast.error({
+                title: 'Mau Kemana',
+                message: 'Ini Belum Jam Pulang',
+                position: 'topCenter'
+              });
+            } else {
+              iziToast.error({
+                title: 'QR Code Salah',
+                message: 'Data Tidak Ditemukan',
+                position: 'topCenter'
+              })
+            }
+          }
         });
         return false;
       }
@@ -105,17 +107,6 @@
     $('select').on('change', function() {
       decoder.stop().play();
     });
-
-    // jquery extend function
-    // $.extend({
-    //   redirectPost: function(location, args) {
-    //     var form = '';
-    //     $.each(args, function(key, value) {
-    //       form += '<input type="hidden" name="' + key + '" value="' + value + '">';
-    //     });
-    //     $('<form action="' + location + '" method="POST">' + form + '</form>').appendTo('body').submit();
-    //   }
-    // });
   </script>
 </body>
 
