@@ -32,7 +32,7 @@ if ($pg == 'presen') {
                 'pesan' => 'ggl_masuk'
             ];
             echo json_encode($pesan);
-        } elseif (mysqli_num_rows($presensiQ) == 1 && $jam > $jam_plg) {
+        } elseif (mysqli_num_rows($presensiQ) == 1 && $presensiR['jam_plg'] == '00:00:00' && $jam > $jam_plg) {
             $data = [
                 'jam_plg' => $jam,
                 'ket' => 'Hadir'
