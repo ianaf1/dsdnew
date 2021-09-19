@@ -19,11 +19,11 @@
                         </div>
                         <div class="form-group">
                             <label>Jam Masuk</label>
-                            <input type="time" name="nama" class="form-control date timepicker" required="">
+                            <input type="text" name="nama" class="form-control" required="">
                         </div>
                         <div class="form-group">
                             <label>Jam Keluar</label>
-                            <input type="time" name="nama" class="form-control date timepicker" required="">
+                            <input type="text" name="nama" class="form-control" required="">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -102,11 +102,11 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Jam Masuk</label>
-                                                                    <input type="time" value="<?= $hari['jam_masuk'] ?>" name="jam_msk" class="form-control" required="">
+                                                                    <input type="text" value="<?= $hari['jam_masuk'] ?>" name="jam_msk" class="form-control" required="">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Jam Keluar</label>
-                                                                    <input type="time" value="<?= $hari['jam_keluar'] ?>" name="jam_keluar" class="form-control" required="">
+                                                                    <input type="text" value="<?= $hari['jam_keluar'] ?>" name="jam_keluar" class="form-control" required="">
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
