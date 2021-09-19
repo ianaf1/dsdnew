@@ -39,6 +39,10 @@
             <hr>
             <select></select>
           </div>
+          <div class="caption">
+            <h3>NIS SISWA</h3>
+            <p id="result"></p>
+          </div>
           <div class="panel-footer">
             <center><a class="btn btn-danger" href="../">Kembali</a></center>
           </div>
@@ -53,16 +57,16 @@
   <script type="text/javascript" src="js/qrcodelib.js"></script>
   <script type="text/javascript" src="js/webcodecamjquery.js"></script>
   <script type="text/javascript">
-    var arg = {
-      resultFunction: function(result) {
-        //$('.hasilscan').append($('<input name="noijazah" value=' + result.code + ' readonly><input type="submit" value="Cek"/>'));
-        // $.post("../cek.php", { noijazah: result.code} );
-        var redirect = '../cek.php';
-        $.redirectPost(redirect, {
-          noijazah: result.code
-        });
-      }
-    };
+    // var arg = {
+    //   resultFunction: function(result) {
+    //     //$('.hasilscan').append($('<input name="noijazah" value=' + result.code + ' readonly><input type="submit" value="Cek"/>'));
+    //     // $.post("../cek.php", { noijazah: result.code} );
+    //     var redirect = 'crud_absen.php';
+    //     $.redirectPost(redirect, {
+    //       nis: result.code
+    //     });
+    //   }
+    // };
     var decoder = $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery;
     decoder.buildSelectMenu("select");
     decoder.play();
@@ -74,15 +78,15 @@
     });
 
     // jquery extend function
-    $.extend({
-      redirectPost: function(location, args) {
-        var form = '';
-        $.each(args, function(key, value) {
-          form += '<input type="hidden" name="' + key + '" value="' + value + '">';
-        });
-        $('<form action="' + location + '" method="POST">' + form + '</form>').appendTo('body').submit();
-      }
-    });
+    // $.extend({
+    //   redirectPost: function(location, args) {
+    //     var form = '';
+    //     $.each(args, function(key, value) {
+    //       form += '<input type="hidden" name="' + key + '" value="' + value + '">';
+    //     });
+    //     $('<form action="' + location + '" method="POST">' + form + '</form>').appendTo('body').submit();
+    //   }
+    // });
   </script>
 </body>
 
