@@ -90,7 +90,7 @@
             } else if (json.pesan == 'ggl_masuk') {
               iziToast.error({
                 title: 'Gagal',
-                message: 'Jadwal Absen Sudah Lewat',
+                message: 'Absen Sudah Lewat',
                 position: 'topRight'
               });
             } else if (json.pesan == 'sudah_absen') {
