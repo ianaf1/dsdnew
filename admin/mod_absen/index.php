@@ -39,10 +39,6 @@
             <hr>
             <select></select>
           </div>
-          <div class="caption">
-            <h3>NIS SISWA</h3>
-            <p id="result"></p>
-          </div>
           <div class="panel-footer">
             <center><a class="btn btn-danger" href="../">Kembali</a></center>
           </div>
@@ -61,10 +57,43 @@
       resultFunction: function(result) {
         //$('.hasilscan').append($('<input name="noijazah" value=' + result.code + ' readonly><input type="submit" value="Cek"/>'));
         // $.post("../cek.php", { noijazah: result.code} );
-        var redirect = 'crud_absen.php';
-        $.redirectPost(redirect, {
-          nis: result.code
+        // var redirect = 'crud_absen.php';
+        // $.redirectPost(redirect, {
+        //   nis: result.code
+        // });
+        e.preventDefault();
+        $.ajax({
+          type: 'POST',
+          url: 'crud_absen.php?pg=presen',
+          data: 'nis=' + result.code,
+          // beforeSend: function() {
+          //     $('form button').on("click", function(e) {
+          //         e.preventDefault();
+          //     });
+          // },
+          success: function(data) {
+            if (data == 'OK') {
+              $('#tambahdata').modal('hide');
+              iziToast.success({
+                title: 'Mantap!',
+                message: 'Presensi Berhasil',
+                position: 'topRight'
+              });
+              setTimeout(function() {
+                window.location.reload();
+              }, 2000);
+
+            } else {
+              iziToast.error({
+                title: 'Maaf!',
+                message: 'data gagal disimpan',
+                position: 'topRight'
+              });
+            }
+            //$('#bodyreset').load(location.href + ' #bodyreset');
+          }
         });
+        return false;
       }
     };
     var decoder = $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery;
