@@ -87,7 +87,7 @@ require("../../config/tahun.ajaran.php");
                 message: 'Absen Masuk Berhasil',
                 position: 'topRight'
               });
-            } else if (json.pesan == 'keluar') {
+            } else if (json.pesan == 'pulang') {
               iziToast.success({
                 title: 'Mantap!',
                 message: 'Absen Pulang Berhasil',
