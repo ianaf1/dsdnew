@@ -9,8 +9,8 @@ if (!isset($_SESSION['id_user'])) {
 }
 if ($pg == 'ubah') {
     $data = [
-        'nama_hari' => $_POST['nama_hari'],
-        'jam_masuk'       => $_POST['jam_masuk'],
+        'nama_hari'         => $_POST['nama_hari'],
+        'jam_masuk'         => $_POST['jam_masuk'],
         'jam_keluar'       => $_POST['jam_keluar'],
     ];
     $id_hari = $_POST['id_hari'];
@@ -22,7 +22,7 @@ if ($pg == 'tambah') {
         'jam_masuk'       => $_POST['jam_masuk'],
         'jam_keluar'       => $_POST['jam_keluar'],
     ];
-    $exec = insert($koneksi, 'hari', $data);
+    insert($koneksi, 'hari', $data);
     echo $exec;
 }
 if ($pg == 'hapus') {
