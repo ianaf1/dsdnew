@@ -73,27 +73,22 @@
           //         e.preventDefault();
           //     });
           // },
-          // success: function(data) {
-          //   if (data == 'OK') {
-          //     $('#tambahdata').modal('hide');
-          //     iziToast.success({
-          //       title: 'Mantap!',
-          //       message: 'Presensi Berhasil',
-          //       position: 'topRight'
-          //     });
-          //     setTimeout(function() {
-          //       window.location.reload();
-          //     }, 2000);
-
-          //   } else {
-          //     iziToast.error({
-          //       title: 'Maaf!',
-          //       message: 'data gagal disimpan',
-          //       position: 'topRight'
-          //     });
-          //   }
-          //   //$('#bodyreset').load(location.href + ' #bodyreset');
-          // }
+          success: function(pesan) {
+            if (pesan == 'masuk') {
+              iziToast.success({
+                title: 'Mantap!',
+                message: 'Presensi Berhasil',
+                position: 'topRight'
+              });
+            } else {
+              iziToast.error({
+                title: 'Maaf!',
+                message: 'data gagal disimpan',
+                position: 'topRight'
+              });
+            }
+            //$('#bodyreset').load(location.href + ' #bodyreset');
+          }
         });
         return false;
       }
