@@ -99,7 +99,7 @@
                 message: 'Sudah Absen Masuk',
                 position: 'topRight'
               });
-            } else if (json.pesan == 'ggl_keluar') {
+            } else if (json.pesan == 'ggl_pulang') {
               iziToast.error({
                 title: 'Gagal',
                 message: 'Belum Jam Pulang',
