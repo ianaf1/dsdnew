@@ -6,9 +6,11 @@ require("../../config/tahun.ajaran.php");
 // session_start();
 if ($pg == 'presen') {
     $tgl = date('Ymd');
+    $hari = hari_ini();
+    $hariini = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM hari where nama_hari = '$hari'"));
     $jam = date('H:i:s');
-    $jam_msk = '20:00:00';
-    $jam_plg = '21:30:00';
+    $jam_msk = $hariini['jam_msk'];
+    $jam_plg = $hariini['jam_keluar'];
     $nis = mysqli_escape_string($koneksi, $_POST['nis']);
     $siswaQ = mysqli_query($koneksi, "SELECT * FROM daftar WHERE nis='$nis'");
     $siswaR = mysqli_fetch_array($siswaQ);
