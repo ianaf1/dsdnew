@@ -10,7 +10,7 @@ if (!isset($_SESSION['id_user'])) {
 if ($pg == 'ubah') {
     $data = [
         'nama_hari'         => $_POST['nama_hari'],
-        'jam_masuk'         => $_POST['jam_masuk'],
+        'jam_msk'         => $_POST['jam_msk'],
         'jam_keluar'       => $_POST['jam_keluar']
     ];
     $id_hari = $_POST['id_hari'];
@@ -19,7 +19,7 @@ if ($pg == 'ubah') {
 if ($pg == 'tambah') {
     $data = [
         'nama_hari' => $_POST['nama_hari'],
-        'jam_masuk'       => $_POST['jam_masuk'],
+        'jam_msk'       => $_POST['jam_msk'],
         'jam_keluar'       => $_POST['jam_keluar']
     ];
     insert($koneksi, 'hari', $data);
