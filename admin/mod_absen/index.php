@@ -53,6 +53,7 @@
   <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/qrcodelib.js"></script>
   <script type="text/javascript" src="js/webcodecamjquery.js"></script>
+  <script src="../../assets/modules/izitoast/js/iziToast.min.js"></script>
   <script type="text/javascript">
     var arg = {
       resultFunction: function(result) {

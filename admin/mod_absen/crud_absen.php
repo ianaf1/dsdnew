@@ -18,12 +18,20 @@ if ($pg == 'presen') {
                 'nis' => $_POST['nis'],
                 'tgl' => $tgl
             ];
+            $pesan = [
+                'pesan' => 'masuk'
+            ];
+            echo json_encode($pesan);
             insert($koneksi, 'presensi', $data);
         } else {
             $data = [
                 'jam_plg' => $jam,
                 'ket' => 'Hadir'
             ];
+            $pesan = [
+                'pesan' => 'pulang'
+            ];
+            echo json_encode($pesan);
             update($koneksi, 'presensi', $data, ['nis' => $_POST['nis']]);
         }
     }
