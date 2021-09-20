@@ -8,7 +8,8 @@ if ($pg == 'login') {
 
     $username = mysqli_escape_string($koneksi, $_POST['username']);
     $password = mysqli_escape_string($koneksi, $_POST['password']);
-    $adminQ = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username' AND password='$password'");
+    $pwadm    = dekripsi($password);
+    $adminQ = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username' AND password='$pwadm'");
     $adminR = mysqli_fetch_array($adminQ);
     $guruQ = mysqli_query($koneksi, "SELECT * FROM ptk WHERE nuptk='$username' AND password='$password'");
     $guruR = mysqli_fetch_array($guruQ);
