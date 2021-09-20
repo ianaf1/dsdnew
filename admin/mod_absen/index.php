@@ -42,7 +42,7 @@ require("../../config/tahun.ajaran.php");
             <h3 class="panel-title">Presensi Siswa Hari <?= hari_ini(); ?></h3>
           </div>
           <div class="panel-body text-center">
-            <canvas></canvas>
+            <canvas width="320" height="240" id="webcodecam-canvas"></canvas>
             <hr>
             <select></select>
           </div>
