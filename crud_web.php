@@ -38,7 +38,7 @@ if ($pg == 'login') {
         echo json_encode($data);
     } else {
         $data = [
-            'pesan' => 'Anda belum terdaftar silahkan melakukan pendaftaran!'
+            'pesan' => 'Username Atau Password Salah'
         ];
         echo json_encode($data);
     }
