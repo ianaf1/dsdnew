@@ -23,7 +23,7 @@ if ($pg == 'login') {
         ];
         echo json_encode($data);
     } elseif (mysqli_num_rows($adminQ) == 1) {
-        if (!password_verify($password, $user['password'])) {
+        if (!password_verify($password, $adminR['password'])) {
             $data = [
                 'pesan' => 'Username Atau Password Salah'
             ];
