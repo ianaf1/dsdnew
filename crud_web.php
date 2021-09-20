@@ -8,11 +8,11 @@ if ($pg == 'login') {
 
     $username = mysqli_escape_string($koneksi, $_POST['username']);
     $password = mysqli_escape_string($koneksi, $_POST['password']);
-    $adminQ = mysqli_query($koneksi, "select * from user where username='$username' and status='1'");
+    $adminQ = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username' AND password='$password'");
     $adminR = mysqli_fetch_array($adminQ);
-    $guruQ = mysqli_query($koneksi, "SELECT * FROM ptk WHERE nuptk='$username'");
+    $guruQ = mysqli_query($koneksi, "SELECT * FROM ptk WHERE nuptk='$username' AND password='$password'");
     $guruR = mysqli_fetch_array($guruQ);
-    $siswaQ = mysqli_query($koneksi, "SELECT * FROM daftar WHERE nis='$username'");
+    $siswaQ = mysqli_query($koneksi, "SELECT * FROM daftar WHERE nis='$username' AND password='$password'");
     $siswaR = mysqli_fetch_array($siswaQ);
 
     if (mysqli_num_rows($siswaQ) == 1) {
