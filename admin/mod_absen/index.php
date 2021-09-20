@@ -84,25 +84,25 @@ require("../../config/tahun.ajaran.php");
             if (json.pesan == 'masuk') {
               iziToast.success({
                 title: 'Mantap!',
-                message: 'Absen Masuk Berhasil',
+                message: 'Presensi Masuk Berhasil',
                 position: 'topRight'
               });
             } else if (json.pesan == 'pulang') {
               iziToast.success({
                 title: 'Mantap!',
-                message: 'Absen Pulang Berhasil',
+                message: 'Presensi Pulang Berhasil',
                 position: 'topRight'
               });
             } else if (json.pesan == 'ggl_masuk') {
               iziToast.error({
                 title: 'Gagal',
-                message: 'Absen Sudah Lewat',
+                message: 'Waktu Presensi Sudah Lewat',
                 position: 'topRight'
               });
             } else if (json.pesan == 'sudah_absen') {
               iziToast.error({
                 title: 'Gagal',
-                message: 'Sudah Absen Masuk',
+                message: 'Sudah Presensi Masuk',
                 position: 'topRight'
               });
             } else if (json.pesan == 'ggl_pulang') {
@@ -114,7 +114,7 @@ require("../../config/tahun.ajaran.php");
             } else if (json.pesan == 'sudah_presensi') {
               iziToast.error({
                 title: 'Gagal',
-                message: 'Absen Sudah Dilakukan',
+                message: 'Presensi Sudah Dilakukan',
                 position: 'topRight'
               });
             } else {
