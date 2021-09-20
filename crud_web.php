@@ -24,7 +24,10 @@ if ($pg == 'login') {
         echo json_encode($data);
     } elseif (mysqli_num_rows($adminQ) == 1) {
         if (!password_verify($password, $user['password'])) {
-            echo "salah";
+            $data = [
+                'pesan' => 'Username Atau Password Salah'
+            ];
+            echo json_encode($data);
         } else {
             $_SESSION['id_user'] = $adminR['id_user'];
             $_SESSION['level'] = $adminR['level'];
