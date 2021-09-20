@@ -8,8 +8,7 @@ if ($pg == 'login') {
 
     $username = mysqli_escape_string($koneksi, $_POST['username']);
     $password = mysqli_escape_string($koneksi, $_POST['password']);
-    $pwadm    = dekripsi($password);
-    $adminQ = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username' AND password='$pwadm'");
+    $adminQ = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username'");
     $adminR = mysqli_fetch_array($adminQ);
     $guruQ = mysqli_query($koneksi, "SELECT * FROM ptk WHERE nuptk='$username' AND password='$password'");
     $guruR = mysqli_fetch_array($guruQ);
@@ -24,12 +23,16 @@ if ($pg == 'login') {
         ];
         echo json_encode($data);
     } elseif (mysqli_num_rows($adminQ) == 1) {
-        $_SESSION['id_user'] = $adminR['id_user'];
-        $_SESSION['level'] = $adminR['level'];
-        $data = [
-            'pesan' => 'admin'
-        ];
-        echo json_encode($data);
+        if (!password_verify($password, $user['password'])) {
+            echo "salah";
+        } else {
+            $_SESSION['id_user'] = $adminR['id_user'];
+            $_SESSION['level'] = $adminR['level'];
+            $data = [
+                'pesan' => 'admin'
+            ];
+            echo json_encode($data);
+        }
     } elseif (mysqli_num_rows($guruQ) == 1) {
         $_SESSION['id_ptk'] = $guruR['id_ptk'];
         mysqli_query($koneksi, "UPDATE ptk set online='1' where id_ptk='$guruR[id_ptk]'");
