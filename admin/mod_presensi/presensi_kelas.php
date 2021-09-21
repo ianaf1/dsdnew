@@ -36,7 +36,7 @@
     </form>
 </div>
 <?php if (isset($_GET['hari']) && isset($_GET['kelas'])) { ?>
-    <?php $hari_ini = fetch($koneksi, 'hari', ['id_hari' => dekripsi($_GET['hari'])]); ?>
+    <?php $hari = fetch($koneksi, 'hari', ['id_hari' => dekripsi($_GET['hari'])]); ?>
     <?php $kelas = fetch($koneksi, 'kelas', ['id_kelas' => dekripsi($_GET['kelas'])]); ?>
     <div class="row">
         <div class="col-12 col-sm-12 col-lg-12">
@@ -69,7 +69,7 @@
                                 <?php
                                 $hari = $_GET['hari'];
                                 $kelas = $_GET['kelas'];
-                                $query = mysqli_query($koneksi, "select * from daftar a  left join presensi b ON a.nis = b.nis left join kelas c ON a.id_kelas=c.id_kelas where a.id_kelas='$kelas[id_kelas]' AND b.hari='$hari_ini[hari]' order by a.nama asc");
+                                $query = mysqli_query($koneksi, "select * from daftar a join presensi b ON a.nis = b.nis where a.id_kelas='$kelas[id_kelas]' AND b.hari='$hari[nama_hari]' order by a.nama asc");
                                 $no = 0;
                                 while ($presensi = mysqli_fetch_array($query)) {
                                     $no++;
@@ -126,7 +126,7 @@
                             <tbody>
                                 <?php
                                 $hari_ini = hari_ini();
-                                $query = mysqli_query($koneksi, "select * from presensi a  left join daftar b ON a.nis = b.nis where a.hari='$hari_ini'order by a.jam_msk desc");
+                                $query = mysqli_query($koneksi, "select * from daftar a  left join presensi b ON a.nis = b.nis where b.hari='$hari_ini'order by a.jam_msk desc");
                                 $no = 0;
                                 while ($presensi = mysqli_fetch_array($query)) {
                                     $no++;
