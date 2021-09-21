@@ -114,8 +114,8 @@
                                     <th class="text-center">
                                         #
                                     </th>
-                                    <th>NIS</th>
                                     <th>Nama Siswa</th>
+                                    <th>Kelas</th>
                                     <th>Tanggal</th>
                                     <th>Jam Masuk</th>
                                     <th>Jam Pulang</th>
@@ -126,16 +126,19 @@
                             <tbody>
                                 <?php
                                 $sekarang = date('Ymd');
-                                $query = mysqli_query($koneksi, "select a.id_presensi, a.nis, a.hari, a.tgl, a.jam_msk, a.jam_plg, a.ket, b.nis, b.nama, b.id_kelas
-                                                                from presensi a join  b ON a.nis = b.nis where a.tgl='$sekarang'order by a.jam_msk asc");
+                                $query = mysqli_query($koneksi, "select a.id_presensi, a.nis, a.hari, a.tgl, a.jam_msk, a.jam_plg, a.ket, b.nis, b.nama, b.id_kelas, c.nama_kelas
+                                                                from presensi a
+                                                                join daftar b ON a.nis = b.nis
+                                                                join kelas c ON b.id_kelas = c.id_kelas
+                                                                where a.tgl='$sekarang'order by a.jam_msk asc");
                                 $no = 0;
                                 while ($presensi = mysqli_fetch_array($query)) {
                                     $no++;
                                 ?>
                                     <tr>
                                         <td><?= $no; ?></td>
-                                        <td><?= $presensi['nis'] ?></td>
                                         <td><?= $presensi['nama'] ?></td>
+                                        <td><?= $presensi['nama_kelas'] ?></td>
                                         <td><?= $presensi['tgl'] ?></td>
                                         <td><?= $presensi['jam_msk'] ?></td>
                                         <td><?= $presensi['jam_plg'] ?></td>
