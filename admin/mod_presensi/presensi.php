@@ -22,7 +22,7 @@
         </div>
     </form>
     <form style="width: 80%">
-        <input type="hidden" name="pg" value="presensi&id=<?= enkripsi($kelas['id_kelas']) ?>">
+        <input type="hidden" name="pg" value="presensi'&'id'='<?= enkripsi($kelas['id_kelas']) ?>">
         <div class="form-row">
             <div class="col-md-6 col-xs-6">
                 <div class="form-group">
