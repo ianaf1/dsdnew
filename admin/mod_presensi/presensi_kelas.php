@@ -126,7 +126,7 @@
                             <tbody>
                                 <?php
                                 $hari_ini = hari_ini();
-                                $query = mysqli_query($koneksi, "select * from daftar a  left join presensi b ON a.nis = b.nis where b.hari='$hari_ini'order by a.jam_msk desc");
+                                $query = mysqli_query($koneksi, "select * from daftar a join presensi b ON a.nis = b.nis where b.hari='$hari_ini'order by b.jam_msk asc");
                                 $no = 0;
                                 while ($presensi = mysqli_fetch_array($query)) {
                                     $no++;
