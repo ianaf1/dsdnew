@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') or die("ip anda sudah tercatat oleh sistem kami") ?>
-<?php $kelas = fetch($koneksi, 'kelas', ['id_kelas' => dekripsi($_GET['id'])]) ?>
+<?php $kelas = fetch($koneksi, 'kelas', ['id_kelas' => dekripsi($_GET['kelas'])]) ?>
 <div class="section-header">
     <form style="width: 80%">
         <input type="hidden" name="pg" value="presensi_kelas&id=<?= enkripsi($kelas['id_kelas']) ?>">

@@ -5,7 +5,7 @@
         <div class="form-row">
             <div class="col-md-6 col-xs-6">
                 <div class="form-group">
-                    <select class="form-control select2" style="width: 100%" name="id" required>
+                    <select class="form-control select2" style="width: 100%" name="kelas" required>
                         <option value="">Pilih Kelas</option>
                         <?php
                         $query = mysqli_query($koneksi, "select * from kelas where status='1' order by nama_kelas asc");
@@ -57,7 +57,7 @@
                                     <td><?= $rombel['id_jenjang'] ?></td>
                                     <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where id_kelas = '$rombel[id_kelas]'")) ?></td>
                                     <td>
-                                        <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail kelas" href="?pg=presensi_kelas&id=<?= enkripsi($rombel['id_kelas']) ?>" class="btn btn-sm btn-success"><i class="fas fa-eye    "></i></a>
+                                        <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail kelas" href="?pg=presensi_kelas&kelas=<?= enkripsi($rombel['id_kelas']) ?>" class="btn btn-sm btn-success"><i class="fas fa-eye    "></i></a>
                                     </td>
                                 </tr>
                             <?php }
