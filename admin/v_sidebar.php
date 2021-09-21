@@ -80,7 +80,7 @@
             <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Presensi</h6>
-                    <a class="collapse-item" href="?pg=presensi">Presensi Siswa</a>
+                    <a class="collapse-item" href="?pg=presensi_kelas">Presensi Siswa</a>
                 </div>
             </div>
         </li>

@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') or die("ip anda sudah tercatat oleh sistem kami") ?>
-<div class="section-header">
+<!-- <div class="section-header">
     <form style="width: 80%">
         <input type="hidden" name="pg" value="presensi_kelas">
         <div class="form-row">
@@ -21,12 +21,12 @@
             </div>
         </div>
     </form>
-</div>
+</div> -->
 <div class="row">
     <div class="col-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h5 class='m-0 font-weight-bold text-primary'>Data Presensi <?= hari_ini() ?></h5>
+                <h5 class='m-0 font-weight-bold text-primary'>Data Presensi Hari <?= hari_ini() ?></h5>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

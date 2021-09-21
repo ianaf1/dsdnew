@@ -1,8 +1,7 @@
 <?php defined('BASEPATH') or die("ip anda sudah tercatat oleh sistem kami") ?>
-<?php $kelas = fetch($koneksi, 'kelas', ['id_kelas' => dekripsi($_GET['kelas'])]) ?>
 <div class="section-header">
     <form style="width: 80%">
-        <input type="hidden" name="pg" value="presensi_kelas&id=<?= enkripsi($kelas['id_kelas']) ?>">
+        <input type="hidden" name="pg" value="presensi_kelas">
         <div class="form-row">
             <div class="col-md-6 col-xs-6">
                 <div class="form-group">
@@ -17,14 +16,26 @@
                     </select>
                 </div>
             </div>
+            <div class="col-md-6 col-xs-6">
+                <div class="form-group">
+                    <select class="form-control select2" style="width: 100%" name="kelas" required>
+                        <option value="">Pilih Kelas</option>
+                        <?php
+                        $query = mysqli_query($koneksi, "select * from kelas where status='1' order by nama_kelas asc");
+                        while ($kelas = mysqli_fetch_array($query)) {
+                        ?>
+                            <option value="<?= enkripsi($kelas['id_kelas']) ?>"><?= $kelas['nama_kelas'] ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
             <div class="col-md-6">
                 &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-10"><i class="fas fa-search    "></i> Cari</button>
             </div>
         </div>
     </form>
 </div>
-<?php if (isset($_GET['hari']) == '') { ?>
-    <?php $hari_ini = hari_ini() ?>
+<?php if (isset($_GET['hari']) && isset($_GET['kelas'])) { ?>
     <div class="row">
         <div class="col-12 col-sm-12 col-lg-12">
             <div class="card shadow mb-4">
@@ -54,6 +65,8 @@
                             </thead>
                             <tbody>
                                 <?php
+                                $hari = $_GET['hari'];
+                                $kelas = $_GET['kelas'];
                                 $query = mysqli_query($koneksi, "select * from presensi a  left join daftar b ON a.nis = b.nis left join kelas c ON b.id_kelas=c.id_kelas where a.id_kelas='$kelas[id_kelas]' AND a.hari='$hari_ini' order by b.nama asc");
                                 $no = 0;
                                 while ($presensi = mysqli_fetch_array($query)) {
@@ -111,7 +124,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $query = mysqli_query($koneksi, "select * from presensi a  left join daftar b ON a.nis = b.nis left join kelas c ON b.id_kelas=c.id_kelas where a.id_kelas='$kelas[id_kelas]' AND a.hari='$hari_ini' order by b.nama asc");
+                                $query = mysqli_query($koneksi, "select * from presensi a  left join daftar b ON a.nis = b.nis order by a.jam_msk desc");
                                 $no = 0;
                                 while ($presensi = mysqli_fetch_array($query)) {
                                     $no++;
