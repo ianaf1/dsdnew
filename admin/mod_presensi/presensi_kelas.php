@@ -35,119 +35,57 @@
         </div>
     </form>
 </div>
-<?php if (isset($_GET['hari']) && isset($_GET['kelas'])) { ?>
-    <?php $hari = fetch($koneksi, 'hari', ['id_hari' => dekripsi($_GET['hari'])]); ?>
-    <?php $kelas = fetch($koneksi, 'kelas', ['id_kelas' => dekripsi($_GET['kelas'])]); ?>
-    <div class="row">
-        <div class="col-12 col-sm-12 col-lg-12">
-            <div class="card shadow mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h5 class='m-0 font-weight-bold text-primary'>Presensi Kelas <?= $kelas['nama_kelas'] ?> Hari <?= hari_ini() ?></h5>
-                    <div class="card-header-action">
-                        <a target="_blank" href="mod_rombel/export_kelas.php?id=<?= enkripsi($kelas['id_kelas']) ?>" class="btn btn-danger btn-sm"><i class="fas fa-download"></i></i></a>
-                        <!-- Button trigger modal -->
-                    </div>
+<div class="row">
+    <div class="col-12 col-sm-12 col-lg-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h5 class='m-0 font-weight-bold text-primary'>Presensi Siswa Hari <?= hari_ini() ?></h5>
+                <div class="card-header-action">
                 </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-sm" id="table-2" style="font-size: 12px">
-                            <thead>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm" id="table-2" style="font-size: 12px">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    #
+                                </th>
+                                <th>Nama Siswa</th>
+                                <th>Kelas</th>
+                                <!-- <th>Tanggal</th> -->
+                                <th>Jam Masuk</th>
+                                <th>Jam Pulang</th>
+                                <th>Ket</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sekarang = date('Ymd');
+                            $query = mysqli_query($koneksi, "select * from presensi a join kelas b where a.id_kelas=b.id_kelas where a.tgl='$sekarang'");
+                            $no = 0;
+                            while ($presensi = mysqli_fetch_array($query)) {
+                                $no++;
+                            ?>
                                 <tr>
-                                    <th class="text-center">
-                                        #
-                                    </th>
-                                    <th>NIS</th>
-                                    <th>Nama Siswa</th>
-                                    <th>Tanggal</th>
-                                    <th>Jam Masuk</th>
-                                    <th>Jam Pulang</th>
-                                    <th>Ket</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $hari = $_GET['hari'];
-                                $kelas = $_GET['kelas'];
-                                $query = mysqli_query($koneksi, "select * from daftar a join presensi b ON a.nis = b.nis where a.id_kelas='$kelas[id_kelas]' AND b.hari='$hari[nama_hari]' order by a.nama asc");
-                                $no = 0;
-                                while ($presensi = mysqli_fetch_array($query)) {
-                                    $no++;
-                                ?>
-                                    <tr>
-                                        <td><?= $no; ?></td>
-                                        <td><?= $presensi['nis'] ?></td>
-                                        <td><?= $presensi['nama'] ?></td>
-                                        <td><?= $presensi['tgl'] ?></td>
-                                        <td><?= $presensi['jam_msk'] ?></td>
-                                        <td><?= $presensi['jam_plg'] ?></td>
-                                        <td><?= $presensi['ket'] ?></td>
-                                        <!-- <td>
+                                    <td><?= $no; ?></td>
+                                    <td><?= $presensi['nama'] ?></td>
+                                    <td><?= $presensi['nama_kelas'] ?></td>
+                                    <!-- <td><?= $presensi['tgl'] ?></td> -->
+                                    <td><?= $presensi['jam_msk'] ?></td>
+                                    <td><?= $presensi['jam_plg'] ?></td>
+                                    <td><?= $presensi['ket'] ?></td>
+                                    <!-- <td>
                                             <button data-id="<?= $rombel['id_daftar'] ?>" class="edit btn btn-danger btn-sm"><i class="fas fa-trash    "></i></button>
                                         </td> -->
-                                    </tr>
-                                <?php }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
+                                </tr>
+                            <?php }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-<?php } else { ?>
-    <div class="row">
-        <div class="col-12 col-sm-12 col-lg-12">
-            <div class="card shadow mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h5 class='m-0 font-weight-bold text-primary'>Presensi Siswa Hari <?= hari_ini() ?></h5>
-                    <div class="card-header-action">
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-sm" id="table-2" style="font-size: 12px">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">
-                                        #
-                                    </th>
-                                    <th>Nama Siswa</th>
-                                    <th>Kelas</th>
-                                    <!-- <th>Tanggal</th> -->
-                                    <th>Jam Masuk</th>
-                                    <th>Jam Pulang</th>
-                                    <th>Ket</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $sekarang = date('Ymd');
-                                $query = mysqli_query($koneksi, "select * from presensi a join kelas b where a.id_kelas=b.id_kelas where a.tgl='$sekarang'");
-                                $no = 0;
-                                while ($presensi = mysqli_fetch_array($query)) {
-                                    $no++;
-                                ?>
-                                    <tr>
-                                        <td><?= $no; ?></td>
-                                        <td><?= $presensi['nama'] ?></td>
-                                        <td><?= $presensi['nama_kelas'] ?></td>
-                                        <!-- <td><?= $presensi['tgl'] ?></td> -->
-                                        <td><?= $presensi['jam_msk'] ?></td>
-                                        <td><?= $presensi['jam_plg'] ?></td>
-                                        <td><?= $presensi['ket'] ?></td>
-                                        <!-- <td>
-                                            <button data-id="<?= $rombel['id_daftar'] ?>" class="edit btn btn-danger btn-sm"><i class="fas fa-trash    "></i></button>
-                                        </td> -->
-                                    </tr>
-                                <?php }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php } ?>
+</div>
