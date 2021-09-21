@@ -1,7 +1,8 @@
 <?php defined('BASEPATH') or die("ip anda sudah tercatat oleh sistem kami") ?>
+<?php $kelas = fetch($koneksi, 'kelas', ['id_kelas' => dekripsi($_GET['id'])]) ?>
 <div class="section-header">
     <form style="width: 80%">
-        <input type="hidden" name="pg" value="presensi'&'id'='<?= enkripsi($kelas['id_kelas']) ?>">
+        <input type="hidden" name="pg" value="presensi_kelas&id=<?= enkripsi($kelas['id_kelas']) ?>">
         <div class="form-row">
             <div class="col-md-6 col-xs-6">
                 <div class="form-group">
@@ -22,9 +23,7 @@
         </div>
     </form>
 </div>
-<?php if (isset($_GET['id']) == '') { ?>
-    <?php $kelas = fetch($koneksi, 'kelas', ['id_kelas' => dekripsi($_GET['id'])]) ?>
-    <?php if (isset($_GET['hari']) == '') ?>
+<?php if (isset($_GET['hari']) == '') { ?>
     <?php $hari_ini = hari_ini() ?>
     <div class="row">
         <div class="col-12 col-sm-12 col-lg-12">
@@ -82,7 +81,6 @@
         </div>
     </div>
 <?php } else { ?>
-    <?php $kelas = fetch($koneksi, 'kelas', ['id_kelas' => dekripsi($_GET['id'])]) ?>
     <?php $hari_ini = fetch($koneksi, 'hari', ['id_hari' => dekripsi($_GET['hari'])]); ?>
     <div class="row">
         <div class="col-12 col-sm-12 col-lg-12">
