@@ -127,7 +127,7 @@
                                 <?php
                                 $hari_ini = hari_ini();
                                 $query = mysqli_query($koneksi, "select a.id_presensi, a.nis, a.hari, a.tgl, a.jam_msk, a.jam_plg, a.ket, b.nis, b.nama, b.id_kelas
-                                                                from presensi a join  b ON a.nis = b.nis where b.hari='$hari_ini'order by b.jam_msk asc");
+                                                                from presensi a join  b ON a.nis = b.nis where b.hari='$hari_ini'order by a.jam_msk asc");
                                 $no = 0;
                                 while ($presensi = mysqli_fetch_array($query)) {
                                     $no++;
