@@ -57,7 +57,7 @@
                                 <th>Jam Masuk</th>
                                 <th>Jam Pulang</th>
                                 <th>Ket</th>
-                                <th>Action</th>
+                                <!-- <th>Action</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -77,8 +77,8 @@
                                     <td><?= $presensi['jam_plg'] ?></td>
                                     <td><?= $presensi['ket'] ?></td>
                                     <!-- <td>
-                                            <button data-id="<?= $rombel['id_daftar'] ?>" class="edit btn btn-danger btn-sm"><i class="fas fa-trash    "></i></button>
-                                        </td> -->
+                                        <button data-id="<?= $presensi['id_presensi'] ?>" class="edit btn btn-danger btn-sm"><i class="fas fa-trash    "></i></button>
+                                    </td> -->
                                 </tr>
                             <?php }
                             ?>
