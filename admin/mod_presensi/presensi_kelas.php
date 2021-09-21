@@ -126,11 +126,8 @@
                             <tbody>
                                 <?php
                                 $sekarang = date('Ymd');
-                                $query = mysqli_query($koneksi, "select a.id_presensi, a.nis, a.hari, a.tgl, a.jam_msk, a.jam_plg, a.ket, b.nis, b.nama, b.id_kelas, c.nama_kelas
-                                                                from presensi a
-                                                                join daftar b ON a.nis = b.nis
-                                                                join kelas c ON b.id_kelas = c.id_kelas
-                                                                where a.tgl='$sekarang'order by a.jam_msk asc");
+                                $query = mysqli_query($koneksi, "select * from presensi a join daftar b ON a.nis = b.nis
+                                                                where a.tgl='$sekarang' order by a.jam_msk asc");
                                 $no = 0;
                                 while ($presensi = mysqli_fetch_array($query)) {
                                     $no++;
@@ -138,7 +135,7 @@
                                     <tr>
                                         <td><?= $no; ?></td>
                                         <td><?= $presensi['nama'] ?></td>
-                                        <td><?= $presensi['nama_kelas'] ?></td>
+                                        <!-- <td><?= $presensi['nama_kelas'] ?></td> -->
                                         <td><?= $presensi['tgl'] ?></td>
                                         <td><?= $presensi['jam_msk'] ?></td>
                                         <td><?= $presensi['jam_plg'] ?></td>
