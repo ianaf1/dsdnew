@@ -62,4 +62,6 @@ if ($pg == '') {
     include "mod_absen/scanabsen.php";
 } elseif ($pg == 'masterabsen') {
     include "mod_absen_master/absen_master.php";
+} elseif ($pg == 'presensi') {
+    include "mod_presensi/presensi.php";
 }

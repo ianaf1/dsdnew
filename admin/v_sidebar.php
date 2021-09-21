@@ -72,6 +72,18 @@
                 </div>
             </div>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-user-friends"></i>
+                <span>Presensi</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Presensi</h6>
+                    <a class="collapse-item" href="?pg=presensi">Presensi Siswa</a>
+                </div>
+            </div>
+        </li>
 
         <li class="nav-item">
             <a class="nav-link" href="?pg=rombel">

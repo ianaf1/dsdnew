@@ -20,7 +20,8 @@ if ($pg == 'presen') {
         if (mysqli_num_rows($presensiQ) == 0 && $jam < $jam_msk) {
             $data = [
                 'nis' => $_POST['nis'],
-                'tgl' => $tgl
+                'tgl' => $tgl,
+                'hari' => $hariini['nama_hari']
             ];
             $pesan = [
                 'pesan' => 'masuk'
