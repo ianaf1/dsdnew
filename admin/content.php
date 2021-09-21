@@ -64,4 +64,6 @@ if ($pg == '') {
     include "mod_absen_master/absen_master.php";
 } elseif ($pg == 'presensi') {
     include "mod_presensi/presensi.php";
+} elseif ($pg == 'presensi_kelas') {
+    include "mod_presensi/presensi_kelas.php";
 }
