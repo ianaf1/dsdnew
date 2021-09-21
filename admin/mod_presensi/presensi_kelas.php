@@ -126,8 +126,7 @@
                             <tbody>
                                 <?php
                                 $sekarang = date('Ymd');
-                                $query = mysqli_query($koneksi, "select * from presensi a join daftar b ON a.nis = b.nis
-                                                                where a.tgl='$sekarang' order by a.jam_msk asc");
+                                $query = mysqli_query($koneksi, "select * from presensi a join daftar b where a.nis=b.nis where a.tgl='$sekarang'");
                                 $no = 0;
                                 while ($presensi = mysqli_fetch_array($query)) {
                                     $no++;
