@@ -102,8 +102,6 @@
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h5 class='m-0 font-weight-bold text-primary'>Presensi Siswa Hari <?= hari_ini() ?></h5>
                     <div class="card-header-action">
-                        <!-- <a target="_blank" href="mod_rombel/export_kelas.php?id=<?= enkripsi($kelas['id_kelas']) ?>" class="btn btn-danger btn-sm"><i class="fas fa-download"></i></i></a> -->
-                        <!-- Button trigger modal -->
                     </div>
                 </div>
                 <div class="card-body">
@@ -116,7 +114,7 @@
                                     </th>
                                     <th>Nama Siswa</th>
                                     <th>Kelas</th>
-                                    <th>Tanggal</th>
+                                    <!-- <th>Tanggal</th> -->
                                     <th>Jam Masuk</th>
                                     <th>Jam Pulang</th>
                                     <th>Ket</th>
@@ -126,7 +124,7 @@
                             <tbody>
                                 <?php
                                 $sekarang = date('Ymd');
-                                $query = mysqli_query($koneksi, "select * from presensi a join daftar b where a.nis=b.nis where a.tgl='$sekarang'");
+                                $query = mysqli_query($koneksi, "select * from presensi a join kelas b where a.id_kelas=b.id_kelas where a.tgl='$sekarang'");
                                 $no = 0;
                                 while ($presensi = mysqli_fetch_array($query)) {
                                     $no++;
@@ -134,8 +132,8 @@
                                     <tr>
                                         <td><?= $no; ?></td>
                                         <td><?= $presensi['nama'] ?></td>
-                                        <!-- <td><?= $presensi['nama_kelas'] ?></td> -->
-                                        <td><?= $presensi['tgl'] ?></td>
+                                        <td><?= $presensi['nama_kelas'] ?></td>
+                                        <!-- <td><?= $presensi['tgl'] ?></td> -->
                                         <td><?= $presensi['jam_msk'] ?></td>
                                         <td><?= $presensi['jam_plg'] ?></td>
                                         <td><?= $presensi['ket'] ?></td>
