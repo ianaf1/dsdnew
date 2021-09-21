@@ -22,14 +22,14 @@
         </div>
     </form>
     <form style="width: 80%">
-        <input type="hidden" name="pg" value="presensi">
+        <!-- <input type="hidden" name="pg" value="presensi"> -->
         <div class="form-row">
             <div class="col-md-6 col-xs-6">
                 <div class="form-group">
                     <select class="form-control select2" style="width: 100%" name="hari" required>
                         <option value="">Pilih Hari</option>
                         <?php
-                        $query = mysqli_query($koneksi, "select * from hari asc");
+                        $query = mysqli_query($koneksi, "select * from hari");
                         while ($hari = mysqli_fetch_array($query)) {
                         ?>
                             <option value="<?= enkripsi($hari['id_hari']) ?>"><?= $kelas['nama_hari'] ?></option>
@@ -80,7 +80,7 @@
                                             <td><?= $rombel['id_jenjang'] ?></td>
                                             <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where id_kelas = '$rombel[id_kelas]'")) ?></td>
                                             <td>
-                                                <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail kelas" href="?pg=rombel&id=<?= enkripsi($rombel['id_kelas']) ?>" class="btn btn-sm btn-success"><i class="fas fa-eye    "></i></a>
+                                                <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail kelas" href="?pg=presensi&id=<?= enkripsi($rombel['id_kelas']) ?>" class="btn btn-sm btn-success"><i class="fas fa-eye    "></i></a>
                                             </td>
                                         </tr>
                                     <?php }
