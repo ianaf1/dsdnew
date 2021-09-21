@@ -63,7 +63,7 @@
                         <tbody>
                             <?php
                             $sekarang = date('Ymd');
-                            $query = mysqli_query($koneksi, "select * from presensi a join kelas b ON a.id_kelas=b.id_kelas where a.tgl='$sekarang'");
+                            $query = mysqli_query($koneksi, "select * from presensi a join kelas b ON a.id_kelas=b.id_kelas where a.tgl='$sekarang' desc");
                             $no = 0;
                             while ($presensi = mysqli_fetch_array($query)) {
                                 $no++;
