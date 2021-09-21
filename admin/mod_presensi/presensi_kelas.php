@@ -69,7 +69,7 @@
                                 <?php
                                 $hari = $_GET['hari'];
                                 $kelas = $_GET['kelas'];
-                                $query = mysqli_query($koneksi, "select * from presensi a  left join daftar b ON a.nis = b.nis left join kelas c ON b.id_kelas=c.id_kelas where a.id_kelas='$kelas[id_kelas]' AND a.hari='$hari_ini' order by b.nama asc");
+                                $query = mysqli_query($koneksi, "select * from daftar a  left join presensi b ON a.nis = b.nis left join kelas c ON a.id_kelas=c.id_kelas where a.id_kelas='$kelas[id_kelas]' AND b.hari='$hari_ini[hari]' order by a.nama asc");
                                 $no = 0;
                                 while ($presensi = mysqli_fetch_array($query)) {
                                     $no++;
