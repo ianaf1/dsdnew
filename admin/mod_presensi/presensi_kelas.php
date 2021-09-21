@@ -36,6 +36,8 @@
     </form>
 </div>
 <?php if (isset($_GET['hari']) && isset($_GET['kelas'])) { ?>
+    <?php $hari_ini = fetch($koneksi, 'hari', ['id_hari' => dekripsi($_GET['hari'])]); ?>
+    <?php $kelas = fetch($koneksi, 'kelas', ['id_kelas' => dekripsi($_GET['kelas'])]); ?>
     <div class="row">
         <div class="col-12 col-sm-12 col-lg-12">
             <div class="card shadow mb-4">
@@ -94,14 +96,13 @@
         </div>
     </div>
 <?php } else { ?>
-    <?php $hari_ini = fetch($koneksi, 'hari', ['id_hari' => dekripsi($_GET['hari'])]); ?>
     <div class="row">
         <div class="col-12 col-sm-12 col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h5 class='m-0 font-weight-bold text-primary'>Presensi Kelas <?= $kelas['nama_kelas'] ?> Hari <?= $hari_ini['nama_hari'] ?></h5>
+                    <h5 class='m-0 font-weight-bold text-primary'>Presensi Siswa Hari <?= hari_ini() ?></h5>
                     <div class="card-header-action">
-                        <a target="_blank" href="mod_rombel/export_kelas.php?id=<?= enkripsi($kelas['id_kelas']) ?>" class="btn btn-danger btn-sm"><i class="fas fa-download"></i></i></a>
+                        <!-- <a target="_blank" href="mod_rombel/export_kelas.php?id=<?= enkripsi($kelas['id_kelas']) ?>" class="btn btn-danger btn-sm"><i class="fas fa-download"></i></i></a> -->
                         <!-- Button trigger modal -->
                     </div>
                 </div>
@@ -124,7 +125,8 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $query = mysqli_query($koneksi, "select * from presensi a  left join daftar b ON a.nis = b.nis order by a.jam_msk desc");
+                                $hari_ini = hari_ini();
+                                $query = mysqli_query($koneksi, "select * from presensi a  left join daftar b ON a.nis = b.nis where a.hari='$hari_ini'order by a.jam_msk desc");
                                 $no = 0;
                                 while ($presensi = mysqli_fetch_array($query)) {
                                     $no++;
