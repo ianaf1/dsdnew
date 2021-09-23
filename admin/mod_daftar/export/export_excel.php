@@ -1,12 +1,12 @@
 <?php
 require("../../../config/database.php");
 // Skrip berikut ini adalah skrip yang bertugas untuk meng-export data tadi ke excell
-$kelas = $_GET['id'];
 header("Content-type: application/vnd-ms-excel");
 if (isset($_GET['id'])) {
-    header("Content-Disposition: attachment; filename=DATA_SISWA.xls");
-} else {
+    $kelas = $_GET['id'];
     header("Content-Disposition: attachment; filename=DATA_SISWA_$kelas.xls");
+} else {
+    header("Content-Disposition: attachment; filename=DATA_SISWA.xls");
 }
 session_start();
 if (!isset($_SESSION['id_user'])) {
@@ -131,11 +131,11 @@ if (!isset($_SESSION['id_user'])) {
     </thead>
     <tbody>
         <?php
-        if ($kelas = '') {
-            $query = mysqli_query($koneksi, "select * from daftar where status = '1' order by kelas asc");
-        } else {
+        if (isset($_GET['id'])) {
             $kelas = $_GET['id'];
             $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas where a.kelas='$kelas' && a.status='1' order by b.nama_kelas asc");
+        } else {
+            $query = mysqli_query($koneksi, "select * from daftar where status = '1' order by kelas asc");
         }
         $no = 0;
         while ($siswa = mysqli_fetch_array($query)) {
