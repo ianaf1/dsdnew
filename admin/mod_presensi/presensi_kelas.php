@@ -85,7 +85,7 @@
 <?php } else { ?>
     <?php
     $tgl = fetch($koneksi, 'presensi', ['tgl' => $_GET['tgl']]);
-    $tgl = fetch($koneksi, 'presensi', ['tgl' => $_GET['kelas']]); { ?>
+    $kelas = fetch($koneksi, 'presensi', ['id_kelas' => $_GET['kelas']]); { ?>
         <div class="row">
             <div class="col-12 col-sm-12 col-lg-12">
                 <div class="card shadow mb-4">
