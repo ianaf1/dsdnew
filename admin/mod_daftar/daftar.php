@@ -174,7 +174,7 @@ ini_set('display_errors', 1);
                     <div class="dropdown-header">Menu Siswa:</div>
                     <?php
                     if (isset($_GET['id']) == '') {
-                        echo "<a class='dropdown-item' href='mod_daftar/export/export_excel.php?id=''>Download</a>";
+                        echo "<a class='dropdown-item' href='mod_daftar/export/export_excel.php>Download</a>";
                     } else {
                         $kelas = $_GET['id'];
                         echo "<a class='dropdown-item' href='mod_daftar/export/export_excel.php?id=$kelas'>Download</a>";
