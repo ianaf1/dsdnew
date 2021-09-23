@@ -16,7 +16,7 @@
                         $query = mysqli_query($koneksi, "select * from kelas where status='1' order by nama_kelas asc");
                         while ($kelas = mysqli_fetch_array($query)) {
                         ?>
-                            <option value="<?= enkripsi($kelas['id_kelas']) ?>"><?= $kelas['nama_kelas'] ?></option>
+                            <option value="<?= $kelas['id_kelas'] ?>"><?= $kelas['nama_kelas'] ?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -84,8 +84,8 @@
     </div>
 <?php } else { ?>
     <?php
-    $tgl = dekripsi($_GET['tgl']);
-    $kelas = dekripsi($_GET['kelas']); { ?>
+    $tgl = $_GET['tgl'];
+    $kelas = $_GET['kelas']; { ?>
         <div class="row">
             <div class="col-12 col-sm-12 col-lg-12">
                 <div class="card shadow mb-4">
