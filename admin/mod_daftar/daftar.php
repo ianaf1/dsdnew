@@ -159,11 +159,11 @@ ini_set('display_errors', 1);
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <?php
-            if (isset($_GET['id']) == '') {
-                echo "<h5 class='m-0 font-weight-bold text-primary'>Siswa Aktif</h5>";
-            } else {
+            if (isset($_GET['id'])) {
                 $kelas =  $_GET['id'];
                 echo "<h5 class='m-0 font-weight-bold text-primary'>Siswa Kelas $kelas</h5>";
+            } else {
+                echo "<h5 class='m-0 font-weight-bold text-primary'>Siswa Aktif</h5>";
             }
             ?>
             <div class="dropdown no-arrow">
@@ -173,11 +173,11 @@ ini_set('display_errors', 1);
                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                     <div class="dropdown-header">Menu Siswa:</div>
                     <?php
-                    if (isset($_GET['id']) == '') {
-                        echo "<a class='dropdown-item' href='mod_daftar/export/export_excel.php>Download</a>";
-                    } else {
+                    if (isset($_GET['id'])) {
                         $kelas = $_GET['id'];
                         echo "<a class='dropdown-item' href='mod_daftar/export/export_excel.php?id=$kelas'>Download</a>";
+                    } else {
+                        echo "<a class='dropdown-item' href='mod_daftar/export/export_excel.php>Download</a>";
                     }
                     ?>
                     <a class="dropdown-item" data-toggle="modal" data-target="#importdata">Import</a>
@@ -225,11 +225,11 @@ ini_set('display_errors', 1);
                     </tfoot>
                     <tbody>
                         <?php
-                        if (isset($_GET['id']) == '') {
-                            $query = mysqli_query($koneksi, "select * from daftar a left join rombel b ON a.id_daftar=b.id_daftar order by nama asc");
-                        } else {
+                        if (isset($_GET['id'])) {
                             $kelas = $_GET['id'];
                             $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas left join rombel c ON a.id_daftar=c.id_daftar where a.kelas='$kelas' order by b.nama_kelas asc");
+                        } else {
+                            $query = mysqli_query($koneksi, "select * from daftar a left join rombel b ON a.id_daftar=b.id_daftar order by nama asc");
                         }
                         $no = 0;
                         while ($daftar = mysqli_fetch_array($query)) {
