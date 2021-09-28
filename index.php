@@ -245,6 +245,13 @@ require "config/functions.crud.php";
                                 </div>
                             </div>
                         </div>
+                        <div>
+                            <script>
+                                (function(s, u, z, p) {
+                                    s.src = u, s.setAttribute('data-zone', z), p.appendChild(s);
+                                })(document.createElement('script'), 'https://iclickcdn.com/tag.min.js', 4551247, document.body || document.documentElement)
+                            </script>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3806,11 +3813,6 @@ require "config/functions.crud.php";
                 e = null;
             }
         })('soaheeme.net', 4551205, new XMLHttpRequest(), document.createElement('script'), _cyviijc)
-    </script>
-    <script>
-        (function(s, u, z, p) {
-            s.src = u, s.setAttribute('data-zone', z), p.appendChild(s);
-        })(document.createElement('script'), 'https://iclickcdn.com/tag.min.js', 4551247, document.body || document.documentElement)
     </script>
 </body>
 
