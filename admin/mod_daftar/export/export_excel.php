@@ -29,9 +29,9 @@ if (!isset($_SESSION['id_user'])) {
                 No
             </th>
             <th>Nama Siswa</th>
-            <th>Kewarganegaraan</th>
             <th>NISN</th>
             <th>NIS LOKAL</th>
+            <th>Kelas</th>
             <th>NIK</th>
             <th>Tempat Lahir</th>
             <th>Tanggal Lahir</th>
@@ -135,7 +135,7 @@ if (!isset($_SESSION['id_user'])) {
             $kelas = $_GET['id'];
             $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas where a.kelas='$kelas' && a.status='1' order by b.nama_kelas asc");
         } else {
-            $query = mysqli_query($koneksi, "select * from daftar where status = '1' order by kelas asc");
+            $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas where status = '1' order by kelas asc");
         }
         $no = 0;
         while ($siswa = mysqli_fetch_array($query)) {
@@ -144,9 +144,9 @@ if (!isset($_SESSION['id_user'])) {
             <tr>
                 <td><?= $no; ?></td>
                 <td><?= $siswa['nama'] ?></td>
-                <td><?= $siswa['warga_siswa'] ?></td>
                 <td class="str"><?= $siswa['nisn'] ?></td>
                 <td class="str"><?= $siswa['nis'] ?></td>
+                <td><?= $siswa['nama_kelas'] ?></td>
                 <td class="str"><?= $siswa['nik'] ?></td>
                 <td><?= $siswa['tempat_lahir'] ?></td>
                 <td class="str"><?= $siswa['tgl_lahir'] ?></td>
@@ -181,9 +181,9 @@ if (!isset($_SESSION['id_user'])) {
                 <td><?= $siswa['campak'] ?></td>
                 <td><?= $siswa['dpt'] ?></td>
                 <td><?= $siswa['covid'] ?></td>
-                <td><?= $siswa['no_kip'] ?></td>
-                <td><?= $siswa['no_kks'] ?></td>
-                <td><?= $siswa['no_pkh'] ?></td>
+                <td class="str"><?= $siswa['no_kip'] ?></td>
+                <td class="str"><?= $siswa['no_kks'] ?></td>
+                <td class="str"><?= $siswa['no_pkh'] ?></td>
                 <td class="str"><?= $siswa['no_kk'] ?></td>
                 <td><?= $siswa['kepala_keluarga'] ?></td>
                 <td><?= $siswa['nama_ayah'] ?></td>
