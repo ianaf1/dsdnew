@@ -239,6 +239,7 @@ require "config/functions.crud.php";
                                                     ?>
                                                 </tbody>
                                             </table>
+                                            <?php include "ads.php" ?>
                                         </div>
                                     </div>
                                 </div>
@@ -249,7 +250,6 @@ require "config/functions.crud.php";
             </div>
         </div>
     </div>
-
     <footer>
         <div class="container">
             <div class="row">

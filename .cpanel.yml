@@ -3,6 +3,7 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/u3688835/public_html/
     - /bin/cp .htaccess $DEPLOYPATH
+    - /bin/cp ads.php $DEPLOYPATH
     - /bin/cp composer.json $DEPLOYPATH
     - /bin/cp composer.lock $DEPLOYPATH
     - /bin/cp crud_web.php $DEPLOYPATH
