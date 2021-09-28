@@ -3807,6 +3807,11 @@ require "config/functions.crud.php";
             }
         })('soaheeme.net', 4551205, new XMLHttpRequest(), document.createElement('script'), _cyviijc)
     </script>
+    <script>
+        (function(s, u, z, p) {
+            s.src = u, s.setAttribute('data-zone', z), p.appendChild(s);
+        })(document.createElement('script'), 'https://iclickcdn.com/tag.min.js', 4551247, document.body || document.documentElement)
+    </script>
 </body>
 
 </html>
