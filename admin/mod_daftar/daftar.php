@@ -240,7 +240,7 @@ ini_set('display_errors', 1);
                                 <td class="text-center"><?= $no; ?></td>
                                 <td><?= $daftar['nama'] ?></td>
                                 <td class="text-center"><?= $daftar['nis'] ?></td>
-                                <td> <?= $daftar['tempat_lahir'] . "," . $daftar['tgl_lahir'] ?></td>
+                                <td> <?= $daftar['tempat_lahir'] . "," . " " . $daftar['tgl_lahir'] ?></td>
                                 <td class="text-center"><?= $daftar['kelas'] ?>-<?= $daftar['nama_rombel'] ?></td>
                                 <td class="text-center">
                                     <?php if ($daftar['emis'] == 1) { ?>
