@@ -207,8 +207,8 @@ ini_set('display_errors', 1);
                             <th class="text-center">Nama Siswa</th>
                             <th class="text-center">NIS</th>
                             <th class="text-center">TTL</th>
-                            <th class="text-center">Tingkat</th>
-                            <th class="text-center">Status</th>
+                            <th class="text-center">Tingkat/Kelas</th>
+                            <th class="text-center">Status Emis</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -219,7 +219,7 @@ ini_set('display_errors', 1);
                             <th class="text-center">NIS</th>
                             <th class="text-center">TTL</th>
                             <th class="text-center">Tingkat/Kelas</th>
-                            <th class="text-center">Status</th>
+                            <th class="text-center">Status Emis</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </tfoot>
@@ -243,10 +243,10 @@ ini_set('display_errors', 1);
                                 <td> <?= $daftar['tempat_lahir'] . "," . $daftar['tgl_lahir'] ?></td>
                                 <td class="text-center"><?= $daftar['kelas'] ?>-<?= $daftar['nama_rombel'] ?></td>
                                 <td class="text-center">
-                                    <?php if ($daftar['status'] == 1) { ?>
-                                        <span class="badge badge-success">Aktif</span>
+                                    <?php if ($daftar['emis'] == 1) { ?>
+                                        <span class="badge badge-success">Terdaftar</span>
                                     <?php } else { ?>
-                                        <span class="badge badge-danger">Mutasi</span>
+                                        <span class="badge badge-danger">Belum Terdaftar</span>
                                     <?php } ?>
                                 </td>
                                 <td class="text-center">
@@ -278,29 +278,26 @@ ini_set('display_errors', 1);
                                             <div class="modal-content">
                                                 <form id="form-edit<?= $no ?>">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">Edit Data</h5>
+                                                        <h5 class="modal-title">Edit Status Emis</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
                                                         <input type="hidden" value="<?= $daftar['id_daftar'] ?>" name="id_daftar" class="form-control" required="">
-
                                                         <div class="form-group">
                                                             <div class="control-label">Pilih Status</div>
                                                             <div class="custom-switches-stacked mt-2">
                                                                 <label class="custom-switch">
                                                                     <input type="radio" name="status" value="1" class="custom-switch-input">
                                                                     <span class="custom-switch-indicator"></span>
-                                                                    <span class="custom-switch-description">Aktif</span>
+                                                                    <span class="custom-switch-description">Terdaftar</span>
                                                                 </label>
                                                                 <label class="custom-switch">
-                                                                    <input type="radio" name="status" value="2" class="custom-switch-input">
+                                                                    <input type="radio" name="status" value="0" class="custom-switch-input">
                                                                     <span class="custom-switch-indicator"></span>
-                                                                    <span class="custom-switch-description">Mutasi</span>
+                                                                    <span class="custom-switch-description">Belum Terdaftar</span>
                                                                 </label>
-
-
                                                             </div>
                                                         </div>
                                                     </div>

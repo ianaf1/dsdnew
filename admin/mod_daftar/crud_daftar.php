@@ -55,7 +55,7 @@ if ($pg == 'batal') {
 if ($pg == 'status') {
     $status = (isset($_POST['status'])) ? $_POST['status'] : 0;
     $data = [
-        'status' => $status
+        'emis' => $status
     ];
     $where = [
         'id_daftar' => $_POST['id_daftar']
