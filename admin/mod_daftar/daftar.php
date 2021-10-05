@@ -226,10 +226,10 @@ ini_set('display_errors', 1);
                     <tbody>
                         <?php
                         if (isset($_GET['id']) == '') {
-                            $query = mysqli_query($koneksi, "select * from daftar a left join rombel b ON a.id_daftar=b.id_daftar order by nama asc");
+                            $query = mysqli_query($koneksi, "select * from daftar a left join kelas b ON a.id_kelas=b.id_kelas order by nama asc");
                         } else {
                             $kelas = $_GET['id'];
-                            $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas left join rombel c ON a.id_daftar=c.id_daftar where a.kelas='$kelas' order by b.nama_kelas asc");
+                            $query = mysqli_query($koneksi, "select * from daftar a left join kelas b ON a.id_kelas=b.id_kelas where a.kelas='$kelas' order by b.nama_kelas asc");
                         }
                         $no = 0;
                         while ($daftar = mysqli_fetch_array($query)) {
@@ -241,7 +241,7 @@ ini_set('display_errors', 1);
                                 <td><?= $daftar['nama'] ?></td>
                                 <td class="text-center"><?= $daftar['nis'] ?></td>
                                 <td> <?= $daftar['tempat_lahir'] . "," . " " . $daftar['tgl_lahir'] ?></td>
-                                <td class="text-center"><?= $daftar['kelas'] ?>-<?= $daftar['nama_rombel'] ?></td>
+                                <td class="text-center"><?= $daftar['kelas'] ?>-<?= $daftar['nama_kelas'] ?></td>
                                 <td class="text-center">
                                     <?php if ($daftar['emis'] == 1) { ?>
                                         <span class="badge badge-success">Terdaftar</span>

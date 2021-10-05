@@ -49,7 +49,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $query = mysqli_query($koneksi, "select DISTINCT id_kelas, nama_rombel, id_jenjang from rombel order by nama_rombel asc");
+                                    $query = mysqli_query($koneksi, "select * from kelas order by nama_kelas asc");
                                     $no = 0;
                                     while ($rombel = mysqli_fetch_array($query)) {
                                         $no++;
