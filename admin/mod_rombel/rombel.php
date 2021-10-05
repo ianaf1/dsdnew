@@ -56,7 +56,7 @@
                                     ?>
                                         <tr>
                                             <td><?= $no; ?></td>
-                                            <td><?= $rombel['nama_rombel'] ?></td>
+                                            <td><?= $rombel['nama_kelas'] ?></td>
                                             <td>Wali Kelas</td>
                                             <td><?= $rombel['id_jenjang'] ?></td>
                                             <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where id_kelas = '$rombel[id_kelas]'")) ?></td>
@@ -137,6 +137,7 @@
                                     <th>NIS</th>
                                     <th>Nama Siswa</th>
                                     <th>Jenis Kelamin</th>
+                                    <th>Status Emis</th>
                                     <!-- <th>Action</th> -->
                                 </tr>
                             </thead>
@@ -152,6 +153,13 @@
                                         <td><?= $rombel['nis'] ?></td>
                                         <td><?= $rombel['nama'] ?></td>
                                         <td><?= $rombel['jenkel'] ?></td>
+                                        <td class="text-center">
+                                            <?php if ($rombel['emis'] == 1) { ?>
+                                                <span class="badge badge-success">Terdaftar</span>
+                                            <?php } else { ?>
+                                                <span class="badge badge-danger">Belum Terdaftar</span>
+                                            <?php } ?>
+                                        </td>
                                         <!-- <td>
                                             <button data-id="<?= $rombel['id_daftar'] ?>" class="edit btn btn-danger btn-sm"><i class="fas fa-trash    "></i></button>
                                         </td> -->
