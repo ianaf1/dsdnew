@@ -193,8 +193,72 @@
                                         <td><?= $presensi['jam_plg'] ?></td>
                                         <td><?= $presensi['ket'] ?></td>
                                         <td>
-                                            <button data-id="<?= $presensi['id_presensi'] ?>" class="edit btn btn-danger btn-sm"><i class="fas fa-edit    "></i></button>
+                                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit<?= $no ?>">
+                                                Edit
+                                            </button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modal-edit<?= $no ?>" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <form id="form-edit<?= $no ?>">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Edit Jam</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <input type="hidden" value="<?= $presensi['id_presensi'] ?>" name="id_presensi" class="form-control" required="">
+                                                                <div class="form-group">
+                                                                    <label>Jam Masuk</label>
+                                                                    <input type="text" value="<?= $presensi['jam_msk'] ?>" name="jam_msk" class="form-control" required="">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Jam Keluar</label>
+                                                                    <input type="text" value="<?= $presensi['jam_plg'] ?>" name="jam_keluar" class="form-control" required="">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Keterangan</label>
+                                                                    <select class="form-control select2" name="ket" required>
+                                                                        <option value="">Pilih Keterangan</option>
+                                                                        <option value="Hadir">Hadir</option>
+                                                                        <option value="Bolos">Bolos</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">Save</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </td>
+                                        <script>
+                                            $('#form-edit<?= $no ?>').submit(function(e) {
+                                                e.preventDefault();
+                                                $.ajax({
+                                                    type: 'POST',
+                                                    url: 'mod_presensi/crud_presensi.php?pg=ubah',
+                                                    data: $(this).serialize(),
+                                                    success: function(data) {
+
+                                                        iziToast.success({
+                                                            title: 'OKee!',
+                                                            message: 'Data Berhasil diubah',
+                                                            position: 'topRight'
+                                                        });
+                                                        setTimeout(function() {
+                                                            window.location.reload();
+                                                        }, 2000);
+                                                        $('#modal-edit<?= $no ?>').modal('hide');
+                                                        //$('#bodyreset').load(location.href + ' #bodyreset');
+                                                    }
+                                                });
+                                                return false;
+                                            });
+                                        </script>
                                     </tr>
                                 <?php }
                                 ?>
