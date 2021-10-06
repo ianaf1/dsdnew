@@ -77,7 +77,7 @@
                                                     Edit
                                                 </button>
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="modal-edit<?= $no ?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                                <div class="modal fade" id="modal-edit<?= $no ?>" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <form id="form-edit<?= $no ?>">
