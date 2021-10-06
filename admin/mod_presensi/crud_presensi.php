@@ -9,23 +9,10 @@ if (!isset($_SESSION['id_user'])) {
 }
 if ($pg == 'ubah') {
     $data = [
-        'nama_hari'         => $_POST['nama_hari'],
         'jam_msk'         => $_POST['jam_msk'],
-        'jam_keluar'       => $_POST['jam_keluar']
+        'jam_plg'       => $_POST['jam_plg'],
+        'ket'           => $_POST['ket']
     ];
-    $id_hari = $_POST['id_hari'];
-    update($koneksi, 'hari', $data, ['id_hari' => $id_hari]);
-}
-if ($pg == 'tambah') {
-    $data = [
-        'nama_hari' => $_POST['nama_hari'],
-        'jam_msk'       => $_POST['jam_msk'],
-        'jam_keluar'       => $_POST['jam_keluar']
-    ];
-    insert($koneksi, 'hari', $data);
-    echo $exec;
-}
-if ($pg == 'hapus') {
-    $id_biaya = $_POST['id_hari'];
-    delete($koneksi, 'hari', ['id_hari' => $id_hari]);
+    $id_presensi = $_POST['id_presensi'];
+    update($koneksi, 'presensi', $data, ['id_presensi' => $id_presensi]);
 }

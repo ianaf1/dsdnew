@@ -77,8 +77,6 @@
                                         <td class="text-center"><?= $hari['jam_msk'] ?></td>
                                         <td class="text-center"><?= $hari['jam_keluar'] ?></td>
                                         <td class="text-center">
-                                            <!-- <button data-id="<?= $hari['id_hari'] ?>" class="hapus btn btn-sm btn-danger">Hapus</button> -->
-                                            <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit<?= $no ?>">
                                                 Edit
                                             </button>
