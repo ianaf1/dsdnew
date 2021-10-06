@@ -23,7 +23,8 @@ if ($pg == 'presen') {
                 'nama' => $siswaR['nama'],
                 'id_kelas' => $siswaR['id_kelas'],
                 'tgl' => $tgl,
-                'hari' => $hariini['nama_hari']
+                'hari' => $hariini['nama_hari'],
+                'ket'   => 'Bolos'
             ];
             $pesan = [
                 'pesan' => 'masuk'
