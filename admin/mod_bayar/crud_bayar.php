@@ -47,9 +47,10 @@ if ($pg == 'tambah') {
         'tgl_bayar'     => $_POST['tgl'],
         'id_user'       => $_SESSION['id_user'],
         'id_biaya'      => $_POST['id_biaya'],
-        'keterangan'        => $_POST['keterangan'],
-        'id_semester'   => $_POST['semester'],
+        'keterangan'    => $_POST['keterangan'],
+        'id_semester'   => $_POST['id_semester'],
         'thn_ajaran'    => $_POST['thn_ajaran'],
+        'id_bulan'          => $_POST['id_bulan'],
         'verifikasi' => 1
 
     ];

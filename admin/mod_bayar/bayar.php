@@ -347,7 +347,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Pembayaran</label>
-                                            <select class="form-control select2" style="width: 100%" name="id_biaya">
+                                            <select class="form-control select2" style="width: 100%" name="id_biaya" required>
                                                 <option value="">Jenis Pembayaran</option>
                                                 <?php
                                                 $query = mysqli_query($koneksi, "select * from biaya where id_kelas='$siswa[kelas]' AND id_semester='$semester_aktif[id_semester]' AND thn_ajaran = '$tahun_ajaran_aktif[nama_thn_ajaran]'");
@@ -360,7 +360,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="jumlah">Jumlah Pembayaran Rp.</label>
-                                            <input value="<?= $biaya['jumlah'] ?>" type="text" class="form-control uang" name="jumlah" id="jumlah" aria-describedby="helpjumlah" placeholder="">
+                                            <input value="<?= $biaya['jumlah'] ?>" type="text" class="form-control uang" name="jumlah" id="jumlah" aria-describedby="helpjumlah" placeholder="" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Bulan</label>
@@ -376,7 +376,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="tgl">Tanggal Pembayaran</label>
-                                            <input type="text" class="form-control datepicker" name="tgl" id="tgl" placeholder="">
+                                            <input type="text" class="form-control datepicker" name="tgl" id="tgl" placeholder="" required>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -468,7 +468,7 @@
                                                         <form id="form-bayar<?= $no ?>">
                                                             <div class="modal-body">
                                                                 <input type="hidden" value="<?= $siswa['id_daftar'] ?>" name="id">
-                                                                <input type="hidden" value="<?= $biaya['id_semester'] ?>" name="semester">
+                                                                <input type="hidden" value="<?= $biaya['id_semester'] ?>" name="id_semester">
                                                                 <input type="hidden" value="<?= $biaya['thn_ajaran'] ?>" name="thn_ajaran">
                                                                 <input type="hidden" value="<?= $biaya['nama_biaya'] ?>" name="keterangan">
                                                                 <input type="hidden" value="<?= $biaya['kode_biaya'] ?>" name="id_masuk">
@@ -488,7 +488,7 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="tgl">Tanggal Pembayaran</label>
-                                                                    <input type="text" class="form-control datepicker" name="tgl" id="tgl" placeholder="">
+                                                                    <input type="text" class="form-control datepicker" name="tgl" id="tgl" placeholder="" required>
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
