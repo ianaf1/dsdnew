@@ -329,6 +329,8 @@
                                 <form id="form-bayar">
                                     <div class="modal-body">
                                         <input type="hidden" value="<?= $siswa['id_daftar'] ?>" name="id">
+                                        <input type="hidden" value="<?= $semester_aktif['id_semester'] ?>" name="id_semester">
+                                        <input type="hidden" value="<?= $tahun_ajaran_aktif['nama_thn_ajaran'] ?>" name="thn_ajaran">
                                         <div class="form-group">
                                             <label>Keterangan</label>
                                             <input type="text" name="keterangan" class="form-control" required="">
