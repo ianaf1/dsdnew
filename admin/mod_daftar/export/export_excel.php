@@ -146,7 +146,7 @@ if (!isset($_SESSION['id_user'])) {
                 <td><?= $no; ?></td>
                 <td><?= $siswa['nama'] ?></td>
                 <td>
-                    <?php if ($daftar['emis'] == 1) { ?>
+                    <?php if ($siswa['emis'] == 1) { ?>
                         <span>Terdaftar</span>
                     <?php } else { ?>
                         <span>Belum Terdaftar</span>
