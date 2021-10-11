@@ -1,22 +1,18 @@
 <?php defined('BASEPATH') or die("ip anda sudah tercatat oleh sistem kami") ?>
+
 <div class="section-header">
     <form style="width: 80%">
-        <input type="hidden" name="pg" value="presensi_kelas">
+        <input type="hidden" name="pg" value="rombel">
         <div class="form-row">
             <div class="col-md-6 col-xs-6">
                 <div class="form-group">
-                    <input type="date" name="tgl" class="form-control datepicker" value="">
-                </div>
-            </div>
-            <div class="col-md-6 col-xs-6">
-                <div class="form-group">
-                    <select class="form-control select2" style="width: 100%" name="kelas" required>
-                        <option value="">Pilih Kelas</option>
+                    <select class="form-control select2" style="width: 100%" name="id" required>
+                        <option value="">Cari Data Kelas</option>
                         <?php
                         $query = mysqli_query($koneksi, "select * from kelas where status='1' order by nama_kelas asc");
                         while ($kelas = mysqli_fetch_array($query)) {
                         ?>
-                            <option value="<?= $kelas['id_kelas'] ?>"><?= $kelas['nama_kelas'] ?></option>
+                            <option value="<?= enkripsi($kelas['id_kelas']) ?>"><?= $kelas['nama_kelas'] ?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -27,118 +23,45 @@
         </div>
     </form>
 </div>
-<?php if (isset($_GET['tgl']) && isset($_GET['kelas'])) { ?>
-    <?php
-    $tgl = fetch($koneksi, 'presensi', ['tgl' => $_GET['tgl']]);
-    $kelas = fetch($koneksi, 'presensi', ['id_kelas' => $_GET['kelas']]); { ?>
+<?php if (isset($_GET['id']) == '') { ?>
+    <?php if ($user['level'] == 'admin' or $user['level'] == 'bendahara' or $user['level'] == 'kepala' or $user['level'] == 'operator') { ?>
         <div class="row">
-            <div class="col-12 col-sm-12 col-lg-12">
+            <div class="col-12">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h5 class='m-0 font-weight-bold text-primary'>Presensi Kelas <?= $kelas['nama_kelas'] ?> Hari <?= $tgl['hari'] ?></h5>
-                        <div class="card-header-action">
-                        </div>
+                        <h5 class='m-0 font-weight-bold text-primary'>Data Presensi Rombel</h5>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-sm" id="table-2" style="font-size: 12px">
+                            <table class="table table-striped table-sm" id="table-1" style="font-size: 12px">
                                 <thead>
                                     <tr>
                                         <th class="text-center">
                                             #
                                         </th>
-                                        <th>Nama Siswa</th>
-                                        <th>Kelas</th>
-                                        <th>Tanggal</th>
-                                        <th>Jam Masuk</th>
-                                        <th>Jam Pulang</th>
-                                        <th>Ket</th>
+                                        <th>Nama Rombel</th>
+                                        <th>Wali Kelas</th>
+                                        <th>Jenjang</th>
+                                        <th>Jumlah Siswa</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $sekarang = date('Ymd');
-                                    $query = mysqli_query($koneksi, "select * from presensi a join kelas b ON a.id_kelas=b.id_kelas where a.tgl='$_GET[tgl]' AND a.id_kelas='$_GET[kelas]'");
+                                    $query = mysqli_query($koneksi, "select * from kelas order by nama_kelas asc");
                                     $no = 0;
-                                    while ($presensi = mysqli_fetch_array($query)) {
+                                    while ($rombel = mysqli_fetch_array($query)) {
                                         $no++;
                                     ?>
                                         <tr>
                                             <td><?= $no; ?></td>
-                                            <td><?= $presensi['nama'] ?></td>
-                                            <td><?= $presensi['nama_kelas'] ?></td>
-                                            <td><?= $presensi['tgl'] ?></td>
-                                            <td><?= $presensi['jam_msk'] ?></td>
-                                            <td><?= $presensi['jam_plg'] ?></td>
-                                            <td><?= $presensi['ket'] ?></td>
+                                            <td><?= $rombel['nama_kelas'] ?></td>
+                                            <td>Wali Kelas</td>
+                                            <td><?= $rombel['id_jenjang'] ?></td>
+                                            <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where id_kelas = '$rombel[id_kelas]'")) ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit<?= $no ?>">
-                                                    Edit
-                                                </button>
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="modal-edit<?= $no ?>" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <form id="form-edit<?= $no ?>">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title">Edit Jam</h5>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <input type="hidden" value="<?= $presensi['id_presensi'] ?>" name="id_presensi" class="form-control" required="">
-                                                                    <div class="form-group">
-                                                                        <label>Jam Masuk</label>
-                                                                        <input type="text" value="<?= $presensi['jam_msk'] ?>" name="jam_msk" class="form-control" required="">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label>Jam Keluar</label>
-                                                                        <input type="text" value="<?= $presensi['jam_plg'] ?>" name="jam_keluar" class="form-control" required="">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label>Keterangan</label>
-                                                                        <select class="form-control select2" name="ket" required>
-                                                                            <option value="">Pilih Keterangan</option>
-                                                                            <option value="Hadir">Hadir</option>
-                                                                            <option value="Bolos">Bolos</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                    <button type="submit" class="btn btn-primary">Save</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail kelas" href="?pg=rombel&id=<?= enkripsi($rombel['id_kelas']) ?>" class="btn btn-sm btn-success"><i class="fas fa-eye    "></i></a>
                                             </td>
-                                            <script>
-                                                $('#form-edit<?= $no ?>').submit(function(e) {
-                                                    e.preventDefault();
-                                                    $.ajax({
-                                                        type: 'POST',
-                                                        url: 'mod_presensi/crud_presensi.php?pg=ubah',
-                                                        data: $(this).serialize(),
-                                                        success: function(data) {
-
-                                                            iziToast.success({
-                                                                title: 'OKee!',
-                                                                message: 'Data Berhasil diubah',
-                                                                position: 'topRight'
-                                                            });
-                                                            setTimeout(function() {
-                                                                window.location.reload();
-                                                            }, 2000);
-                                                            $('#modal-edit<?= $no ?>').modal('hide');
-                                                            //$('#bodyreset').load(location.href + ' #bodyreset');
-                                                        }
-                                                    });
-                                                    return false;
-                                                });
-                                            </script>
                                         </tr>
                                     <?php }
                                     ?>
@@ -150,13 +73,17 @@
             </div>
         </div>
     <?php } ?>
+
 <?php } else { ?>
+    <?php $kelas = fetch($koneksi, 'kelas', ['id_kelas' => dekripsi($_GET['id'])]) ?>
     <div class="row">
         <div class="col-12 col-sm-12 col-lg-12">
             <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h5 class='m-0 font-weight-bold text-primary'>Presensi Siswa Hari <?= hari_ini() ?></h5>
+                    <h5 class='m-0 font-weight-bold text-primary'>Kelas <?= $kelas['nama_kelas'] ?></h5>
                     <div class="card-header-action">
+                        <a target="_blank" href="mod_rombel/export_kelas.php?id=<?= enkripsi($kelas['id_kelas']) ?>" class="btn btn-danger btn-sm"><i class="fas fa-download"></i></i></a>
+                        <!-- Button trigger modal -->
                     </div>
                 </div>
                 <div class="card-body">
@@ -167,98 +94,35 @@
                                     <th class="text-center">
                                         #
                                     </th>
+                                    <th>NIS</th>
                                     <th>Nama Siswa</th>
-                                    <th>Kelas</th>
-                                    <!-- <th>Tanggal</th> -->
-                                    <th>Jam Masuk</th>
-                                    <th>Jam Pulang</th>
-                                    <th>Ket</th>
-                                    <th>Action</th>
+                                    <th>Jumlah Kehadiran</th>
+                                    <th>Jumlah Bolos</th>
+                                    <!-- <th>Action</th> -->
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $sekarang = date('Ymd');
-                                $query = mysqli_query($koneksi, "select * from presensi a join kelas b ON a.id_kelas=b.id_kelas where a.tgl='$sekarang'");
+                                $query = mysqli_query($koneksi, "select * from daftar a  join kelas b ON a.id_kelas = b.id_kelas where a.id_kelas='$kelas[id_kelas]' && a.status='1' order by a.nama asc");
                                 $no = 0;
-                                while ($presensi = mysqli_fetch_array($query)) {
+                                while ($rombel = mysqli_fetch_array($query)) {
                                     $no++;
                                 ?>
                                     <tr>
                                         <td><?= $no; ?></td>
-                                        <td><?= $presensi['nama'] ?></td>
-                                        <td><?= $presensi['nama_kelas'] ?></td>
-                                        <!-- <td><?= $presensi['tgl'] ?></td> -->
-                                        <td><?= $presensi['jam_msk'] ?></td>
-                                        <td><?= $presensi['jam_plg'] ?></td>
-                                        <td><?= $presensi['ket'] ?></td>
-                                        <td>
-                                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit<?= $no ?>">
-                                                Edit
-                                            </button>
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="modal-edit<?= $no ?>" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <form id="form-edit<?= $no ?>">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title">Edit Jam</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <input type="hidden" value="<?= $presensi['id_presensi'] ?>" name="id_presensi" class="form-control" required="">
-                                                                <div class="form-group">
-                                                                    <label>Jam Masuk</label>
-                                                                    <input type="text" value="<?= $presensi['jam_msk'] ?>" name="jam_msk" class="form-control" required="">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Jam Keluar</label>
-                                                                    <input type="text" value="<?= $presensi['jam_plg'] ?>" name="jam_keluar" class="form-control" required="">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Keterangan</label>
-                                                                    <select class="form-control select2" name="ket" required>
-                                                                        <option value="">Pilih Keterangan</option>
-                                                                        <option value="Hadir">Hadir</option>
-                                                                        <option value="Bolos">Bolos</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                                <button type="submit" class="btn btn-primary">Save</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <td><?= $rombel['nis'] ?></td>
+                                        <td><?= $rombel['nama'] ?></td>
+                                        <td><?= $rombel['jenkel'] ?></td>
+                                        <td class="text-center">
+                                            <?php if ($rombel['emis'] == 1) { ?>
+                                                <span class="badge badge-success">Terdaftar</span>
+                                            <?php } else { ?>
+                                                <span class="badge badge-danger">Belum Terdaftar</span>
+                                            <?php } ?>
                                         </td>
-                                        <script>
-                                            $('#form-edit<?= $no ?>').submit(function(e) {
-                                                e.preventDefault();
-                                                $.ajax({
-                                                    type: 'POST',
-                                                    url: 'mod_presensi/crud_presensi.php?pg=ubah',
-                                                    data: $(this).serialize(),
-                                                    success: function(data) {
-
-                                                        iziToast.success({
-                                                            title: 'OKee!',
-                                                            message: 'Data Berhasil diubah',
-                                                            position: 'topRight'
-                                                        });
-                                                        setTimeout(function() {
-                                                            window.location.reload();
-                                                        }, 2000);
-                                                        $('#modal-edit<?= $no ?>').modal('hide');
-                                                        //$('#bodyreset').load(location.href + ' #bodyreset');
-                                                    }
-                                                });
-                                                return false;
-                                            });
-                                        </script>
+                                        <!-- <td>
+                                            <button data-id="<?= $rombel['id_daftar'] ?>" class="edit btn btn-danger btn-sm"><i class="fas fa-trash    "></i></button>
+                                        </td> -->
                                     </tr>
                                 <?php }
                                 ?>
@@ -270,3 +134,171 @@
         </div>
     </div>
 <?php } ?>
+<script>
+    $('#form-tambahdata').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: 'mod_rombel/crud_rombel.php?pg=tambah',
+            data: $(this).serialize(),
+            success: function(data) {
+                iziToast.success({
+                    title: 'Mantap!',
+                    message: 'Data berhasil disimpan',
+                    position: 'topRight'
+                });
+                setTimeout(function() {
+                    window.location.reload();
+                }, 2000);
+                $('#tambahdata').modal('hide');
+            }
+        });
+        return false;
+    });
+
+    $('#dataTable').on('click', '.hapus', function() {
+        var id = $(this).data('id');
+        console.log(id);
+        swal({
+            title: 'Are you sure?',
+            text: 'Akan menghapus data ini!',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true,
+        }).then((result) => {
+            if (result) {
+                $.ajax({
+                    url: 'mod_rombel/crud_rombel.php?pg=hapus',
+                    method: "POST",
+                    data: 'id_rombel=' + id,
+                    success: function(data) {
+                        iziToast.error({
+                            title: 'Horee!',
+                            message: 'Data Berhasil dihapus',
+                            position: 'topRight'
+                        });
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 2000);
+                    }
+                });
+            }
+        })
+    });
+    $('#dataTable').on('click', '.cek', function() {
+        var id = $(this).data('id');
+        console.log(id);
+        swal({
+            title: 'Are you sure?',
+            text: 'Akan memverifikasi data ini!',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true,
+        }).then((result) => {
+            if (result) {
+                $.ajax({
+                    url: 'mod_rombel/crud_rombel.php?pg=verifikasi',
+                    method: "POST",
+                    data: 'id_rombel=' + id,
+                    success: function(data) {
+                        iziToast.error({
+                            title: 'Horee!',
+                            message: 'Data Berhasil diupdate',
+                            position: 'topRight'
+                        });
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 2000);
+                    }
+                });
+            }
+        })
+    });
+    $('#table-1').on('click', '.hapus', function() {
+        var id = $(this).data('id');
+        console.log(id);
+        swal({
+            title: 'Are you sure?',
+            text: 'Akan menghapus data ini!',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true,
+        }).then((result) => {
+            if (result) {
+                $.ajax({
+                    url: 'mod_rombel/crud_rombel.php?pg=hapus',
+                    method: "POST",
+                    data: 'id_rombel=' + id,
+                    success: function(data) {
+                        iziToast.error({
+                            title: 'Horee!',
+                            message: 'Data Berhasil dihapus',
+                            position: 'topRight'
+                        });
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 2000);
+                    }
+                });
+            }
+        })
+    });
+    $('#table-1').on('click', '.batal', function() {
+        var id = $(this).data('id');
+        console.log(id);
+        swal({
+            title: 'Are you sure?',
+            text: 'Akan membatalkan verifikasi ini!',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true,
+        }).then((result) => {
+            if (result) {
+                $.ajax({
+                    url: 'mod_rombel/crud_rombel.php?pg=batalverifikasi',
+                    method: "POST",
+                    data: 'id_rombel=' + id,
+                    success: function(data) {
+                        iziToast.error({
+                            title: 'Horee!',
+                            message: 'Data Berhasil diupdate',
+                            position: 'topRight'
+                        });
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 2000);
+                    }
+                });
+            }
+        })
+    });
+    $('#table-2').on('click', '.hapus', function() {
+        var id = $(this).data('id');
+        console.log(id);
+        swal({
+            title: 'Are you sure?',
+            text: 'Akan menghapus data ini!',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true,
+        }).then((result) => {
+            if (result) {
+                $.ajax({
+                    url: 'mod_rombel/crud_rombel.php?pg=hapus',
+                    method: "POST",
+                    data: 'id_rombel=' + id,
+                    success: function(data) {
+                        iziToast.error({
+                            title: 'Horee!',
+                            message: 'Data Berhasil dihapus',
+                            position: 'topRight'
+                        });
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 2000);
+                    }
+                });
+            }
+        })
+    });
+</script>
