@@ -29,6 +29,7 @@ if (!isset($_SESSION['id_user'])) {
                 No
             </th>
             <th>Nama Siswa</th>
+            <th>Status Emis</th>
             <th>NISN</th>
             <th>NIS LOKAL</th>
             <th>Kelas</th>
@@ -135,7 +136,7 @@ if (!isset($_SESSION['id_user'])) {
             $kelas = $_GET['id'];
             $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas where a.kelas='$kelas' && a.status='1' order by b.nama_kelas asc");
         } else {
-            $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas where status = '1' order by kelas asc");
+            $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas where a.status = '1' order by kelas asc");
         }
         $no = 0;
         while ($siswa = mysqli_fetch_array($query)) {
@@ -144,6 +145,13 @@ if (!isset($_SESSION['id_user'])) {
             <tr>
                 <td><?= $no; ?></td>
                 <td><?= $siswa['nama'] ?></td>
+                <td>
+                    <?php if ($daftar['emis'] == 1) { ?>
+                        <span>Terdaftar</span>
+                    <?php } else { ?>
+                        <span>Belum Terdaftar</span>
+                    <?php } ?>
+                </td>
                 <td class="str"><?= $siswa['nisn'] ?></td>
                 <td class="str"><?= $siswa['nis'] ?></td>
                 <td><?= $siswa['nama_kelas'] ?></td>
