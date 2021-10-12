@@ -73,7 +73,6 @@
             </div>
         </div>
     <?php } ?>
-
 <?php } else { ?>
     <?php $kelas = fetch($koneksi, 'kelas', ['id_kelas' => dekripsi($_GET['id'])]) ?>
     <div class="row">
@@ -103,7 +102,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $query = mysqli_query($koneksi, "select * from daftar a  join kelas b ON a.id_kelas = b.id_kelas where a.id_kelas='$kelas[id_kelas]' && a.status='1' order by a.nama asc");
+                                $query = mysqli_query($koneksi, "select * from daftar a  join kelas b ON a.id_kelas = b.id_kelas left join presensi c ON a.nis=c.nis where a.id_kelas='$kelas[id_kelas]' && a.status='1' order by a.nama asc");
                                 $no = 0;
                                 while ($rombel = mysqli_fetch_array($query)) {
                                     $no++;
