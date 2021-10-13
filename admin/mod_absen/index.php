@@ -63,7 +63,7 @@ require("../../config/tahun.ajaran.php");
   <script src="../../assets/modules/sweetalert/sweetalert.min.js"></script>
   <script type="text/javascript">
     var arg = {
-      successTimeout: 5000,
+      successTimeout: 3000,
       resultFunction: function(result) {
         $.ajax({
           type: 'POST',
