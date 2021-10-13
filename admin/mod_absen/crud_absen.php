@@ -45,7 +45,7 @@ if ($pg == 'presen') {
                 'pesan' => 'pulang'
             ];
             echo json_encode($pesan);
-            update($koneksi, 'presensi', $data, $presensiR['nis']);
+            update($koneksi, 'presensi', $data, ['nis' => $presensiR['nis']]);
         } elseif (mysqli_num_rows($presensiQ) == 1 && $presensiR['jam_msk'] > '00:00:00' && $jam > $jam_msk && $jam < $jam_plg) {
             $pesan = [
                 'pesan' => 'ggl_pulang'
