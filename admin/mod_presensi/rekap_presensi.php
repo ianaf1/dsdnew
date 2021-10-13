@@ -1,28 +1,4 @@
 <?php defined('BASEPATH') or die("ip anda sudah tercatat oleh sistem kami") ?>
-
-<div class="section-header">
-    <form style="width: 80%">
-        <input type="hidden" name="pg" value="rombel">
-        <div class="form-row">
-            <div class="col-md-6 col-xs-6">
-                <div class="form-group">
-                    <select class="form-control select2" style="width: 100%" name="id" required>
-                        <option value="">Cari Data Kelas</option>
-                        <?php
-                        $query = mysqli_query($koneksi, "select * from kelas where status='1' order by nama_kelas asc");
-                        while ($kelas = mysqli_fetch_array($query)) {
-                        ?>
-                            <option value="<?= enkripsi($kelas['id_kelas']) ?>"><?= $kelas['nama_kelas'] ?></option>
-                        <?php } ?>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-6">
-                &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-10"><i class="fas fa-search    "></i> Cari</button>
-            </div>
-        </div>
-    </form>
-</div>
 <?php if (isset($_GET['id']) == '') { ?>
     <?php if ($user['level'] == 'admin' or $user['level'] == 'bendahara' or $user['level'] == 'kepala' or $user['level'] == 'operator') { ?>
         <div class="row">
@@ -60,7 +36,7 @@
                                             <td><?= $rombel['id_jenjang'] ?></td>
                                             <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from daftar where id_kelas = '$rombel[id_kelas]'")) ?></td>
                                             <td>
-                                                <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail kelas" href="?pg=rombel&id=<?= enkripsi($rombel['id_kelas']) ?>" class="btn btn-sm btn-success"><i class="fas fa-eye    "></i></a>
+                                                <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail kelas" href="?pg=rekap_presensi&id=<?= enkripsi($rombel['id_kelas']) ?>" class="btn btn-sm btn-success"><i class="fas fa-eye    "></i></a>
                                             </td>
                                         </tr>
                                     <?php }
@@ -75,6 +51,27 @@
     <?php } ?>
 <?php } else { ?>
     <?php $kelas = fetch($koneksi, 'kelas', ['id_kelas' => dekripsi($_GET['id'])]) ?>
+    <form style="width: 100%">
+        <input type="hidden" name="pg" value="rekap_presensi">
+        <div class="form-row">
+            <div class="col-md-6 col-xs-6">
+                <div class="form-group">
+                    <select class="form-control select2" style="width: 100%" name="bulan" required>
+                        <option value="">Pilih Bulan</option>
+                        <?php
+                        $query = mysqli_query($koneksi, "select * from bulan");
+                        while ($bulan = mysqli_fetch_array($query)) {
+                        ?>
+                            <option value="<?= enkripsi($bulan['id_bulan']) ?>"><?= $bulan['nama_bulan'] ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-9"><i class="fas fa-search"></i> Cari</button>
+            </div>
+        </div>
+    </form>
     <div class="row">
         <div class="col-12 col-sm-12 col-lg-12">
             <div class="card shadow mb-4">
@@ -102,7 +99,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $query = mysqli_query($koneksi, "select * from daftar a  join kelas b ON a.id_kelas = b.id_kelas left join presensi c ON a.nis=c.nis where a.id_kelas='$kelas[id_kelas]' && a.status='1' order by a.nama asc");
+                                $query = mysqli_query($koneksi, "select * from daftar a  join kelas b ON a.id_kelas = b.id_kelas where a.id_kelas='$kelas[id_kelas]' order by a.nama asc");
                                 $no = 0;
                                 while ($rombel = mysqli_fetch_array($query)) {
                                     $no++;
@@ -111,17 +108,8 @@
                                         <td><?= $no; ?></td>
                                         <td><?= $rombel['nis'] ?></td>
                                         <td><?= $rombel['nama'] ?></td>
-                                        <td><?= $rombel['jenkel'] ?></td>
-                                        <td class="text-center">
-                                            <?php if ($rombel['emis'] == 1) { ?>
-                                                <span class="badge badge-success">Terdaftar</span>
-                                            <?php } else { ?>
-                                                <span class="badge badge-danger">Belum Terdaftar</span>
-                                            <?php } ?>
-                                        </td>
-                                        <!-- <td>
-                                            <button data-id="<?= $rombel['id_daftar'] ?>" class="edit btn btn-danger btn-sm"><i class="fas fa-trash    "></i></button>
-                                        </td> -->
+                                        <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from presensi where nis='$rombel[nis]' AND ket='Hadir'")) ?> ?></td>
+                                        <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from presensi where nis='$rombel[nis]' AND ket='Bolos'")) ?> ?></td>
                                     </tr>
                                 <?php }
                                 ?>

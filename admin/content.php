@@ -66,4 +66,6 @@ if ($pg == '') {
     include "mod_presensi/presensi.php";
 } elseif ($pg == 'presensi_kelas') {
     include "mod_presensi/presensi_kelas.php";
+} elseif ($pg == 'rekap_presensi') {
+    include "mod_presensi/rekap_presensi.php";
 }
