@@ -62,7 +62,6 @@ require("../../config/tahun.ajaran.php");
   <script src="../../assets/modules/izitoast/js/iziToast.min.js"></script>
   <script type="text/javascript">
     var arg = {
-      successTimeout: 5000,
       resultFunction: function(result) {
         //$('.hasilscan').append($('<input name="noijazah" value=' + result.code + ' readonly><input type="submit" value="Cek"/>'));
         // $.post("../cek.php", { noijazah: result.code} );
@@ -135,7 +134,7 @@ require("../../config/tahun.ajaran.php");
       successTimeout: 5000, // delay time when decoding is succeed
     };
     var decoder = $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery;
-    decoder.buildSelectMenu('#camera-select', 'environment|back').init(args);
+    decoder.buildSelectMenu(document.createElement('select'), 'environment|back').init(arg).play();
     // decoder.buildSelectMenu("select");
     decoder.play();
     /*  Without visible select menu
