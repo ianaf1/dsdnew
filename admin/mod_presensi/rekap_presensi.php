@@ -109,7 +109,7 @@
                                 if (isset($_GET['bulan'])) {
                                     $bulan = ($_GET['bulan']);
                                 } else {
-                                    $bulan = date('M');
+                                    $bulan = date('m');
                                 };
                                 $query = mysqli_query($koneksi, "select * from daftar a  join kelas b ON a.id_kelas = b.id_kelas where a.id_kelas='$kelas[id_kelas]' order by a.nama asc");
                                 $no = 0;
