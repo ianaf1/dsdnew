@@ -134,7 +134,8 @@ require("../../config/tahun.ajaran.php");
       successTimeout: 5000, // delay time when decoding is succeed
     };
     var decoder = $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery;
-    decoder.buildSelectMenu(document.createElement('select'), 'environment|back').init(arg).play();
+    decoder.buildSelectMenu('#camera-select', 0).init(args);
+    // decoder.buildSelectMenu(document.createElement('select'), 'environment|front').init(arg).play();
     // decoder.buildSelectMenu("select");
     decoder.play();
     /*  Without visible select menu
