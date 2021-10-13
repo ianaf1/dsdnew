@@ -118,9 +118,6 @@ require("../../config/tahun.ajaran.php");
         return false;
       }
     };
-    var options = {
-      successTimeout: 5000, // delay time when decoding is succeed
-    };
     var decoder = $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery;
     // decoder.options.successTimeout();
     // decoder.buildSelectMenu('select', 2).init(args);

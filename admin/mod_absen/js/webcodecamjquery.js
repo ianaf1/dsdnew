@@ -37,7 +37,7 @@
             decodeQRCodeRate: 5,
             decodeBarCodeRate: 3,
             successTimeout: 5000,
-            codeRepetition: true,
+            codeRepetition: false,
             tryVertical: true,
             frameRate: 15,
             width: 320,
