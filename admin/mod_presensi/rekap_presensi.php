@@ -59,12 +59,18 @@
                 <div class="form-group">
                     <select class="form-control select2" style="width: 100%" name="bulan" required>
                         <option value="">Pilih Bulan</option>
-                        <?php
-                        $query = mysqli_query($koneksi, "select * from bulan");
-                        while ($bulan = mysqli_fetch_array($query)) {
-                        ?>
-                            <option value="<?= enkripsi($bulan['id_bulan']) ?>"><?= $bulan['nama_bulan'] ?></option>
-                        <?php } ?>
+                        <option value="01">Januari</option>
+                        <option value="02">Februari</option>
+                        <option value="03">Maret</option>
+                        <option value="04">April</option>
+                        <option value="05">Mei</option>
+                        <option value="06">Juni</option>
+                        <option value="07">Juli</option>
+                        <option value="08">Agustus</option>
+                        <option value="09">September</option>
+                        <option value="10">Oktober</option>
+                        <option value="11">November</option>
+                        <option value="12">Desember</option>
                     </select>
                 </div>
             </div>
@@ -103,7 +109,7 @@
                                 if (isset($_GET['bulan'])) {
                                     $bulan = dekripsi($_GET['id']);
                                 } else {
-                                    $bulan = date('m');
+                                    $bulan = date('M');
                                 };
                                 $query = mysqli_query($koneksi, "select * from daftar a  join kelas b ON a.id_kelas = b.id_kelas where a.id_kelas='$kelas[id_kelas]' order by a.nama asc");
                                 $no = 0;
