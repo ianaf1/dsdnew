@@ -108,8 +108,8 @@
                                         <td><?= $no; ?></td>
                                         <td><?= $rombel['nis'] ?></td>
                                         <td><?= $rombel['nama'] ?></td>
-                                        <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from presensi where nis='$rombel[nis]' AND ket='Hadir'")) ?> ?></td>
-                                        <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from presensi where nis='$rombel[nis]' AND ket='Bolos'")) ?> ?></td>
+                                        <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from presensi where nis='$rombel[nis]' AND ket='Hadir'")) ?> </td>
+                                        <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from presensi where nis='$rombel[nis]' AND ket='Bolos'")) ?> </td>
                                     </tr>
                                 <?php }
                                 ?>
