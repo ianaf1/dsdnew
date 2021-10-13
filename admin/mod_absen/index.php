@@ -72,47 +72,47 @@ require("../../config/tahun.ajaran.php");
           success: function(pesan) {
             var json = $.parseJSON(pesan);
             if (json.pesan == 'masuk') {
-              iziToast.success({
-                title: 'Mantap!',
-                message: 'Presensi Masuk Berhasil',
-                position: 'topRight'
+              swal({
+                title: 'Cihuyy!',
+                text: 'Presensi Masuk Berhasil Guys...',
+                icon: 'success'
               });
             } else if (json.pesan == 'pulang') {
-              iziToast.success({
-                title: 'Mantap!',
-                message: 'Presensi Pulang Berhasil',
-                position: 'topRight'
+              swal({
+                title: 'Cihuyy!',
+                text: 'Presensi Pulang Berhasil Guys...',
+                icon: 'success'
               });
             } else if (json.pesan == 'ggl_masuk') {
-              iziToast.error({
-                title: 'Gagal',
-                message: 'Waktu Presensi Sudah Lewat',
-                position: 'topRight'
+              swal({
+                title: 'Gagal!',
+                text: 'Waktu Presensi Udah Lewat, Mangkanya jangan Telat!',
+                icon: 'error'
               });
             } else if (json.pesan == 'sudah_absen') {
-              iziToast.error({
-                title: 'Gagal',
-                message: 'Sudah Presensi Masuk',
-                position: 'topRight'
+              swal({
+                title: 'Gagal!',
+                text: 'Sudah Presensi Masuk Guys...',
+                icon: 'error'
               });
             } else if (json.pesan == 'ggl_pulang') {
-              iziToast.error({
-                title: 'Gagal',
-                message: 'Belum Jam Pulang',
-                position: 'topRight'
+              swal({
+                title: 'Gagal!',
+                text: 'Belum Jam Pulang Guys...',
+                icon: 'error'
               });
             } else if (json.pesan == 'sudah_presensi') {
-              iziToast.error({
-                title: 'Gagal',
-                message: 'Presensi Sudah Dilakukan',
-                position: 'topRight'
+              swal({
+                title: 'Gagal!',
+                text: 'Presensi Sudah Dilakukan Guys...',
+                icon: 'error'
               });
             } else {
               swal({
                 title: 'Gagal!',
                 text: 'Data Gagal Ditemukan Guys...',
                 icon: 'error'
-              })
+              });
             }
           }
         });
