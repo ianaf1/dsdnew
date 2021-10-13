@@ -8,29 +8,15 @@
                     <input type="date" name="tgl" class="form-control datepicker" value="">
                 </div>
             </div>
-            <div class="col-md-6 col-xs-6">
-                <div class="form-group">
-                    <select class="form-control select2" style="width: 100%" name="kelas" required>
-                        <option value="">Pilih Kelas</option>
-                        <?php
-                        $query = mysqli_query($koneksi, "select * from kelas where status='1' order by nama_kelas asc");
-                        while ($kelas = mysqli_fetch_array($query)) {
-                        ?>
-                            <option value="<?= $kelas['id_kelas'] ?>"><?= $kelas['nama_kelas'] ?></option>
-                        <?php } ?>
-                    </select>
-                </div>
-            </div>
             <div class="col-md-6">
                 &nbsp;<button type="submit" class="btn btn-primary btn-xs-5 p-l-10"><i class="fas fa-search    "></i> Cari</button>
             </div>
         </div>
     </form>
 </div>
-<?php if (isset($_GET['tgl']) && isset($_GET['kelas'])) { ?>
+<?php if (isset($_GET['tgl'])) { ?>
     <?php
-    $tgl = fetch($koneksi, 'presensi', ['tgl' => $_GET['tgl']]);
-    $kelas = fetch($koneksi, 'presensi', ['id_kelas' => $_GET['kelas']]); { ?>
+    $tgl = fetch($koneksi, 'presensi', ['tgl' => $_GET['tgl']]); { ?>
         <div class="row">
             <div class="col-12 col-sm-12 col-lg-12">
                 <div class="card shadow mb-4">
@@ -59,7 +45,7 @@
                                 <tbody>
                                     <?php
                                     $sekarang = date('Ymd');
-                                    $query = mysqli_query($koneksi, "select * from presensi a join kelas b ON a.id_kelas=b.id_kelas where a.tgl='$_GET[tgl]' AND a.id_kelas='$_GET[kelas]'");
+                                    $query = mysqli_query($koneksi, "select * from presensi a join kelas b ON a.id_kelas=b.id_kelas where a.tgl='$_GET[tgl]'");
                                     $no = 0;
                                     while ($presensi = mysqli_fetch_array($query)) {
                                         $no++;
