@@ -64,22 +64,10 @@ require("../../config/tahun.ajaran.php");
   <script type="text/javascript">
     var arg = {
       resultFunction: function(result) {
-        //$('.hasilscan').append($('<input name="noijazah" value=' + result.code + ' readonly><input type="submit" value="Cek"/>'));
-        // $.post("../cek.php", { noijazah: result.code} );
-        // var redirect = 'crud_absen.php';
-        // $.redirectPost(redirect, {
-        //   nis: result.code
-        // });
-        // e.preventDefault();
         $.ajax({
           type: 'POST',
           url: 'crud_absen.php?pg=presen',
           data: 'nis=' + result.code,
-          // beforeSend: function() {
-          //     $('form button').on("click", function(e) {
-          //         e.preventDefault();
-          //     });
-          // },
           success: function(pesan) {
             var json = $.parseJSON(pesan);
             if (json.pesan == 'masuk') {
@@ -123,16 +111,8 @@ require("../../config/tahun.ajaran.php");
                 title: 'Gagal!',
                 text: 'Data Gagal Ditemukan Guys...',
                 icon: 'error'
-              }).then(function() {
-                location.reload();
-              });
-              // iziToast.error({
-              //   title: 'Gagal',
-              //   message: 'Data Tidak Ditemukan',
-              //   position: 'topRight'
-              // });
+              })
             }
-            //$('#bodyreset').load(location.href + ' #bodyreset');
           }
         });
         return false;
@@ -153,17 +133,6 @@ require("../../config/tahun.ajaran.php");
     $('select').on('change', function() {
       decoder.stop().play();
     });
-
-    // jquery extend function
-    // $.extend({
-    //   redirectPost: function(location, args) {
-    //     var form = '';
-    //     $.each(args, function(key, value) {
-    //       form += '<input type="hidden" name="' + key + '" value="' + value + '">';
-    //     });
-    //     $('<form action="' + location + '" method="POST">' + form + '</form>').appendTo('body').submit();
-    //   }
-    // });
   </script>
 </body>
 

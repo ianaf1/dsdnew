@@ -41,7 +41,7 @@ var WebCodeCamJS = function(element) {
         options = {
             decodeQRCodeRate: 5,
             decodeBarCodeRate: 3,
-            successTimeout: 500,
+            successTimeout: 5000,
             codeRepetition: true,
             tryVertical: true,
             frameRate: 15,
