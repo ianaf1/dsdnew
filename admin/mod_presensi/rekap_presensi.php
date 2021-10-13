@@ -9,7 +9,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-sm" id="table-1" style="font-size: 12px">
+                            <table class="table table-striped table-sm" id="dataTable" style="font-size: 12px">
                                 <thead>
                                     <tr>
                                         <th class="text-center">
@@ -91,7 +91,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-sm" id="table-2" style="font-size: 12px">
+                        <table class="table table-striped table-sm" id="dataTable" style="font-size: 12px">
                             <thead>
                                 <tr>
                                     <th class="text-center">
