@@ -107,7 +107,7 @@
                             <tbody>
                                 <?php
                                 if (isset($_GET['bulan'])) {
-                                    $bulan = dekripsi($_GET['id']);
+                                    $bulan = ($_GET['bulan']);
                                 } else {
                                     $bulan = date('M');
                                 };
