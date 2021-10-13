@@ -53,6 +53,7 @@
     <?php $kelas = fetch($koneksi, 'kelas', ['id_kelas' => dekripsi($_GET['id'])]) ?>
     <form style="width: 100%">
         <input type="hidden" name="pg" value="rekap_presensi">
+        <input type="hidden" name="id" value="<?= enkripsi($kelas['id_kelas']) ?>">
         <div class="form-row">
             <div class="col-md-6 col-xs-6">
                 <div class="form-group">
@@ -99,6 +100,11 @@
                             </thead>
                             <tbody>
                                 <?php
+                                if (isset($_GET['bulan'])) {
+                                    $bulan = dekripsi($_GET['id']);
+                                } else {
+                                    $bulan = date('m');
+                                };
                                 $query = mysqli_query($koneksi, "select * from daftar a  join kelas b ON a.id_kelas = b.id_kelas where a.id_kelas='$kelas[id_kelas]' order by a.nama asc");
                                 $no = 0;
                                 while ($rombel = mysqli_fetch_array($query)) {
@@ -108,8 +114,8 @@
                                         <td><?= $no; ?></td>
                                         <td><?= $rombel['nis'] ?></td>
                                         <td><?= $rombel['nama'] ?></td>
-                                        <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from presensi where nis='$rombel[nis]' AND ket='Hadir'")) ?> </td>
-                                        <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from presensi where nis='$rombel[nis]' AND ket='Bolos'")) ?> </td>
+                                        <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from presensi where nis='$rombel[nis]' AND ket='Hadir' AND MONTH(tgl)='$bulan'")) ?> </td>
+                                        <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from presensi where nis='$rombel[nis]' AND ket='Bolos' AND MONTH(tgl)='$bulan'")) ?> </td>
                                     </tr>
                                 <?php }
                                 ?>
