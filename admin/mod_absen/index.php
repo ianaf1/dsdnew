@@ -118,11 +118,18 @@ require("../../config/tahun.ajaran.php");
                 position: 'topRight'
               });
             } else {
-              iziToast.error({
-                title: 'Gagal',
-                message: 'Data Tidak Ditemukan',
-                position: 'topRight'
+              swal({
+                title: 'Gagal!',
+                text: 'Data Gagal Ditemukan Guys...',
+                icon: 'error'
+              }).then(function() {
+                location.reload();
               });
+              // iziToast.error({
+              //   title: 'Gagal',
+              //   message: 'Data Tidak Ditemukan',
+              //   position: 'topRight'
+              // });
             }
             //$('#bodyreset').load(location.href + ' #bodyreset');
           }
