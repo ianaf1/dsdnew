@@ -32,7 +32,7 @@ if ($bulan = 01) {
 }
 // Skrip berikut ini adalah skrip yang bertugas untuk meng-export data tadi ke excell
 header("Content-type: application/vnd-ms-excel");
-header("Content-Disposition: attachment; filename=Data Siswa Kelas $kelas[nama_kelas].xls");
+header("Content-Disposition: attachment; filename=Data Presensi Kelas $kelas[nama_kelas] Bulan $nama_bulan.xls");
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
