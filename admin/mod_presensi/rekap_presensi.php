@@ -50,7 +50,14 @@
         </div>
     <?php } ?>
 <?php } else { ?>
-    <?php $kelas = fetch($koneksi, 'kelas', ['id_kelas' => dekripsi($_GET['id'])]) ?>
+    <?php
+    $kelas = fetch($koneksi, 'kelas', ['id_kelas' => dekripsi($_GET['id'])]);
+    if (isset($_GET['bulan'])) {
+        $bulan = ($_GET['bulan']);
+    } else {
+        $bulan = date('m');
+    };
+    ?>
     <form style="width: 100%">
         <input type="hidden" name="pg" value="rekap_presensi">
         <input type="hidden" name="id" value="<?= enkripsi($kelas['id_kelas']) ?>">
@@ -85,7 +92,7 @@
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h5 class='m-0 font-weight-bold text-primary'>Kelas <?= $kelas['nama_kelas'] ?></h5>
                     <div class="card-header-action">
-                        <a target="_blank" href="mod_rombel/export_kelas.php?id=<?= enkripsi($kelas['id_kelas']) ?>" class="btn btn-danger btn-sm"><i class="fas fa-download"></i></i></a>
+                        <a target="_blank" href="mod_presensi/export_presensi.php?id=<?= enkripsi($kelas['id_kelas']) ?>&bulan=<?= $bulan ?>" class="btn btn-danger btn-sm"><i class="fas fa-download"></i></i></a>
                         <!-- Button trigger modal -->
                     </div>
                 </div>
