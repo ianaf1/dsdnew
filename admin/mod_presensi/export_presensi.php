@@ -30,7 +30,7 @@ if ($bulan = 01) {
     $nama_bulan = 'November';
 } else if ($bulan = 12) {
     $nama_bulan = 'Desember';
-}
+};
 // Skrip berikut ini adalah skrip yang bertugas untuk meng-export data tadi ke excell
 header("Content-type: application/vnd-ms-excel");
 header("Content-Disposition: attachment; filename=Data Presensi Kelas $kelas[nama_kelas] Bulan $nama_bulan.xls");
