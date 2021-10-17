@@ -2,7 +2,7 @@
 require "../../config/database.php";
 require "../../config/function.php";
 require "../../config/functions.crud.php";
-require("../../config/tahun.ajaran.php");
+require "../../config/tahun.ajaran.php";
 $id_kelas = dekripsi($_GET['id']);
 $bulan    = $_GET['bulan'];
 $kelas = fetch($koneksi, 'kelas', ['id_kelas' => $id_kelas]);
