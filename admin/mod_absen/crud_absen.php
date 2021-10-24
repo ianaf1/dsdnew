@@ -79,5 +79,5 @@ if ($pg == 'hostmode') {
     $pesan = [
         'mode' => $modemesin
     ];
-    echo json_encode($pesan);
+    echo $pesan;
 }
