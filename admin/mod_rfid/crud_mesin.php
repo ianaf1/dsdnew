@@ -9,9 +9,9 @@ if (!isset($_SESSION['id_user'])) {
 }
 if ($pg == 'ubah') {
     $data = [
-        'nama_hari'         => $_POST['nama_hari'],
-        'jam_msk'         => $_POST['jam_msk'],
-        'jam_keluar'       => $_POST['jam_keluar']
+        'kode'         => $_POST['kode'],
+        'nama'         => $_POST['nama'],
+        'mode'       => $_POST['mode']
     ];
     $id_hari = $_POST['id_hari'];
     update($koneksi, 'hari', $data, ['id_hari' => $id_hari]);

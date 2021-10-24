@@ -19,11 +19,11 @@
                         </div>
                         <div class="form-group">
                             <label>Nama</label>
-                            <input type="text" name="jam_msk" class="form-control" required="">
+                            <input type="text" name="nama" class="form-control" required="">
                         </div>
                         <div class="form-group">
                             <label>Mode</label>
-                            <input type="text" name="jam_keluar" class="form-control" required="">
+                            <input type="text" name="mode" class="form-control" required="">
                         </div>
                     </div>
                     <div class="modal-footer">
