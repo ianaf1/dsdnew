@@ -5,6 +5,7 @@ require("../../config/functions.crud.php");
 require("../../config/tahun.ajaran.php");
 // session_start();
 if ($pg == 'presen') {
+    $nokartu = $_GET['nokartu'];
     $tgl = date('Ymd');
     $hari = hari_ini();
     $hariini = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM hari where nama_hari = '$hari'"));
@@ -68,4 +69,15 @@ if ($pg == 'presen') {
         ];
         echo json_encode($pesan);
     }
+}
+
+if ($pg == 'hostmode') {
+    $kodemesin = $_GET['iddev'];
+    $query = mysqli_query($koneksi, "SELECT mode FROM mesin WHERE kode='$kode'");
+    $mode = mysqli_fetch_array($query);
+    $modemesin = $mode['mode'];
+    $pesan = [
+        'mode' => $modemesin
+    ];
+    echo json_encode($pesan);
 }
