@@ -10,8 +10,8 @@ if ($pg == 'ubah') {
         'nama'         => $_POST['nama'],
         'mode'       => $_POST['mode']
     ];
-    $id_hari = $_POST['id_hari'];
-    update($koneksi, 'hari', $data, ['id_hari' => $id_hari]);
+    $id = $_POST['id'];
+    update($koneksi, 'mesin', $data, ['id' => $id]);
 }
 if ($pg == 'tambah') {
     $data = [
@@ -19,10 +19,10 @@ if ($pg == 'tambah') {
         'nama'         => $_POST['nama'],
         'mode'       => $_POST['mode']
     ];
-    insert($koneksi, 'hari', $data);
+    insert($koneksi, 'mesin', $data);
     echo $exec;
 }
 if ($pg == 'hapus') {
-    $id_biaya = $_POST['id_hari'];
-    delete($koneksi, 'hari', ['id_hari' => $id_hari]);
+    $id_biaya = $_POST['id'];
+    delete($koneksi, 'mesin', ['id' => $id]);
 }
