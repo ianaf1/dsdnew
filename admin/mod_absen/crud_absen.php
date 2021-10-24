@@ -75,5 +75,5 @@ if ($pg == 'hostmode') {
     $query = mysqli_query($koneksi, "SELECT mode FROM mesin");
     $mode = mysqli_fetch_array($query);
     $modemesin = $mode['mode'];
-    echo $modemesin;
+    echo json_encode($modemesin);
 }
