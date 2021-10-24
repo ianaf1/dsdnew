@@ -68,4 +68,6 @@ if ($pg == '') {
     include "mod_presensi/presensi_kelas.php";
 } elseif ($pg == 'rekap_presensi') {
     include "mod_presensi/rekap_presensi.php";
+} elseif ($pg == 'mesin') {
+    include "mod_rfid/mesin.php";
 }

@@ -44,6 +44,7 @@
                     <a class="collapse-item" href="?pg=biaya">Master Biaya</a>
                     <a class="collapse-item" href="?pg=kelas">Master Kelas</a>
                     <a class="collapse-item" href="?pg=masterabsen">Master Absensi</a>
+                    <a class="collapse-item" href="?pg=mesin">Master Mesin</a>
                 </div>
             </div>
         </li>
