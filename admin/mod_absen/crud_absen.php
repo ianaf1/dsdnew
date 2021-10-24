@@ -72,8 +72,7 @@ if ($pg == 'presen') {
 }
 
 if ($pg == 'hostmode') {
-    $kodemesin = $_GET['iddev'];
-    $query = mysqli_query($koneksi, "SELECT mode FROM mesin WHERE kode='$kode'");
+    $query = mysqli_query($koneksi, "SELECT mode FROM mesin");
     $mode = mysqli_fetch_array($query);
     $modemesin = $mode['mode'];
     $pesan = [
