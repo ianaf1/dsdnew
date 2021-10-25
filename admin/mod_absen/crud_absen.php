@@ -78,5 +78,6 @@ if ($pg == 'hostmode') {
     $pesan = [
         'mode' => $modemesin
     ];
+    header('Content-Type: application/json');
     echo json_encode($pesan);
 }
