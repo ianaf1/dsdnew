@@ -111,14 +111,14 @@ if ($pg == 'scanmode') {
     $jam_msk = $hariini['jam_msk'];
     $jam_plg = $hariini['jam_keluar'];
     $nis = mysqli_fetch_array(mysqli_query($koneksi, "SELECT nis FROM rfid WHERE uid='$rfid'"));
-    $siswaQ = mysqli_query($koneksi, "SELECT * FROM daftar WHERE nis='$nis'");
+    $siswaQ = mysqli_query($koneksi, "SELECT * FROM daftar WHERE nis='$nis[nis]'");
     $siswaR = mysqli_fetch_array($siswaQ);
     $presensiQ = mysqli_query($koneksi, "SELECT * FROM presensi WHERE nis='$siswaR[nis]' AND tgl='$tgl'");
     $presensiR = mysqli_fetch_array($presensiQ);
     if (mysqli_num_rows($siswaQ) == 1) {
         if (mysqli_num_rows($presensiQ) == 0 && $jam < $jam_msk) {
             $data = [
-                'nis' => $nis,
+                'nis' => $nis['nis'],
                 'nama' => $siswaR['nama'],
                 'id_kelas' => $siswaR['id_kelas'],
                 'tgl' => $tgl,
@@ -169,7 +169,7 @@ if ($pg == 'scanmode') {
         }
     } else {
         $pesan = [
-            'pesan' => 'tdk_ditemukan'
+            'status' => 'Tidak Ditemukan'
         ];
         header('Content-Type: application/json');
         echo json_encode($pesan);
