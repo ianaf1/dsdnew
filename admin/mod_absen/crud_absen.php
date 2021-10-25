@@ -90,7 +90,7 @@ if ($pg == 'addmode') {
             'uid' => $rfid
         ];
         $pesan = [
-            'mode' => $modemesin
+            'status' => 'ID Sukses Didaftarkan'
         ];
         insert($koneksi, 'rfid', $data);
         header('Content-Type: application/json');
