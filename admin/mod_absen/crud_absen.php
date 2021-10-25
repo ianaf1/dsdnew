@@ -81,3 +81,25 @@ if ($pg == 'hostmode') {
     header('Content-Type: application/json');
     echo json_encode($pesan);
 }
+
+if ($pg == 'addmode') {
+    $rfid = $_GET['rfid'];
+    $query = mysqli_query($koneksi, "SELECT * FROM rfid WHERE uid ='$rfid'");
+    if (mysqli_num_rows($query) < 1) {
+        $data = [
+            'uid' => $rfid
+        ];
+        $pesan = [
+            'mode' => $modemesin
+        ];
+        insert($koneksi, 'rfid', $data);
+        header('Content-Type: application/json');
+        echo json_encode($pesan);
+    } else {
+        $pesan = [
+            'status' => 'ID Telah Terdaftar'
+        ];
+        header('Content-Type: application/json');
+        echo json_encode($pesan);
+    }
+}
