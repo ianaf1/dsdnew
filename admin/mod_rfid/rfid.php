@@ -24,9 +24,9 @@
                                 <?php
                                 $query = mysqli_query($koneksi, "select * from rfid");
                                 $no = 0;
+                                $nama = mysqli_fetch_array(mysqli_query($koneksi, "select nama from daftar where nis='$rfid[nis]' "));
                                 while ($rfid = mysqli_fetch_array($query)) {
                                     $no++;
-                                    $nama = mysqli_fetch_array(mysqli_query($koneksi, "select nama from daftar where nis='$rfid[nis]' "))
                                 ?>
                                     <tr>
                                         <td class="text-center"><?= $no; ?></td>
