@@ -9,5 +9,5 @@ if ($pg == 'ubah') {
         'nis'         => $_POST['nis'],
     ];
     $id = $_POST['id'];
-    update($koneksi, 'mesin', $data, ['id' => $id]);
+    update($koneksi, 'rfid', $data, ['id' => $id]);
 }
