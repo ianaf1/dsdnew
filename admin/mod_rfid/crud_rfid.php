@@ -1,0 +1,13 @@
+<?php
+require("../../config/database.php");
+require("../../config/function.php");
+require("../../config/functions.crud.php");
+require("../../config/tahun.ajaran.php");
+
+if ($pg == 'ubah') {
+    $data = [
+        'nis'         => $_POST['nis'],
+    ];
+    $id = $_POST['id'];
+    update($koneksi, 'mesin', $data, ['id' => $id]);
+}

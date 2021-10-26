@@ -70,4 +70,6 @@ if ($pg == '') {
     include "mod_presensi/rekap_presensi.php";
 } elseif ($pg == 'mesin') {
     include "mod_rfid/mesin.php";
+} elseif ($pg == 'rfid') {
+    include "mod_rfid/rfid.php";
 }

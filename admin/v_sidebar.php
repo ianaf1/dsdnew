@@ -83,6 +83,7 @@
                     <h6 class="collapse-header">Presensi</h6>
                     <a class="collapse-item" href="?pg=presensi_kelas">Presensi Siswa</a>
                     <a class="collapse-item" href="?pg=rekap_presensi">Rekap Presensi</a>
+                    <a class="collapse-item" href="?pg=rfid">Kartu RFID</a>
                 </div>
             </div>
         </li>
