@@ -24,9 +24,9 @@
                                 <?php
                                 $query = mysqli_query($koneksi, "select * from rfid");
                                 $no = 0;
-                                $nama = mysqli_fetch_array(mysqli_query($koneksi, "select nama from daftar where nis='$rfid[nis]' "));
                                 while ($rfid = mysqli_fetch_array($query)) {
                                     $no++;
+                                    $nama = mysqli_fetch_array(mysqli_query($koneksi, "select nama from daftar where nis='$rfid[nis]' "));
                                 ?>
                                     <tr>
                                         <td class="text-center"><?= $no; ?></td>
@@ -60,8 +60,8 @@
                                                                     <select class="form-control select2" style="width: 100%" name="id_daftar" required>
                                                                         <option value="">Pilih Siswa</option>
                                                                         <?php
-                                                                        $query = mysqli_query($koneksi, "select * from daftar");
-                                                                        while ($siswa = mysqli_fetch_array($query)) {
+                                                                        $datasiswa = mysqli_query($koneksi, "select * from daftar");
+                                                                        while ($siswa = mysqli_fetch_array($datasiswa)) {
                                                                         ?>
                                                                             <option value="<?= $siswa['nis'] ?>"><?= $siswa['nama'] ?></option>
                                                                         <?php } ?>
