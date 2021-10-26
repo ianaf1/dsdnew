@@ -126,14 +126,14 @@ if ($pg == 'scanmode') {
                 'ket'   => 'Bolos'
             ];
             $pesan = [
-                'status' => 'Berhasil Presensi'
+                'status' => ' Presensi Sukses'
             ];
             header('Content-Type: application/json');
             echo json_encode($pesan);
             insert($koneksi, 'presensi', $data);
         } elseif (mysqli_num_rows($presensiQ) == 0 && $jam > $jam_msk) {
             $pesan = [
-                'status' => 'ggl_masuk'
+                'status' => ' Presensi Gagal '
             ];
             header('Content-Type: application/json');
             echo json_encode($pesan);
@@ -143,26 +143,26 @@ if ($pg == 'scanmode') {
                 'ket' => 'Hadir'
             ];
             $pesan = [
-                'status' => 'pulang'
+                'status' => ' Pulang Sukses  '
             ];
             header('Content-Type: application/json');
             echo json_encode($pesan);
             update($koneksi, 'presensi', $data, ['id_presensi' => $presensiR['id_presensi']]);
         } elseif (mysqli_num_rows($presensiQ) == 1 && $presensiR['jam_msk'] > '00:00:00' && $jam > $jam_msk && $jam < $jam_plg) {
             $pesan = [
-                'status' => 'ggl_pulang'
+                'status' => ' Blm Jam Pulang '
             ];
             header('Content-Type: application/json');
             echo json_encode($pesan);
         } elseif (mysqli_num_rows($presensiQ) == 1 && $presensiR['jam_msk'] > '00:00:00' && $jam < $jam_msk) {
             $pesan = [
-                'status' => 'sudah_absen'
+                'status' => ' Sudah Presensi '
             ];
             header('Content-Type: application/json');
             echo json_encode($pesan);
         } elseif (mysqli_num_rows($presensiQ) == 1 && $presensiR['jam_msk'] > '00:00:00' && $presensiR['jam_plg'] > '00:00:00') {
             $pesan = [
-                'status' => 'sudah_presensi'
+                'status' => 'Sdh Presensi Plg'
             ];
             header('Content-Type: application/json');
             echo json_encode($pesan);
