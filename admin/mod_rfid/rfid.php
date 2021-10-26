@@ -26,11 +26,12 @@
                                 $no = 0;
                                 while ($rfid = mysqli_fetch_array($query)) {
                                     $no++;
+                                    $nama = mysqli_fetch_array(mysqli_query($koneksi, "select nama from daftar where nis='$rfid[nis]' "))
                                 ?>
                                     <tr>
                                         <td class="text-center"><?= $no; ?></td>
                                         <td class="text-center"><?= $rfid['uid'] ?></td>
-                                        <td class="text-center"><?= $nama = mysqli_fetch_array(mysqli_query($koneksi, "select nama from daftar where nis='$rfid[nis]' ")) ?></td>
+                                        <td class="text-center"><?= $nama['nama'] ?></td>
                                         <td class="text-center"><?= $rfid['nis'] ?></td>
                                         <td class="text-center">
                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit<?= $no ?>">
