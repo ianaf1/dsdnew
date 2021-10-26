@@ -57,7 +57,7 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Nama Siswa</label>
-                                                                    <select class="form-control select2" style="width: 100%" name="id_daftar" required>
+                                                                    <select class="form-control select2" style="width: 100%" name="nis" required>
                                                                         <option value="">Pilih Siswa</option>
                                                                         <?php
                                                                         $datasiswa = mysqli_query($koneksi, "select * from daftar");
