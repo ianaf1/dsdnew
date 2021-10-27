@@ -16,3 +16,7 @@ if ($pg == 'ubah') {
     $id_presensi = $_POST['id_presensi'];
     update($koneksi, 'presensi', $data, ['id_presensi' => $id_presensi]);
 }
+if ($pg == 'hapus') {
+    $id_presensi = $_POST['id_presensi'];
+    delete($koneksi, 'presensi', ['id_presensi' => $id_presensi]);
+}

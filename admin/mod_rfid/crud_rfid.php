@@ -11,3 +11,7 @@ if ($pg == 'ubah') {
     $id = $_POST['id'];
     update($koneksi, 'rfid', $data, ['id' => $id]);
 }
+if ($pg == 'hapus') {
+    $id = $_POST['id'];
+    delete($koneksi, 'rfid', ['id' => $id]);
+}
