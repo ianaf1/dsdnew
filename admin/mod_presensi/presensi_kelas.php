@@ -257,3 +257,35 @@
         </div>
     </div>
 <?php } ?>
+<script>
+    $('#dataTable').on('click', '.hapus', function() {
+        var id = $(this).data('id');
+        console.log(id);
+        swal({
+            title: 'Are you sure?',
+            text: 'Akan menghapus data ini!',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true,
+        }).then((result) => {
+            if (result) {
+                $.ajax({
+                    url: 'mod_presensi/crud_presensi.php?pg=hapus',
+                    method: "POST",
+                    data: 'id=' + id,
+                    success: function(data) {
+                        iziToast.error({
+                            title: 'Horee!',
+                            message: 'Data Berhasil dihapus',
+                            position: 'topRight'
+                        });
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 2000);
+                    }
+                });
+            }
+        })
+
+    });
+</script>
