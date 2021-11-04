@@ -50,11 +50,11 @@
         </li>
 
 
-        <!-- <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link" href="?pg=guru">
                 <i class="fas fa-address-card"></i>
                 <span>Data Guru</span></a>
-        </li> -->
+        </li>
 
         <!-- Nav Item - Pages Siswa Menu -->
         <li class="nav-item">
