@@ -50,11 +50,11 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseTwo">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapselima" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-address-card"></i>
                 <span>Data Guru</span>
             </a>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapselima" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Data Guru</h6>
                     <a class="collapse-item" href="?pg=guru">Daftar Guru</a>
