@@ -49,11 +49,20 @@
             </div>
         </li>
 
-
         <li class="nav-item">
-            <a class="nav-link" href="?pg=guru">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-address-card"></i>
-                <span>Data Guru</span></a>
+                <span>Data Guru</span>
+            </a>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Data Guru</h6>
+                    <a class="collapse-item" href="?pg=guru">Daftar Guru</a>
+                    <a class="collapse-item" href="?pg=presensi_guru">Presensi Guru</a>
+                    <a class="collapse-item" href="?pg=rekap_presensi_guru">Rekap Presensi</a>
+                    <a class="collapse-item" href="?pg=rfid_guru">Kartu RFID</a>
+                </div>
+            </div>
         </li>
 
         <!-- Nav Item - Pages Siswa Menu -->
@@ -76,11 +85,11 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-user-friends"></i>
-                <span>Presensi</span>
+                <span>Presensi Siswa</span>
             </a>
             <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Presensi</h6>
+                    <h6 class="collapse-header">Presensi Siswa</h6>
                     <a class="collapse-item" href="?pg=presensi_kelas">Presensi Siswa</a>
                     <a class="collapse-item" href="?pg=rekap_presensi">Rekap Presensi</a>
                     <a class="collapse-item" href="?pg=rfid">Kartu RFID</a>
