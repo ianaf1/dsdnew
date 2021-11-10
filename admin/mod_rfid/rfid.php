@@ -61,8 +61,8 @@
                                                                     <select class="form-control select2" style="width: 100%" name="nis" required>
                                                                         <option value="">Pilih Siswa</option>
                                                                         <?php
-                                                                        $datasiswa = mysqli_query($koneksi, "select * from daftar");
-                                                                        while ($siswa = mysqli_fetch_array($datasiswa)) {
+                                                                        $daftarsiswa = mysqli_query($koneksi, "select * from daftar");
+                                                                        while ($siswa = mysqli_fetch_array($daftarsiswa)) {
                                                                         ?>
                                                                             <option value="<?= $siswa['nis'] ?>"><?= $siswa['nama'] ?></option>
                                                                         <?php } ?>
@@ -77,32 +77,32 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <script>
+                                                $('#form-edituid<?= $no ?>').submit(function(e) {
+                                                    e.preventDefault();
+                                                    $.ajax({
+                                                        type: 'POST',
+                                                        url: 'mod_rfid/crud_rfid.php?pg=ubah',
+                                                        data: $(this).serialize(),
+                                                        success: function(data) {
+
+                                                            iziToast.success({
+                                                                title: 'OKee!',
+                                                                message: 'Data Berhasil diubah',
+                                                                position: 'topRight'
+                                                            });
+                                                            setTimeout(function() {
+                                                                window.location.reload();
+                                                            }, 2000);
+                                                            $('#modal-edit<?= $no ?>').modal('hide');
+                                                            //$('#bodyreset').load(location.href + ' #bodyreset');
+                                                        }
+                                                    });
+                                                    return false;
+                                                });
+                                            </script>
                                         </td>
                                     </tr>
-                                    <script>
-                                        $('#form-edituid<?= $no ?>').submit(function(e) {
-                                            e.preventDefault();
-                                            $.ajax({
-                                                type: 'POST',
-                                                url: 'mod_rfid/crud_rfid.php?pg=ubah',
-                                                data: $(this).serialize(),
-                                                success: function(data) {
-
-                                                    iziToast.success({
-                                                        title: 'OKee!',
-                                                        message: 'Data Berhasil diubah',
-                                                        position: 'topRight'
-                                                    });
-                                                    setTimeout(function() {
-                                                        window.location.reload();
-                                                    }, 2000);
-                                                    $('#modal-edit<?= $no ?>').modal('hide');
-                                                    //$('#bodyreset').load(location.href + ' #bodyreset');
-                                                }
-                                            });
-                                            return false;
-                                        });
-                                    </script>
                                 <?php }
                                 ?>
                             </tbody>
