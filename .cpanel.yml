@@ -4,8 +4,6 @@ deployment:
     - export DEPLOYPATH=/home/u3688835/public_html/
     - /bin/cp .cpanel.yml $DEPLOYPATH
     - /bin/cp .htaccess $DEPLOYPATH
-    - /bin/cp composer.json $DEPLOYPATH
-    - /bin/cp composer.lock $DEPLOYPATH
     - /bin/cp crud_web.php $DEPLOYPATH
     - /bin/cp index.php $DEPLOYPATH
     - /bin/cp prepros.config $DEPLOYPATH
