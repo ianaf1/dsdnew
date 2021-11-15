@@ -61,7 +61,7 @@
                                                                     <select class="form-control select2" style="width: 100%" name="nis" required>
                                                                         <option value="">Pilih Siswa</option>
                                                                         <?php
-                                                                        $daftarsiswa = mysqli_query($koneksi, "select * from daftar a join kelas b on a.id_daftar=b.id_daftar");
+                                                                        $daftarsiswa = mysqli_query($koneksi, "select * from daftar a join kelas b on a.id_kelas=b.id_kelas");
                                                                         while ($siswa = mysqli_fetch_array($daftarsiswa)) {
                                                                         ?>
                                                                             <option value="<?= $siswa['nis'] ?>"><?= $siswa['nama'] ?> | <?= $siswa['nama_kelas'] ?></option>
