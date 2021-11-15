@@ -80,6 +80,13 @@ if (isset($_SESSION['id_user'])) {
     <script src="../assets/modules/sweetalert/sweetalert.min.js"></script>
     <!-- JS Libraies -->
     <script src="../assets/modules/cleave-js/dist/cleave.min.js"></script>
+    <script>
+      $('select:not(.normal)').each(function() {
+        $(this).select2({
+          dropdownParent: $(this).parent()
+        });
+      });
+    </script>
 
     <!-- scan qr -->
     <!-- <link rel="stylesheet" rel="preload" as="style" onload="this.rel='stylesheet';this.onload=null" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">

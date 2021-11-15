@@ -114,6 +114,12 @@
     </div>
 </div>
 <script>
+    $('select:not(.normal)').each(function() {
+        $(this).select2({
+            dropdownParent: $(this).parent()
+        });
+    });
+
     $('#dataTable').on('click', '.hapus', function() {
         var id = $(this).data('id');
         console.log(id);
