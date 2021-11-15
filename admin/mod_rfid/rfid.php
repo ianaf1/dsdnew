@@ -40,7 +40,7 @@
                                             <button data-id="<?= $rfid['id'] ?>" class="hapus btn-sm btn btn-danger"><i class="fas fa-trash"></i></button>
 
                                             <!-- Modal -->
-                                            <div class="modal fade" id="modal-edit<?= $no ?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                            <div class="modal fade" id="modal-edit<?= $no ?>" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <form id="form-edituid<?= $no ?>">
@@ -61,10 +61,10 @@
                                                                     <select class="form-control select2" style="width: 100%" name="nis" required>
                                                                         <option value="">Pilih Siswa</option>
                                                                         <?php
-                                                                        $daftarsiswa = mysqli_query($koneksi, "select * from daftar");
+                                                                        $daftarsiswa = mysqli_query($koneksi, "select * from daftar a join kelas b on a.id_daftar=b.id_daftar");
                                                                         while ($siswa = mysqli_fetch_array($daftarsiswa)) {
                                                                         ?>
-                                                                            <option value="<?= $siswa['nis'] ?>"><?= $siswa['nama'] ?></option>
+                                                                            <option value="<?= $siswa['nis'] ?>"><?= $siswa['nama'] ?> | <?= $siswa['nama_kelas'] ?></option>
                                                                         <?php } ?>
                                                                     </select>
                                                                 </div>
