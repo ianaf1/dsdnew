@@ -253,7 +253,7 @@
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="tgl">Tanggal Pembayaran</label>
-                                                                        <input type="text" class="form-control datepicker" value="<?= $bayar['tgl_bayar'] ?>" name="tgl" id="tgl" placeholder="">
+                                                                        <input type="date" class="form-control datepicker" value="<?= $bayar['tgl_bayar'] ?>" name="tgl" id="tgl" placeholder="">
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
