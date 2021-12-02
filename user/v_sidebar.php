@@ -47,6 +47,11 @@
                 <span>Pembayaran</span></a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="?pg=presensi"">
+                <i class=" fas fa-money-bill"></i>
+                <span>Presensi</span></a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="?pg=pengumuman">
                 <i class="fas fa-user-friends"></i>
                 <span>Pengumuman</span></a>
