@@ -5,7 +5,7 @@
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h5 class="m-0 font-weight-bold text-primary">Data Kehadiran <?= $siswa['nama'] ?></h5>
                 <div class="card-header-action">
-                    <b>Total Kehadiran <?= mysqli_num_rows(mysqli_query($koneksi, "select * from presensi where nis='$siswa[nis]' AND ket=Hadir")) ?></b>
+                    <b>Total Kehadiran <?= mysqli_num_rows(mysqli_query($koneksi, "select * from presensi where nis='$siswa[nis]' AND ket='Hadir'")) ?></b>
                 </div>
             </div>
             <div class="card-body">
