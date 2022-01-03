@@ -204,7 +204,7 @@ $saldoawal = $saldolama;
                             $query = mysqli_query($koneksi, "select * from bulan where id_bulan='$id_bulan[id_bulan]'");
                             $bulan = mysqli_fetch_array($query);
                             $namabulan = $bulan['nama_bulan'];
-                            echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan[id_bulan]'>Download</a>";
+                            echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$id_bulan'>Download</a>";
                         }
                         ?>
                     </div>
