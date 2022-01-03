@@ -2,10 +2,10 @@
 require "../../config/database.php";
 require "../../config/function.php";
 require "../../config/functions.crud.php";
-if (dekripsi($_GET['id']) == '') {
-    $id_bulan = date('m');
-} else {
+if (dekripsi($_GET['id'])) {
     $id_bulan = $_GET['id'];
+} else {
+    $id_bulan = date('m');
 }
 $bulan = fetch($koneksi, 'bulan', ['id_bulan' => $id_bulan]);
 $saldo = mysqli_query($koneksi, "select saldo * from transaksi  order by tgl_bayar asc");
