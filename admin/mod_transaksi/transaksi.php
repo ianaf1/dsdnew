@@ -200,6 +200,10 @@ $saldoawal = $saldolama;
                             $bulan = date('m');
                             echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan'>Download</a>";
                         } else {
+                            $id_bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['id'])]);
+                            $query = mysqli_query($koneksi, "select * from bulan where id_bulan='$id_bulan[id_bulan]'");
+                            $bulan = mysqli_fetch_array($query);
+                            $namabulan = $bulan['nama_bulan'];
                             echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan[id_bulan]'>Download</a>";
                         }
                         ?>
