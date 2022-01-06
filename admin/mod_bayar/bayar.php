@@ -165,7 +165,7 @@
                                 <tbody>
 
                                     <?php
-                                    $query = mysqli_query($koneksi, "select * from bayar a join daftar b ON a.id_daftar=b.id_daftar where a.verifikasi='1'");
+                                    $query = mysqli_query($koneksi, "select * from bayar a join daftar b ON a.id_daftar=b.id_daftar where a.verifikasi='1' AND a.id_semester != '$semester_aktif[id_semester]' AND thn_ajaran !='$tahun_ajaran_aktif[nama_thn_ajaran]'");
                                     $no = 0;
                                     while ($bayar = mysqli_fetch_array($query)) {
                                         $user = fetch($koneksi, 'user', ['id_user' => $bayar['id_user']]);
