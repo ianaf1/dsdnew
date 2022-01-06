@@ -17,8 +17,19 @@ $saldoawal = $saldolama;
         <div class="form-row">
             <div class="col-md-6 col-xs-6">
                 <div class="form-group">
-                    <select class="form-control select2" style="width: 100%" name="id" required>
+                    <select class="form-control select2" style="width: 50%" name="bulan" required>
                         <option value="">Pilih Bulan</option>
+                        <?php
+                        $query = mysqli_query($koneksi, "select * from bulan");
+                        while ($bulan = mysqli_fetch_array($query)) {
+                        ?>
+                            <option value="<?= enkripsi($bulan['id_bulan']) ?>"><?= $bulan['nama_bulan'] ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control select2" style="width: 50%" name="tahun" required>
+                        <option value="">Pilih Tahun</option>
                         <?php
                         $query = mysqli_query($koneksi, "select * from bulan");
                         while ($bulan = mysqli_fetch_array($query)) {
