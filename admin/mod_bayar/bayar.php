@@ -109,10 +109,10 @@
 
                                     while ($daftar = mysqli_fetch_array($query)) {
                                         $q2 = mysqli_query($koneksi, "select sum(jumlah) as total from biaya where id_kelas='$daftar[kelas]' AND id_semester != '$semester_aktif[id_semester]' OR thn_ajaran!='$tahun_ajaran_aktif[nama_thn_ajaran]'");
-                                        $q3 = mysqli_query($koneksi, "select sum(jumlah) as total from siswa_tunggakan where id_daftar='$daftar[id_daftar]'");
-                                        $q4 = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$daftar[id_daftar]' AND id_biaya='L'");
-                                        $tunggakansiswa = mysqli_fetch_array($q3);
                                         $biayasiswa = mysqli_fetch_array($q2);
+                                        $q3 = mysqli_query($koneksi, "select sum(jumlah) as total from siswa_tunggakan where id_daftar='$daftar[id_daftar]'");
+                                        $tunggakansiswa = mysqli_fetch_array($q3);
+                                        $q4 = mysqli_query($koneksi, "select sum(jumlah) as total from bayar where id_daftar='$daftar[id_daftar]' AND id_biaya='L' OR id_daftar='$daftar[id_daftar]' AND id_biaya='$biayasiswa[id_biaya]'");
                                         $siswabayar = mysqli_fetch_array($q4);
                                         $totaltunggakan = $biayasiswa['total'] + $tunggakansiswa['total'] - $siswabayar['total'];
                                         $no++;
@@ -577,7 +577,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $query = mysqli_query($koneksi, "select * from siswa_tunggakan where id_daftar='$siswa[id_daftar]'");
+                                $query = mysqli_query($koneksi, "select * siswa_tunggakan where id_daftar='$siswa[id_daftar]'");
                                 $no = 0;
                                 while ($tunggakan = mysqli_fetch_array($query)) {
                                     $no++;
