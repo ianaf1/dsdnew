@@ -126,14 +126,16 @@ if ($pg == 'scanmode') {
                 'ket'   => 'Bolos'
             ];
             $pesan = [
-                'status' => ' Presensi Sukses'
+                'status' => 'Presensi Sukses',
+                'nama'   => $siswaR['nama']
             ];
             header('Content-Type: application/json');
             echo json_encode($pesan);
             insert($koneksi, 'presensi', $data);
         } elseif (mysqli_num_rows($presensiQ) == 0 && $jam > $jam_msk) {
             $pesan = [
-                'status' => ' Presensi Gagal '
+                'status' => ' Presensi Gagal ',
+                'nama'   => $siswaR['nama']
             ];
             header('Content-Type: application/json');
             echo json_encode($pesan);
@@ -143,26 +145,30 @@ if ($pg == 'scanmode') {
                 'ket' => 'Hadir'
             ];
             $pesan = [
-                'status' => ' Pulang Sukses  '
+                'status' => ' Pulang Sukses  ',
+                'nama'   => $siswaR['nama']
             ];
             header('Content-Type: application/json');
             echo json_encode($pesan);
             update($koneksi, 'presensi', $data, ['id_presensi' => $presensiR['id_presensi']]);
         } elseif (mysqli_num_rows($presensiQ) == 1 && $presensiR['jam_msk'] > '00:00:00' && $jam > $jam_msk && $jam < $jam_plg) {
             $pesan = [
-                'status' => ' Blm Jam Pulang '
+                'status' => ' Blm Jam Pulang ',
+                'nama'   => $siswaR['nama']
             ];
             header('Content-Type: application/json');
             echo json_encode($pesan);
         } elseif (mysqli_num_rows($presensiQ) == 1 && $presensiR['jam_msk'] > '00:00:00' && $jam < $jam_msk) {
             $pesan = [
-                'status' => ' Sudah Presensi '
+                'status' => ' Sudah Presensi ',
+                'nama'   => $siswaR['nama']
             ];
             header('Content-Type: application/json');
             echo json_encode($pesan);
         } elseif (mysqli_num_rows($presensiQ) == 1 && $presensiR['jam_msk'] > '00:00:00' && $presensiR['jam_plg'] > '00:00:00') {
             $pesan = [
-                'status' => 'Sdh Presensi Plg'
+                'status' => 'Sdh Presensi Plg',
+                'nama'   => $siswaR['nama']
             ];
             header('Content-Type: application/json');
             echo json_encode($pesan);
