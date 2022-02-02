@@ -121,16 +121,14 @@
                                 $query = mysqli_query($koneksi, "select * from daftar a  join kelas b ON a.id_kelas = b.id_kelas where a.id_kelas='$kelas[id_kelas]' order by a.nama asc");
                                 $no = 0;
                                 while ($rombel = mysqli_fetch_array($query)) {
-                                    $qbulan = mysqli_query($koneksi, "SELECT distinct(EXTRACT(MONTH FROM tgl)) as p_bulan from presensi");
-                                    $fbulan = mysqli_fetch_array($qbulan);
                                     $no++;
                                 ?>
                                     <tr>
                                         <td><?= $no; ?></td>
                                         <td><?= $rombel['nis'] ?></td>
                                         <td><?= $rombel['nama'] ?></td>
-                                        <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from presensi where nis='$rombel[nis]' AND ket='Hadir' AND '$fbulan[p_bulan]'='$bulan' ")) ?> </td>
-                                        <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from presensi where nis='$rombel[nis]' AND ket='Bolos' AND '$fbulan[p_bulan]'='$bulan' ")) ?> </td>
+                                        <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from presensi where nis='$rombel[nis]' AND ket='Hadir' ")) ?> </td>
+                                        <td><?= mysqli_num_rows(mysqli_query($koneksi, "select * from presensi where nis='$rombel[nis]' AND ket='Bolos' ")) ?> </td>
                                     </tr>
                                 <?php }
                                 ?>
