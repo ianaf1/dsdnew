@@ -6,6 +6,8 @@ require("../../config/tahun.ajaran.php");
 // session_start();
 if ($pg == 'presen') {
     $tgl = date('Ymd');
+    $bulan = date('m');
+    $tahun = date('Y');
     $hari = hari_ini();
     $hariini = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM hari where nama_hari = '$hari'"));
     $jam = date('H:i:s');
@@ -23,6 +25,8 @@ if ($pg == 'presen') {
                 'nama' => $siswaR['nama'],
                 'id_kelas' => $siswaR['id_kelas'],
                 'tgl' => $tgl,
+                'bulan' => $bulan,
+                'tahun' => $tahun,
                 'hari' => $hariini['nama_hari'],
                 'ket'   => 'Bolos'
             ];
@@ -105,6 +109,8 @@ if ($pg == 'addmode') {
 if ($pg == 'scanmode') {
     $rfid = $_GET['rfid'];
     $tgl = date('Ymd');
+    $bulan = date('m');
+    $tahun = date('Y');
     $hari = hari_ini();
     $hariini = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM hari where nama_hari = '$hari'"));
     $jam = date('H:i:s');
@@ -122,6 +128,8 @@ if ($pg == 'scanmode') {
                 'nama' => $siswaR['nama'],
                 'id_kelas' => $siswaR['id_kelas'],
                 'tgl' => $tgl,
+                'bulan' => $bulan,
+                'tahun' => $tahun,
                 'hari' => $hariini['nama_hari'],
                 'ket'   => 'Bolos'
             ];
