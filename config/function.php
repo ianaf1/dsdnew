@@ -342,9 +342,3 @@ function hari_ini()
 	}
 	return $hari_ini;
 }
-<?php
-                                                            $daftarsiswa = mysqli_query($koneksi, "select * from daftar a join kelas b on a.id_kelas=b.id_kelas order by b.nama_kelas");
-                                                            while ($siswa = mysqli_fetch_array($daftarsiswa)) {
-                                                            ?>
-                                                                <option value="<?= $siswa['nis'] ?>"><?= $siswa['nama'] ?> | <?= $siswa['nama_kelas'] ?></option>
-                                                            <?php } ?>
