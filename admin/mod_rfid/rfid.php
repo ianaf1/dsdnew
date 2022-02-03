@@ -37,10 +37,13 @@
                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit<?= $no ?>">
                                                 Edit
                                             </button>
-                                            <button data-id="<?= $rfid['uid'] ?>" class="hapus btn-sm btn btn-danger"><i class="fas fa-trash"></i></button>
-
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="modal-edit<?= $no ?>" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                            <button data-id="<?= $rfid['id'] ?>" class="hapus btn-sm btn btn-danger"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                <?php }
+                                ?>
+                                <!-- Modal -->
+                                <div class="modal fade" id="modal-edit<?= $no ?>" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <form id="form-edituid<?= $no ?>">
@@ -61,8 +64,9 @@
                                                                     <select class="form-control select2" style="width: 100%" name="nis" required>
                                                                         <option value="">Pilih Siswa</option>
                                                                         <?php
-                                                                        $siswa = mysqli_query(mysqli_fetch_array($koneksi, "select * from daftar a join kelas b on a.id_kelas=b.id_kelas order by b.nama_kelas"));
-                                                                         { ?>
+                                                                        $daftarsiswa = mysqli_query($koneksi, "select * from daftar a join kelas b on a.id_kelas=b.id_kelas order by b.nama_kelas");
+                                                                        while ($siswa = mysqli_fetch_array($daftarsiswa)) {
+                                                                        ?>
                                                                             <option value="<?= $siswa['nis'] ?>"><?= $siswa['nama'] ?> | <?= $siswa['nama_kelas'] ?></option>
                                                                         <?php } ?>
                                                                     </select>
@@ -100,10 +104,6 @@
                                                     return false;
                                                 });
                                             </script>
-                                        </td>
-                                    </tr>
-                                <?php }
-                                ?>
                             </tbody>
                         </table>
                     </div>
@@ -120,7 +120,7 @@
     });
 
     $('#dataTable').on('click', '.hapus', function() {
-        var id = $(this).data('uid');
+        var id = $(this).data('id');
         console.log(id);
         swal({
             title: 'Are you sure?',
@@ -133,7 +133,7 @@
                 $.ajax({
                     url: 'mod_rfid/crud_rfid.php?pg=hapus',
                     method: "POST",
-                    data: 'uid=' + id,
+                    data: 'id=' + id,
                     success: function(data) {
                         iziToast.error({
                             title: 'Horee!',
