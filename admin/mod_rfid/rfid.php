@@ -38,6 +38,7 @@
                                                 Edit
                                             </button>
                                             <button data-id="<?= $rfid['id'] ?>" class="hapus btn-sm btn btn-danger"><i class="fas fa-trash"></i></button>
+
                                             <!-- Modal -->
                                             <div class="modal fade" id="modal-edit<?= $no ?>" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
@@ -106,41 +107,47 @@
                                 ?>
                             </tbody>
                         </table>
-                        <script>
-                            $('#dataTable').on('click', '.hapus', function() {
-                                var id = $(this).data('id');
-                                console.log(id);
-                                swal({
-                                    title: 'Are you sure?',
-                                    text: 'Akan menghapus data ini!',
-                                    icon: 'warning',
-                                    buttons: true,
-                                    dangerMode: true,
-                                }).then((result) => {
-                                    if (result) {
-                                        $.ajax({
-                                            url: 'mod_rfid/crud_rfid.php?pg=hapus',
-                                            method: "POST",
-                                            data: 'id=' + id,
-                                            success: function(data) {
-                                                iziToast.error({
-                                                    title: 'Horee!',
-                                                    message: 'Data Berhasil dihapus',
-                                                    position: 'topRight'
-                                                });
-                                                setTimeout(function() {
-                                                    window.location.reload();
-                                                }, 2000);
-                                            }
-                                        });
-                                    }
-                                })
-
-                            });
-                        </script>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $('select:not(.normal)').each(function() {
+        $(this).select2({
+            dropdownParent: $(this).parent()
+        });
+    });
+
+    $('#dataTable').on('click', '.hapus', function() {
+        var id = $(this).data('id');
+        console.log(id);
+        swal({
+            title: 'Are you sure?',
+            text: 'Akan menghapus data ini!',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true,
+        }).then((result) => {
+            if (result) {
+                $.ajax({
+                    url: 'mod_rfid/crud_rfid.php?pg=hapus',
+                    method: "POST",
+                    data: 'id=' + id,
+                    success: function(data) {
+                        iziToast.error({
+                            title: 'Horee!',
+                            message: 'Data Berhasil dihapus',
+                            position: 'topRight'
+                        });
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 2000);
+                    }
+                });
+            }
+        })
+
+    });
+</script>
