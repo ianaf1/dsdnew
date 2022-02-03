@@ -37,7 +37,7 @@
                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-edit<?= $no ?>">
                                                 Edit
                                             </button>
-                                            <button data-id="<?= $rfid['id'] ?>" class="hapus btn-sm btn btn-danger"><i class="fas fa-trash"></i></button>
+                                            <button data-id="<?= $rfid['uid'] ?>" class="hapus btn-sm btn btn-danger"><i class="fas fa-trash"></i></button>
 
                                             <!-- Modal -->
                                             <div class="modal fade" id="modal-edit<?= $no ?>" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -120,7 +120,7 @@
     });
 
     $('#dataTable').on('click', '.hapus', function() {
-        var id = $(this).data('id');
+        var id = $(this).data('uid');
         console.log(id);
         swal({
             title: 'Are you sure?',
@@ -133,7 +133,7 @@
                 $.ajax({
                     url: 'mod_rfid/crud_rfid.php?pg=hapus',
                     method: "POST",
-                    data: 'id=' + id,
+                    data: 'uid=' + id,
                     success: function(data) {
                         iziToast.error({
                             title: 'Horee!',
