@@ -38,12 +38,8 @@
                                                 Edit
                                             </button>
                                             <button data-id="<?= $rfid['id'] ?>" class="hapus btn-sm btn btn-danger"><i class="fas fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                <?php }
-                                ?>
-                                <!-- Modal -->
-                                <div class="modal fade" id="modal-edit<?= $no ?>" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modal-edit<?= $no ?>" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <form id="form-edituid<?= $no ?>">
@@ -104,6 +100,10 @@
                                                     return false;
                                                 });
                                             </script>
+                                        </td>
+                                    </tr>
+                                <?php }
+                                ?>
                             </tbody>
                         </table>
                     </div>
