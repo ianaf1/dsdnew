@@ -8,7 +8,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table style="font-size: 14px" class="table table-bordered table-sm" id="dataTable">
+                        <table style="font-size: 14px" class="table table-bordered table-sm" id="table-1">
                             <thead>
                                 <tr>
                                     <th class="text-center">
@@ -120,7 +120,7 @@
         });
     });
 
-    $('#dataTable').on('click', '.hapus', function() {
+    $('#table-1').on('click', '.hapus', function() {
         var id = $(this).data('id');
         console.log(id);
         swal({
