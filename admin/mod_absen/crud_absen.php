@@ -106,7 +106,7 @@ if ($pg == 'addmode') {
         echo json_encode($pesan);
     }
 }
-if ($pg == 'scanmode' && isset($_GET['rfid'])) {
+if ($pg == 'scanmode') {
     $rfid = $_GET['rfid'];
     $tgl = date('Ymd');
     $bulan = date('m');
