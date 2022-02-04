@@ -8,7 +8,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table style="font-size: 14px" class="table table-sm" id="table-1">
+                        <table class="table table-striped table-sm" id="table-2" style="font-size: 12px">
                             <thead>
                                 <tr>
                                     <th class="text-center">
@@ -38,7 +38,6 @@
                                                 Edit
                                             </button>
                                             <button data-id="<?= $rfid['id'] ?>" class="hapus btn-sm btn btn-danger"><i class="fas fa-trash"></i></button>
-
                                             <!-- Modal -->
                                             <div class="modal fade" id="modal-edit<?= $no ?>" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
@@ -114,13 +113,7 @@
     </div>
 </div>
 <script>
-    $('select:not(.normal)').each(function() {
-        $(this).select2({
-            dropdownParent: $(this).parent()
-        });
-    });
-
-    $('#table-1').on('click', '.hapus', function() {
+    $('#table-2').on('click', '.hapus', function() {
         var id = $(this).data('id');
         console.log(id);
         swal({
