@@ -111,7 +111,7 @@ if ($pg == 'cekmode') {
     $nis = mysqli_fetch_array(mysqli_query($koneksi, "SELECT nis FROM rfid WHERE uid='$rfid'"));
     $siswaQ = mysqli_query($koneksi, "SELECT * FROM daftar WHERE nis='$nis[nis]'");
     $siswaR = mysqli_fetch_array($siswaQ);
-    if (mysqli_num_rows($siswaQ) < 1) {
+    if (mysqli_num_rows($siswaQ) > 0) {
         $pesan = [
             'status'   => $siswaR['nama']
         ];
