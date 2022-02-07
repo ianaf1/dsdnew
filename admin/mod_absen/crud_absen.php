@@ -106,6 +106,25 @@ if ($pg == 'addmode') {
         echo json_encode($pesan);
     }
 }
+if ($pg == 'cekmode') {
+    $rfid = $_GET['rfid'];
+    $nis = mysqli_fetch_array(mysqli_query($koneksi, "SELECT nis FROM rfid WHERE uid='$rfid'"));
+    $siswaQ = mysqli_query($koneksi, "SELECT * FROM daftar WHERE nis='$nis[nis]'");
+    $siswaR = mysqli_fetch_array($siswaQ);
+    if (mysqli_num_rows($siswaQ) < 1) {
+        $pesan = [
+            'status'   => $siswaR['nama']
+        ];
+        header('Content-Type: application/json');
+        echo json_encode($pesan);
+    } else {
+        $pesan = [
+            'status' => 'Tidak Terdaftar'
+        ];
+        header('Content-Type: application/json');
+        echo json_encode($pesan);
+    }
+}
 if ($pg == 'scanmode') {
     $rfid = $_GET['rfid'];
     $tgl = date('Ymd');
