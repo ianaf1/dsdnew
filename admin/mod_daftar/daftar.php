@@ -205,7 +205,7 @@ ini_set('display_errors', 1);
                         <tr>
                             <th>No</th>
                             <th class="text-center">Nama Siswa</th>
-                            <th class="text-center">NIS</th>
+                            <th class="text-center">NISN</th>
                             <th class="text-center">TTL</th>
                             <th class="text-center">Tingkat/Kelas</th>
                             <th class="text-center">Status Emis</th>
@@ -216,7 +216,7 @@ ini_set('display_errors', 1);
                         <tr>
                             <th class="text-center">No</th>
                             <th class="text-center">Nama Siswa</th>
-                            <th class="text-center">NIS</th>
+                            <th class="text-center">NISN</th>
                             <th class="text-center">TTL</th>
                             <th class="text-center">Tingkat/Kelas</th>
                             <th class="text-center">Status Emis</th>
@@ -239,7 +239,7 @@ ini_set('display_errors', 1);
                             <tr>
                                 <td class="text-center"><?= $no; ?></td>
                                 <td><?= $daftar['nama'] ?></td>
-                                <td class="text-center"><?= $daftar['nis'] ?></td>
+                                <td class="text-center"><?= $daftar['nisn'] ?></td>
                                 <td> <?= $daftar['tempat_lahir'] . "," . " " . $daftar['tgl_lahir'] ?></td>
                                 <td class="text-center"><?= $daftar['kelas'] ?>-<?= $daftar['nama_kelas'] ?></td>
                                 <td class="text-center">
