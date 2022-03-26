@@ -30,12 +30,8 @@ $saldoawal = $saldolama;
                 <div class="form-group">
                     <select class="form-control select2" style="width: 50%" name="tahun" required>
                         <option value="">Pilih Tahun</option>
-                        <?php
-                        $query = mysqli_query($koneksi, "select * from bulan");
-                        while ($bulan = mysqli_fetch_array($query)) {
-                        ?>
-                            <option value="<?= enkripsi($bulan['id_bulan']) ?>"><?= $bulan['nama_bulan'] ?></option>
-                        <?php } ?>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
                     </select>
                 </div>
             </div>
@@ -189,10 +185,11 @@ $saldoawal = $saldolama;
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <?php
-                if (isset($_GET['id']) == '') {
+                if (isset($_GET['bulan']) == '') {
                     echo "<h5 class='m-0 font-weight-bold text-primary'>Data Transaksi</h5>";
                 } else {
-                    $id_bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['id'])]);
+                    $id_bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['bulan'])]);
+                    $id_tahun = $_GET['tahun'];
                     $query = mysqli_query($koneksi, "select * from bulan where id_bulan='$id_bulan[id_bulan]'");
                     $bulan = mysqli_fetch_array($query);
                     $namabulan = $bulan['nama_bulan'];
@@ -211,8 +208,9 @@ $saldoawal = $saldolama;
                             $bulan = date('m');
                             echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan'>Download</a>";
                         } else {
-                            $id_bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['id'])]);
-                            $query = mysqli_query($koneksi, "select * from bulan where id_bulan='$id_bulan[id_bulan]'");
+                            $id_bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['bulan'])]);
+                            $id_tahun = $_GET['tahun'];
+                            $query = mysqli_query($koneksi, "select * from bulan where id_bulan='$id_bulan[id_bulan]' AND tahun='$id_tahun' ");
                             $bulan = mysqli_fetch_array($query);
                             $namabulan = $bulan['nama_bulan'];
                             echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan[id_bulan]'>Download</a>";
