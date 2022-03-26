@@ -23,7 +23,7 @@ $saldoawal = $saldolama;
                         $query = mysqli_query($koneksi, "select * from bulan");
                         while ($bulan = mysqli_fetch_array($query)) {
                         ?>
-                            <option value="<?= enkripsi($bulan['id_bulan']) ?>"><?= $bulan['nama_bulan'] ?></option>
+                            <option value="<?= $bulan['id_bulan'] ?>"><?= $bulan['nama_bulan'] ?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -188,7 +188,7 @@ $saldoawal = $saldolama;
                 if (isset($_GET['bulan']) == '') {
                     echo "<h5 class='m-0 font-weight-bold text-primary'>Data Transaksi</h5>";
                 } else {
-                    $id_bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['bulan'])]);
+                    $id_bulan = fetch($koneksi, 'bulan', ['id_bulan' => $_GET['bulan']]);
                     $id_tahun = $_GET['tahun'];
                     $query = mysqli_query($koneksi, "select * from bulan where id_bulan='$id_bulan[id_bulan]'");
                     $bulan = mysqli_fetch_array($query);
@@ -257,7 +257,7 @@ $saldoawal = $saldolama;
                         <tbody>
                             <?php
                             if (isset($_GET['bulan']) <> '') {
-                                $bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['id'])]);
+                                $bulan = fetch($koneksi, 'bulan', ['id_bulan' => $_GET['id']]);
                                 $id_tahun = $_GET['tahun'];
                                 $query = mysqli_query($koneksi, "SELECT * FROM transaksi WHERE id_bulan='$bulan[id_bulan]' AND tahun='$id_tahun' ORDER BY tgl_bayar ASC");
                             } else {
