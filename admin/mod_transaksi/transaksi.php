@@ -204,7 +204,7 @@ $saldoawal = $saldolama;
                         <a href="#" class="dropdown-item" data-toggle="modal" data-target="#tambahkredit">Pengeluaran</a>
                         <a href="#" class="dropdown-item" data-toggle="modal" data-target="#tambahdebit">Pemasukan</a>
                         <?php
-                        if (isset($_GET['id']) == '') {
+                        if (isset($_GET['bulan']) == '') {
                             $bulan = date('m');
                             echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan'>Download</a>";
                         } else {
@@ -227,7 +227,7 @@ $saldoawal = $saldolama;
                         <a href="#" class="dropdown-item" data-toggle="modal" data-target="#tambahdebit">Pemasukan</a>
                         <a href="#" class="dropdown-item" data-toggle="modal" data-target="#tambahkredit">Pengeluaran</a>
                         <?php
-                        if (isset($_GET['id']) == '') {
+                        if (isset($_GET['bulan']) == '') {
                             $bulan = date('m');
                             echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan'>Download</a>";
                         } else {
@@ -256,12 +256,14 @@ $saldoawal = $saldolama;
                         </thead>
                         <tbody>
                             <?php
-                            if (isset($_GET['id']) <> '') {
+                            if (isset($_GET['bulan']) <> '') {
                                 $bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['id'])]);
-                                $query = mysqli_query($koneksi, "SELECT * FROM transaksi WHERE id_bulan='$bulan[id_bulan]' ORDER BY tgl_bayar ASC");
+                                $id_tahun = $_GET['tahun'];
+                                $query = mysqli_query($koneksi, "SELECT * FROM transaksi WHERE id_bulan='$bulan[id_bulan]' AND tahun='$id_tahun' ORDER BY tgl_bayar ASC");
                             } else {
                                 $bulan = date('m');
-                                $query = mysqli_query($koneksi, "SELECT * from transaksi where id_bulan = $bulan order by tgl_bayar asc");
+                                $tahun = date('Y');
+                                $query = mysqli_query($koneksi, "SELECT * from transaksi where id_bulan = $bulan AND tahun = $tahun order by tgl_bayar asc");
                             }
                             $no = 0;
                             $saldo = $saldoawal;
@@ -294,7 +296,7 @@ $saldoawal = $saldolama;
                         </tbody>
                         <tfoot>
                             <?php
-                            if (isset($_GET['id']) <> '') {
+                            if (isset($_GET['bulan']) <> '') {
                                 $bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['id'])]);
                                 $total = mysqli_query($koneksi, "select sum(debit) as totaldebit, sum(kredit) as totalkredit from transaksi a join bulan b ON a.id_bulan=b.id_bulan where a.id_bulan='$bulan[id_bulan]'");
                             } else {
