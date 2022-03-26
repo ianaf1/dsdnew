@@ -257,7 +257,7 @@ $saldoawal = $saldolama;
                         <tbody>
                             <?php
                             if (isset($_GET['bulan']) <> '') {
-                                $bulan = fetch($koneksi, 'bulan', ['id_bulan' => $_GET['id']]);
+                                $bulan = fetch($koneksi, 'bulan', ['id_bulan' => $_GET['bulan']]);
                                 $id_tahun = $_GET['tahun'];
                                 $query = mysqli_query($koneksi, "SELECT * FROM transaksi WHERE id_bulan='$bulan[id_bulan]' AND tahun='$id_tahun' ORDER BY tgl_bayar ASC");
                             } else {
@@ -297,11 +297,13 @@ $saldoawal = $saldolama;
                         <tfoot>
                             <?php
                             if (isset($_GET['bulan']) <> '') {
-                                $bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['id'])]);
-                                $total = mysqli_query($koneksi, "select sum(debit) as totaldebit, sum(kredit) as totalkredit from transaksi a join bulan b ON a.id_bulan=b.id_bulan where a.id_bulan='$bulan[id_bulan]'");
+                                $bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['bulan'])]);
+                                $tahun = $_GET['tahun'];
+                                $total = mysqli_query($koneksi, "select sum(debit) as totaldebit, sum(kredit) as totalkredit from transaksi a join bulan b ON a.id_bulan=b.id_bulan where a.id_bulan='$bulan[id_bulan]' AND a.tahun = $tahun");
                             } else {
                                 $bulan = date('m');
-                                $total = mysqli_query($koneksi, "select sum(debit) as totaldebit, sum(kredit) as totalkredit from transaksi where id_bulan = $bulan");
+                                $tahun = date('Y');
+                                $total = mysqli_query($koneksi, "select sum(debit) as totaldebit, sum(kredit) as totalkredit from transaksi where id_bulan = $bulan AND a.tahun = $tahun");
                             }
                             while ($transaksi = mysqli_fetch_array($total)) {
                                 $totaldebit = $transaksi['totaldebit'];
