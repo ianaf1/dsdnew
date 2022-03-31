@@ -258,8 +258,8 @@ $saldoawal = $saldolama;
                             <?php
                             if (isset($_GET['bulan']) == '') {
                                 $bulan = date('m');
-                                $tahun = date('Y');
-                                $query = mysqli_query($koneksi, "SELECT * from transaksi where id_bulan = $bulan AND tahun = $tahun order by tgl_bayar asc");
+                                $id_tahun = date('Y');
+                                $query = mysqli_query($koneksi, "SELECT * from transaksi where id_bulan = '$bulan' AND tahun = '$id_tahun' order by tgl_bayar asc");
                             } else {
                                 $bulan = fetch($koneksi, 'bulan', ['id_bulan' => $_GET['bulan']]);
                                 $id_tahun = $_GET['tahun'];
