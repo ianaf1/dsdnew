@@ -256,14 +256,14 @@ $saldoawal = $saldolama;
                         </thead>
                         <tbody>
                             <?php
-                            if (isset($_GET['bulan']) <> '') {
-                                $bulan = fetch($koneksi, 'bulan', ['id_bulan' => $_GET['bulan']]);
-                                $id_tahun = $_GET['tahun'];
-                                $query = mysqli_query($koneksi, "SELECT * FROM transaksi WHERE id_bulan='$bulan[id_bulan]' AND tahun='$id_tahun' ORDER BY tgl_bayar ASC");
-                            } else {
+                            if (isset($_GET['bulan']) == '') {
                                 $bulan = date('m');
                                 $tahun = date('Y');
                                 $query = mysqli_query($koneksi, "SELECT * from transaksi where id_bulan = $bulan AND tahun = $tahun order by tgl_bayar asc");
+                            } else {
+                                $bulan = fetch($koneksi, 'bulan', ['id_bulan' => $_GET['bulan']]);
+                                $id_tahun = $_GET['tahun'];
+                                $query = mysqli_query($koneksi, "SELECT * FROM transaksi WHERE id_bulan='$bulan[id_bulan]' AND tahun='$id_tahun' ORDER BY tgl_bayar ASC");
                             }
                             $no = 0;
                             $saldo = $saldoawal;
