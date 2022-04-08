@@ -208,7 +208,7 @@ $saldoawal = $saldolama;
                             $bulan = date('m');
                             echo "<a class='dropdown-item' href='mod_transaksi/export_kas.php?id=$bulan'>Download</a>";
                         } else {
-                            $id_bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['bulan'])]);
+                            $id_bulan = fetch($koneksi, 'bulan', ['id_bulan' => $_GET['bulan']]);
                             $id_tahun = $_GET['tahun'];
                             $query = mysqli_query($koneksi, "select * from bulan where id_bulan='$id_bulan[id_bulan]' AND tahun='$id_tahun' ");
                             $bulan = mysqli_fetch_array($query);
@@ -297,7 +297,7 @@ $saldoawal = $saldolama;
                         <tfoot>
                             <?php
                             if (isset($_GET['bulan']) <> '') {
-                                $bulan = fetch($koneksi, 'bulan', ['id_bulan' => dekripsi($_GET['bulan'])]);
+                                $bulan = fetch($koneksi, 'bulan', ['id_bulan' => $_GET['bulan']]);
                                 $tahun = $_GET['tahun'];
                                 $total = mysqli_query($koneksi, "select sum(debit) as totaldebit, sum(kredit) as totalkredit from transaksi a join bulan b ON a.id_bulan=b.id_bulan where a.id_bulan='$bulan[id_bulan]' AND a.tahun = $tahun");
                             } else {
