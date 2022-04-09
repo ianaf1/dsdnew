@@ -153,6 +153,16 @@ $saldoawal = $saldolama;
                             <input type="text" name="kredit" class="form-control" required="">
                         </div>
                         <div class="form-group">
+                            <label>Tahun</label>
+                            <select class="form-control select2" style="width: 100%" name="tahun" required>
+                                <option value="">Pilih Tahun</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label>Bulan</label>
                             <select class="form-control select2" style="width: 100%" name="id_bulan" required>
                                 <option value="">Pilih Bulan</option>
