@@ -15,7 +15,9 @@ if ($pg == '') {
 } elseif ($pg == 'rekap_siswa') {
     include "mod_daftar/rekap_siswa.php";
 } elseif ($pg == 'detail') {
-    include "mod_daftar/edit_detail.php";  //Modul Detail Pendaftaran
+    include "mod_daftar/edit_detail.php";  //Modul Data Siswa
+} elseif ($pg == 'tambah_siswa') {
+    include "mod_daftar/tambah_siswa.php";  //Modul Data Siswa
 } elseif ($pg == 'diterima') {
     include "mod_daftar/daftar_diterima.php";  //modul pendaftar diterima
 } elseif ($pg == 'ditolak') {

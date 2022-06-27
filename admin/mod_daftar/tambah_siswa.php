@@ -1,4 +1,4 @@
-<!-- <?php defined('BASEPATH') or die("ip anda sudah tercatat oleh sistem kami") ?> -->
+<?php defined('BASEPATH') or die("ip anda sudah tercatat oleh sistem kami") ?>
 <?php
 $sql = mysqli_query($koneksi, "select max(nis) as maxID from daftar");
 $data = mysqli_fetch_array($sql);
@@ -441,7 +441,7 @@ ini_set('display_errors', 1);
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: 'mod_daftar/mod_tambah_siswa/crud_tambah_siswa.php?pg=simpan',
+            url: 'mod_daftar/crud_tambah_siswa.php?pg=simpan',
             data: $(this).serialize(),
             beforeSend: function() {
                 $('#btnsimpan').prop('disabled', true);

@@ -181,7 +181,7 @@ ini_set('display_errors', 1);
                     }
                     ?>
                     <a class="dropdown-item" data-toggle="modal" data-target="#importdata">Import</a>
-                    <a class="dropdown-item" href="mod_daftar/mod_tambah_siswa/tambah_siswa.php">Tambah Data</a>
+                    <a class="dropdown-item" href="?pg=tambah_siswa">Tambah Data</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" data-toggle="modal" data-target="#hapusdata">Hapus Data</a>
                 </div>
