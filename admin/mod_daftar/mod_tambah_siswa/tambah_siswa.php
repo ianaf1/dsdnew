@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') or die("ip anda sudah tercatat oleh sistem kami") ?>
+<!-- <?php defined('BASEPATH') or die("ip anda sudah tercatat oleh sistem kami") ?> -->
 <?php
 $sql = mysqli_query($koneksi, "select max(nis) as maxID from daftar");
 $data = mysqli_fetch_array($sql);
