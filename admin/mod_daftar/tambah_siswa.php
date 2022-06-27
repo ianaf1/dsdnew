@@ -26,13 +26,6 @@ ini_set('display_errors', 1);
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab3" data-toggle="tab" href="#home3" role="tab" aria-controls="home" aria-selected="true"><i class="fas fa-user    "></i> Data Diri</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="contact-tab3" data-toggle="tab" href="#contact3" role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-home    "></i> Data Alamat</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab3" data-toggle="tab" href="#profile3" role="tab" aria-controls="profile" aria-selected="false"><i class="fas fa-user-friends    "></i> Orang Tua</a>
-                        </li>
-
                     </ul>
                     <div class="tab-content" id="myTabContent2">
                         <div class="tab-pane fade show active" id="home3" role="tabpanel" aria-labelledby="home-tab3">
@@ -46,7 +39,7 @@ ini_set('display_errors', 1);
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Password</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="password" class="form-control" value="<?= $nisbaru ?> required=""">
+                                        <input type="text" name="password" class="form-control" value="<?= $nisbaru ?>" required="">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -182,7 +175,7 @@ ini_set('display_errors', 1);
                                     </div>
                                 </div>
 
-                                <h5><i class="fas fa-user"></i>ALAMAT</h5>
+                                <h5><i class="fas fa-home   "></i>ALAMAT</h5>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Alamat</label>
@@ -236,7 +229,7 @@ ini_set('display_errors', 1);
                                     </div>
                                 </div>
 
-                                <h5><i class="fas fa-user    "></i>ORANG TUA/WALI</h5>
+                                <h5><i class="fas fa-user-friends    "></i>ORANG TUA/WALI</h5>
 
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Status Ayah Kandung</label>
