@@ -43,6 +43,17 @@ ini_set('display_errors', 1);
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Kelas</label>
+                                    <div class="col-sm-10">
+                                        <select class='form-control' name='kelas' required="">
+                                            <option value=''>Pilih Kelas</option>
+                                            <option value='10'>Kelas 10</option>
+                                            <option value='11'>Kelas 11</option>
+                                            <option value='12'>Kelas 12</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Nama Lengkap</label>
                                     <div class="col-sm-10">
                                         <input type="text" name="nama" class="form-control" required="">
