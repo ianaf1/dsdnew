@@ -61,5 +61,15 @@ if ($pg == 'simpan') {
 
     ];
     $exec = insert($koneksi, 'daftar', $data);
-    echo mysqli_error($koneksi);
+    if ($exec) {
+        $pesan = [
+            'pesan' => 'ok'
+        ];
+        echo 'ok';
+    } else {
+        $pesan = [
+            'pesan' => mysqli_error($koneksi)
+        ];
+        echo mysqli_error($koneksi);
+    }
 }
