@@ -226,10 +226,10 @@ ini_set('display_errors', 1);
                     <tbody>
                         <?php
                         if (isset($_GET['id']) == '') {
-                            $query = mysqli_query($koneksi, "select * from daftar a left join kelas b ON a.id_kelas=b.id_kelas order by nama asc");
+                            $query = mysqli_query($koneksi, "select * from daftar a left join kelas b ON a.id_kelas=b.id_kelas where a.kelas !=13 order by nama asc");
                         } else {
                             $kelas = $_GET['id'];
-                            $query = mysqli_query($koneksi, "select * from daftar a left join kelas b ON a.id_kelas=b.id_kelas where a.kelas='$kelas' order by b.nama_kelas asc");
+                            $query = mysqli_query($koneksi, "select * from daftar a left join kelas b ON a.id_kelas=b.id_kelas where a.kelas='$kelas' AND a.kelas !=13 order by b.nama_kelas asc");
                         }
                         $no = 0;
                         while ($daftar = mysqli_fetch_array($query)) {
