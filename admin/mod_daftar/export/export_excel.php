@@ -134,9 +134,9 @@ if (!isset($_SESSION['id_user'])) {
         <?php
         if (isset($_GET['id'])) {
             $kelas = $_GET['id'];
-            $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas where a.kelas='$kelas' && a.status='1' order by b.nama_kelas asc");
+            $query = mysqli_query($koneksi, "select * from daftar where kelas='$kelas' && status='1' order by kelas ");
         } else {
-            $query = mysqli_query($koneksi, "select * from daftar a join kelas b ON a.id_kelas=b.id_kelas where a.status = '1' order by kelas asc");
+            $query = mysqli_query($koneksi, "select * from daftar where status = '1' order by kelas asc");
         }
         $no = 0;
         while ($siswa = mysqli_fetch_array($query)) {
