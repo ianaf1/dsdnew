@@ -9,6 +9,7 @@ if (!isset($_SESSION['id_user'])) {
 if ($pg == 'ubah') {
     $status = (isset($_POST['status'])) ? 1 : 0;
     $data = [
+        'kategori' => $_POST['kategori'],
         'nama_kelas' => $_POST['nama'],
         'kode_kelas'        => $_POST['kode_kelas'],
         'status'       => $status
@@ -18,6 +19,7 @@ if ($pg == 'ubah') {
 }
 if ($pg == 'tambah') {
     $data = [
+        'kategori' => $_POST['kategori'],
         'nama_kelas'          => $_POST['nama'],
         'id_jenjang'          => $_POST['id_jenjang'],
         'status'              => 1

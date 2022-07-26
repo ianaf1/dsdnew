@@ -21,6 +21,10 @@
                             <label>Nama kelas</label>
                             <input type="text" name="nama" class="form-control" required="">
                         </div>
+                        <div class="form-group">
+                            <label>Kategori</label>
+                            <input type="text" name="kategori" class="form-control" required="">
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -55,6 +59,7 @@
                                 </th>
                                 <th>Tingkat</th>
                                 <th>Nama kelas</th>
+                                <th>Kategori</th>
                                 <th>status</th>
                                 <th>Action</th>
                             </tr>
@@ -70,6 +75,7 @@
                                     <td><?= $no; ?></td>
                                     <td><?= $kelas['id_jenjang'] ?></td>
                                     <td><?= $kelas['nama_kelas'] ?></td>
+                                    <td><?= $kelas['kategori'] ?></td>
                                     <td>
                                         <?php if ($kelas['status'] == 1) { ?>
                                             <span class="badge badge-success">Aktif</span>
