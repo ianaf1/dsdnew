@@ -9,7 +9,7 @@ if (!isset($_SESSION['id_user'])) {
 }
 if ($pg == 'ubah') {
     $data = [
-        'kelas'             => $_POST['kelas'],
+        'kategori'             => $_POST['kategori'],
         'nama_hari'         => $_POST['nama_hari'],
         'jam_msk'         => $_POST['jam_msk'],
         'jam_keluar'       => $_POST['jam_keluar']
@@ -19,7 +19,7 @@ if ($pg == 'ubah') {
 }
 if ($pg == 'tambah') {
     $data = [
-        'kelas'         => $_POST['kelas'],
+        'kategori'         => $_POST['kategori'],
         'nama_hari' => $_POST['nama_hari'],
         'jam_msk'       => $_POST['jam_msk'],
         'jam_keluar'       => $_POST['jam_keluar']

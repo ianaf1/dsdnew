@@ -14,8 +14,8 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Nama Kelas</label>
-                            <input type="text" name="kelas" class="form-control" required="">
+                            <label>Kategori</label>
+                            <input type="text" name="kategori" class="form-control" required="">
                         </div>
                         <div class="form-group">
                             <label>Nama Hari</label>
@@ -62,7 +62,7 @@
                                     <th class="text-center">
                                         No
                                     </th>
-                                    <th class="text-center">Kelas</th>
+                                    <th class="text-center">Kategori</th>
                                     <th class="text-center">Nama Hari</th>
                                     <th class="text-center">Jam Masuk</th>
                                     <th class="text-center">Jam Keluar</th>
@@ -78,7 +78,7 @@
                                 ?>
                                     <tr>
                                         <td class="text-center"><?= $no; ?></td>
-                                        <td class="text-center"><?= $hari['kelas'] ?></td>
+                                        <td class="text-center"><?= $hari['kategori'] ?></td>
                                         <td class="text-center"><?= $hari['nama_hari'] ?></td>
                                         <td class="text-center"><?= $hari['jam_msk'] ?></td>
                                         <td class="text-center"><?= $hari['jam_keluar'] ?></td>
@@ -102,7 +102,7 @@
                                                                 <input type="hidden" value="<?= $hari['id_hari'] ?>" name="id_hari" class="form-control" required="">
                                                                 <div class="form-group">
                                                                     <label>Kelas</label>
-                                                                    <input type="text" value="<?= $hari['kelas'] ?>" name="kelas" class="form-control" required="">
+                                                                    <input type="text" value="<?= $hari['kategori'] ?>" name="kategori" class="form-control" required="">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Nama Hari</label>
