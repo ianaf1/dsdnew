@@ -7,12 +7,16 @@
             <div class="modal-content">
                 <form id="form-tambah">
                     <div class="modal-header">
-                        <h5 class="modal-title">Tambah Data Hari</h5>
+                        <h5 class="modal-title">Tambah Data Presensi</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
+                        <div class="form-group">
+                            <label>Nama Kelas</label>
+                            <input type="text" name="kelas" class="form-control" required="">
+                        </div>
                         <div class="form-group">
                             <label>Nama Hari</label>
                             <input type="text" name="nama_hari" class="form-control" required="">
@@ -58,6 +62,7 @@
                                     <th class="text-center">
                                         No
                                     </th>
+                                    <th class="text-center">Kelas</th>
                                     <th class="text-center">Nama Hari</th>
                                     <th class="text-center">Jam Masuk</th>
                                     <th class="text-center">Jam Keluar</th>
@@ -73,6 +78,7 @@
                                 ?>
                                     <tr>
                                         <td class="text-center"><?= $no; ?></td>
+                                        <td class="text-center"><?= $hari['kelas'] ?></td>
                                         <td class="text-center"><?= $hari['nama_hari'] ?></td>
                                         <td class="text-center"><?= $hari['jam_msk'] ?></td>
                                         <td class="text-center"><?= $hari['jam_keluar'] ?></td>
@@ -94,6 +100,10 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <input type="hidden" value="<?= $hari['id_hari'] ?>" name="id_hari" class="form-control" required="">
+                                                                <div class="form-group">
+                                                                    <label>Kelas</label>
+                                                                    <input type="text" value="<?= $hari['kelas'] ?>" name="kelas" class="form-control" required="">
+                                                                </div>
                                                                 <div class="form-group">
                                                                     <label>Nama Hari</label>
                                                                     <input type="text" value="<?= $hari['nama_hari'] ?>" name="nama_hari" class="form-control" required="">
