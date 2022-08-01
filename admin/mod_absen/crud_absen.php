@@ -20,7 +20,7 @@ if ($pg == 'presen') {
     $presensiQ = mysqli_query($koneksi, "SELECT * FROM presensi WHERE nis='$siswaR[nis]' AND tgl='$tgl'");
     $presensiR = mysqli_fetch_array($presensiQ);
     if (mysqli_num_rows($siswaQ) == 1) {
-        if (mysqli_num_rows($presensiQ) == 0 && $jam_msk > $jam > $batas_jam) {
+        if (mysqli_num_rows($presensiQ) == 0 && $jam < $jam_msk) {
             $data = [
                 'nis' => $_POST['nis'],
                 'nama' => $siswaR['nama'],
