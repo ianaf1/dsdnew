@@ -9,13 +9,13 @@ if ($pg == 'presen') {
     $bulan = date('m');
     $tahun = date('Y');
     $hari = hari_ini();
-    $hariini = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM hari where nama_hari = '$hari'"));
+    $siswaQ = mysqli_query($koneksi, "SELECT * FROM daftar a join kelas b WHERE nis='$nis' AND a.id_kelas=b.id_kelas");
+    $siswaR = mysqli_fetch_array($siswaQ);
+    $hariini = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM hari where nama_hari = '$hari' AND kategori = '$siswaR[kategori]'"));
     $jam = date('H:i:s');
     $jam_msk = $hariini['jam_msk'];
     $jam_plg = $hariini['jam_keluar'];
     $nis = mysqli_escape_string($koneksi, $_POST['nis']);
-    $siswaQ = mysqli_query($koneksi, "SELECT * FROM daftar WHERE nis='$nis'");
-    $siswaR = mysqli_fetch_array($siswaQ);
     $presensiQ = mysqli_query($koneksi, "SELECT * FROM presensi WHERE nis='$siswaR[nis]' AND tgl='$tgl'");
     $presensiR = mysqli_fetch_array($presensiQ);
     if (mysqli_num_rows($siswaQ) == 1) {
